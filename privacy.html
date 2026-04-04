@@ -2,10 +2,201 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=https://pausecafe-app.fr/#privacy">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Politique de confidentialité — PauseCafé</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cafe: #2C1810;
+            --cream: #F5EDD6;
+            --caramel: #C4873A;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--cafe); }
+
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 20px 48px;
+            background: rgba(245, 237, 214, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(196, 135, 58, 0.2);
+        }
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem; font-weight: 900;
+            color: var(--cafe); text-decoration: none;
+        }
+        .nav-back {
+            font-size: 0.85rem; font-weight: 500;
+            color: var(--cafe); text-decoration: none;
+            opacity: 0.6; transition: opacity 0.2s;
+        }
+        .nav-back:hover { opacity: 1; }
+
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 120px 48px 80px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem; font-weight: 900;
+            color: var(--cafe); margin-bottom: 8px;
+        }
+
+        .date {
+            font-size: 0.85rem; opacity: 0.5;
+            margin-bottom: 48px; font-weight: 300;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem; font-weight: 700;
+            color: var(--cafe); margin: 40px 0 16px;
+        }
+
+        p, li {
+            font-size: 0.95rem; line-height: 1.8;
+            opacity: 0.75; font-weight: 300;
+            margin-bottom: 12px;
+        }
+
+        ul { padding-left: 24px; margin-bottom: 16px; }
+        a { color: var(--caramel); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            font-size: 0.8rem;
+            opacity: 0.4;
+            border-top: 1px solid rgba(44, 24, 16, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 16px 24px; }
+            .container { padding: 100px 24px 60px; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
 </head>
 <body>
-    <p>Redirection en cours...</p>
+
+<nav>
+    <a href="https://pausecafe-app.fr" class="nav-logo">☕ PauseCafé</a>
+    <a href="https://pausecafe-app.fr" class="nav-back">← Retour au site</a>
+</nav>
+
+<div class="container">
+    <h1>Politique de confidentialité</h1>
+    <p class="date">Dernière mise à jour : avril 2026</p>
+
+    <h2>1. Responsable du traitement</h2>
+    <p>
+        <strong>Kévin Beguerie</strong>, particulier — personne physique<br>
+        Roiffieux (07100), France<br>
+        Email : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a><br>
+        Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a>
+    </p>
+    <p>En tant que particulier, Kévin Beguerie n'a pas désigné de Délégué à la Protection des Données (DPO). Pour toute question relative à tes données, contacte directement l'adresse ci-dessus. Une réponse sera apportée dans un délai maximum de <strong>30 jours</strong>.</p>
+
+    <h2>2. Âge minimum</h2>
+    <p>PauseCafé est réservé aux personnes âgées de <strong>17 ans et plus</strong>, conformément aux exigences de l'App Store d'Apple pour les applications contenant de la publicité. Aucune donnée n'est collectée sciemment auprès de mineurs de moins de 17 ans. Si tu es parent ou tuteur d'un mineur ayant utilisé l'application, contacte-nous à <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a> pour procéder à la suppression des données.</p>
+
+    <h2>3. Nature des données collectées</h2>
+    <ul>
+        <li><strong>Données de compte</strong> : prénom, adresse email</li>
+        <li><strong>Données de consommation de bien-être</strong> : boissons enregistrées, quantités en mg de caféine, horaires</li>
+        <li><strong>Données de progression</strong> : points, badges, streak, niveau</li>
+        <li><strong>Données techniques</strong> : identifiant anonyme Firebase, données de crash anonymisées</li>
+    </ul>
+    <p><strong>Précision importante :</strong> les données de consommation de caféine collectées par PauseCafé constituent des données de <strong>bien-être personnel</strong> et ne sont pas qualifiées de données de santé au sens de l'article 9 du RGPD. PauseCafé n'est pas un dispositif médical et ne traite pas de données médicales au sens clinique du terme.</p>
+
+    <h2>4. Finalités du traitement</h2>
+    <ul>
+        <li>Fournir le service de suivi de caféine et de gamification</li>
+        <li>Synchroniser les données entre appareils (iPhone, Apple Watch, Widget)</li>
+        <li>Afficher des statistiques personnalisées et un historique de consommation</li>
+        <li>Envoyer des notifications push (uniquement avec ton consentement explicite)</li>
+        <li>Améliorer l'application via Firebase Analytics (données anonymisées)</li>
+        <li>Afficher des publicités via Google AdMob (uniquement avec ton consentement ATT)</li>
+    </ul>
+
+    <h2>5. Base légale du traitement</h2>
+    <ul>
+        <li><strong>Exécution du contrat</strong> : fourniture du service de suivi de caféine</li>
+        <li><strong>Consentement</strong> : publicités personnalisées (ATT iOS) et notifications push</li>
+        <li><strong>Intérêt légitime</strong> : amélioration de l'application via analytics anonymisés</li>
+    </ul>
+
+    <h2>6. Sous-traitants et destinataires</h2>
+    <ul>
+        <li><strong>Google Firebase</strong> (Auth, Firestore, Analytics) — Google Ireland Limited, Dublin 4, Irlande. Données stockées dans l'UE. <a href="https://firebase.google.com/support/privacy" target="_blank">Politique Firebase</a></li>
+        <li><strong>Google AdMob</strong> (publicités) — uniquement avec consentement ATT. <a href="https://policies.google.com/privacy" target="_blank">Politique Google</a></li>
+        <li><strong>Apple</strong> (Sign in with Apple, notifications push) — Apple Inc., Cupertino, CA, USA. <a href="https://www.apple.com/legal/privacy/fr-ww/" target="_blank">Politique Apple</a></li>
+    </ul>
+    <p><strong>Aucune donnée personnelle n'est vendue à des tiers.</strong></p>
+
+    <h2>7. Transferts hors UE</h2>
+    <p>Certains sous-traitants (Apple, Google AdMob) peuvent traiter des données hors de l'Union Européenne. Ces transferts sont encadrés par des garanties appropriées (clauses contractuelles types de la Commission Européenne).</p>
+
+    <h2>8. Durée de conservation</h2>
+    <ul>
+        <li><strong>Données de compte</strong> : durée d'utilisation active du compte</li>
+        <li><strong>Données de consommation</strong> : jusqu'à 2 ans d'historique dans l'application</li>
+        <li><strong>Suppression de compte</strong> : toutes les données effacées sous 30 jours</li>
+        <li><strong>Données anonymisées</strong> (analytics) : conservation indéfinie car non identifiables</li>
+    </ul>
+
+    <h2>9. Tes droits (RGPD)</h2>
+    <ul>
+        <li><strong>Accès</strong> : export CSV intégré dans l'app (Évolution → Exporter mes données)</li>
+        <li><strong>Rectification</strong> : modifier ton profil dans les réglages du compte</li>
+        <li><strong>Effacement</strong> : supprimer ton compte depuis Réglages → Supprimer mon compte</li>
+        <li><strong>Portabilité</strong> : export CSV depuis l'app</li>
+        <li><strong>Opposition au tracking</strong> : Réglages iOS → Confidentialité → Suivi → PauseCafé</li>
+        <li><strong>Retrait du consentement</strong> : à tout moment, sans effet sur les traitements antérieurs</li>
+    </ul>
+    <p>Pour exercer tes droits : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a> — réponse sous 30 jours.</p>
+
+    <h2>10. Publicités et tracking (ATT)</h2>
+    <p>Lors de la première ouverture, une demande de consentement au tracking (App Tracking Transparency) est affichée conformément aux exigences d'Apple.</p>
+    <ul>
+        <li><strong>Si tu acceptes</strong> : publicités personnalisées via AdMob</li>
+        <li><strong>Si tu refuses</strong> : publicités non personnalisées, sans tracking</li>
+        <li><strong>Utilisateurs Premium</strong> : aucune publicité affichée, quel que soit ton choix</li>
+    </ul>
+    <p>Modifier ton choix : <strong>Réglages iOS → Confidentialité et sécurité → Suivi → PauseCafé</strong></p>
+
+    <h2>11. Sécurité</h2>
+    <ul>
+        <li>Communications chiffrées via HTTPS/TLS</li>
+        <li>Données stockées avec chiffrement au repos via Firebase</li>
+        <li>Authentification sécurisée via Firebase Auth (mots de passe hachés)</li>
+        <li>Aucun mot de passe stocké en clair</li>
+    </ul>
+
+    <h2>12. Cookies</h2>
+    <p>L'application mobile n'utilise pas de cookies. Le site pausecafe-app.fr est un site statique hébergé sur GitHub Pages qui n'utilise aucun cookie de tracking.</p>
+
+    <h2>13. Modifications</h2>
+    <p>Cette politique peut être mise à jour. En cas de modification substantielle, une notification sera envoyée via l'application. La date de mise à jour est indiquée en haut de cette page.</p>
+
+    <h2>14. Contact et réclamation</h2>
+    <p>Contact : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a></p>
+    <p>
+        <strong>CNIL</strong> — Commission Nationale de l'Informatique et des Libertés<br>
+        3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07<br>
+        <a href="https://www.cnil.fr" target="_blank">www.cnil.fr</a>
+    </p>
+</div>
+
+<footer>
+    © 2026 PauseCafé — Kévin Beguerie. Tous droits réservés. — <a href="https://pausecafe-app.fr">pausecafe-app.fr</a>
+</footer>
+
 </body>
 </html>
