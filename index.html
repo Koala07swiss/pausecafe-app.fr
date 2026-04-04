@@ -69,7 +69,7 @@
         .footer-links { display: flex; gap: 48px; }
         .footer-col h4 { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.45; margin-bottom: 16px; }
         .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-        .footer-col a { color: var(--cream); text-decoration: none; font-size: 0.875rem; opacity: 0.65; transition: opacity 0.2s; cursor: pointer; }
+        .footer-col a { color: var(--cream); text-decoration: none; font-size: 0.875rem; opacity: 0.65; transition: opacity 0.2s; }
         .footer-col a:hover { opacity: 1; }
         .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; opacity: 0.35; }
 
@@ -107,7 +107,7 @@
     <ul class="nav-links">
         <li><a href="#features">Fonctionnalités</a></li>
         <li><a href="#normes">Normes EFSA</a></li>
-        <li><a onclick="showPage('privacy')">Confidentialité</a></li>
+        <li><a href="privacy.html">Confidentialité</a></li>
         <li><a onclick="showPage('legal')">Mentions légales</a></li>
         <li><a href="mailto:hello@pausecafe-app.fr">Contact</a></li>
     </ul>
@@ -184,7 +184,7 @@
                 <div class="footer-col">
                     <h4>Légal</h4>
                     <ul>
-                        <li><a onclick="showPage('privacy')">Politique de confidentialité</a></li>
+                        <li><a href="privacy.html">Politique de confidentialité</a></li>
                         <li><a onclick="showPage('legal')">Mentions légales</a></li>
                         <li><a href="mailto:hello@pausecafe-app.fr">Contact</a></li>
                     </ul>
@@ -197,107 +197,6 @@
         </div>
     </footer>
 
-</div>
-
-<!-- POLITIQUE DE CONFIDENTIALITÉ -->
-<div id="privacy-page" class="legal-page">
-    <button class="back-btn" onclick="showMain()">← Retour</button>
-    <h1>Politique de confidentialité</h1>
-    <p class="legal-date">Dernière mise à jour : avril 2026</p>
-
-    <h2>1. Responsable du traitement</h2>
-    <p><strong>Kévin Beguerie</strong>, particulier — personne physique<br>
-    Roiffieux (07100), France<br>
-    Email : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a></p>
-    <p>En tant que particulier, Kévin Beguerie n'a pas désigné de Délégué à la Protection des Données (DPO). Pour toute question relative à tes données, contacte directement l'adresse ci-dessus. Une réponse sera apportée dans un délai maximum de <strong>30 jours</strong>.</p>
-
-    <h2>2. Âge minimum</h2>
-    <p>PauseCafé est réservé aux personnes âgées de <strong>17 ans et plus</strong>, conformément aux exigences de l'App Store d'Apple pour les applications contenant de la publicité. Aucune donnée n'est collectée sciemment auprès de mineurs de moins de 17 ans. Si tu es parent ou tuteur d'un mineur ayant utilisé l'application, contacte-nous à <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a> pour procéder à la suppression des données.</p>
-
-    <h2>3. Nature des données collectées</h2>
-    <ul>
-        <li><strong>Données de compte</strong> : prénom, adresse email</li>
-        <li><strong>Données de consommation de bien-être</strong> : boissons enregistrées, quantités en mg de caféine, horaires</li>
-        <li><strong>Données de progression</strong> : points, badges, streak, niveau</li>
-        <li><strong>Données techniques</strong> : identifiant anonyme Firebase, données de crash anonymisées</li>
-    </ul>
-    <p><strong>Précision importante :</strong> les données de consommation de caféine collectées par PauseCafé constituent des données de <strong>bien-être personnel</strong> et ne sont pas qualifiées de données de santé au sens de l'article 9 du RGPD. PauseCafé n'est pas un dispositif médical et ne traite pas de données médicales au sens clinique du terme.</p>
-
-    <h2>4. Finalités du traitement</h2>
-    <ul>
-        <li>Fournir le service de suivi de caféine et de gamification</li>
-        <li>Synchroniser les données entre appareils (iPhone, Apple Watch, Widget)</li>
-        <li>Afficher des statistiques personnalisées et un historique de consommation</li>
-        <li>Envoyer des notifications push (uniquement avec ton consentement explicite)</li>
-        <li>Améliorer l'application via Firebase Analytics (données anonymisées)</li>
-        <li>Afficher des publicités via Google AdMob (uniquement avec ton consentement ATT)</li>
-    </ul>
-
-    <h2>5. Base légale du traitement</h2>
-    <ul>
-        <li><strong>Exécution du contrat</strong> : fourniture du service de suivi de caféine</li>
-        <li><strong>Consentement</strong> : publicités personnalisées (ATT iOS) et notifications push</li>
-        <li><strong>Intérêt légitime</strong> : amélioration de l'application via analytics anonymisés</li>
-    </ul>
-
-    <h2>6. Sous-traitants et destinataires</h2>
-    <ul>
-        <li><strong>Google Firebase</strong> (Auth, Firestore, Analytics) — Google Ireland Limited, Dublin 4, Irlande. Données stockées dans l'UE. <a href="https://firebase.google.com/support/privacy" target="_blank">Politique Firebase</a></li>
-        <li><strong>Google AdMob</strong> (publicités) — uniquement avec consentement ATT. <a href="https://policies.google.com/privacy" target="_blank">Politique Google</a></li>
-        <li><strong>Apple</strong> (Sign in with Apple, notifications push) — Apple Inc., Cupertino, CA, USA. <a href="https://www.apple.com/legal/privacy/fr-ww/" target="_blank">Politique Apple</a></li>
-    </ul>
-    <p><strong>Aucune donnée personnelle n'est vendue à des tiers.</strong></p>
-
-    <h2>7. Transferts hors UE</h2>
-    <p>Certains sous-traitants (Apple, Google AdMob) peuvent traiter des données hors de l'Union Européenne. Ces transferts sont encadrés par des garanties appropriées (clauses contractuelles types de la Commission Européenne).</p>
-
-    <h2>8. Durée de conservation</h2>
-    <ul>
-        <li><strong>Données de compte</strong> : durée d'utilisation active du compte</li>
-        <li><strong>Données de consommation</strong> : jusqu'à 2 ans d'historique dans l'application</li>
-        <li><strong>Suppression de compte</strong> : toutes les données effacées sous 30 jours</li>
-        <li><strong>Données anonymisées</strong> (analytics) : conservation indéfinie car non identifiables</li>
-    </ul>
-
-    <h2>9. Tes droits (RGPD)</h2>
-    <ul>
-        <li><strong>Accès</strong> : export CSV intégré dans l'app (Évolution → Exporter mes données)</li>
-        <li><strong>Rectification</strong> : modifier ton profil dans les réglages du compte</li>
-        <li><strong>Effacement</strong> : supprimer ton compte depuis Réglages → Se déconnecter → Supprimer mon compte</li>
-        <li><strong>Portabilité</strong> : export CSV depuis l'app</li>
-        <li><strong>Opposition au tracking</strong> : Réglages iOS → Confidentialité → Suivi → PauseCafé</li>
-        <li><strong>Retrait du consentement</strong> : à tout moment, sans effet sur les traitements antérieurs</li>
-    </ul>
-    <p>Pour exercer tes droits : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a> — réponse sous 30 jours.</p>
-
-    <h2>10. Publicités et tracking (ATT)</h2>
-    <p>Lors de la première ouverture, une demande de consentement au tracking (App Tracking Transparency) est affichée conformément aux exigences d'Apple.</p>
-    <ul>
-        <li><strong>Si tu acceptes</strong> : publicités personnalisées via AdMob</li>
-        <li><strong>Si tu refuses</strong> : publicités non personnalisées, sans tracking</li>
-        <li><strong>Utilisateurs Premium</strong> : aucune publicité affichée, quel que soit ton choix</li>
-    </ul>
-    <p>Modifier ton choix : <strong>Réglages iOS → Confidentialité et sécurité → Suivi → PauseCafé</strong></p>
-
-    <h2>11. Sécurité</h2>
-    <ul>
-        <li>Communications chiffrées via HTTPS/TLS</li>
-        <li>Données stockées avec chiffrement au repos via Firebase</li>
-        <li>Authentification sécurisée via Firebase Auth (mots de passe hachés)</li>
-        <li>Aucun mot de passe stocké en clair</li>
-    </ul>
-
-    <h2>12. Cookies</h2>
-    <p>L'application mobile n'utilise pas de cookies. Le site pausecafe-app.fr est un site statique hébergé sur GitHub Pages qui n'utilise aucun cookie de tracking.</p>
-
-    <h2>13. Modifications</h2>
-    <p>Cette politique peut être mise à jour. En cas de modification substantielle, une notification sera envoyée via l'application. La date de mise à jour est indiquée en haut de cette page.</p>
-
-    <h2>14. Contact et réclamation</h2>
-    <p>Contact : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a></p>
-    <p><strong>CNIL</strong> — Commission Nationale de l'Informatique et des Libertés<br>
-    3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07<br>
-    <a href="https://www.cnil.fr" target="_blank">www.cnil.fr</a></p>
 </div>
 
 <!-- MENTIONS LÉGALES -->
@@ -328,13 +227,13 @@
     L'application est réservée aux personnes âgées de <strong>17 ans et plus</strong>.</p>
 
     <h2>5. Propriété intellectuelle</h2>
-    <p>L'ensemble du contenu de ce site et de l'application — textes, graphismes, logo, icônes, code source — est la propriété exclusive de Kévin Beguerie et est protégé par les dispositions du Code de la propriété intellectuelle français. Toute reproduction sans autorisation écrite préalable est interdite.</p>
+    <p>L'ensemble du contenu de ce site et de l'application PauseCafé — textes, graphismes, logo, icônes, code source — est la propriété exclusive de Kévin Beguerie et est protégé par les dispositions du Code de la propriété intellectuelle français. Toute reproduction sans autorisation écrite préalable est interdite.</p>
 
     <h2>6. Limitation de responsabilité</h2>
     <p>Les informations fournies par PauseCafé (quantités de caféine, seuils EFSA, recommandations) sont fournies à titre <strong>purement indicatif et éducatif</strong>. Elles ne constituent en aucun cas un avis médical, un diagnostic ou une prescription. En cas de doute sur ta santé, consulte un professionnel de santé qualifié.</p>
 
     <h2>7. Données personnelles</h2>
-    <p>Le traitement des données personnelles est décrit dans la <a onclick="showPage('privacy')">Politique de confidentialité</a>.</p>
+    <p>Le traitement des données personnelles est décrit dans la <a href="privacy.html">Politique de confidentialité</a>.</p>
 
     <h2>8. Droit applicable et juridiction</h2>
     <p>Les présentes mentions légales sont soumises au droit français. En cas de litige, et à défaut de résolution amiable, les tribunaux français seront seuls compétents.</p>
@@ -358,4 +257,3 @@
 </script>
 </body>
 </html>
-
