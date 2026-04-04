@@ -7,14 +7,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        :root { --cafe: #2C1810; --cream: #F5EDD6; --espresso: #1A0F0A; --caramel: #C4873A; --mousse: #E8D5B0; --text: #1A0F0A; }
+        :root { --cafe: #2C1810; --cream: #F5EDD6; --espresso: #1A0F0A; --caramel: #C4873A; --mousse: #E8D5B0; --purple: #6B3FA0; --purple-light: #9B6FD0; --text: #1A0F0A; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
         nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: rgba(245, 237, 214, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(196, 135, 58, 0.2); }
         .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--cafe); text-decoration: none; cursor: pointer; }
-        .nav-links { display: flex; gap: 32px; list-style: none; }
-        .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--cafe); text-decoration: none; opacity: 0.7; transition: opacity 0.2s; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; }
+        .nav-links { display: flex; gap: 28px; list-style: none; }
+        .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--cafe); text-decoration: none; opacity: 0.7; transition: opacity 0.2s; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; }
         .nav-links a:hover { opacity: 1; }
         .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 48px 80px; position: relative; overflow: hidden; }
         .hero::before { content: '☕'; position: absolute; font-size: 40vw; right: -5vw; top: 50%; transform: translateY(-50%); opacity: 0.06; line-height: 1; pointer-events: none; }
@@ -24,10 +24,10 @@
         .hero h1 span { color: var(--caramel); font-style: italic; }
         .hero p { font-size: 1.15rem; line-height: 1.7; color: var(--cafe); opacity: 0.75; margin-bottom: 48px; max-width: 520px; font-weight: 300; animation: fadeUp 0.6s ease 0.2s both; }
         .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeUp 0.6s ease 0.3s both; }
-        .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--cafe); color: var(--cream); padding: 16px 32px; border-radius: 100px; font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(44, 24, 16, 0.25); }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(44, 24, 16, 0.35); }
-        .btn-secondary { display: inline-flex; align-items: center; gap: 8px; color: var(--cafe); padding: 16px 24px; border-radius: 100px; font-size: 0.95rem; font-weight: 500; text-decoration: none; border: 1.5px solid rgba(44, 24, 16, 0.25); transition: border-color 0.2s, background 0.2s; cursor: pointer; }
-        .btn-secondary:hover { border-color: var(--caramel); background: rgba(196, 135, 58, 0.06); }
+        .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--cafe); color: var(--cream); padding: 16px 32px; border-radius: 100px; font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(44,24,16,0.25); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(44,24,16,0.35); }
+        .btn-secondary { display: inline-flex; align-items: center; gap: 8px; color: var(--cafe); padding: 16px 24px; border-radius: 100px; font-size: 0.95rem; font-weight: 500; text-decoration: none; border: 1.5px solid rgba(44,24,16,0.25); transition: border-color 0.2s, background 0.2s; cursor: pointer; }
+        .btn-secondary:hover { border-color: var(--caramel); background: rgba(196,135,58,0.06); }
         .features { padding: 100px 48px; background: var(--espresso); color: var(--cream); }
         .section-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.5; margin-bottom: 16px; }
         .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.15; margin-bottom: 64px; max-width: 500px; }
@@ -37,18 +37,66 @@
         .feature-emoji { font-size: 2.5rem; margin-bottom: 20px; display: block; }
         .feature-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; color: var(--cream); }
         .feature-card p { font-size: 0.9rem; line-height: 1.65; opacity: 0.6; font-weight: 300; }
+        .premium { padding: 100px 48px; background: linear-gradient(135deg, #1a0a2e 0%, #2d1155 50%, #1a0a2e 100%); color: white; position: relative; overflow: hidden; }
+        .premium::before { content: '👑'; position: absolute; font-size: 30vw; right: -5vw; top: 50%; transform: translateY(-50%); opacity: 0.04; pointer-events: none; }
+        .premium-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 64px; }
+        .premium-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(155,111,208,0.3); padding: 28px 24px; border-radius: 16px; transition: background 0.2s, transform 0.2s; }
+        .premium-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+        .premium-card-emoji { font-size: 2rem; margin-bottom: 12px; display: block; }
+        .premium-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: white; }
+        .premium-card p { font-size: 0.85rem; line-height: 1.6; opacity: 0.6; font-weight: 300; }
+        .compare-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: white; text-align: center; margin-bottom: 40px; }
+        .compare-table { width: 100%; max-width: 800px; margin: 0 auto 64px; border-collapse: collapse; }
+        .compare-table th { padding: 20px 24px; font-size: 0.9rem; font-weight: 700; text-align: center; }
+        .compare-table th:first-child { text-align: left; }
+        .compare-table th.col-free { background: rgba(255,255,255,0.06); border-radius: 12px 12px 0 0; color: rgba(255,255,255,0.7); }
+        .compare-table th.col-premium { background: linear-gradient(135deg, var(--purple), var(--purple-light)); border-radius: 12px 12px 0 0; color: white; }
+        .compare-table th.col-premium span { display: block; font-size: 0.75rem; font-weight: 400; opacity: 0.8; margin-top: 4px; }
+        .compare-table td { padding: 14px 24px; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .compare-table td:first-child { color: rgba(255,255,255,0.8); }
+        .compare-table td:not(:first-child) { text-align: center; font-size: 1.1rem; }
+        .compare-table td.col-free { background: rgba(255,255,255,0.03); }
+        .compare-table td.col-premium { background: rgba(107,63,160,0.15); }
+        .compare-table tr:hover td { background: rgba(255,255,255,0.06); }
+        .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 800px; margin: 0 auto; }
+        .plan-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(155,111,208,0.3); padding: 32px 24px; border-radius: 20px; text-align: center; position: relative; transition: transform 0.2s; }
+        .plan-card:hover { transform: translateY(-4px); }
+        .plan-card.popular { border-color: var(--purple-light); border-width: 2px; background: rgba(107,63,160,0.2); }
+        .plan-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--purple), var(--purple-light)); color: white; font-size: 0.7rem; font-weight: 700; padding: 4px 14px; border-radius: 100px; white-space: nowrap; }
+        .plan-name { font-size: 0.85rem; font-weight: 500; opacity: 0.6; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+        .plan-price { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: white; margin-bottom: 4px; }
+        .plan-price span { font-size: 1rem; font-weight: 400; opacity: 0.6; }
+        .plan-detail { font-size: 0.8rem; opacity: 0.5; margin-bottom: 8px; }
+        .plan-essai { font-size: 0.8rem; color: #90EE90; font-weight: 500; margin-bottom: 12px; }
+        .plan-warning { font-size: 0.75rem; opacity: 0.5; margin-bottom: 24px; font-style: italic; line-height: 1.5; }
+        .plan-spacer { height: 44px; }
+        .plan-btn { display: block; background: linear-gradient(135deg, var(--purple), var(--purple-light)); color: white; padding: 12px 24px; border-radius: 100px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: opacity 0.2s; }
+        .plan-btn:hover { opacity: 0.85; }
         .normes { padding: 100px 48px; background: var(--mousse); }
         .normes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; max-width: 1100px; margin: 0 auto; }
-        .norme-item { display: flex; align-items: flex-start; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(44, 24, 16, 0.1); }
+        .norme-item { display: flex; align-items: flex-start; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(44,24,16,0.1); }
         .norme-mg { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; min-width: 100px; color: var(--caramel); }
         .norme-info h4 { font-weight: 500; margin-bottom: 4px; font-size: 0.95rem; }
         .norme-info p { font-size: 0.8rem; opacity: 0.6; font-weight: 300; }
         .download { padding: 120px 48px; text-align: center; background: var(--cream); position: relative; overflow: hidden; }
-        .download::before { content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(196, 135, 58, 0.12) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        .download::before { content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(196,135,58,0.12) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); }
         .download h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; color: var(--cafe); margin-bottom: 24px; position: relative; }
         .download p { font-size: 1.1rem; opacity: 0.65; margin-bottom: 48px; font-weight: 300; position: relative; }
-        .app-store-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--cafe); color: var(--cream); padding: 18px 40px; border-radius: 16px; text-decoration: none; font-weight: 500; font-size: 1rem; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 8px 30px rgba(44, 24, 16, 0.25); position: relative; }
-        .app-store-btn:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(44, 24, 16, 0.3); }
+        .app-store-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--cafe); color: var(--cream); padding: 18px 40px; border-radius: 16px; text-decoration: none; font-weight: 500; font-size: 1rem; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 8px 30px rgba(44,24,16,0.25); position: relative; }
+        .app-store-btn:hover { transform: translateY(-3px); }
+        .contact-rgpd { padding: 80px 48px; background: var(--mousse); }
+        .contact-box { max-width: 680px; margin: 0 auto; background: white; border-radius: 20px; padding: 48px; box-shadow: 0 8px 30px rgba(44,24,16,0.08); }
+        .contact-box h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--cafe); margin-bottom: 12px; }
+        .contact-box p { font-size: 0.9rem; opacity: 0.65; margin-bottom: 32px; font-weight: 300; line-height: 1.7; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 500; color: var(--cafe); margin-bottom: 8px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 16px; border: 1.5px solid rgba(44,24,16,0.15); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--cafe); background: var(--cream); transition: border-color 0.2s; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--caramel); }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .form-submit { width: 100%; padding: 14px; background: var(--cafe); color: var(--cream); border: none; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
+        .form-submit:hover { opacity: 0.85; }
+        .form-note { font-size: 0.75rem; opacity: 0.5; margin-top: 12px; text-align: center; }
+        .form-success { display: none; text-align: center; padding: 24px; background: rgba(45,106,79,0.1); border-radius: 12px; color: #2D6A4F; font-weight: 500; }
         footer { background: var(--espresso); color: var(--cream); padding: 60px 48px 40px; }
         .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); }
         .footer-brand h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; margin-bottom: 8px; }
@@ -73,11 +121,13 @@
         @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 768px) {
             nav { padding: 16px 24px; } .nav-links { display: none; }
-            .hero { padding: 100px 24px 60px; } .features, .normes, .download { padding: 60px 24px; }
-            .normes-grid { grid-template-columns: 1fr; gap: 32px; }
+            .hero { padding: 100px 24px 60px; }
+            .features, .normes, .download, .premium, .contact-rgpd { padding: 60px 24px; }
+            .normes-grid, .plans { grid-template-columns: 1fr; gap: 32px; }
+            .compare-table { font-size: 0.8rem; } .compare-table td, .compare-table th { padding: 10px 12px; }
             footer { padding: 48px 24px 32px; } .footer-top, .footer-links { flex-direction: column; gap: 32px; }
             .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-            .legal-page { padding: 100px 24px 60px; }
+            .legal-page { padding: 100px 24px 60px; } .contact-box { padding: 32px 24px; }
         }
     </style>
 </head>
@@ -87,6 +137,7 @@
     <span class="nav-logo" onclick="showMain()">☕ PauseCafé</span>
     <ul class="nav-links">
         <li><a onclick="showMain('features')">Fonctionnalités</a></li>
+        <li><a onclick="showMain('premium')" style="color:var(--purple);font-weight:700;opacity:1">👑 Premium</a></li>
         <li><a onclick="showMain('normes')">Normes EFSA</a></li>
         <li><a href="privacy.html">Confidentialité</a></li>
         <li><a href="cgu.html">CGU</a></li>
@@ -96,6 +147,7 @@
 </nav>
 
 <div id="main-content">
+
     <section class="hero">
         <div class="hero-content">
             <div class="hero-badge">📱 Disponible sur App Store</div>
@@ -112,13 +164,77 @@
         <div class="section-label">Fonctionnalités</div>
         <h2 class="section-title">Tout ce qu'il faut pour prendre soin de toi</h2>
         <div class="features-grid">
-            <div class="feature-card"><span class="feature-emoji">☕</span><h3>Suivi précis en mg</h3><p>Enregistre chaque boisson en un tap. Café, thé, soda, energy drink — tout est répertorié avec les valeurs exactes en mg de caféine.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🏆</span><h3>Gamification complète</h3><p>Gagne des points, débloque des badges, monte en niveau. 65+ badges à collectionner, 8 niveaux de Pousse à Légende.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🎁</span><h3>Vraies récompenses</h3><p>Échange tes points contre de vrais bons de réduction chez nos partenaires. Les bonnes habitudes méritent de vraies récompenses.</p></div>
-            <div class="feature-card"><span class="feature-emoji">⌚</span><h3>Apple Watch & Widget</h3><p>Ajoute une boisson depuis ton poignet. Widget iOS pour voir ta consommation d'un coup d'œil sur l'écran d'accueil.</p></div>
+            <div class="feature-card"><span class="feature-emoji">☕</span><h3>Suivi précis en mg</h3><p>Enregistre chaque boisson en un tap. Café, thé, soda, energy drink — tout est répertorié avec les valeurs exactes.</p></div>
+            <div class="feature-card"><span class="feature-emoji">🏆</span><h3>Gamification complète</h3><p>Gagne des points, débloque des badges, monte en niveau. 65+ badges, 8 niveaux de Pousse à Légende.</p></div>
+            <div class="feature-card"><span class="feature-emoji">🎁</span><h3>Vraies récompenses</h3><p>Échange tes points contre de vrais bons de réduction. Les bonnes habitudes méritent de vraies récompenses.</p></div>
+            <div class="feature-card"><span class="feature-emoji">⌚</span><h3>Apple Watch & Widget</h3><p>Ajoute une boisson depuis ton poignet. Widget iOS pour voir ta consommation d'un coup d'œil.</p></div>
             <div class="feature-card"><span class="feature-emoji">📊</span><h3>Stats & évolution</h3><p>Graphiques d'évolution, analyse par horaire, par jour de semaine, comparaison semaine/semaine.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🔥</span><h3>Streaks & motivation</h3><p>Maintiens ton streak de jours consécutifs sous ta limite. Un streak perdu coûte des points — la motivation ultime.</p></div>
+            <div class="feature-card"><span class="feature-emoji">🔥</span><h3>Streaks & motivation</h3><p>Maintiens ton streak de jours consécutifs. Un streak perdu coûte des points — la motivation ultime.</p></div>
         </div>
+    </section>
+
+    <section class="premium" id="premium">
+        <div class="section-label" style="color:var(--purple-light);opacity:1">Premium</div>
+        <h2 class="section-title" style="color:white">Passe au niveau supérieur 👑</h2>
+        <div class="premium-cards">
+            <div class="premium-card"><span class="premium-card-emoji">🔕</span><h3>Sans publicité</h3><p>Expérience 100% fluide, sans interruption publicitaire.</p></div>
+            <div class="premium-card"><span class="premium-card-emoji">🎁</span><h3>Meilleures récompenses</h3><p>Réductions plus élevées, cadeaux offerts, délais plus courts.</p></div>
+            <div class="premium-card"><span class="premium-card-emoji">⚡</span><h3>Bonus de niveau 5x</h3><p>Progresse jusqu'à 5x plus vite vers la Légende.</p></div>
+            <div class="premium-card"><span class="premium-card-emoji">🏷️</span><h3>Offres exclusives</h3><p>Codes promo et livraisons offertes chaque semaine.</p></div>
+            <div class="premium-card"><span class="premium-card-emoji">😴</span><h3>Corrélation sommeil</h3><p>Analyse l'impact de ta caféine sur ton sommeil.</p></div>
+            <div class="premium-card"><span class="premium-card-emoji">🧠</span><h3>Suivi stress</h3><p>Questionnaire hebdo + corrélations personnalisées.</p></div>
+        </div>
+
+        <h3 class="compare-title">Gratuit vs Premium</h3>
+        <table class="compare-table">
+            <thead>
+                <tr>
+                    <th style="width:50%"></th>
+                    <th class="col-free">Gratuit</th>
+                    <th class="col-premium">Premium 👑<span>dès 1,25€/mois</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Suivi caféine quotidien</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Apple Watch & Widget</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Badges & niveaux</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Stats de base</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Export CSV des données</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Récompenses basiques</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Publicités</td><td class="col-free">✅</td><td class="col-premium">❌</td></tr>
+                <tr><td>Meilleures récompenses</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Bonus de niveau 5x supérieurs</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Offres partenaires exclusives</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Corrélation caféine / sommeil</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Suivi stress & anxiété</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+            </tbody>
+        </table>
+
+        <div class="plans">
+            <div class="plan-card">
+                <div class="plan-name">Mensuel</div>
+                <div class="plan-price">1,99€<span>/mois</span></div>
+                <div class="plan-detail">Résiliable à tout moment</div>
+                <div class="plan-spacer"></div>
+                <a href="#download" class="plan-btn">Commencer</a>
+            </div>
+            <div class="plan-card popular">
+                <div class="plan-badge">⭐ Le plus populaire</div>
+                <div class="plan-name">Annuel</div>
+                <div class="plan-price">14,99€<span>/an</span></div>
+                <div class="plan-detail">soit 1,25€/mois — 2 mois offerts 🎉</div>
+                <div class="plan-spacer"></div>
+                <a href="#download" class="plan-btn">Commencer</a>
+            </div>
+            <div class="plan-card">
+                <div class="plan-name">Essai gratuit</div>
+                <div class="plan-price">0€<span>/7j</span></div>
+                <div class="plan-essai">✅ 7 jours gratuits</div>
+                <div class="plan-warning">⚠️ Puis 1,99€/mois automatiquement. Résilie avant la fin de l'essai pour ne pas être débité.</div>
+                <a href="#download" class="plan-btn">Essayer gratuitement</a>
+            </div>
+        </div>
+        <p style="text-align:center;font-size:0.75rem;opacity:0.4;margin-top:24px">Abonnements gérés par Apple. Résiliation : Réglages iOS → App Store → Abonnements.</p>
     </section>
 
     <section class="normes" id="normes">
@@ -129,13 +245,13 @@
                 <div>
                     <div class="norme-item"><div class="norme-mg">&lt; 200 mg</div><div class="norme-info"><h4>✅ Zone idéale</h4><p>Recommandation EFSA 2015 — consommation optimale pour un adulte sain</p></div></div>
                     <div class="norme-item"><div class="norme-mg">&lt; 400 mg</div><div class="norme-info"><h4>⚠️ Limite adulte sain</h4><p>Seuil EFSA, FDA & ANSES 2021 — au-delà, risques d'anxiété et troubles du sommeil</p></div></div>
-                    <div class="norme-item"><div class="norme-mg">&gt; 400 mg</div><div class="norme-info"><h4>😰 Zone à risque</h4><p>Nawrot et al. 2003 — augmentation de l'anxiété. Drake et al. 2013 — perturbation du sommeil jusqu'à 6h après</p></div></div>
-                    <div class="norme-item"><div class="norme-mg">&gt; 1000 mg</div><div class="norme-info"><h4>☠️ Dose toxique</h4><p>Risques cardiaques réels. Lovallo et al. 2006 — augmentation significative du cortisol</p></div></div>
+                    <div class="norme-item"><div class="norme-mg">&gt; 400 mg</div><div class="norme-info"><h4>😰 Zone à risque</h4><p>Nawrot et al. 2003 — anxiété. Drake et al. 2013 — sommeil perturbé jusqu'à 6h après</p></div></div>
+                    <div class="norme-item"><div class="norme-mg">&gt; 1000 mg</div><div class="norme-info"><h4>☠️ Dose toxique</h4><p>Risques cardiaques réels. Lovallo et al. 2006 — augmentation du cortisol</p></div></div>
                 </div>
                 <div>
-                    <p style="font-size:0.95rem;line-height:1.8;opacity:0.7;font-weight:300;margin-bottom:24px">PauseCafé s'appuie sur les recommandations scientifiques validées par les trois principales autorités mondiales de santé alimentaire.</p>
-                    <p style="font-size:0.95rem;line-height:1.8;opacity:0.7;font-weight:300;margin-bottom:24px">La convergence entre l'<strong>EFSA (UE, 2015)</strong>, la <strong>FDA (États-Unis)</strong> et l'<strong>ANSES (France, 2021)</strong> sur le seuil de 400 mg/jour constitue un consensus scientifique solide.</p>
-                    <p style="font-size:0.85rem;opacity:0.5;font-weight:300">Sources : EFSA Journal 2015, FDA Guidelines, ANSES 2021, Nawrot et al. 2003, Drake et al. 2013, Lovallo et al. 2006. Pour les femmes enceintes, l'OMS recommande de ne pas dépasser 300 mg/jour.</p>
+                    <p style="font-size:0.95rem;line-height:1.8;opacity:0.7;font-weight:300;margin-bottom:24px">PauseCafé s'appuie sur les recommandations scientifiques validées par les trois principales autorités mondiales.</p>
+                    <p style="font-size:0.95rem;line-height:1.8;opacity:0.7;font-weight:300;margin-bottom:24px">La convergence entre l'<strong>EFSA (UE, 2015)</strong>, la <strong>FDA (États-Unis)</strong> et l'<strong>ANSES (France, 2021)</strong> sur 400 mg/jour constitue un consensus scientifique solide.</p>
+                    <p style="font-size:0.85rem;opacity:0.5;font-weight:300">Sources : EFSA 2015, FDA Guidelines, ANSES 2021, Nawrot 2003, Drake 2013, Lovallo 2006. OMS : max 300 mg/jour pour les femmes enceintes.</p>
                 </div>
             </div>
         </div>
@@ -145,6 +261,39 @@
         <h2>Commence aujourd'hui.<br>C'est gratuit.</h2>
         <p>Rejoins les utilisateurs qui reprennent le contrôle de leur caféine.</p>
         <a href="#" class="app-store-btn">🍎 &nbsp; Télécharger sur l'App Store</a>
+    </section>
+
+    <section class="contact-rgpd" id="contact">
+        <div class="contact-box">
+            <h2>🔒 Exercer tes droits RGPD</h2>
+            <p>Conformément au RGPD, tu peux demander la suppression de ton compte, l'export de tes données ou la rectification de tes informations. Remplis ce formulaire et nous te répondrons sous 30 jours.</p>
+            <form id="rgpd-form" onsubmit="envoyerFormulaire(event)">
+                <div class="form-group">
+                    <label>Ton email *</label>
+                    <input type="email" id="email" placeholder="ton@email.fr" required>
+                </div>
+                <div class="form-group">
+                    <label>Type de demande *</label>
+                    <select id="type" required>
+                        <option value="">Sélectionne une option</option>
+                        <option value="Suppression de compte et données">Suppression de mon compte et données</option>
+                        <option value="Export de mes données">Export de mes données (portabilité)</option>
+                        <option value="Rectification de mes données">Rectification de mes données</option>
+                        <option value="Opposition au traitement">Opposition au traitement</option>
+                        <option value="Autre demande RGPD">Autre demande RGPD</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Message (optionnel)</label>
+                    <textarea id="message" placeholder="Précise ta demande si nécessaire..."></textarea>
+                </div>
+                <button type="submit" class="form-submit">Envoyer ma demande</button>
+                <p class="form-note">Tes données ne sont utilisées que pour traiter ta demande. Réponse garantie sous 30 jours.</p>
+            </form>
+            <div class="form-success" id="form-success">
+                ✅ Ta demande a bien été envoyée ! Nous te répondrons à <strong id="email-confirm"></strong> sous 30 jours.
+            </div>
+        </div>
     </section>
 
     <footer>
@@ -158,6 +307,7 @@
                     <h4>Application</h4>
                     <ul>
                         <li><a onclick="showMain('features')">Fonctionnalités</a></li>
+                        <li><a onclick="showMain('premium')">👑 Premium</a></li>
                         <li><a onclick="showMain('normes')">Normes EFSA</a></li>
                         <li><a href="#download">Télécharger</a></li>
                     </ul>
@@ -168,6 +318,7 @@
                         <li><a href="privacy.html">Politique de confidentialité</a></li>
                         <li><a href="cgu.html">CGU</a></li>
                         <li><a onclick="showPage('legal')">Mentions légales</a></li>
+                        <li><a onclick="showMain('contact')">Droits RGPD</a></li>
                         <li><a href="mailto:hello@pausecafe-app.fr">Contact</a></li>
                     </ul>
                 </div>
@@ -185,58 +336,45 @@
     <button class="back-btn" onclick="showMain()">← Retour</button>
     <h1>Mentions légales</h1>
     <p class="legal-date">Dernière mise à jour : avril 2026</p>
-
     <h2>1. Éditeur</h2>
-    <p><strong>Kévin Beguerie</strong><br>
-    Particulier — personne physique, France<br>
+    <p><strong>Kévin Beguerie</strong>, particulier — personne physique, France<br>
     Email : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a><br>
     <strong>Directeur de la publication :</strong> Kévin Beguerie</p>
-
-    <h2>2. Hébergement du site web</h2>
-    <p><strong>GitHub Pages</strong><br>
-    GitHub, Inc. — 88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis<br>
+    <h2>2. Hébergement du site</h2>
+    <p><strong>GitHub Pages</strong> — GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA<br>
     <a href="https://pages.github.com" target="_blank">pages.github.com</a></p>
-
     <h2>3. Hébergement des données</h2>
-    <p><strong>Google Firebase</strong><br>
-    Google Ireland Limited — Gordon House, Barrow Street, Dublin 4, Irlande<br>
-    Données stockées dans l'Union Européenne</p>
-
+    <p><strong>Google Firebase</strong> — Google Ireland Limited, Dublin 4, Irlande. Données dans l'UE.</p>
     <h2>4. Application mobile</h2>
-    <p>PauseCafé est disponible sur l'App Store d'Apple. Réservée aux <strong>17 ans et plus</strong>.</p>
-
+    <p>PauseCafé est disponible sur l'App Store. Réservée aux <strong>17 ans et plus</strong>.</p>
     <h2>5. Propriété intellectuelle</h2>
-    <p>L'ensemble du contenu de ce site et de l'application est la propriété exclusive de Kévin Beguerie, protégé par le Code de la propriété intellectuelle français. Toute reproduction non autorisée est interdite.</p>
-
+    <p>Tout le contenu est la propriété exclusive de Kévin Beguerie, protégé par le Code de la propriété intellectuelle français. Toute reproduction non autorisée est interdite.</p>
     <h2>6. Limitation de responsabilité</h2>
-    <p>Les informations fournies par PauseCafé sont à titre <strong>purement indicatif et éducatif</strong>. Elles ne constituent pas un avis médical. En cas de doute, consulte un professionnel de santé.</p>
-
+    <p>Les informations de PauseCafé sont à titre <strong>purement indicatif</strong>. Elles ne constituent pas un avis médical. Consulte un professionnel de santé en cas de doute.</p>
     <h2>7. Données personnelles</h2>
     <p>Voir notre <a href="privacy.html" target="_blank">Politique de confidentialité</a>.</p>
-
     <h2>8. Droit applicable</h2>
-    <p>Les présentes mentions légales sont soumises au droit français. Les tribunaux français sont seuls compétents.</p>
-
+    <p>Droit français. Tribunaux français compétents.</p>
     <h2>9. Médiation</h2>
-    <p>Conformément à l'article L.616-1 du Code de la consommation, tu peux recourir à un médiateur en cas de litige non résolu. Contact préalable : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a></p>
+    <p>Conformément à l'article L.616-1 du Code de la consommation. Contact préalable : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a></p>
 </div>
 
 <!-- BANNIÈRE COOKIES -->
 <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--espresso);color:var(--cream);padding:16px 48px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:0.85rem;box-shadow:0 -4px 20px rgba(0,0,0,0.2);">
-    <p style="opacity:0.8;font-weight:300;margin:0">🍪 Ce site n'utilise aucun cookie de tracking. Il est hébergé sur GitHub Pages. <a href="privacy.html" style="color:var(--caramel)">En savoir plus</a></p>
+    <p style="opacity:0.8;font-weight:300;margin:0">🍪 Ce site n'utilise aucun cookie de tracking. Hébergé sur GitHub Pages. <a href="privacy.html" style="color:var(--caramel)">En savoir plus</a></p>
     <button onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookies-ok','1')" style="background:var(--caramel);color:white;border:none;padding:10px 24px;border-radius:100px;font-size:0.85rem;font-weight:500;cursor:pointer;white-space:nowrap;">J'ai compris</button>
 </div>
 
 <script>
-    if(localStorage.getItem('cookies-ok')) {
-        document.getElementById('cookie-banner').style.display='none';
-    }
+    if(localStorage.getItem('cookies-ok')) document.getElementById('cookie-banner').style.display='none';
+
     function showPage(page) {
         document.getElementById('main-content').style.display = 'none';
         document.querySelectorAll('.legal-page').forEach(p => p.classList.remove('active'));
         document.getElementById(page + '-page').classList.add('active');
         window.scrollTo(0, 0);
     }
+
     function showMain(anchor) {
         document.getElementById('main-content').style.display = 'block';
         document.querySelectorAll('.legal-page').forEach(p => p.classList.remove('active'));
@@ -247,6 +385,19 @@
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
             }, 100);
         }
+    }
+
+    function envoyerFormulaire(e) {
+        e.preventDefault();
+        var email = document.getElementById('email').value;
+        var type = document.getElementById('type').value;
+        var message = document.getElementById('message').value;
+        var body = 'Email : ' + email + '\nType de demande : ' + type + (message ? '\nMessage : ' + message : '');
+        var mailto = 'mailto:hello@pausecafe-app.fr?subject=' + encodeURIComponent('Demande RGPD : ' + type) + '&body=' + encodeURIComponent(body);
+        window.location.href = mailto;
+        document.getElementById('rgpd-form').style.display = 'none';
+        document.getElementById('email-confirm').textContent = email;
+        document.getElementById('form-success').style.display = 'block';
     }
 </script>
 </body>
