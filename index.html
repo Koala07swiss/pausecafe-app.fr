@@ -262,5 +262,17 @@
         }
     }
 </script>
+
+<!-- BANNIÈRE COOKIES -->
+<div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--espresso);color:var(--cream);padding:16px 48px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:0.85rem;box-shadow:0 -4px 20px rgba(0,0,0,0.2);">
+    <p style="opacity:0.8;font-weight:300;margin:0">🍪 Ce site n'utilise aucun cookie de tracking. Il est hébergé sur GitHub Pages. <a href="privacy.html" style="color:var(--caramel)">En savoir plus</a></p>
+    <button onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookies-ok','1')" style="background:var(--caramel);color:white;border:none;padding:10px 24px;border-radius:100px;font-size:0.85rem;font-weight:500;cursor:pointer;white-space:nowrap;">J'ai compris</button>
+</div>
+<script>
+    if(localStorage.getItem('cookies-ok')) {
+        document.getElementById('cookie-banner').style.display='none';
+    }
+</script>
+
 </body>
 </html>
