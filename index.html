@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PauseCafé — Suivi de caféine intelligent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cafe: #2C1810;
+            --cream: #F5EDD6;
+            --espresso: #1A0F0A;
+            --caramel: #C4873A;
+            --mousse: #E8D5B0;
+            --vert: #2D6A4F;
+            --rouge: #C0392B;
+            --text: #1A0F0A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 48px;
+            background: rgba(245, 237, 214, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(196, 135, 58, 0.2);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--cafe);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--cafe);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover { opacity: 1; }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 48px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '☕';
+            position: absolute;
+            font-size: 40vw;
+            right: -5vw;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.06;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 680px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--caramel);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+            animation: fadeUp 0.6s ease both;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            color: var(--cafe);
+            margin-bottom: 24px;
+            animation: fadeUp 0.6s ease 0.1s both;
+        }
+
+        .hero h1 span {
+            color: var(--caramel);
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: var(--cafe);
+            opacity: 0.75;
+            margin-bottom: 48px;
+            max-width: 520px;
+            font-weight: 300;
+            animation: fadeUp 0.6s ease 0.2s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: fadeUp 0.6s ease 0.3s both;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--cafe);
+            color: var(--cream);
+            padding: 16px 32px;
+            border-radius: 100px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 20px rgba(44, 24, 16, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(44, 24, 16, 0.35);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--cafe);
+            padding: 16px 24px;
+            border-radius: 100px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            border: 1.5px solid rgba(44, 24, 16, 0.25);
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--caramel);
+            background: rgba(196, 135, 58, 0.06);
+        }
+
+        /* ── FEATURES ── */
+        .features {
+            padding: 100px 48px;
+            background: var(--espresso);
+            color: var(--cream);
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            opacity: 0.5;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 64px;
+            max-width: 500px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2px;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.04);
+            padding: 40px 32px;
+            transition: background 0.2s;
+        }
+
+        .feature-card:hover {
+            background: rgba(255,255,255,0.08);
+        }
+
+        .feature-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--cream);
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            line-height: 1.65;
+            opacity: 0.6;
+            font-weight: 300;
+        }
+
+        /* ── NORMES ── */
+        .normes {
+            padding: 100px 48px;
+            background: var(--mousse);
+        }
+
+        .normes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: start;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .norme-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(44, 24, 16, 0.1);
+        }
+
+        .norme-mg {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            min-width: 100px;
+            color: var(--caramel);
+        }
+
+        .norme-info h4 {
+            font-weight: 500;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+
+        .norme-info p {
+            font-size: 0.8rem;
+            opacity: 0.6;
+            font-weight: 300;
+        }
+
+        /* ── DOWNLOAD ── */
+        .download {
+            padding: 120px 48px;
+            text-align: center;
+            background: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(196, 135, 58, 0.12) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .download h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            color: var(--cafe);
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .download p {
+            font-size: 1.1rem;
+            opacity: 0.65;
+            margin-bottom: 48px;
+            font-weight: 300;
+            position: relative;
+        }
+
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--cafe);
+            color: var(--cream);
+            padding: 18px 40px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 8px 30px rgba(44, 24, 16, 0.25);
+            position: relative;
+        }
+
+        .app-store-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(44, 24, 16, 0.3);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--espresso);
+            color: var(--cream);
+            padding: 60px 48px 40px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .footer-brand h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .footer-brand p {
+            font-size: 0.85rem;
+            opacity: 0.45;
+            font-weight: 300;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 48px;
+        }
+
+        .footer-col h4 {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0.45;
+            margin-bottom: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-col a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.875rem;
+            opacity: 0.65;
+            transition: opacity 0.2s;
+        }
+
+        .footer-col a:hover { opacity: 1; }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            opacity: 0.35;
+        }
+
+        /* ── LEGAL PAGES ── */
+        .legal-page {
+            display: none;
+            padding: 120px 48px 80px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .legal-page.active { display: block; }
+
+        .legal-page h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--cafe);
+            margin-bottom: 8px;
+        }
+
+        .legal-date {
+            font-size: 0.85rem;
+            opacity: 0.5;
+            margin-bottom: 48px;
+            font-weight: 300;
+        }
+
+        .legal-page h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--cafe);
+            margin: 40px 0 16px;
+        }
+
+        .legal-page p, .legal-page li {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            opacity: 0.75;
+            font-weight: 300;
+            margin-bottom: 12px;
+        }
+
+        .legal-page ul {
+            padding-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        .legal-page a {
+            color: var(--caramel);
+            text-decoration: none;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--cafe);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            opacity: 0.6;
+            margin-bottom: 48px;
+            transition: opacity 0.2s;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .back-btn:hover { opacity: 1; }
+
+        /* ── MAIN CONTENT ── */
+        #main-content { display: block; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 16px 24px; }
+            .nav-links { display: none; }
+            .hero { padding: 100px 24px 60px; }
+            .features { padding: 60px 24px; }
+            .normes { padding: 60px 24px; }
+            .normes-grid { grid-template-columns: 1fr; gap: 32px; }
+            .download { padding: 80px 24px; }
+            footer { padding: 48px 24px 32px; }
+            .footer-top { flex-direction: column; gap: 40px; }
+            .footer-links { flex-direction: column; gap: 32px; }
+            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+            .legal-page { padding: 100px 24px 60px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <a href="#" class="nav-logo" onclick="showMain()">☕ PauseCafé</a>
+    <ul class="nav-links">
+        <li><a href="#features">Fonctionnalités</a></li>
+        <li><a href="#normes">Normes EFSA</a></li>
+        <li><a href="#" onclick="showPage('privacy')">Confidentialité</a></li>
+        <li><a href="#" onclick="showPage('legal')">Mentions légales</a></li>
+        <li><a href="mailto:hello@pausecafe-app.fr">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- ── MAIN CONTENT ── -->
+<div id="main-content">
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">📱 Disponible sur App Store</div>
+            <h1>Maîtrise ta <span>caféine</span> au quotidien</h1>
+            <p>PauseCafé t'aide à suivre ta consommation de caféine, respecter les recommandations EFSA et gagner de vraies récompenses grâce à tes bonnes habitudes.</p>
+            <div class="hero-cta">
+                <a href="#download" class="btn-primary">
+                    🍎 Télécharger sur l'App Store
+                </a>
+                <a href="#features" class="btn-secondary">
+                    Découvrir →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="section-label">Fonctionnalités</div>
+        <h2 class="section-title">Tout ce qu'il faut pour prendre soin de toi</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-emoji">☕</span>
+                <h3>Suivi précis en mg</h3>
+                <p>Enregistre chaque boisson en un tap. Café, thé, soda, energy drink — on a tout répertorié avec les valeurs exactes en mg de caféine.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-emoji">🏆</span>
+                <h3>Gamification complète</h3>
+                <p>Gagne des points, débloque des badges, monte en niveau. 65+ badges à collectionner, 8 niveaux de Pousse à Légende.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-emoji">🎁</span>
+                <h3>Vraies récompenses</h3>
+                <p>Échange tes points contre de vrais bons de réduction chez nos partenaires. Les bonnes habitudes méritent de vraies récompenses.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-emoji">⌚</span>
+                <h3>Apple Watch & Widget</h3>
+                <p>Ajoute une boisson depuis ton poignet. Widget iOS pour voir ta consommation d'un coup d'œil sur l'écran d'accueil.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-emoji">📊</span>
+                <h3>Stats & évolution</h3>
+                <p>Graphiques d'évolution, analyse par horaire, par jour de semaine, comparaison semaine/semaine. Comprends tes habitudes.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-emoji">🔥</span>
+                <h3>Streaks & motivation</h3>
+                <p>Maintiens ton streak de jours consécutifs sous ta limite. Un streak perdu coûte des points — la motivation ultime pour tenir.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Normes EFSA -->
+    <section class="normes" id="normes">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <div class="section-label">Science</div>
+            <h2 class="section-title" style="color: var(--cafe);">Basé sur les normes EFSA officielles</h2>
+            <div class="normes-grid">
+                <div>
+                    <div class="norme-item">
+                        <div class="norme-mg">< 200 mg</div>
+                        <div class="norme-info">
+                            <h4>✅ Zone idéale</h4>
+                            <p>Recommandation EFSA 2015 — consommation optimale pour un adulte sain</p>
+                        </div>
+                    </div>
+                    <div class="norme-item">
+                        <div class="norme-mg">< 400 mg</div>
+                        <div class="norme-info">
+                            <h4>⚠️ Limite adulte sain</h4>
+                            <p>Seuil EFSA, FDA & ANSES 2021 — au-delà, risques d'anxiété et troubles du sommeil</p>
+                        </div>
+                    </div>
+                    <div class="norme-item">
+                        <div class="norme-mg">> 400 mg</div>
+                        <div class="norme-info">
+                            <h4>😰 Zone à risque</h4>
+                            <p>Nawrot et al. 2003 — augmentation de l'anxiété. Drake et al. 2013 — perturbation du sommeil jusqu'à 6h après</p>
+                        </div>
+                    </div>
+                    <div class="norme-item">
+                        <div class="norme-mg">> 1000 mg</div>
+                        <div class="norme-info">
+                            <h4>☠️ Dose toxique</h4>
+                            <p>Risques cardiaques réels. Lovallo et al. 2006 — augmentation significative du cortisol</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p style="font-size: 0.95rem; line-height: 1.8; opacity: 0.7; font-weight: 300; margin-bottom: 24px;">
+                        PauseCafé s'appuie sur les recommandations scientifiques validées par les trois principales autorités mondiales de santé alimentaire.
+                    </p>
+                    <p style="font-size: 0.95rem; line-height: 1.8; opacity: 0.7; font-weight: 300; margin-bottom: 24px;">
+                        La convergence entre l'<strong>EFSA (Union Européenne, 2015)</strong>, la <strong>FDA (États-Unis)</strong> et l'<strong>ANSES (France, 2021)</strong> sur le seuil de 400 mg/jour pour un adulte sain constitue un consensus scientifique solide.
+                    </p>
+                    <p style="font-size: 0.85rem; opacity: 0.5; font-weight: 300;">
+                        Sources : EFSA Journal 2015, FDA Guidelines, ANSES 2021, Nawrot et al. 2003, Drake et al. 2013, Lovallo et al. 2006. Pour les femmes enceintes, l'OMS recommande de ne pas dépasser 300 mg/jour.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download -->
+    <section class="download" id="download">
+        <h2>Commence aujourd'hui.<br>C'est gratuit.</h2>
+        <p>Rejoins les utilisateurs qui reprennent le contrôle de leur caféine.</p>
+        <a href="#" class="app-store-btn">
+            🍎 &nbsp; Télécharger sur l'App Store
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h3>☕ PauseCafé</h3>
+                <p>Suivi de caféine intelligent<br>Fait avec ❤️ à Roiffieux, France</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Application</h4>
+                    <ul>
+                        <li><a href="#features">Fonctionnalités</a></li>
+                        <li><a href="#normes">Normes EFSA</a></li>
+                        <li><a href="#download">Télécharger</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('privacy')">Politique de confidentialité</a></li>
+                        <li><a href="#" onclick="showPage('legal')">Mentions légales</a></li>
+                        <li><a href="mailto:hello@pausecafe-app.fr">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 PauseCafé — Kévin Beguerie. Tous droits réservés.</span>
+            <span>pausecafe-app.fr</span>
+        </div>
+    </footer>
+
+</div>
+
+<!-- ── POLITIQUE DE CONFIDENTIALITÉ ── -->
+<div id="privacy-page" class="legal-page">
+    <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: rgba(245, 237, 214, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(196, 135, 58, 0.2);">
+        <a href="#" class="nav-logo" onclick="showMain()">☕ PauseCafé</a>
+    </nav>
+    <button class="back-btn" onclick="showMain()">← Retour</button>
+    <h1>Politique de confidentialité</h1>
+    <p class="legal-date">Dernière mise à jour : avril 2026</p>
+
+    <h2>1. Responsable du traitement</h2>
+    <p>Kévin Beguerie, Roiffieux, France.<br>Contact : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a></p>
+
+    <h2>2. Données collectées</h2>
+    <p>PauseCafé collecte les données suivantes :</p>
+    <ul>
+        <li><strong>Données de compte</strong> : prénom, adresse email (lors de l'inscription)</li>
+        <li><strong>Données de consommation</strong> : boissons enregistrées, quantités en mg, horaires</li>
+        <li><strong>Données de progression</strong> : points, badges, streak, niveau</li>
+        <li><strong>Données techniques</strong> : identifiant anonyme Firebase, données de crash</li>
+    </ul>
+
+    <h2>3. Finalités du traitement</h2>
+    <ul>
+        <li>Fournir le service de suivi de caféine</li>
+        <li>Synchroniser les données entre appareils (iPhone, Apple Watch, Widget)</li>
+        <li>Afficher des statistiques personnalisées</li>
+        <li>Envoyer des notifications (avec ton consentement)</li>
+        <li>Améliorer l'application via Firebase Analytics</li>
+        <li>Afficher des publicités personnalisées via Google AdMob (avec ton consentement ATT)</li>
+    </ul>
+
+    <h2>4. Base légale</h2>
+    <p>Le traitement est fondé sur l'exécution du contrat (fourniture du service) et ton consentement pour les publicités personnalisées et notifications.</p>
+
+    <h2>5. Partage des données</h2>
+    <ul>
+        <li><strong>Google Firebase</strong> — stockage, authentification, analytics (serveurs UE)</li>
+        <li><strong>Google AdMob</strong> — publicités (uniquement avec consentement ATT)</li>
+        <li><strong>Apple</strong> — authentification Sign in with Apple</li>
+    </ul>
+    <p>Aucune donnée n'est vendue à des tiers.</p>
+
+    <h2>6. Durée de conservation</h2>
+    <p>Les données sont conservées pendant toute la durée d'utilisation du compte. En cas de suppression du compte, toutes les données sont effacées dans un délai de 30 jours.</p>
+
+    <h2>7. Tes droits</h2>
+    <p>Conformément au RGPD, tu disposes des droits suivants :</p>
+    <ul>
+        <li><strong>Accès</strong> : consulter tes données via l'export CSV dans l'app</li>
+        <li><strong>Rectification</strong> : modifier ton profil dans les réglages</li>
+        <li><strong>Suppression</strong> : supprimer ton compte depuis les réglages de l'app</li>
+        <li><strong>Portabilité</strong> : exporter tes données en CSV depuis l'app</li>
+        <li><strong>Opposition</strong> : désactiver le tracking publicitaire via les réglages iOS</li>
+    </ul>
+    <p>Pour exercer tes droits : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a></p>
+
+    <h2>8. Cookies et tracking</h2>
+    <p>L'application utilise Google AdMob pour la publicité. Tu peux refuser le tracking publicitaire lors de la première ouverture de l'app ou depuis Réglages iOS → Confidentialité → Suivi.</p>
+
+    <h2>9. Sécurité</h2>
+    <p>Les données sont chiffrées en transit (HTTPS) et au repos via Firebase. L'authentification est sécurisée par Firebase Auth.</p>
+
+    <h2>10. Contact & réclamation</h2>
+    <p>Pour toute question : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a><br>
+    Tu peux également déposer une réclamation auprès de la CNIL : <a href="https://www.cnil.fr" target="_blank">cnil.fr</a></p>
+</div>
+
+<!-- ── MENTIONS LÉGALES ── -->
+<div id="legal-page" class="legal-page">
+    <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: rgba(245, 237, 214, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(196, 135, 58, 0.2);">
+        <a href="#" class="nav-logo" onclick="showMain()">☕ PauseCafé</a>
+    </nav>
+    <button class="back-btn" onclick="showMain()">← Retour</button>
+    <h1>Mentions légales</h1>
+    <p class="legal-date">Dernière mise à jour : avril 2026</p>
+
+    <h2>Éditeur</h2>
+    <p>
+        <strong>Kévin Beguerie</strong><br>
+        Roiffieux, France<br>
+        Email : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a><br>
+        Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a>
+    </p>
+
+    <h2>Hébergement</h2>
+    <p>
+        <strong>GitHub Pages</strong><br>
+        GitHub, Inc. — 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA<br>
+        <a href="https://pages.github.com" target="_blank">pages.github.com</a>
+    </p>
+    <p>
+        <strong>Firebase (données)</strong><br>
+        Google Ireland Limited — Gordon House, Barrow Street, Dublin 4, Irlande
+    </p>
+
+    <h2>Application mobile</h2>
+    <p>PauseCafé est disponible sur l'App Store d'Apple. Éditeur : Kévin Beguerie.</p>
+
+    <h2>Propriété intellectuelle</h2>
+    <p>L'ensemble du contenu de ce site et de l'application (textes, graphiques, logo, code) est la propriété exclusive de Kévin Beguerie et est protégé par les lois relatives à la propriété intellectuelle.</p>
+
+    <h2>Données personnelles</h2>
+    <p>Voir notre <a href="#" onclick="showPage('privacy')">Politique de confidentialité</a>.</p>
+
+    <h2>Responsabilité</h2>
+    <p>Les informations fournies par PauseCafé sont à titre indicatif et ne constituent pas un avis médical. Consulte un professionnel de santé pour tout conseil médical.</p>
+
+    <h2>Droit applicable</h2>
+    <p>Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux français sont seuls compétents.</p>
+</div>
+
+<script>
+    function showPage(page) {
+        document.getElementById('main-content').style.display = 'none';
+        document.querySelectorAll('.legal-page').forEach(p => p.classList.remove('active'));
+        document.getElementById(page + '-page').classList.add('active');
+        window.scrollTo(0, 0);
+    }
+
+    function showMain() {
+        document.getElementById('main-content').style.display = 'block';
+        document.querySelectorAll('.legal-page').forEach(p => p.classList.remove('active'));
+        window.scrollTo(0, 0);
+        return false;
+    }
+</script>
+
+</body>
+</html>
