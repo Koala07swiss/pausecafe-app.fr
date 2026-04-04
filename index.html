@@ -69,7 +69,7 @@
         .footer-links { display: flex; gap: 48px; }
         .footer-col h4 { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.45; margin-bottom: 16px; }
         .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-        .footer-col a { color: var(--cream); text-decoration: none; font-size: 0.875rem; opacity: 0.65; transition: opacity 0.2s; }
+        .footer-col a { color: var(--cream); text-decoration: none; font-size: 0.875rem; opacity: 0.65; transition: opacity 0.2s; cursor: pointer; }
         .footer-col a:hover { opacity: 1; }
         .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; opacity: 0.35; }
 
@@ -105,8 +105,8 @@
 <nav>
     <span class="nav-logo" onclick="showMain()">☕ PauseCafé</span>
     <ul class="nav-links">
-        <li><a href="#features">Fonctionnalités</a></li>
-        <li><a href="#normes">Normes EFSA</a></li>
+        <li><a onclick="showMain('features')">Fonctionnalités</a></li>
+        <li><a onclick="showMain('normes')">Normes EFSA</a></li>
         <li><a href="privacy.html">Confidentialité</a></li>
         <li><a onclick="showPage('legal')">Mentions légales</a></li>
         <li><a href="mailto:hello@pausecafe-app.fr">Contact</a></li>
@@ -122,7 +122,7 @@
             <p>PauseCafé t'aide à suivre ta consommation de caféine, respecter les recommandations EFSA et gagner de vraies récompenses grâce à tes bonnes habitudes.</p>
             <div class="hero-cta">
                 <a href="#download" class="btn-primary">🍎 Télécharger sur l'App Store</a>
-                <a href="#features" class="btn-secondary">Découvrir →</a>
+                <a onclick="showMain('features')" class="btn-secondary">Découvrir →</a>
             </div>
         </div>
     </section>
@@ -176,8 +176,8 @@
                 <div class="footer-col">
                     <h4>Application</h4>
                     <ul>
-                        <li><a href="#features">Fonctionnalités</a></li>
-                        <li><a href="#normes">Normes EFSA</a></li>
+                        <li><a onclick="showMain('features')">Fonctionnalités</a></li>
+                        <li><a onclick="showMain('normes')">Normes EFSA</a></li>
                         <li><a href="#download">Télécharger</a></li>
                     </ul>
                 </div>
@@ -249,10 +249,17 @@
         document.getElementById(page + '-page').classList.add('active');
         window.scrollTo(0, 0);
     }
-    function showMain() {
+
+    function showMain(anchor) {
         document.getElementById('main-content').style.display = 'block';
         document.querySelectorAll('.legal-page').forEach(p => p.classList.remove('active'));
         window.scrollTo(0, 0);
+        if (anchor) {
+            setTimeout(function() {
+                var el = document.getElementById(anchor);
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
     }
 </script>
 </body>
