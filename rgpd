@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Droits RGPD — PauseCafé</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --cafe: #2C1810; --cream: #F5EDD6; --caramel: #C4873A; --mousse: #E8D5B0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--mousse); color: var(--cafe); min-height: 100vh; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: rgba(245, 237, 214, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(196, 135, 58, 0.2); }
+        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--cafe); text-decoration: none; }
+        .nav-back { font-size: 0.85rem; font-weight: 500; color: var(--cafe); text-decoration: none; opacity: 0.6; transition: opacity 0.2s; }
+        .nav-back:hover { opacity: 1; }
+        .container { max-width: 680px; margin: 0 auto; padding: 120px 48px 80px; }
+        .contact-box { background: white; border-radius: 20px; padding: 48px; box-shadow: 0 8px 30px rgba(44,24,16,0.08); }
+        h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; color: var(--cafe); margin-bottom: 12px; }
+        .subtitle { font-size: 0.9rem; opacity: 0.65; margin-bottom: 32px; font-weight: 300; line-height: 1.7; }
+        .info-box { background: rgba(196,135,58,0.08); border-left: 3px solid var(--caramel); padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 32px; font-size: 0.85rem; line-height: 1.7; opacity: 0.8; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 500; color: var(--cafe); margin-bottom: 8px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 16px; border: 1.5px solid rgba(44,24,16,0.15); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--cafe); background: var(--cream); transition: border-color 0.2s; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--caramel); }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .form-submit { width: 100%; padding: 14px; background: var(--cafe); color: var(--cream); border: none; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
+        .form-submit:hover { opacity: 0.85; }
+        .form-note { font-size: 0.75rem; opacity: 0.5; margin-top: 12px; text-align: center; }
+        .form-success { display: none; text-align: center; padding: 32px 24px; background: rgba(45,106,79,0.1); border-radius: 12px; color: #2D6A4F; }
+        .form-success h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 12px; }
+        .form-success p { font-size: 0.9rem; opacity: 0.8; }
+        .alternatives { margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(44,24,16,0.1); }
+        .alternatives h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 16px; }
+        .alt-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; font-size: 0.85rem; opacity: 0.75; }
+        footer { text-align: center; padding: 40px 24px; font-size: 0.8rem; opacity: 0.4; }
+        @media (max-width: 768px) { nav { padding: 16px 24px; } .container { padding: 100px 24px 60px; } .contact-box { padding: 32px 24px; } }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="https://pausecafe-app.fr" class="nav-logo">☕ PauseCafé</a>
+    <a href="https://pausecafe-app.fr" class="nav-back">← Retour au site</a>
+</nav>
+
+<div class="container">
+    <div class="contact-box">
+        <h1>🔒 Exercer tes droits RGPD</h1>
+        <p class="subtitle">Conformément au RGPD, tu peux demander la suppression de ton compte, l'export de tes données, ou la rectification de tes informations. Nous te répondrons sous 30 jours.</p>
+
+        <div class="info-box">
+            💡 <strong>Depuis l'app, tu peux directement :</strong><br>
+            • Supprimer ton compte → Réglages → Supprimer mon compte<br>
+            • Exporter tes données → Évolution → Exporter mes données<br>
+            • Modifier ton profil → Réglages du compte
+        </div>
+
+        <form id="rgpd-form" onsubmit="envoyerFormulaire(event)">
+            <div class="form-group">
+                <label>Ton email *</label>
+                <input type="email" id="email" placeholder="ton@email.fr" required>
+            </div>
+            <div class="form-group">
+                <label>Type de demande *</label>
+                <select id="type" required>
+                    <option value="">Sélectionne une option</option>
+                    <option value="Suppression de compte et données">Suppression de mon compte et données</option>
+                    <option value="Export de mes données">Export de mes données (portabilité)</option>
+                    <option value="Rectification de mes données">Rectification de mes données</option>
+                    <option value="Opposition au traitement">Opposition au traitement</option>
+                    <option value="Autre demande RGPD">Autre demande RGPD</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Message (optionnel)</label>
+                <textarea id="message" placeholder="Précise ta demande si nécessaire..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Envoyer ma demande</button>
+            <p class="form-note">Tes données ne sont utilisées que pour traiter ta demande. Réponse garantie sous 30 jours.</p>
+        </form>
+
+        <div class="form-success" id="form-success">
+            <h2>✅ Demande envoyée !</h2>
+            <p>Nous te répondrons à <strong id="email-confirm"></strong> sous 30 jours maximum.</p>
+        </div>
+
+        <div class="alternatives">
+            <h3>Autres droits disponibles directement</h3>
+            <div class="alt-item">📱 <span><strong>Tracking publicitaire</strong> → Réglages iOS → Confidentialité → Suivi → PauseCafé</span></div>
+            <div class="alt-item">🔔 <span><strong>Notifications</strong> → Réglages → Notifications dans l'app</span></div>
+            <div class="alt-item">📋 <span><strong>Politique complète</strong> → <a href="privacy.html" style="color:var(--caramel)">Lire notre politique de confidentialité</a></span></div>
+            <div class="alt-item">📧 <span><strong>Contact direct</strong> → <a href="mailto:hello@pausecafe-app.fr" style="color:var(--caramel)">hello@pausecafe-app.fr</a></span></div>
+        </div>
+    </div>
+</div>
+
+<footer>© 2026 PauseCafé. Tous droits réservés.</footer>
+
+<script>
+    function envoyerFormulaire(e) {
+        e.preventDefault();
+        var email = document.getElementById('email').value;
+        var type = document.getElementById('type').value;
+        var message = document.getElementById('message').value;
+        var body = 'Email : ' + email + '\nType de demande : ' + type + (message ? '\nMessage : ' + message : '');
+        var mailto = 'mailto:hello@pausecafe-app.fr?subject=' + encodeURIComponent('Demande RGPD : ' + type) + '&body=' + encodeURIComponent(body);
+        window.location.href = mailto;
+        document.getElementById('rgpd-form').style.display = 'none';
+        document.getElementById('email-confirm').textContent = email;
+        document.getElementById('form-success').style.display = 'block';
+    }
+</script>
+</body>
+</html>
