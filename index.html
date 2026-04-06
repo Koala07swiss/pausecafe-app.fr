@@ -84,19 +84,6 @@
         .download p { font-size: 1.1rem; opacity: 0.65; margin-bottom: 48px; font-weight: 300; position: relative; }
         .app-store-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--cafe); color: var(--cream); padding: 18px 40px; border-radius: 16px; text-decoration: none; font-weight: 500; font-size: 1rem; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 8px 30px rgba(44,24,16,0.25); position: relative; }
         .app-store-btn:hover { transform: translateY(-3px); }
-        .contact-rgpd { padding: 80px 48px; background: var(--mousse); }
-        .contact-box { max-width: 680px; margin: 0 auto; background: white; border-radius: 20px; padding: 48px; box-shadow: 0 8px 30px rgba(44,24,16,0.08); }
-        .contact-box h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--cafe); margin-bottom: 12px; }
-        .contact-box p { font-size: 0.9rem; opacity: 0.65; margin-bottom: 32px; font-weight: 300; line-height: 1.7; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-size: 0.85rem; font-weight: 500; color: var(--cafe); margin-bottom: 8px; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 16px; border: 1.5px solid rgba(44,24,16,0.15); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--cafe); background: var(--cream); transition: border-color 0.2s; }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--caramel); }
-        .form-group textarea { resize: vertical; min-height: 100px; }
-        .form-submit { width: 100%; padding: 14px; background: var(--cafe); color: var(--cream); border: none; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
-        .form-submit:hover { opacity: 0.85; }
-        .form-note { font-size: 0.75rem; opacity: 0.5; margin-top: 12px; text-align: center; }
-        .form-success { display: none; text-align: center; padding: 24px; background: rgba(45,106,79,0.1); border-radius: 12px; color: #2D6A4F; font-weight: 500; }
         footer { background: var(--espresso); color: var(--cream); padding: 60px 48px 40px; }
         .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); }
         .footer-brand h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; margin-bottom: 8px; }
@@ -122,12 +109,12 @@
         @media (max-width: 768px) {
             nav { padding: 16px 24px; } .nav-links { display: none; }
             .hero { padding: 100px 24px 60px; }
-            .features, .normes, .download, .premium, .contact-rgpd { padding: 60px 24px; }
+            .features, .normes, .download, .premium { padding: 60px 24px; }
             .normes-grid, .plans { grid-template-columns: 1fr; gap: 32px; }
             .compare-table { font-size: 0.8rem; } .compare-table td, .compare-table th { padding: 10px 12px; }
             footer { padding: 48px 24px 32px; } .footer-top, .footer-links { flex-direction: column; gap: 32px; }
             .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-            .legal-page { padding: 100px 24px 60px; } .contact-box { padding: 32px 24px; }
+            .legal-page { padding: 100px 24px 60px; }
         }
     </style>
 </head>
@@ -139,15 +126,10 @@
         <li><a onclick="showMain('features')">Fonctionnalités</a></li>
         <li><a onclick="showMain('premium')" style="color:var(--purple);font-weight:700;opacity:1">👑 Premium</a></li>
         <li><a onclick="showMain('normes')">Normes EFSA</a></li>
-        <li><a href="privacy.html">Confidentialité</a></li>
-        <li><a href="cgu.html">CGU</a></li>
-        <li><a onclick="showPage('legal')">Mentions légales</a></li>
-        <li><a href="mailto:hello@pausecafe-app.fr">Contact</a></li>
     </ul>
 </nav>
 
 <div id="main-content">
-
     <section class="hero">
         <div class="hero-content">
             <div class="hero-badge">📱 Disponible sur App Store</div>
@@ -164,12 +146,12 @@
         <div class="section-label">Fonctionnalités</div>
         <h2 class="section-title">Tout ce qu'il faut pour prendre soin de toi</h2>
         <div class="features-grid">
-            <div class="feature-card"><span class="feature-emoji">☕</span><h3>Suivi précis en mg</h3><p>Enregistre chaque boisson en un tap. Café, thé, soda, energy drink — tout est répertorié avec les valeurs exactes.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🏆</span><h3>Gamification complète</h3><p>Gagne des points, débloque des badges, monte en niveau. 65+ badges, 8 niveaux de Pousse à Légende.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🎁</span><h3>Vraies récompenses</h3><p>Échange tes points contre de vrais bons de réduction. Les bonnes habitudes méritent de vraies récompenses.</p></div>
-            <div class="feature-card"><span class="feature-emoji">⌚</span><h3>Apple Watch & Widget</h3><p>Ajoute une boisson depuis ton poignet. Widget iOS pour voir ta consommation d'un coup d'œil.</p></div>
+            <div class="feature-card"><span class="feature-emoji">☕</span><h3>Suivi précis en mg</h3><p>Enregistre chaque boisson en un tap. Café, thé, soda, energy drink — tout est répertorié avec les valeurs exactes en mg de caféine.</p></div>
+            <div class="feature-card"><span class="feature-emoji">🏆</span><h3>Gamification complète</h3><p>Gagne des points, débloque des badges, monte en niveau. 100 badges à collectionner, 8 niveaux de Pousse à Légende.</p></div>
+            <div class="feature-card"><span class="feature-emoji">🎁</span><h3>Vraies récompenses</h3><p>Échange tes points contre de vrais bons de réduction chez nos partenaires. Les bonnes habitudes méritent de vraies récompenses.</p></div>
+            <div class="feature-card"><span class="feature-emoji">⌚</span><h3>Apple Watch & Widget</h3><p>Ajoute une boisson depuis ton poignet. Widget iOS pour voir ta consommation d'un coup d'œil sur l'écran d'accueil.</p></div>
             <div class="feature-card"><span class="feature-emoji">📊</span><h3>Stats & évolution</h3><p>Graphiques d'évolution, analyse par horaire, par jour de semaine, comparaison semaine/semaine.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🔥</span><h3>Streaks & motivation</h3><p>Maintiens ton streak de jours consécutifs. Un streak perdu coûte des points — la motivation ultime.</p></div>
+            <div class="feature-card"><span class="feature-emoji">🔥</span><h3>Streaks & motivation</h3><p>Maintiens ton streak de jours consécutifs sous ta limite. Un streak perdu coûte des points — la motivation ultime.</p></div>
         </div>
     </section>
 
@@ -181,8 +163,8 @@
             <div class="premium-card"><span class="premium-card-emoji">🎁</span><h3>Meilleures récompenses</h3><p>Réductions plus élevées, cadeaux offerts, délais plus courts.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">⚡</span><h3>Bonus de niveau 5x</h3><p>Progresse jusqu'à 5x plus vite vers la Légende.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">🏷️</span><h3>Offres exclusives</h3><p>Codes promo et livraisons offertes chaque semaine.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">😴</span><h3>Corrélation sommeil</h3><p>Analyse l'impact de ta caféine sur ton sommeil.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🧠</span><h3>Suivi stress</h3><p>Questionnaire hebdo + corrélations personnalisées.</p></div>
+            <div class="premium-card"><span class="premium-card-emoji">😴</span><h3>Corrélation sommeil</h3><p>Analyse l'impact de ta caféine sur ton sommeil — bientôt disponible.</p></div>
+            <div class="premium-card"><span class="premium-card-emoji">🧠</span><h3>Suivi stress</h3><p>Questionnaire hebdo + corrélations personnalisées — bientôt disponible.</p></div>
         </div>
 
         <h3 class="compare-title">Gratuit vs Premium</h3>
@@ -197,7 +179,7 @@
             <tbody>
                 <tr><td>Suivi caféine quotidien</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Apple Watch & Widget</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Badges & niveaux</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>100 badges & niveaux</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Stats de base</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Export CSV des données</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Récompenses basiques</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
@@ -205,8 +187,8 @@
                 <tr><td>Meilleures récompenses</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Bonus de niveau 5x supérieurs</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Offres partenaires exclusives</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Corrélation caféine / sommeil</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Suivi stress & anxiété</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Corrélation caféine / sommeil</td><td class="col-free">❌</td><td class="col-premium">✅ bientôt</td></tr>
+                <tr><td>Suivi stress & anxiété</td><td class="col-free">❌</td><td class="col-premium">✅ bientôt</td></tr>
             </tbody>
         </table>
 
@@ -214,7 +196,7 @@
             <div class="plan-card">
                 <div class="plan-name">Mensuel</div>
                 <div class="plan-price">1,99€<span>/mois</span></div>
-                <div class="plan-detail">Résiliable à tout moment</div>
+                <div class="plan-detail">Prix TTC — Résiliable à tout moment</div>
                 <div class="plan-spacer"></div>
                 <a href="#download" class="plan-btn">Commencer</a>
             </div>
@@ -222,7 +204,7 @@
                 <div class="plan-badge">⭐ Le plus populaire</div>
                 <div class="plan-name">Annuel</div>
                 <div class="plan-price">14,99€<span>/an</span></div>
-                <div class="plan-detail">soit 1,25€/mois — 2 mois offerts 🎉</div>
+                <div class="plan-detail">Prix TTC — soit 1,25€/mois — 2 mois offerts 🎉</div>
                 <div class="plan-spacer"></div>
                 <a href="#download" class="plan-btn">Commencer</a>
             </div>
@@ -230,7 +212,7 @@
                 <div class="plan-name">Essai gratuit</div>
                 <div class="plan-price">0€<span>/7j</span></div>
                 <div class="plan-essai">✅ 7 jours gratuits</div>
-                <div class="plan-warning">⚠️ Puis 1,99€/mois automatiquement. Résilie avant la fin de l'essai pour ne pas être débité.</div>
+                <div class="plan-warning">⚠️ Puis 1,99€ TTC/mois automatiquement. Résilie avant la fin de l'essai pour ne pas être débité.</div>
                 <a href="#download" class="plan-btn">Essayer gratuitement</a>
             </div>
         </div>
@@ -263,39 +245,6 @@
         <a href="#" class="app-store-btn">🍎 &nbsp; Télécharger sur l'App Store</a>
     </section>
 
-    <section class="contact-rgpd" id="contact">
-        <div class="contact-box">
-            <h2>🔒 Exercer tes droits RGPD</h2>
-            <p>Conformément au RGPD, tu peux demander la suppression de ton compte, l'export de tes données ou la rectification de tes informations. Remplis ce formulaire et nous te répondrons sous 30 jours.</p>
-            <form id="rgpd-form" onsubmit="envoyerFormulaire(event)">
-                <div class="form-group">
-                    <label>Ton email *</label>
-                    <input type="email" id="email" placeholder="ton@email.fr" required>
-                </div>
-                <div class="form-group">
-                    <label>Type de demande *</label>
-                    <select id="type" required>
-                        <option value="">Sélectionne une option</option>
-                        <option value="Suppression de compte et données">Suppression de mon compte et données</option>
-                        <option value="Export de mes données">Export de mes données (portabilité)</option>
-                        <option value="Rectification de mes données">Rectification de mes données</option>
-                        <option value="Opposition au traitement">Opposition au traitement</option>
-                        <option value="Autre demande RGPD">Autre demande RGPD</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Message (optionnel)</label>
-                    <textarea id="message" placeholder="Précise ta demande si nécessaire..."></textarea>
-                </div>
-                <button type="submit" class="form-submit">Envoyer ma demande</button>
-                <p class="form-note">Tes données ne sont utilisées que pour traiter ta demande. Réponse garantie sous 30 jours.</p>
-            </form>
-            <div class="form-success" id="form-success">
-                ✅ Ta demande a bien été envoyée ! Nous te répondrons à <strong id="email-confirm"></strong> sous 30 jours.
-            </div>
-        </div>
-    </section>
-
     <footer>
         <div class="footer-top">
             <div class="footer-brand">
@@ -318,7 +267,7 @@
                         <li><a href="privacy.html">Politique de confidentialité</a></li>
                         <li><a href="cgu.html">CGU</a></li>
                         <li><a onclick="showPage('legal')">Mentions légales</a></li>
-                        <li><a onclick="showMain('contact')">Droits RGPD</a></li>
+                        <li><a href="rgpd.html">Droits RGPD</a></li>
                         <li><a href="mailto:hello@pausecafe-app.fr">Contact</a></li>
                     </ul>
                 </div>
@@ -367,14 +316,12 @@
 
 <script>
     if(localStorage.getItem('cookies-ok')) document.getElementById('cookie-banner').style.display='none';
-
     function showPage(page) {
         document.getElementById('main-content').style.display = 'none';
         document.querySelectorAll('.legal-page').forEach(p => p.classList.remove('active'));
         document.getElementById(page + '-page').classList.add('active');
         window.scrollTo(0, 0);
     }
-
     function showMain(anchor) {
         document.getElementById('main-content').style.display = 'block';
         document.querySelectorAll('.legal-page').forEach(p => p.classList.remove('active'));
@@ -385,19 +332,6 @@
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
             }, 100);
         }
-    }
-
-    function envoyerFormulaire(e) {
-        e.preventDefault();
-        var email = document.getElementById('email').value;
-        var type = document.getElementById('type').value;
-        var message = document.getElementById('message').value;
-        var body = 'Email : ' + email + '\nType de demande : ' + type + (message ? '\nMessage : ' + message : '');
-        var mailto = 'mailto:hello@pausecafe-app.fr?subject=' + encodeURIComponent('Demande RGPD : ' + type) + '&body=' + encodeURIComponent(body);
-        window.location.href = mailto;
-        document.getElementById('rgpd-form').style.display = 'none';
-        document.getElementById('email-confirm').textContent = email;
-        document.getElementById('form-success').style.display = 'block';
     }
 </script>
 </body>
