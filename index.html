@@ -40,11 +40,14 @@
         .premium { padding: 100px 48px; background: linear-gradient(135deg, #1a0a2e 0%, #2d1155 50%, #1a0a2e 100%); color: white; position: relative; overflow: hidden; }
         .premium::before { content: '👑'; position: absolute; font-size: 30vw; right: -5vw; top: 50%; transform: translateY(-50%); opacity: 0.04; pointer-events: none; }
         .premium-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 64px; }
-        .premium-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(155,111,208,0.3); padding: 28px 24px; border-radius: 16px; transition: background 0.2s, transform 0.2s; }
+        .premium-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(155,111,208,0.3); padding: 28px 24px; border-radius: 16px; transition: background 0.2s, transform 0.2s; position: relative; }
         .premium-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
         .premium-card-emoji { font-size: 2rem; margin-bottom: 12px; display: block; }
         .premium-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: white; }
         .premium-card p { font-size: 0.85rem; line-height: 1.6; opacity: 0.6; font-weight: 300; }
+        .bientot-badge { display: inline-block; background: #E08A00; color: white; font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 20px; letter-spacing: 0.04em; margin-bottom: 10px; }
+        .premium-card.coming-soon { border-color: rgba(224,138,0,0.4); background: rgba(224,138,0,0.06); }
+        .premium-card.coming-soon:hover { background: rgba(224,138,0,0.12); }
         .compare-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: white; text-align: center; margin-bottom: 40px; }
         .compare-table { width: 100%; max-width: 800px; margin: 0 auto 64px; border-collapse: collapse; }
         .compare-table th { padding: 20px 24px; font-size: 0.9rem; font-weight: 700; text-align: center; }
@@ -58,7 +61,8 @@
         .compare-table td.col-free { background: rgba(255,255,255,0.03); }
         .compare-table td.col-premium { background: rgba(107,63,160,0.15); }
         .compare-table tr:hover td { background: rgba(255,255,255,0.06); }
-        .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 800px; margin: 0 auto; }
+        .compare-table td.bientot-cell { font-size: 0.8rem; color: #FFB347; font-weight: 600; }
+        .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 600px; margin: 0 auto; }
         .plan-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(155,111,208,0.3); padding: 32px 24px; border-radius: 20px; text-align: center; position: relative; transition: transform 0.2s; }
         .plan-card:hover { transform: translateY(-4px); }
         .plan-card.popular { border-color: var(--purple-light); border-width: 2px; background: rgba(107,63,160,0.2); }
@@ -66,9 +70,8 @@
         .plan-name { font-size: 0.85rem; font-weight: 500; opacity: 0.6; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
         .plan-price { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: white; margin-bottom: 4px; }
         .plan-price span { font-size: 1rem; font-weight: 400; opacity: 0.6; }
-        .plan-detail { font-size: 0.8rem; opacity: 0.5; margin-bottom: 8px; }
-        .plan-essai { font-size: 0.8rem; color: #90EE90; font-weight: 500; margin-bottom: 12px; }
-        .plan-warning { font-size: 0.75rem; opacity: 0.5; margin-bottom: 24px; font-style: italic; line-height: 1.5; }
+        .plan-detail { font-size: 0.8rem; opacity: 0.55; margin-bottom: 8px; }
+        .plan-offre { font-size: 0.8rem; color: #90EE90; font-weight: 600; margin-bottom: 24px; }
         .plan-spacer { height: 44px; }
         .plan-btn { display: block; background: linear-gradient(135deg, var(--purple), var(--purple-light)); color: white; padding: 12px 24px; border-radius: 100px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: opacity 0.2s; }
         .plan-btn:hover { opacity: 0.85; }
@@ -130,6 +133,8 @@
 </nav>
 
 <div id="main-content">
+
+    <!-- ── HERO ── -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-badge">📱 Disponible sur App Store</div>
@@ -142,83 +147,142 @@
         </div>
     </section>
 
+    <!-- ── FONCTIONNALITÉS ── -->
     <section class="features" id="features">
         <div class="section-label">Fonctionnalités</div>
         <h2 class="section-title">Tout ce qu'il faut pour prendre soin de toi</h2>
         <div class="features-grid">
-            <div class="feature-card"><span class="feature-emoji">☕</span><h3>Suivi précis en mg</h3><p>Enregistre chaque boisson en un tap. Café, thé, soda, energy drink — tout est répertorié avec les valeurs exactes en mg de caféine.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🏆</span><h3>Gamification complète</h3><p>Gagne des points, débloque des badges, monte en niveau. 100 badges à collectionner, 8 niveaux de Pousse à Légende.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🎁</span><h3>Vraies récompenses</h3><p>Échange tes points contre de vrais bons de réduction chez nos partenaires. Les bonnes habitudes méritent de vraies récompenses.</p></div>
-            <div class="feature-card"><span class="feature-emoji">⌚</span><h3>Apple Watch & Widget</h3><p>Ajoute une boisson depuis ton poignet. Widget iOS pour voir ta consommation d'un coup d'œil sur l'écran d'accueil.</p></div>
-            <div class="feature-card"><span class="feature-emoji">📊</span><h3>Stats & évolution</h3><p>Graphiques d'évolution, analyse par horaire, par jour de semaine, comparaison semaine/semaine.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🔥</span><h3>Streaks & motivation</h3><p>Maintiens ton streak de jours consécutifs sous ta limite. Un streak perdu coûte des points — la motivation ultime.</p></div>
+            <div class="feature-card">
+                <span class="feature-emoji">☕</span>
+                <h3>Suivi précis en mg</h3>
+                <p>Enregistre chaque boisson en un tap. Café, thé, soda, energy drink — tout est répertorié avec les valeurs exactes en mg de caféine.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-emoji">🏆</span>
+                <h3>100 badges & 8 niveaux</h3>
+                <p>Débloque des badges, gagne des points et monte en niveau. De Pousse 🌱 à Légende 🦁 — 100 badges à collectionner, chacun récompensé selon sa difficulté.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-emoji">🎁</span>
+                <h3>Vraies récompenses</h3>
+                <p>Échange tes points contre de vrais bons de réduction chez nos partenaires. Les bonnes habitudes méritent de vraies récompenses.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-emoji">⌚</span>
+                <h3>Apple Watch & Widget</h3>
+                <p>Ajoute une boisson depuis ton poignet. Widget iOS pour voir ta consommation d'un coup d'œil sur l'écran d'accueil.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-emoji">📊</span>
+                <h3>Stats & évolution</h3>
+                <p>Graphiques d'évolution, analyse par horaire, par jour de semaine, comparaison semaine/semaine.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-emoji">🔥</span>
+                <h3>Streaks & motivation</h3>
+                <p>Maintiens ton streak de jours consécutifs sous ta limite. Un streak perdu coûte des points — la motivation ultime.</p>
+            </div>
         </div>
     </section>
 
+    <!-- ── PREMIUM ── -->
     <section class="premium" id="premium">
         <div class="section-label" style="color:var(--purple-light);opacity:1">Premium</div>
         <h2 class="section-title" style="color:white">Passe au niveau supérieur 👑</h2>
+
+        <!-- Cards Premium -->
         <div class="premium-cards">
-            <div class="premium-card"><span class="premium-card-emoji">🔕</span><h3>Sans publicité</h3><p>Expérience 100% fluide, sans interruption publicitaire.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🎁</span><h3>Meilleures récompenses</h3><p>Réductions plus élevées, cadeaux offerts, délais plus courts.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">⚡</span><h3>Bonus de niveau 5x</h3><p>Progresse jusqu'à 5x plus vite vers la Légende.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🏷️</span><h3>Offres exclusives</h3><p>Codes promo et livraisons offertes chaque semaine.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">😴</span><h3>Corrélation sommeil</h3><p>Analyse l'impact de ta caféine sur ton sommeil — bientôt disponible.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🧠</span><h3>Suivi stress</h3><p>Questionnaire hebdo + corrélations personnalisées — bientôt disponible.</p></div>
+            <div class="premium-card">
+                <span class="premium-card-emoji">🔕</span>
+                <h3>Sans publicité</h3>
+                <p>Expérience 100% fluide, sans interruption publicitaire.</p>
+            </div>
+            <div class="premium-card">
+                <span class="premium-card-emoji">🎁</span>
+                <h3>Meilleures récompenses</h3>
+                <p>Réductions plus élevées, cadeaux offerts, délais plus courts.</p>
+            </div>
+            <div class="premium-card">
+                <span class="premium-card-emoji">⚡</span>
+                <h3>Bonus de niveau jusqu'à 10x</h3>
+                <p>Progresse jusqu'à 10x plus vite vers la Légende.</p>
+            </div>
+            <div class="premium-card">
+                <span class="premium-card-emoji">🏷️</span>
+                <h3>Offres exclusives</h3>
+                <p>Codes promo et livraisons offertes chaque semaine.</p>
+            </div>
+            <!-- Cards "Bientôt" — distinctes visuellement -->
+            <div class="premium-card coming-soon">
+                <div class="bientot-badge">🔜 Bientôt</div>
+                <span class="premium-card-emoji">😴</span>
+                <h3>Corrélation sommeil</h3>
+                <p>Analyse l'impact de ta caféine sur ton sommeil, heure par heure.</p>
+            </div>
+            <div class="premium-card coming-soon">
+                <div class="bientot-badge">🔜 Bientôt</div>
+                <span class="premium-card-emoji">🧠</span>
+                <h3>Suivi stress & anxiété</h3>
+                <p>Questionnaire hebdo + corrélations personnalisées caféine / anxiété.</p>
+            </div>
         </div>
 
+        <!-- Tableau comparatif -->
         <h3 class="compare-title">Gratuit vs Premium</h3>
         <table class="compare-table">
             <thead>
                 <tr>
                     <th style="width:50%"></th>
                     <th class="col-free">Gratuit</th>
-                    <th class="col-premium">Premium 👑<span>dès 1,25€/mois</span></th>
+                    <th class="col-premium">Premium 👑<span>dès 1,50 €/mois</span></th>
                 </tr>
             </thead>
             <tbody>
                 <tr><td>Suivi caféine quotidien</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Apple Watch & Widget</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>100 badges & niveaux</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>100 badges & 8 niveaux</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Stats de base</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Export CSV des données</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Récompenses basiques</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Publicités</td><td class="col-free">✅</td><td class="col-premium">❌</td></tr>
                 <tr><td>Meilleures récompenses</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Bonus de niveau 5x supérieurs</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Bonus de niveau jusqu'à 10x</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Offres partenaires exclusives</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Corrélation caféine / sommeil</td><td class="col-free">❌</td><td class="col-premium">✅ bientôt</td></tr>
-                <tr><td>Suivi stress & anxiété</td><td class="col-free">❌</td><td class="col-premium">✅ bientôt</td></tr>
+                <tr>
+                    <td>Corrélation caféine / sommeil</td>
+                    <td class="col-free">❌</td>
+                    <td class="col-premium bientot-cell">🔜 Bientôt</td>
+                </tr>
+                <tr>
+                    <td>Suivi stress & anxiété</td>
+                    <td class="col-free">❌</td>
+                    <td class="col-premium bientot-cell">🔜 Bientôt</td>
+                </tr>
             </tbody>
         </table>
 
+        <!-- Plans tarifaires — 2 plans seulement -->
         <div class="plans">
             <div class="plan-card">
                 <div class="plan-name">Mensuel</div>
-                <div class="plan-price">1,99€<span>/mois</span></div>
+                <div class="plan-price">1,99 €<span>/mois</span></div>
                 <div class="plan-detail">Prix TTC — Résiliable à tout moment</div>
                 <div class="plan-spacer"></div>
                 <a href="#download" class="plan-btn">Commencer</a>
             </div>
             <div class="plan-card popular">
-                <div class="plan-badge">⭐ Le plus populaire</div>
+                <div class="plan-badge">⭐ Meilleur rapport</div>
                 <div class="plan-name">Annuel</div>
-                <div class="plan-price">14,99€<span>/an</span></div>
-                <div class="plan-detail">Prix TTC — soit 1,25€/mois — 2 mois offerts 🎉</div>
-                <div class="plan-spacer"></div>
+                <div class="plan-price">17,99 €<span>/an</span></div>
+                <div class="plan-detail">Prix TTC — soit 1,50 €/mois</div>
+                <div class="plan-offre">🎉 3 mois offerts</div>
                 <a href="#download" class="plan-btn">Commencer</a>
-            </div>
-            <div class="plan-card">
-                <div class="plan-name">Essai gratuit</div>
-                <div class="plan-price">0€<span>/7j</span></div>
-                <div class="plan-essai">✅ 7 jours gratuits</div>
-                <div class="plan-warning">⚠️ Puis 1,99€ TTC/mois automatiquement. Résilie avant la fin de l'essai pour ne pas être débité.</div>
-                <a href="#download" class="plan-btn">Essayer gratuitement</a>
             </div>
         </div>
         <p style="text-align:center;font-size:0.75rem;opacity:0.4;margin-top:24px">Abonnements gérés par Apple. Résiliation : Réglages iOS → App Store → Abonnements.</p>
     </section>
 
+    <!-- ── NORMES EFSA ── -->
     <section class="normes" id="normes">
         <div style="max-width:1100px;margin:0 auto">
             <div class="section-label">Science</div>
@@ -239,12 +303,14 @@
         </div>
     </section>
 
+    <!-- ── DOWNLOAD ── -->
     <section class="download" id="download">
         <h2>Commence aujourd'hui.<br>C'est gratuit.</h2>
         <p>Rejoins les utilisateurs qui reprennent le contrôle de leur caféine.</p>
         <a href="#" class="app-store-btn">🍎 &nbsp; Télécharger sur l'App Store</a>
     </section>
 
+    <!-- ── FOOTER ── -->
     <footer>
         <div class="footer-top">
             <div class="footer-brand">
@@ -280,7 +346,7 @@
     </footer>
 </div>
 
-<!-- MENTIONS LÉGALES -->
+<!-- ── MENTIONS LÉGALES ── -->
 <div id="legal-page" class="legal-page">
     <button class="back-btn" onclick="showMain()">← Retour</button>
     <h1>Mentions légales</h1>
@@ -308,7 +374,7 @@
     <p>Conformément à l'article L.616-1 du Code de la consommation. Contact préalable : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a></p>
 </div>
 
-<!-- BANNIÈRE COOKIES -->
+<!-- ── BANNIÈRE COOKIES ── -->
 <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--espresso);color:var(--cream);padding:16px 48px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:0.85rem;box-shadow:0 -4px 20px rgba(0,0,0,0.2);">
     <p style="opacity:0.8;font-weight:300;margin:0">🍪 Ce site n'utilise aucun cookie de tracking. Hébergé sur GitHub Pages. <a href="privacy.html" style="color:var(--caramel)">En savoir plus</a></p>
     <button onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookies-ok','1')" style="background:var(--caramel);color:white;border:none;padding:10px 24px;border-radius:100px;font-size:0.85rem;font-weight:500;cursor:pointer;white-space:nowrap;">J'ai compris</button>
