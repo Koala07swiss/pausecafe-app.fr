@@ -23,8 +23,14 @@
         a { color: var(--caramel); text-decoration: none; }
         a:hover { text-decoration: underline; }
         .encadre { background: rgba(196, 135, 58, 0.08); border-left: 3px solid var(--caramel); padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 16px 0; }
+        .prix-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+        .prix-card { background: rgba(196, 135, 58, 0.06); border: 1px solid rgba(196, 135, 58, 0.2); border-radius: 12px; padding: 16px 20px; }
+        .prix-card .label { font-size: 0.8rem; font-weight: 500; opacity: 0.6; margin-bottom: 6px; }
+        .prix-card .montant { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--cafe); opacity: 1; margin-bottom: 4px; }
+        .prix-card .detail { font-size: 0.8rem; opacity: 0.6; margin-bottom: 0; }
+        .badge-offre { display: inline-block; background: #2D6A4F; color: white; font-size: 0.7rem; font-weight: 600; padding: 2px 8px; border-radius: 20px; margin-left: 6px; vertical-align: middle; }
         footer { text-align: center; padding: 40px 24px; font-size: 0.8rem; opacity: 0.4; border-top: 1px solid rgba(44, 24, 16, 0.1); }
-        @media (max-width: 768px) { nav { padding: 16px 24px; } .container { padding: 100px 24px 60px; } h1 { font-size: 2rem; } }
+        @media (max-width: 768px) { nav { padding: 16px 24px; } .container { padding: 100px 24px 60px; } h1 { font-size: 2rem; } .prix-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -42,7 +48,7 @@
     <h2>2. Description du service</h2>
     <ul>
         <li>Suivi quotidien de la consommation de caféine en mg</li>
-        <li>Système de gamification (points, badges, niveaux, streaks)</li>
+        <li>Système de progression avec points, badges, niveaux et streaks</li>
         <li>Statistiques personnalisées d'évolution</li>
         <li>Récompenses échangeables contre des bons de réduction partenaires</li>
         <li>Synchronisation Apple Watch et Widget iOS</li>
@@ -57,12 +63,19 @@
     <p>L'utilisation complète nécessite un compte via email/mot de passe, Google Sign-In ou Sign in with Apple. Tu es responsable de la confidentialité de tes identifiants. Toute utilisation non autorisée doit être signalée à <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a>.</p>
 
     <h2>5. Abonnement Premium et prix</h2>
-    <ul>
-        <li><strong>Mensuel</strong> : 1,99 € TTC / mois</li>
-        <li><strong>Annuel</strong> : 14,99 € TTC / an (soit 1,25 € TTC/mois)</li>
-        <li><strong>Essai gratuit</strong> : 7 jours, puis 1,99 € TTC/mois</li>
-    </ul>
-    <p>Renouvellement automatique sauf résiliation au moins 24h avant la fin de la période depuis les Réglages de l'App Store. Les achats sont traités par Apple.</p>
+    <div class="prix-grid">
+        <div class="prix-card">
+            <div class="label">Mensuel</div>
+            <div class="montant">1,99 € TTC</div>
+            <div class="detail">par mois · sans engagement</div>
+        </div>
+        <div class="prix-card">
+            <div class="label">Annuel <span class="badge-offre">3 mois offerts 🎉</span></div>
+            <div class="montant">17,99 € TTC</div>
+            <div class="detail">par an · soit 1,50 € TTC/mois</div>
+        </div>
+    </div>
+    <p>Renouvellement automatique sauf résiliation au moins 24h avant la fin de la période depuis les Réglages de l'App Store. Les achats sont traités par Apple. Tous les prix sont indiqués toutes taxes comprises (TTC).</p>
 
     <h2>6. Droit de rétractation</h2>
     <div class="encadre">
@@ -72,7 +85,7 @@
     <p>Pour toute demande de remboursement, adresse-toi à Apple via <a href="https://reportaproblem.apple.com" target="_blank">reportaproblem.apple.com</a>.</p>
 
     <h2>7. Publicités</h2>
-    <p>La version gratuite affiche des publicités via Google AdMob. Les utilisateurs Premium bénéficient d'une expérience sans publicité.</p>
+    <p>La version gratuite affiche des publicités via Google AdMob. Les utilisateurs Premium bénéficient d'une expérience entièrement sans publicité.</p>
 
     <h2>8. Récompenses et points</h2>
     <ul>
