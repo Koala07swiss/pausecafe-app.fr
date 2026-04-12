@@ -11,21 +11,27 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
-        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: rgba(245, 237, 214, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(196, 135, 58, 0.2); }
-        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--cafe); text-decoration: none; cursor: pointer; }
+
+        /* ── Navigation ── */
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; background: rgba(245, 237, 214, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(196, 135, 58, 0.2); }
+        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--cafe); text-decoration: none; cursor: pointer; display: flex; align-items: center; gap: 10px; }
+        .nav-logo-img { width: 36px; height: 36px; object-fit: contain; border-radius: 8px; }
         .nav-links { display: flex; gap: 28px; list-style: none; }
         .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--cafe); text-decoration: none; opacity: 0.7; transition: opacity 0.2s; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; }
         .nav-links a:hover { opacity: 1; }
         .burger-btn { display: none; background: none; border: none; cursor: pointer; padding: 6px; color: var(--cafe); flex-direction: column; gap: 5px; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 10px; transition: background 0.2s; }
         .burger-btn:hover { background: rgba(44,24,16,0.08); }
         .burger-btn svg { width: 22px; height: 22px; }
+
+        /* ── Menu mobile ── */
         .mobile-menu-overlay { display: none; position: fixed; inset: 0; z-index: 200; }
         .mobile-menu-overlay.open { display: block; }
         .mobile-menu-backdrop { position: absolute; inset: 0; background: rgba(26, 15, 10, 0.55); backdrop-filter: blur(4px); }
         .mobile-menu-panel { position: absolute; top: 0; right: 0; width: 280px; max-width: 85vw; height: 100%; background: var(--cream); box-shadow: -8px 0 40px rgba(44,24,16,0.2); display: flex; flex-direction: column; transform: translateX(100%); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .mobile-menu-overlay.open .mobile-menu-panel { transform: translateX(0); }
         .mobile-menu-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid rgba(196,135,58,0.2); }
-        .mobile-menu-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 900; color: var(--cafe); }
+        .mobile-menu-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 900; color: var(--cafe); display: flex; align-items: center; gap: 8px; }
+        .mobile-menu-logo-img { width: 28px; height: 28px; object-fit: contain; border-radius: 6px; }
         .mobile-menu-close { background: none; border: none; cursor: pointer; padding: 6px; color: var(--cafe); opacity: 0.6; border-radius: 8px; transition: opacity 0.2s, background 0.2s; }
         .mobile-menu-close:hover { opacity: 1; background: rgba(44,24,16,0.08); }
         .mobile-menu-close svg { width: 20px; height: 20px; display: block; }
@@ -41,8 +47,10 @@
         .mobile-menu-divider { height: 1px; background: rgba(44,24,16,0.08); margin: 8px 24px; }
         .mobile-menu-footer { padding: 20px 24px; border-top: 1px solid rgba(196,135,58,0.15); }
         .mobile-menu-footer a { display: block; background: var(--cafe); color: var(--cream); text-align: center; padding: 14px 24px; border-radius: 100px; font-size: 0.9rem; font-weight: 600; text-decoration: none; }
+
+        /* ── Hero ── */
         .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 48px 80px; position: relative; overflow: hidden; }
-        .hero::before { content: '☕'; position: absolute; font-size: 40vw; right: -5vw; top: 50%; transform: translateY(-50%); opacity: 0.15; line-height: 1; pointer-events: none; }
+        .hero-logo-bg { position: absolute; right: -4vw; top: 50%; transform: translateY(-50%); width: 44vw; max-width: 600px; opacity: 0.18; pointer-events: none; user-select: none; border-radius: 16px; }
         .hero-content { max-width: 680px; position: relative; z-index: 1; }
         .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--caramel); color: white; padding: 6px 16px; border-radius: 100px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 32px; animation: fadeUp 0.6s ease both; }
         .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 900; line-height: 1.05; color: var(--cafe); margin-bottom: 24px; animation: fadeUp 0.6s ease 0.1s both; }
@@ -53,6 +61,8 @@
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(44,24,16,0.35); }
         .btn-secondary { display: inline-flex; align-items: center; gap: 8px; color: var(--cafe); padding: 16px 24px; border-radius: 100px; font-size: 0.95rem; font-weight: 500; text-decoration: none; border: 1.5px solid rgba(44,24,16,0.25); transition: border-color 0.2s, background 0.2s; cursor: pointer; }
         .btn-secondary:hover { border-color: var(--caramel); background: rgba(196,135,58,0.06); }
+
+        /* ── Features ── */
         .features { padding: 100px 48px; background: var(--espresso); color: var(--cream); }
         .section-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.5; margin-bottom: 16px; }
         .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.15; margin-bottom: 64px; max-width: 500px; }
@@ -62,6 +72,8 @@
         .feature-emoji { font-size: 2.5rem; margin-bottom: 20px; display: block; }
         .feature-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; color: var(--cream); }
         .feature-card p { font-size: 0.9rem; line-height: 1.65; opacity: 0.6; font-weight: 300; }
+
+        /* ── Premium ── */
         .premium { padding: 100px 48px; background: linear-gradient(135deg, #1a0a2e 0%, #2d1155 50%, #1a0a2e 100%); color: white; position: relative; overflow: hidden; }
         .premium::before { content: '👑'; position: absolute; font-size: 30vw; right: -5vw; top: 50%; transform: translateY(-50%); opacity: 0.04; pointer-events: none; }
         .premium-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 64px; }
@@ -70,9 +82,6 @@
         .premium-card-emoji { font-size: 2rem; margin-bottom: 12px; display: block; }
         .premium-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: white; }
         .premium-card p { font-size: 0.85rem; line-height: 1.6; opacity: 0.6; font-weight: 300; }
-        .bientot-badge { display: inline-block; background: #E08A00; color: white; font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 20px; letter-spacing: 0.04em; margin-bottom: 10px; }
-        .premium-card.coming-soon { border-color: rgba(224,138,0,0.4); background: rgba(224,138,0,0.06); }
-        .premium-card.coming-soon:hover { background: rgba(224,138,0,0.12); }
         .compare-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: white; text-align: center; margin-bottom: 40px; }
         .compare-table { width: 100%; max-width: 800px; margin: 0 auto 64px; border-collapse: collapse; }
         .compare-table th { padding: 20px 24px; font-size: 0.9rem; font-weight: 700; text-align: center; }
@@ -86,7 +95,6 @@
         .compare-table td.col-free { background: rgba(255,255,255,0.03); }
         .compare-table td.col-premium { background: rgba(107,63,160,0.15); }
         .compare-table tr:hover td { background: rgba(255,255,255,0.06); }
-        .compare-table td.bientot-cell { font-size: 0.8rem; color: #FFB347; font-weight: 600; }
         .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 600px; margin: 0 auto; }
         .plan-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(155,111,208,0.3); padding: 32px 24px; border-radius: 20px; text-align: center; position: relative; transition: transform 0.2s; }
         .plan-card:hover { transform: translateY(-4px); }
@@ -98,24 +106,30 @@
         .plan-detail { font-size: 0.8rem; opacity: 0.55; margin-bottom: 8px; }
         .plan-offre { font-size: 0.8rem; color: #90EE90; font-weight: 600; margin-bottom: 8px; }
         .plan-features { font-size: 0.75rem; opacity: 0.6; margin-bottom: 24px; line-height: 1.6; }
-        .plan-spacer { height: 32px; }
         .plan-btn { display: block; background: linear-gradient(135deg, var(--purple), var(--purple-light)); color: white; padding: 12px 24px; border-radius: 100px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: opacity 0.2s; }
         .plan-btn:hover { opacity: 0.85; }
+
+        /* ── Normes ── */
         .normes { padding: 100px 48px; background: var(--mousse); }
         .normes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; max-width: 1100px; margin: 0 auto; }
         .norme-item { display: flex; align-items: flex-start; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(44,24,16,0.1); }
         .norme-mg { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; min-width: 100px; color: var(--caramel); }
         .norme-info h4 { font-weight: 500; margin-bottom: 4px; font-size: 0.95rem; }
         .norme-info p { font-size: 0.8rem; opacity: 0.6; font-weight: 300; }
+
+        /* ── Download ── */
         .download { padding: 120px 48px; text-align: center; background: var(--cream); position: relative; overflow: hidden; }
         .download::before { content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(196,135,58,0.12) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); }
         .download h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; color: var(--cafe); margin-bottom: 24px; position: relative; }
         .download p { font-size: 1.1rem; opacity: 0.65; margin-bottom: 48px; font-weight: 300; position: relative; }
         .app-store-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--cafe); color: var(--cream); padding: 18px 40px; border-radius: 16px; text-decoration: none; font-weight: 500; font-size: 1rem; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 8px 30px rgba(44,24,16,0.25); position: relative; }
         .app-store-btn:hover { transform: translateY(-3px); }
+
+        /* ── Footer ── */
         footer { background: var(--espresso); color: var(--cream); padding: 60px 48px 40px; }
         .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .footer-brand h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; margin-bottom: 8px; }
+        .footer-brand h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        .footer-logo-img { width: 32px; height: 32px; object-fit: contain; border-radius: 6px; opacity: 0.85; }
         .footer-brand p { font-size: 0.85rem; opacity: 0.45; font-weight: 300; }
         .footer-links { display: flex; gap: 48px; }
         .footer-col h4 { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.45; margin-bottom: 16px; }
@@ -123,6 +137,8 @@
         .footer-col a { color: var(--cream); text-decoration: none; font-size: 0.875rem; opacity: 0.65; transition: opacity 0.2s; cursor: pointer; }
         .footer-col a:hover { opacity: 1; }
         .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; opacity: 0.35; }
+
+        /* ── Pages légales ── */
         .legal-page { display: none; padding: 120px 48px 80px; max-width: 800px; margin: 0 auto; }
         .legal-page.active { display: block; }
         .legal-page h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--cafe); margin-bottom: 8px; }
@@ -134,10 +150,13 @@
         .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--cafe); font-size: 0.85rem; font-weight: 500; opacity: 0.6; margin-bottom: 48px; transition: opacity 0.2s; cursor: pointer; background: none; border: none; padding: 0; font-family: 'DM Sans', sans-serif; }
         .back-btn:hover { opacity: 1; }
         #main-content { display: block; }
+
         @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
         @media (max-width: 768px) {
-            nav { padding: 16px 24px; } .nav-links { display: none; } .burger-btn { display: flex; }
+            nav { padding: 12px 24px; } .nav-links { display: none; } .burger-btn { display: flex; }
             .hero { padding: 100px 24px 60px; }
+            .hero-logo-bg { width: 80vw; right: 50%; transform: translate(50%, -50%); opacity: 0.08; top: 30%; }
             .features, .normes, .download, .premium { padding: 60px 24px; }
             .normes-grid, .plans { grid-template-columns: 1fr; gap: 32px; }
             .compare-table { font-size: 0.8rem; } .compare-table td, .compare-table th { padding: 10px 12px; }
@@ -150,7 +169,10 @@
 <body>
 
 <nav>
-    <span class="nav-logo" onclick="showMain()">☕ PauseCafé</span>
+    <span class="nav-logo" onclick="showMain()">
+        <img src="logo.png" alt="PauseCafé" class="nav-logo-img">
+        PauseCafé
+    </span>
     <ul class="nav-links">
         <li><a onclick="showMain('features')">Fonctionnalités</a></li>
         <li><a onclick="showMain('premium')" style="color:var(--purple);font-weight:700;opacity:1">👑 Premium</a></li>
@@ -167,7 +189,10 @@
     <div class="mobile-menu-backdrop"></div>
     <div class="mobile-menu-panel">
         <div class="mobile-menu-header">
-            <span class="mobile-menu-logo">☕ PauseCafé</span>
+            <span class="mobile-menu-logo">
+                <img src="logo.png" alt="PauseCafé" class="mobile-menu-logo-img">
+                PauseCafé
+            </span>
             <button class="mobile-menu-close" onclick="fermerMenuMobile()" aria-label="Fermer">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
                     <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
@@ -199,6 +224,9 @@
 <div id="main-content">
 
     <section class="hero">
+        <!-- Logo en grand à droite en fond -->
+        <img src="logo.png" alt="" class="hero-logo-bg" aria-hidden="true">
+
         <div class="hero-content">
             <div class="hero-badge">📱 Disponible sur App Store</div>
             <h1>Maîtrise ta <span>caféine</span> au quotidien</h1>
@@ -217,7 +245,6 @@
             <div class="feature-card"><span class="feature-emoji">☕</span><h3>Suivi précis en mg</h3><p>Enregistre chaque boisson en un tap. Café, thé, soda, energy drink — tout est répertorié avec les valeurs exactes en mg de caféine.</p></div>
             <div class="feature-card"><span class="feature-emoji">🏆</span><h3>100 badges & 8 niveaux</h3><p>Débloque des badges, gagne des points et monte en niveau. De Pousse 🌱 à Légende 🦁 — 100 badges à collectionner, chacun récompensé selon sa difficulté.</p></div>
             <div class="feature-card"><span class="feature-emoji">🎁</span><h3>Vraies récompenses</h3><p>Échange tes points contre de vrais bons de réduction chez nos partenaires. Les bonnes habitudes méritent de vraies récompenses.</p></div>
-
             <div class="feature-card"><span class="feature-emoji">📊</span><h3>Stats & évolution</h3><p>Graphiques d'évolution, analyse par horaire, par jour de semaine, comparaison semaine/semaine.</p></div>
             <div class="feature-card"><span class="feature-emoji">🔥</span><h3>Streaks & motivation</h3><p>Maintiens ton streak de jours consécutifs sous ta limite. Un streak perdu coûte des points — la motivation ultime.</p></div>
         </div>
@@ -232,7 +259,6 @@
             <div class="premium-card"><span class="premium-card-emoji">🎁</span><h3>Meilleures récompenses</h3><p>Réductions plus élevées, cadeaux offerts, délais plus courts.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">⚡</span><h3>Bonus de niveau jusqu'à 10x</h3><p>Progresse jusqu'à 10x plus vite vers la Légende.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">🏷️</span><h3>Offres exclusives</h3><p>Codes promo et livraisons offertes chaque semaine.</p></div>
-
         </div>
 
         <h3 class="compare-title">Gratuit vs Premium</h3>
@@ -256,7 +282,6 @@
                 <tr><td>Meilleures récompenses</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Bonus de niveau jusqu'à 10x</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Offres partenaires exclusives</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-
             </tbody>
         </table>
 
@@ -337,7 +362,10 @@
     <footer>
         <div class="footer-top">
             <div class="footer-brand">
-                <h3>☕ PauseCafé</h3>
+                <h3>
+                    <img src="logo.png" alt="PauseCafé" class="footer-logo-img">
+                    PauseCafé
+                </h3>
                 <p>Suivi de caféine intelligent<br>Fait avec ❤️ en France</p>
             </div>
             <div class="footer-links">
