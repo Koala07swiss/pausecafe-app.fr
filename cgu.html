@@ -11,7 +11,8 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--cafe); }
         nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: rgba(245, 237, 214, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(196, 135, 58, 0.2); }
-        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--cafe); text-decoration: none; }
+        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--cafe); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .nav-logo-img { width: 32px; height: 32px; object-fit: contain; border-radius: 8px; }
         .nav-back { font-size: 0.85rem; font-weight: 500; color: var(--cafe); text-decoration: none; opacity: 0.6; transition: opacity 0.2s; }
         .nav-back:hover { opacity: 1; }
         .container { max-width: 780px; margin: 0 auto; padding: 120px 48px 80px; }
@@ -35,7 +36,10 @@
 </head>
 <body>
 <nav>
-    <a href="https://pausecafe-app.fr" class="nav-logo">☕ PauseCafé</a>
+    <a href="https://pausecafe-app.fr" class="nav-logo">
+        <img src="logo.png" alt="PauseCafé" class="nav-logo-img">
+        PauseCafé
+    </a>
     <a href="https://pausecafe-app.fr" class="nav-back">← Retour au site</a>
 </nav>
 <div class="container">
