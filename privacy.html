@@ -53,9 +53,11 @@
         <li><strong>Données de compte</strong> : prénom, adresse email</li>
         <li><strong>Données de bien-être</strong> : boissons enregistrées, quantités en mg de caféine, horaires</li>
         <li><strong>Données de progression</strong> : points, badges, streak, niveau</li>
+        <li><strong>Données de parrainage</strong> : code de parrainage personnel (généré automatiquement), code du parrain utilisé à l'inscription le cas échéant, nombre de filleuls parrainés</li>
         <li><strong>Données techniques</strong> : identifiant anonyme Firebase, données de crash anonymisées</li>
     </ul>
     <p><strong>Précision :</strong> les données de consommation de caféine constituent des données de <strong>bien-être personnel</strong> et ne sont pas qualifiées de données de santé au sens de l'article 9 du RGPD. PauseCafé n'est pas un dispositif médical.</p>
+    <p><strong>Données de parrainage :</strong> le code de parrainage personnel est visible uniquement par toi dans les réglages de l'application. Le code d'un parrain que tu aurais utilisé à l'inscription est conservé afin de prévenir toute utilisation frauduleuse (un seul code utilisable par compte).</p>
 
     <h2>4. Finalités du traitement</h2>
     <ul>
@@ -63,15 +65,16 @@
         <li>Synchroniser les données entre appareils (iPhone, Apple Watch, Widget)</li>
         <li>Afficher des statistiques personnalisées</li>
         <li>Envoyer des notifications push (avec ton consentement)</li>
+        <li>Gérer le programme de parrainage et attribuer les récompenses associées</li>
         <li>Améliorer l'application via Firebase Analytics (données anonymisées)</li>
         <li>Afficher des publicités via Google AdMob (avec ton consentement ATT)</li>
     </ul>
 
     <h2>5. Base légale</h2>
     <ul>
-        <li><strong>Exécution du contrat</strong> : fourniture du service</li>
+        <li><strong>Exécution du contrat</strong> : fourniture du service, gestion du parrainage</li>
         <li><strong>Consentement</strong> : publicités personnalisées et notifications push</li>
-        <li><strong>Intérêt légitime</strong> : amélioration via analytics anonymisés</li>
+        <li><strong>Intérêt légitime</strong> : amélioration via analytics anonymisés, prévention de la fraude au parrainage</li>
     </ul>
 
     <h2>6. Sous-traitants</h2>
@@ -79,6 +82,7 @@
         <li><strong>Google Firebase</strong> — Google Ireland Limited, Dublin, Irlande. Données stockées dans l'UE. <a href="https://firebase.google.com/support/privacy" target="_blank">Politique Firebase</a></li>
         <li><strong>Google AdMob</strong> — uniquement avec consentement ATT. <a href="https://policies.google.com/privacy" target="_blank">Politique Google</a></li>
         <li><strong>Apple</strong> — Sign in with Apple, notifications. <a href="https://www.apple.com/legal/privacy/fr-ww/" target="_blank">Politique Apple</a></li>
+        <li><strong>Brevo (ex-Sendinblue)</strong> — envoi d'emails transactionnels (confirmation de récompenses). Données : email et prénom uniquement. <a href="https://www.brevo.com/fr/legal/privacypolicy/" target="_blank">Politique Brevo</a></li>
     </ul>
     <p><strong>Aucune donnée personnelle n'est vendue à des tiers.</strong></p>
 
@@ -89,6 +93,7 @@
     <ul>
         <li><strong>Données de compte</strong> : durée d'utilisation active</li>
         <li><strong>Historique</strong> : jusqu'à 2 ans dans l'application</li>
+        <li><strong>Données de parrainage</strong> : durée d'utilisation active du compte ; supprimées avec le compte</li>
         <li><strong>Suppression de compte</strong> : données effacées sous 30 jours</li>
         <li><strong>Données anonymisées</strong> : conservation indéfinie</li>
     </ul>
@@ -117,6 +122,7 @@
         <li>Communications chiffrées HTTPS/TLS</li>
         <li>Données chiffrées au repos via Firebase</li>
         <li>Mots de passe hachés, jamais stockés en clair</li>
+        <li>Accès aux données de parrainage restreint via les règles de sécurité Firebase</li>
     </ul>
 
     <h2>12. Cookies</h2>
