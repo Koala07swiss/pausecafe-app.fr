@@ -1,180 +1,159 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conditions Générales d'Utilisation — PauseCafé</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        :root { --cafe: #2C1810; --cream: #F5EDD6; --caramel: #C4873A; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--cafe); }
-        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: rgba(245, 237, 214, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(196, 135, 58, 0.2); }
-        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--cafe); text-decoration: none; display: flex; align-items: center; gap: 10px; }
-        .nav-logo-img { width: 32px; height: 32px; object-fit: contain; border-radius: 8px; }
-        .nav-back { font-size: 0.85rem; font-weight: 500; color: var(--cafe); text-decoration: none; opacity: 0.6; transition: opacity 0.2s; }
-        .nav-back:hover { opacity: 1; }
-        .container { max-width: 780px; margin: 0 auto; padding: 120px 48px 80px; }
-        h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; color: var(--cafe); margin-bottom: 8px; }
-        .date { font-size: 0.85rem; opacity: 0.5; margin-bottom: 48px; font-weight: 300; }
-        h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--cafe); margin: 40px 0 16px; }
-        p, li { font-size: 0.95rem; line-height: 1.8; opacity: 0.75; font-weight: 300; margin-bottom: 12px; }
-        ul { padding-left: 24px; margin-bottom: 16px; }
-        a { color: var(--caramel); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .encadre { background: rgba(196, 135, 58, 0.08); border-left: 3px solid var(--caramel); padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 16px 0; }
-        .prix-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
-        .prix-card { background: rgba(196, 135, 58, 0.06); border: 1px solid rgba(196, 135, 58, 0.2); border-radius: 12px; padding: 16px 20px; }
-        .prix-card .label { font-size: 0.8rem; font-weight: 500; opacity: 0.6; margin-bottom: 6px; }
-        .prix-card .montant { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--cafe); opacity: 1; margin-bottom: 4px; }
-        .prix-card .detail { font-size: 0.8rem; opacity: 0.6; margin-bottom: 0; }
-        .badge-offre { display: inline-block; background: #2D6A4F; color: white; font-size: 0.7rem; font-weight: 600; padding: 2px 8px; border-radius: 20px; margin-left: 6px; vertical-align: middle; }
-        footer { text-align: center; padding: 40px 24px; font-size: 0.8rem; opacity: 0.4; border-top: 1px solid rgba(44, 24, 16, 0.1); }
-        @media (max-width: 768px) { nav { padding: 16px 24px; } .container { padding: 100px 24px 60px; } h1 { font-size: 2rem; } .prix-grid { grid-template-columns: 1fr; } }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conditions Générales d'Utilisation — PauseCafé</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 800px; margin: 0 auto; padding: 20px 24px 60px; color: #1a1a1a; line-height: 1.7; }
+  nav { margin-bottom: 32px; }
+  nav a { color: #c0722a; text-decoration: none; font-weight: 600; }
+  h1 { font-size: 2em; margin-bottom: 4px; }
+  .date { color: #888; font-size: 0.9em; margin-bottom: 40px; }
+  h2 { font-size: 1.15em; font-weight: 700; margin-top: 36px; border-left: 4px solid #c0722a; padding-left: 12px; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 6px; }
+  strong { color: #1a1a1a; }
+  a { color: #c0722a; }
+  .prix { display: flex; gap: 16px; margin: 16px 0; flex-wrap: wrap; }
+  .prix-card { border: 1px solid #eee; border-radius: 12px; padding: 16px 20px; flex: 1; min-width: 200px; }
+  .prix-card .label { font-size: 0.85em; color: #888; }
+  .prix-card .montant { font-size: 1.4em; font-weight: 700; color: #c0722a; }
+  .prix-card .detail { font-size: 0.8em; color: #666; }
+  .highlight { background: #fff8f0; border: 1px solid #f5ddc0; border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
+  .footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; color: #888; font-size: 0.85em; text-align: center; }
+</style>
 </head>
 <body>
-<nav>
-    <a href="https://pausecafe-app.fr" class="nav-logo">
-        <img src="logo.png" alt="PauseCafé" class="nav-logo-img">
-        PauseCafé
-    </a>
-    <a href="https://pausecafe-app.fr" class="nav-back">← Retour au site</a>
-</nav>
-<div class="container">
-    <h1>Conditions Générales d'Utilisation</h1>
-    <p class="date">Dernière mise à jour : avril 2026 — Version française faisant foi</p>
+<nav><a href="https://pausecafe-app.fr">← Retour au site</a></nav>
 
-    <h2>1. Objet et acceptation</h2>
-    <p>Les présentes CGU régissent l'utilisation de l'application mobile PauseCafé et du site pausecafe-app.fr, édités par <strong>Kévin Beguerie</strong>, particulier, France. En utilisant PauseCafé, tu acceptes sans réserve les présentes CGU. La version française fait foi.</p>
+<h1>Conditions Générales d'Utilisation</h1>
+<p class="date">Dernière mise à jour : avril 2026 — Version française faisant foi</p>
 
-    <h2>2. Description du service</h2>
-    <ul>
-        <li>Suivi quotidien de la consommation de caféine en mg</li>
-        <li>Système de progression avec points, badges, niveaux et séries</li>
-        <li>Statistiques personnalisées d'évolution</li>
-        <li>Récompenses échangeables contre des bons de réduction partenaires</li>
-        <li>Système de parrainage permettant d'inviter des amis</li>
-        <li>Mode précaution — limite automatique à 300 mg/jour (recommandation OMS)</li>
-        <li>Widget iOS (disponible pour tous les utilisateurs)</li>
-        <li>Synchronisation Apple Watch — <strong>réservée aux abonnés Premium</strong></li>
-        <li>Abonnement Premium optionnel</li>
-    </ul>
-    <p>L'éditeur se réserve le droit de modifier, suspendre ou interrompre le service à tout moment. La disponibilité n'est pas garantie à 100%.</p>
+<h2>1. Objet et acceptation</h2>
+<p>Les présentes CGU régissent l'utilisation de l'application mobile PauseCafé et du site pausecafe-app.fr, édités par <strong>Kévin Beguerie</strong>, particulier, France. En utilisant PauseCafé, tu acceptes sans réserve les présentes CGU.</p>
 
-    <h2>3. Conditions d'accès</h2>
-    <p>PauseCafé est réservé aux personnes âgées de <strong>9 ans et plus</strong>, conformément à la classification Apple. En utilisant l'application, tu déclares avoir au moins 9 ans. L'application nécessite iOS 16 ou version ultérieure. L'utilisation de l'Apple Watch nécessite un abonnement Premium actif.</p>
+<h2>2. Description du service</h2>
+<ul>
+  <li>Suivi quotidien de la consommation de caféine en mg</li>
+  <li>Système de progression avec points, badges, niveaux et séries</li>
+  <li>Statistiques personnalisées d'évolution</li>
+  <li>Récompenses échangeables contre des bons de réduction partenaires</li>
+  <li>Système de parrainage permettant d'inviter des amis</li>
+  <li>Mode précaution — limite automatique à 300 mg/jour (recommandation OMS)</li>
+  <li>Widget iOS disponible pour tous les utilisateurs</li>
+  <li>Onboarding personnalisé permettant de configurer l'application selon tes habitudes de consommation</li>
+  <li>Synchronisation Apple Watch — <strong>réservée aux abonnés Premium</strong></li>
+  <li>Abonnement Premium optionnel</li>
+</ul>
 
-    <h2>4. Création de compte</h2>
-    <p>L'utilisation complète nécessite un compte via email/mot de passe, Google Sign-In ou Sign in with Apple. Tu es responsable de la confidentialité de tes identifiants. Toute utilisation non autorisée doit être signalée à <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a>.</p>
+<h2>3. Conditions d'accès</h2>
+<p>PauseCafé est réservé aux personnes âgées de <strong>9 ans et plus</strong>. L'application nécessite iOS 16 ou version ultérieure. L'utilisation de l'Apple Watch nécessite un abonnement Premium actif.</p>
 
-    <h2>5. Abonnement Premium et prix</h2>
-    <div class="prix-grid">
-        <div class="prix-card">
-            <div class="label">Mensuel</div>
-            <div class="montant">1,99 € TTC</div>
-            <div class="detail">par mois · sans engagement</div>
-        </div>
-        <div class="prix-card">
-            <div class="label">Annuel <span class="badge-offre">3 mois offerts 🎉</span></div>
-            <div class="montant">17,99 € TTC</div>
-            <div class="detail">par an · soit 1,50 € TTC/mois</div>
-        </div>
-    </div>
-    <p>L'abonnement Premium inclut notamment : suppression des publicités, accès à l'Apple Watch, meilleures récompenses, bonus de niveau jusqu'à 10x et offres partenaires exclusives.</p>
-    <p>Renouvellement automatique sauf résiliation au moins 24h avant la fin de la période depuis les Réglages de l'App Store. Les achats sont traités par Apple. Tous les prix sont indiqués toutes taxes comprises (TTC).</p>
+<h2>4. Création de compte</h2>
+<p>L'utilisation complète nécessite un compte via email/mot de passe, Google Sign-In ou Sign in with Apple. Tu es responsable de la confidentialité de tes identifiants. Toute utilisation non autorisée doit être signalée à <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a>.</p>
 
-    <h2>6. Droit de rétractation</h2>
-    <div class="encadre">
-        <p><strong>Information importante :</strong> Conformément à l'article L.221-28 du Code de la consommation, le droit de rétractation de 14 jours ne s'applique pas aux contenus numériques dont l'exécution a commencé avec ton accord exprès avant l'expiration du délai.</p>
-        <p>En souscrivant et en utilisant immédiatement les fonctionnalités Premium, tu renonces expressément à ton droit de rétractation.</p>
-    </div>
-    <p>Pour toute demande de remboursement, adresse-toi à Apple via <a href="https://reportaproblem.apple.com" target="_blank">reportaproblem.apple.com</a>.</p>
-
-    <h2>7. Publicités</h2>
-    <p>La version gratuite affiche des publicités via Google AdMob. Les utilisateurs Premium bénéficient d'une expérience entièrement sans publicité.</p>
-
-    <h2>8. Récompenses, points et mécaniques de jeu</h2>
-    <ul>
-        <li>Les points n'ont aucune valeur monétaire</li>
-        <li>L'utilisation d'une récompense remet le compteur à zéro</li>
-        <li>Les récompenses sont soumises à des délais minimum</li>
-        <li>La disponibilité des récompenses partenaires n'est pas garantie</li>
-        <li>Les points sont perdus en cas de suppression du compte</li>
-    </ul>
-    <p><strong>Clause de modification :</strong> L'éditeur se réserve le droit de modifier à tout moment et sans préavis les mécaniques de jeu, notamment : le nombre de points attribués par action, les seuils de niveaux, le nombre maximum de boissons enregistrables par jour, les conditions d'obtention des badges, la valeur des récompenses et tout autre paramètre du système de progression. Ces modifications ne donnent droit à aucune compensation.</p>
-
-    <h2>9. Programme de parrainage</h2>
-    <div class="encadre">
-        <p>Le programme de parrainage est un avantage offert gratuitement à tous les utilisateurs inscrits. Il peut être modifié ou supprimé à tout moment sans préavis.</p>
-    </div>
-    <ul>
-        <li><strong>Code unique :</strong> un code de parrainage est généré automatiquement à la création de chaque compte.</li>
-        <li><strong>Filleul :</strong> toute personne s'inscrivant avec un code valide reçoit <strong>+100 points de bienvenue</strong>. Un seul code peut être utilisé par compte, uniquement à l'inscription.</li>
-        <li><strong>Parrain :</strong> pour chaque filleul inscrit, le parrain reçoit <strong>+100 points</strong> à l'inscription du filleul. Si le filleul souscrit à l'abonnement Premium, le parrain reçoit en outre <strong>1 mois Premium offert</strong> (cumulatif, ajouté à tout Premium existant).</li>
-        <li><strong>Limite :</strong> le programme est limité à <strong>10 filleuls maximum</strong> par compte. Au-delà, aucune nouvelle récompense n'est accordée.</li>
-        <li><strong>Interdictions :</strong> le parrainage de soi-même, la création de comptes fictifs, ou tout usage frauduleux entraîne la suppression immédiate du compte et l'annulation des récompenses.</li>
-        <li><strong>Pas de valeur monétaire :</strong> les points et le Premium offert via parrainage n'ont aucune valeur monétaire et ne sont pas remboursables.</li>
-        <li><strong>Modification :</strong> l'éditeur se réserve le droit de modifier les conditions, les récompenses ou de mettre fin au programme à tout moment, sans que cela ouvre droit à compensation.</li>
-    </ul>
-
-    <h2>10. Obligations de l'utilisateur</h2>
-    <ul>
-        <li>Fournir des informations exactes lors de l'inscription</li>
-        <li>Ne pas contourner les mécanismes de l'application</li>
-        <li>Ne pas utiliser l'application à des fins commerciales sans autorisation</li>
-        <li>Ne pas tenter d'accéder aux données d'autres utilisateurs</li>
-        <li>Ne pas abuser du programme de parrainage (comptes fictifs, auto-parrainage, etc.)</li>
-        <li>Respecter les lois applicables</li>
-    </ul>
-
-    <h2>11. Limitation de responsabilité</h2>
-    <p>PauseCafé est un outil de <strong>bien-être personnel à titre purement indicatif</strong>. Les informations fournies ne constituent pas un avis médical. L'éditeur ne saurait être responsable de :</p>
-    <div style="background: rgba(196, 135, 58, 0.08); border-left: 3px solid var(--caramel); padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 12px 0;">
-        <p style="margin: 0;"><strong>⚠️ Avertissement spécifique — Mode précaution :</strong> Le mode précaution applique la recommandation de l'OMS (300 mg/jour) à titre indicatif uniquement. Cette limite représente un <strong>seuil de précaution statistique général</strong> — votre médecin, sage-femme ou gynécologue peut recommander une limite différente selon votre situation personnelle. Il ne constitue en aucun cas un avis médical personnalisé et ne remplace pas le suivi d'un professionnel de santé. Chaque situation est unique. Consultez votre professionnel de santé pour toute question relative à votre consommation de caféine pendant la grossesse.</p>
-    </div>
-    <ul>
-        <li>Décisions prises sur la base des informations de l'application</li>
-        <li>Interruptions du service</li>
-        <li>Perte de données suite à suppression de compte</li>
-        <li>Indisponibilité des récompenses partenaires</li>
-        <li>Tout dommage indirect lié à l'utilisation</li>
-    </ul>
-
-    <h2>12. Force majeure</h2>
-    <p>L'éditeur ne pourra être tenu responsable de tout retard ou inexécution résultant d'un événement de force majeure au sens de l'article 1218 du Code civil.</p>
-
-    <h2>13. Propriété intellectuelle</h2>
-    <p>L'application PauseCafé, son code, son design et ses contenus sont la propriété exclusive de Kévin Beguerie, protégés par le droit de la propriété intellectuelle français. Toute reproduction non autorisée est interdite.</p>
-
-    <h2>14. Données personnelles</h2>
-    <p>Le traitement des données est décrit dans notre <a href="privacy.html">Politique de confidentialité</a>, partie intégrante des présentes CGU.</p>
-    <p>L'application utilise les sous-traitants suivants :</p>
-    <ul>
-      <li><strong>Google Firebase / Firestore</strong> (Google LLC) — stockage des données de compte et de progression, authentification</li>
-      <li><strong>Brevo</strong> (anciennement Sendinblue) — envoi d'emails transactionnels (confirmation récompense, parrainage)</li>
-      <li><strong>Google AdMob</strong> — affichage de publicités (uniquement pour les utilisateurs non abonnés Premium)</li>
-      <li><strong>Apple StoreKit</strong> — gestion des abonnements Premium</li>
-    </ul>
-    <p>Ces prestataires sont soumis à leurs propres politiques de confidentialité conformes au RGPD.</p>
-
-    <h2>15. Modification des CGU</h2>
-    <p>L'éditeur peut modifier les CGU à tout moment. La poursuite de l'utilisation après modification vaut acceptation. En cas de modification substantielle, une notification sera envoyée via l'application.</p>
-
-    <h2>16. Résiliation</h2>
-    <p>Tu peux supprimer ton compte depuis les réglages de l'application. L'éditeur peut suspendre un compte en cas de violation des CGU, sans préavis.</p>
-
-    <h2>17. Médiation</h2>
-    <p>En cas de litige non résolu, contacte d'abord <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a>. Plateforme européenne : <a href="https://ec.europa.eu/consumers/odr" target="_blank">ec.europa.eu/consumers/odr</a></p>
-
-    <h2>18. Droit applicable</h2>
-    <p>Les présentes CGU sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
-
-    <h2>19. Contact</h2>
-    <p>Email : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a><br>
-    Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></p>
+<h2>5. Données de profil et personnalisation</h2>
+<p>Lors de la première utilisation (onboarding), l'application propose de renseigner trois informations facultatives :</p>
+<ul>
+  <li>Le nombre habituel de boissons caféinées consommées par jour</li>
+  <li>Ton objectif principal de suivi (réduire la consommation, rester sous la limite santé, améliorer le sommeil, ou simple curiosité)</li>
+  <li>L'heure habituelle de ta première boisson caféinée</li>
+</ul>
+<div class="highlight">
+Ces informations sont <strong>entièrement facultatives</strong> et peuvent être ignorées via le bouton "Passer". Elles sont utilisées exclusivement pour personnaliser ton objectif quotidien initial, adapter les notifications et améliorer la pertinence du suivi. Elles sont stockées sur ton compte et peuvent être modifiées à tout moment depuis les réglages. Elles ne sont jamais partagées ni vendues à des tiers.
 </div>
-<footer>© 2026 PauseCafé. Tous droits réservés. — <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></footer>
+
+<h2>6. Abonnement Premium et prix</h2>
+<div class="prix">
+  <div class="prix-card">
+    <div class="label">Mensuel</div>
+    <div class="montant">1,99 €</div>
+    <div class="detail">TTC par mois · sans engagement</div>
+  </div>
+  <div class="prix-card">
+    <div class="label">Annuel — 3 mois offerts 🎉</div>
+    <div class="montant">17,99 €</div>
+    <div class="detail">TTC par an · soit 1,50 € TTC/mois</div>
+  </div>
+</div>
+<p>L'abonnement Premium inclut notamment : suppression des publicités, accès à l'Apple Watch, meilleures récompenses, bonus de niveau jusqu'à 10x et offres partenaires exclusives.</p>
+<p>Renouvellement automatique sauf résiliation au moins 24h avant la fin de la période depuis les Réglages de l'App Store. Les achats sont traités par Apple. Tous les prix sont indiqués toutes taxes comprises (TTC).</p>
+
+<h2>7. Droit de rétractation</h2>
+<div class="highlight">
+<strong>Information importante :</strong> Conformément à l'article L.221-28 du Code de la consommation, le droit de rétractation de 14 jours ne s'applique pas aux contenus numériques dont l'exécution a commencé avec ton accord exprès avant l'expiration du délai. En souscrivant et en utilisant immédiatement les fonctionnalités Premium, tu renonces expressément à ton droit de rétractation. Pour toute demande de remboursement, adresse-toi à Apple via <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.
+</div>
+
+<h2>8. Publicités</h2>
+<p>La version gratuite affiche des publicités via Google AdMob. Les utilisateurs Premium bénéficient d'une expérience entièrement sans publicité.</p>
+
+<h2>9. Récompenses, points et mécaniques de jeu</h2>
+<ul>
+  <li>Les points n'ont aucune valeur monétaire</li>
+  <li>L'utilisation d'une récompense remet le compteur à zéro</li>
+  <li>Les récompenses sont soumises à des délais minimum</li>
+  <li>La disponibilité des récompenses partenaires n'est pas garantie</li>
+  <li>Les points sont perdus en cas de suppression du compte</li>
+</ul>
+<p><strong>Clause de modification :</strong> L'éditeur se réserve le droit de modifier à tout moment et sans préavis les mécaniques de jeu, notamment les points attribués, les seuils de niveaux, les conditions des badges et la valeur des récompenses. Ces modifications ne donnent droit à aucune compensation.</p>
+
+<h2>10. Programme de parrainage</h2>
+<ul>
+  <li><strong>Code unique :</strong> un code de parrainage est généré automatiquement à la création de chaque compte.</li>
+  <li><strong>Filleul :</strong> toute personne s'inscrivant avec un code valide reçoit <strong>+100 points de bienvenue</strong>. Un seul code peut être utilisé par compte, uniquement à l'inscription.</li>
+  <li><strong>Parrain :</strong> pour chaque filleul inscrit, le parrain reçoit <strong>+100 points</strong>. Si le filleul souscrit à l'abonnement Premium, le parrain reçoit en outre <strong>1 mois Premium offert</strong> (cumulatif).</li>
+  <li><strong>Limite :</strong> le programme est limité à <strong>10 filleuls maximum</strong> par compte.</li>
+  <li><strong>Interdictions :</strong> le parrainage de soi-même et tout usage frauduleux entraîne la suppression immédiate du compte.</li>
+</ul>
+
+<h2>11. Obligations de l'utilisateur</h2>
+<ul>
+  <li>Fournir des informations exactes lors de l'inscription</li>
+  <li>Ne pas contourner les mécanismes de l'application</li>
+  <li>Ne pas utiliser l'application à des fins commerciales sans autorisation</li>
+  <li>Ne pas tenter d'accéder aux données d'autres utilisateurs</li>
+  <li>Ne pas abuser du programme de parrainage</li>
+</ul>
+
+<h2>12. Limitation de responsabilité</h2>
+<p>PauseCafé est un outil de <strong>bien-être personnel à titre purement indicatif</strong>. Les informations fournies ne constituent pas un avis médical.</p>
+<div class="highlight">
+<strong>⚠️ Avertissement — Mode précaution :</strong> Le mode précaution applique la recommandation de l'OMS (300 mg/jour) à titre indicatif uniquement. Il ne constitue en aucun cas un avis médical personnalisé et ne remplace pas le suivi d'un professionnel de santé. Consultez votre médecin pour toute question relative à votre consommation de caféine.
+</div>
+
+<h2>13. Force majeure</h2>
+<p>L'éditeur ne pourra être tenu responsable de tout retard ou inexécution résultant d'un événement de force majeure au sens de l'article 1218 du Code civil.</p>
+
+<h2>14. Propriété intellectuelle</h2>
+<p>L'application PauseCafé, son code, son design et ses contenus sont la propriété exclusive de Kévin Beguerie, protégés par le droit de la propriété intellectuelle français. Toute reproduction non autorisée est interdite.</p>
+
+<h2>15. Données personnelles</h2>
+<p>Le traitement des données est décrit dans notre <a href="https://pausecafe-app.fr/privacy.html">Politique de confidentialité</a>, partie intégrante des présentes CGU.</p>
+<p>L'application utilise les sous-traitants suivants :</p>
+<ul>
+  <li><strong>Google Firebase / Firestore</strong> — stockage des données de compte, de progression et de préférences de consommation</li>
+  <li><strong>Brevo</strong> — envoi d'emails transactionnels (confirmation récompense, parrainage, suivi personnalisé)</li>
+  <li><strong>Google AdMob</strong> — publicités pour les utilisateurs non Premium</li>
+  <li><strong>Apple StoreKit</strong> — gestion des abonnements Premium</li>
+</ul>
+
+<h2>16. Modification des CGU</h2>
+<p>L'éditeur peut modifier les CGU à tout moment. La poursuite de l'utilisation après modification vaut acceptation. En cas de modification substantielle, une notification sera envoyée via l'application.</p>
+
+<h2>17. Résiliation</h2>
+<p>Tu peux supprimer ton compte depuis les réglages de l'application. L'éditeur peut suspendre un compte en cas de violation des CGU, sans préavis.</p>
+
+<h2>18. Médiation</h2>
+<p>En cas de litige non résolu, contacte d'abord <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a>. Plateforme européenne : <a href="https://ec.europa.eu/consumers/odr">ec.europa.eu/consumers/odr</a></p>
+
+<h2>19. Droit applicable</h2>
+<p>Les présentes CGU sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
+
+<h2>20. Contact</h2>
+<p>Email : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a><br>
+Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></p>
+
+<div class="footer">© 2026 PauseCafé. Tous droits réservés. — <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></div>
 </body>
 </html>
