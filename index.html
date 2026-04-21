@@ -11,8 +11,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
-
-        /* ── Navigation ── */
         nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; background: rgba(245, 237, 214, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(196, 135, 58, 0.2); }
         .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--cafe); text-decoration: none; cursor: pointer; display: flex; align-items: center; gap: 10px; }
         .nav-logo-img { width: 36px; height: 36px; object-fit: contain; border-radius: 8px; }
@@ -22,8 +20,6 @@
         .burger-btn { display: none; background: none; border: none; cursor: pointer; padding: 6px; color: var(--cafe); flex-direction: column; gap: 5px; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 10px; transition: background 0.2s; }
         .burger-btn:hover { background: rgba(44,24,16,0.08); }
         .burger-btn svg { width: 22px; height: 22px; }
-
-        /* ── Menu mobile ── */
         .mobile-menu-overlay { display: none; position: fixed; inset: 0; z-index: 200; }
         .mobile-menu-overlay.open { display: block; }
         .mobile-menu-backdrop { position: absolute; inset: 0; background: rgba(26, 15, 10, 0.55); backdrop-filter: blur(4px); }
@@ -47,8 +43,6 @@
         .mobile-menu-divider { height: 1px; background: rgba(44,24,16,0.08); margin: 8px 24px; }
         .mobile-menu-footer { padding: 20px 24px; border-top: 1px solid rgba(196,135,58,0.15); }
         .mobile-menu-footer a { display: block; background: var(--cafe); color: var(--cream); text-align: center; padding: 14px 24px; border-radius: 100px; font-size: 0.9rem; font-weight: 600; text-decoration: none; }
-
-        /* ── Hero ── */
         .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 48px 80px; position: relative; overflow: hidden; }
         .hero-logo-bg { position: absolute; right: -4vw; top: 50%; transform: translateY(-50%); width: 44vw; max-width: 600px; opacity: 0.18; pointer-events: none; user-select: none; border-radius: 16px; }
         .hero-content { max-width: 680px; position: relative; z-index: 1; }
@@ -61,8 +55,6 @@
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(44,24,16,0.35); }
         .btn-secondary { display: inline-flex; align-items: center; gap: 8px; color: var(--cafe); padding: 16px 24px; border-radius: 100px; font-size: 0.95rem; font-weight: 500; text-decoration: none; border: 1.5px solid rgba(44,24,16,0.25); transition: border-color 0.2s, background 0.2s; cursor: pointer; }
         .btn-secondary:hover { border-color: var(--caramel); background: rgba(196,135,58,0.06); }
-
-        /* ── Features ── */
         .features { padding: 100px 48px; background: var(--espresso); color: var(--cream); }
         .section-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.5; margin-bottom: 16px; }
         .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.15; margin-bottom: 64px; max-width: 500px; }
@@ -72,8 +64,6 @@
         .feature-emoji { font-size: 2.5rem; margin-bottom: 20px; display: block; }
         .feature-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; color: var(--cream); }
         .feature-card p { font-size: 0.9rem; line-height: 1.65; opacity: 0.6; font-weight: 300; }
-
-        /* ── Premium ── */
         .premium { padding: 100px 48px; background: linear-gradient(135deg, #1a0a2e 0%, #2d1155 50%, #1a0a2e 100%); color: white; position: relative; overflow: hidden; }
         .premium::before { content: '👑'; position: absolute; font-size: 30vw; right: -5vw; top: 50%; transform: translateY(-50%); opacity: 0.04; pointer-events: none; }
         .premium-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 64px; }
@@ -108,24 +98,18 @@
         .plan-features { font-size: 0.75rem; opacity: 0.6; margin-bottom: 24px; line-height: 1.6; }
         .plan-btn { display: block; background: linear-gradient(135deg, var(--purple), var(--purple-light)); color: white; padding: 12px 24px; border-radius: 100px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: opacity 0.2s; }
         .plan-btn:hover { opacity: 0.85; }
-
-        /* ── Normes ── */
         .normes { padding: 100px 48px; background: var(--mousse); }
         .normes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; max-width: 1100px; margin: 0 auto; }
         .norme-item { display: flex; align-items: flex-start; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(44,24,16,0.1); }
         .norme-mg { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; min-width: 100px; color: var(--caramel); }
         .norme-info h4 { font-weight: 500; margin-bottom: 4px; font-size: 0.95rem; }
         .norme-info p { font-size: 0.8rem; opacity: 0.6; font-weight: 300; }
-
-        /* ── Download ── */
         .download { padding: 120px 48px; text-align: center; background: var(--cream); position: relative; overflow: hidden; }
         .download::before { content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(196,135,58,0.12) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); }
         .download h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; color: var(--cafe); margin-bottom: 24px; position: relative; }
         .download p { font-size: 1.1rem; opacity: 0.65; margin-bottom: 48px; font-weight: 300; position: relative; }
         .app-store-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--cafe); color: var(--cream); padding: 18px 40px; border-radius: 16px; text-decoration: none; font-weight: 500; font-size: 1rem; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 8px 30px rgba(44,24,16,0.25); position: relative; }
         .app-store-btn:hover { transform: translateY(-3px); }
-
-        /* ── Footer ── */
         footer { background: var(--espresso); color: var(--cream); padding: 60px 48px 40px; }
         .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); }
         .footer-brand h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
@@ -137,8 +121,6 @@
         .footer-col a { color: var(--cream); text-decoration: none; font-size: 0.875rem; opacity: 0.65; transition: opacity 0.2s; cursor: pointer; }
         .footer-col a:hover { opacity: 1; }
         .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; opacity: 0.35; }
-
-        /* ── Pages légales ── */
         .legal-page { display: none; padding: 120px 48px 80px; max-width: 800px; margin: 0 auto; }
         .legal-page.active { display: block; }
         .legal-page h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--cafe); margin-bottom: 8px; }
@@ -150,9 +132,7 @@
         .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--cafe); font-size: 0.85rem; font-weight: 500; opacity: 0.6; margin-bottom: 48px; transition: opacity 0.2s; cursor: pointer; background: none; border: none; padding: 0; font-family: 'DM Sans', sans-serif; }
         .back-btn:hover { opacity: 1; }
         #main-content { display: block; }
-
         @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
         @media (max-width: 768px) {
             nav { padding: 12px 24px; } .nav-links { display: none; } .burger-btn { display: flex; }
             .hero { padding: 100px 24px 60px; }
@@ -225,7 +205,6 @@
 </div>
 
 <div id="main-content">
-
     <section class="hero">
         <img src="logo.png" alt="" class="hero-logo-bg" aria-hidden="true">
         <div class="hero-content">
@@ -244,11 +223,11 @@
         <h2 class="section-title">Tout ce qu'il faut pour prendre soin de toi</h2>
         <div class="features-grid">
             <div class="feature-card"><span class="feature-emoji">☕</span><h3>Suis ta caféine</h3><p>Enregistre chaque boisson en un tap. Café, thé, soda, energy drink — tout est répertorié avec les valeurs exactes en mg de caféine.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🏆</span><h3>100 badges & 8 niveaux</h3><p>Débloque des badges, gagne des points et monte en niveau. De Pousse 🌱 à Légende 🦁 — 100 badges à collectionner, chacun récompensé selon sa difficulté.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🎁</span><h3>Vraies récompenses</h3><p>Échange tes points contre de vrais bons de réduction chez nos partenaires ou des cadeaux physiques. Les bonnes habitudes méritent de vraies récompenses.</p></div>
-            <div class="feature-card"><span class="feature-emoji">📊</span><h3>Stats & évolution</h3><p>Graphiques d'évolution, analyse par horaire, par jour de semaine, comparaison semaine/semaine.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🔥</span><h3>Séries & motivation</h3><p>Maintiens ta série de jours consécutifs. Un série perdu coûte des points — la motivation ultime.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🤝</span><h3>Parrainage & récompenses</h3><p>Partage ton code unique à tes amis. Ils reçoivent +100 points de bienvenue, toi tu gagnes +100 points à l'inscription. Et si ton filleul s'abonne, tu reçois 1 mois Premium offert — jusqu'à 10 filleuls.</p></div>
+            <div class="feature-card"><span class="feature-emoji">🏆</span><h3>115 badges &amp; 8 niveaux</h3><p>Débloque des badges, gagne des points et monte en niveau. De Pousse 🌱 à Légende 🦁 — 115 badges à collectionner (dont 10 exclusifs Premium 👑), chacun récompensé selon sa difficulté. Certains sont mystérieux !</p></div>
+            <div class="feature-card"><span class="feature-emoji">🎁</span><h3>Vraies récompenses</h3><p>Bons plans partenaires pour tous, cadeaux physiques pour les abonnés Premium, et échange de points contre du temps Premium pour les utilisateurs gratuits.</p></div>
+            <div class="feature-card"><span class="feature-emoji">📊</span><h3>Stats &amp; évolution</h3><p>Graphiques d'évolution, analyse par horaire, par jour de semaine, comparaison semaine/semaine.</p></div>
+            <div class="feature-card"><span class="feature-emoji">🔥</span><h3>Séries &amp; motivation</h3><p>Maintiens ta série de jours consécutifs. Une série perdue coûte des points — la motivation ultime.</p></div>
+            <div class="feature-card"><span class="feature-emoji">🤝</span><h3>Parrainage &amp; récompenses</h3><p>Partage ton code unique à tes amis. Ils reçoivent +100 points de bienvenue, toi tu gagnes +100 points à l'inscription. Et si ton filleul s'abonne, tu reçois 1 mois Premium offert — jusqu'à 10 filleuls.</p></div>
             <div class="feature-card"><span class="feature-emoji">🤰</span><h3>Mode précaution</h3><p>Active le mode précaution pour adapter automatiquement ta limite à 300 mg/jour — recommandation OMS pour les femmes enceintes. Gratuit pour toutes.</p></div>
         </div>
     </section>
@@ -258,12 +237,12 @@
         <h2 class="section-title" style="color:white">Passe au niveau supérieur 👑</h2>
         <div class="premium-cards">
             <div class="premium-card"><span class="premium-card-emoji">🔕</span><h3>Sans publicité</h3><p>Expérience 100% fluide, sans interruption publicitaire.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">⌚</span><h3>Apple Watch incluse</h3><p>Ajoute tes boissons directement depuis ton poignet.</p></div>
+            <div class="premium-card"><span class="premium-card-emoji">⌚</span><h3>Apple Watch incluse</h3><p>Ajoute tes boissons directement depuis ton poignet. Complications cadran disponibles.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">🧪</span><h3>Boissons personnalisées</h3><p>Crée tes propres boissons avec le mg exact. Disponibles sur l'app ET la Watch. Illimitées.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">📷</span><h3>Scanner de code-barres</h3><p>Identifie automatiquement la teneur en caféine d'une boisson via Open Food Facts.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🎁</span><h3>Meilleures récompenses</h3><p>Réductions plus élevées, cadeaux offerts, délais plus courts.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">⚡</span><h3>Bonus de niveau jusqu'à 10x</h3><p>Progressez jusqu'à 10x plus vite vers la Légende.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🏷️</span><h3>Offres exclusives</h3><p>Codes promo et livraisons offertes chaque semaine.</p></div>
+            <div class="premium-card"><span class="premium-card-emoji">⭐</span><h3>Points x2</h3><p>+4 pts par boisson et +20 pts par jour (vs +2 et +10 en gratuit). Tu accumules le double de points.</p></div>
+            <div class="premium-card"><span class="premium-card-emoji">🎁</span><h3>Cadeaux physiques</h3><p>Échange tes points contre de vrais cadeaux envoyés chez toi. Réservé aux abonnés Premium.</p></div>
+            <div class="premium-card"><span class="premium-card-emoji">🏷️</span><h3>Bons plans (pour tous)</h3><p>Codes promo partenaires accessibles gratuitement. Offres exclusives Premium négociées — bientôt disponibles.</p></div>
         </div>
 
         <h3 class="compare-title">Gratuit vs Premium</h3>
@@ -278,19 +257,19 @@
             <tbody>
                 <tr><td>Suivi caféine quotidien</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Widget iOS</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>100 badges & 8 niveaux</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Stats & évolution complètes</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>115 badges &amp; 8 niveaux</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Stats &amp; évolution complètes</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Export CSV des données</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Récompenses partenaires</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Bons plans partenaires</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Mode précaution OMS (300 mg)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Parrainage (code unique)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Publicités</td><td class="col-free">✅</td><td class="col-premium">❌</td></tr>
-                <tr><td>Apple Watch</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Apple Watch &amp; complications</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Boissons personnalisées illimitées</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Scanner de code-barres</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Meilleures récompenses</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Bonus de niveau jusqu'à 10x</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Offres partenaires exclusives</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Points x2 (boisson + série)</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Cadeaux physiques</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Offres exclusives négociées</td><td class="col-free">❌</td><td class="col-premium">✅ Bientôt</td></tr>
             </tbody>
         </table>
 
@@ -299,7 +278,7 @@
                 <div class="plan-name">Mensuel</div>
                 <div class="plan-price">1,99 €<span>/mois</span></div>
                 <div class="plan-detail">Prix TTC — Résiliable à tout moment</div>
-                <div class="plan-features">✅ Watch · ✅ Sans pub · ✅ Boissons perso</div>
+                <div class="plan-features">✅ Watch · ✅ Sans pub · ✅ Points x2</div>
                 <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" class="plan-btn">Commencer</a>
             </div>
             <div class="plan-card popular">
@@ -308,7 +287,7 @@
                 <div class="plan-price">17,99 €<span>/an</span></div>
                 <div class="plan-detail">Prix TTC — soit 1,50 €/mois</div>
                 <div class="plan-offre">🎉 3 mois offerts</div>
-                <div class="plan-features">✅ Watch · ✅ Sans pub · ✅ Boissons perso</div>
+                <div class="plan-features">✅ Watch · ✅ Sans pub · ✅ Points x2</div>
                 <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" class="plan-btn">Commencer</a>
             </div>
         </div>
@@ -319,18 +298,26 @@
         <div style="max-width: 1100px; margin: 0 auto;">
             <div class="section-label" style="color: rgba(255,255,255,0.5)">En développement</div>
             <h2 class="section-title" style="color: white;">🚀 Prochainement</h2>
-            <p style="font-size: 1rem; opacity: 0.65; font-weight: 300; margin-bottom: 48px; max-width: 600px;">
-                Nous travaillons en permanence à améliorer PauseCafé. Voici ce qui arrive bientôt.
-            </p>
+            <p style="font-size: 1rem; opacity: 0.65; font-weight: 300; margin-bottom: 48px; max-width: 600px;">Nous travaillons en permanence à améliorer PauseCafé. Voici ce qui arrive bientôt.</p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;">
+                    <div style="font-size: 2rem; margin-bottom: 12px;">📊</div>
+                    <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Stats avancées 90 jours</h3>
+                    <p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Historique illimité, analyses détaillées sur 90 jours et comparaisons avancées. Premium.</p>
+                </div>
                 <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;">
                     <div style="font-size: 2rem; margin-bottom: 12px;">😴</div>
                     <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Corrélation caféine / sommeil</h3>
-                    <p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Découvre l'impact réel de ta consommation sur la qualité de ton sommeil.</p>
+                    <p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Découvre l'impact réel de ta consommation sur la qualité de ton sommeil. Premium.</p>
                 </div>
                 <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;">
                     <div style="font-size: 2rem; margin-bottom: 12px;">🧠</div>
-                    <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Suivi stress & anxiété</h3>
+                    <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Alertes intelligentes</h3>
+                    <p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Alertes personnalisées basées sur tes habitudes : "Il est 16h, tu as 320mg." Premium.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;">
+                    <div style="font-size: 2rem; margin-bottom: 12px;">🧠</div>
+                    <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Suivi stress &amp; anxiété</h3>
                     <p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Questionnaire hebdomadaire avec corrélations personnalisées caféine/stress.</p>
                 </div>
                 <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;">
@@ -350,7 +337,7 @@
                 <div>
                     <div class="norme-item"><div class="norme-mg">&lt; 200 mg</div><div class="norme-info"><h4>✅ Zone idéale</h4><p>Recommandation EFSA 2015 — consommation optimale pour un adulte sain</p></div></div>
                     <div class="norme-item"><div class="norme-mg">&lt; 300 mg</div><div class="norme-info"><h4>🤰 Limite femmes enceintes</h4><p>Recommandation OMS — seuil maximum pour les femmes enceintes (mode précaution disponible dans l'app)</p></div></div>
-                    <div class="norme-item"><div class="norme-mg">&lt; 400 mg</div><div class="norme-info"><h4>⚠️ Limite adulte sain</h4><p>Seuil EFSA, FDA & ANSES 2021 — au-delà, risques d'anxiété et troubles du sommeil</p></div></div>
+                    <div class="norme-item"><div class="norme-mg">&lt; 400 mg</div><div class="norme-info"><h4>⚠️ Limite adulte sain</h4><p>Seuil EFSA, FDA &amp; ANSES 2021 — au-delà, risques d'anxiété et troubles du sommeil</p></div></div>
                     <div class="norme-item"><div class="norme-mg">&gt; 400 mg</div><div class="norme-info"><h4>😰 Zone à risque</h4><p>Nawrot et al. 2003 — anxiété. Drake et al. 2013 — sommeil perturbé jusqu'à 6h après</p></div></div>
                     <div class="norme-item"><div class="norme-mg">&gt; 1000 mg</div><div class="norme-info"><h4>☠️ Dose toxique</h4><p>Risques cardiaques réels. Lovallo et al. 2006 — augmentation du cortisol</p></div></div>
                 </div>
