@@ -41,7 +41,8 @@ Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></p>
   <li><strong>Données de progression</strong> : points, badges, série, niveau</li>
   <li><strong>Données de parrainage</strong> : code de parrainage personnel, code du parrain utilisé à l'inscription le cas échéant, nombre de filleuls parrainés</li>
   <li><strong>Données de santé indicatives</strong> : statut mode précaution (activé/désactivé), objectif mg sauvegardé — ces données sont strictement personnelles, non partagées, utilisées uniquement pour adapter les alertes in-app</li>
-  <li><strong>Données de préférences de consommation</strong> : nombre habituel de boissons caféinées par jour, objectif personnel de suivi (réduire la consommation, rester sous la limite santé, améliorer le sommeil ou simple curiosité), heure habituelle de première consommation — collectées lors de l'onboarding, utilisées pour personnaliser l'expérience et les notifications</li>
+  <li><strong>Données de préférences de consommation</strong> : nombre habituel de boissons caféinées par jour, objectif personnel de suivi, heure habituelle de première consommation — collectées lors de l'onboarding, utilisées pour personnaliser l'expérience et les notifications</li>
+  <li><strong>Adresse postale</strong> : collectée uniquement lors de la réclamation d'un cadeau physique, utilisée exclusivement pour la livraison</li>
   <li><strong>Données techniques</strong> : identifiant anonyme Firebase, données de crash anonymisées</li>
 </ul>
 
@@ -58,17 +59,18 @@ Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></p>
   <li>Afficher des statistiques personnalisées</li>
   <li>Personnaliser l'expérience selon tes préférences de consommation déclarées</li>
   <li>Envoyer des notifications push adaptées à ton profil (avec ton consentement)</li>
-  <li>Envoyer des emails de suivi et de récompenses via Brevo (avec ton consentement)</li>
+  <li>Envoyer des emails de suivi et de récompenses via Brevo (confirmation récompense, bonus points, bonus Premium, parrainage)</li>
   <li>Gérer le programme de parrainage et attribuer les récompenses associées</li>
+  <li>Gérer les demandes de cadeaux physiques et leur expédition</li>
   <li>Améliorer l'application via Firebase Analytics (données anonymisées)</li>
   <li>Afficher des publicités via Google AdMob (avec ton consentement ATT)</li>
 </ul>
 
 <h2>5. Base légale</h2>
 <ul>
-  <li><strong>Exécution du contrat</strong> : fourniture du service, gestion du parrainage</li>
-  <li><strong>Consentement</strong> : publicités personnalisées, notifications push, collecte des préférences de consommation lors de l'onboarding</li>
-  <li><strong>Intérêt légitime</strong> : amélioration via analytics anonymisés, prévention de la fraude au parrainage</li>
+  <li><strong>Exécution du contrat</strong> : fourniture du service, gestion du parrainage, expédition des cadeaux</li>
+  <li><strong>Consentement</strong> : publicités personnalisées, notifications push, collecte des préférences de consommation lors de l'onboarding, collecte de l'adresse postale lors d'une demande de cadeau</li>
+  <li><strong>Intérêt légitime</strong> : amélioration via analytics anonymisés, prévention de la fraude au parrainage, gestion administrative des comptes</li>
 </ul>
 
 <h2>6. Sous-traitants</h2>
@@ -76,7 +78,7 @@ Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></p>
   <li><strong>Google Firebase</strong> — Google Ireland Limited, Dublin, Irlande. Données stockées dans l'UE. <a href="https://firebase.google.com/support/privacy">Politique Firebase</a></li>
   <li><strong>Google AdMob</strong> — uniquement avec consentement ATT. <a href="https://policies.google.com/privacy">Politique Google</a></li>
   <li><strong>Apple</strong> — Sign in with Apple, notifications. <a href="https://www.apple.com/legal/privacy/fr-ww/">Politique Apple</a></li>
-  <li><strong>Brevo (ex-Sendinblue)</strong> — envoi d'emails transactionnels. Données : email et prénom uniquement. <a href="https://www.brevo.com/fr/legal/privacypolicy/">Politique Brevo</a></li>
+  <li><strong>Brevo (ex-Sendinblue)</strong> — envoi d'emails transactionnels (récompenses, parrainage, bonus). Données transmises : email et prénom uniquement. <a href="https://www.brevo.com/fr/legal/privacypolicy/">Politique Brevo</a></li>
 </ul>
 <p><strong>Aucune donnée personnelle n'est vendue à des tiers.</strong></p>
 
@@ -89,6 +91,7 @@ Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></p>
   <li><strong>Historique caféine</strong> : jusqu'à 2 ans dans l'application</li>
   <li><strong>Données de préférences de consommation</strong> : durée d'utilisation active ; modifiables à tout moment dans les réglages</li>
   <li><strong>Données de parrainage</strong> : durée d'utilisation active du compte</li>
+  <li><strong>Adresse postale (cadeaux)</strong> : conservée jusqu'à 90 jours après l'expédition confirmée, puis supprimée</li>
   <li><strong>Suppression de compte</strong> : toutes les données effacées sous 30 jours</li>
   <li><strong>Données anonymisées</strong> : conservation indéfinie</li>
 </ul>
@@ -118,15 +121,35 @@ Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></p>
   <li>Données chiffrées au repos via Firebase</li>
   <li>Mots de passe hachés, jamais stockés en clair</li>
   <li>Accès aux données restreint via les règles de sécurité Firebase</li>
+  <li>Accès administrateur limité à l'éditeur, soumis aux mêmes règles de confidentialité</li>
 </ul>
 
 <h2>12. Cookies</h2>
 <p>L'application mobile n'utilise pas de cookies. Le site pausecafe-app.fr est un site statique sans cookie de tracking.</p>
 
-<h2>13. Modifications</h2>
+<h2>13. Adresses postales (cadeaux physiques)</h2>
+<p>Dans le cadre du programme de cadeaux physiques (réservé aux abonnés Premium), l'application collecte une adresse postale de livraison lorsqu'un utilisateur échange ses points contre un cadeau physique. Cette adresse est :</p>
+<ul>
+  <li>Collectée avec le consentement explicite de l'utilisateur au moment de la demande de cadeau</li>
+  <li>Stockée dans Firebase (collection sécurisée, accès restreint) et conservée le temps nécessaire à l'expédition</li>
+  <li>Utilisée exclusivement pour l'envoi du cadeau physique correspondant</li>
+  <li>Jamais partagée avec des tiers commerciaux ni utilisée à des fins publicitaires</li>
+  <li>Supprimée dans les 90 jours suivant l'expédition confirmée</li>
+</ul>
+
+<h2>14. Gestion administrative des comptes</h2>
+<p>L'éditeur dispose d'un accès administrateur à la base de données Firebase lui permettant de :</p>
+<ul>
+  <li>Consulter les informations de compte d'un utilisateur (sur demande de support)</li>
+  <li>Attribuer manuellement des points ou des périodes Premium à titre de compensation ou de fidélisation — avec notification email automatique à l'utilisateur</li>
+  <li>Gérer les demandes de cadeaux physiques et les adresses de livraison associées</li>
+</ul>
+<p>Cet accès est soumis aux mêmes règles de confidentialité que le reste du traitement. Toute consultation est réalisée dans l'intérêt de l'utilisateur concerné et dans le respect du RGPD.</p>
+
+<h2>15. Modifications</h2>
 <p>Cette politique peut être mise à jour. En cas de modification substantielle, une notification sera envoyée via l'application.</p>
 
-<h2>14. Contact et réclamation</h2>
+<h2>16. Contact et réclamation</h2>
 <p>Contact : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a></p>
 <p><strong>CNIL</strong> — 3 Place de Fontenoy, 75334 Paris Cedex 07 — <a href="https://www.cnil.fr">www.cnil.fr</a></p>
 
