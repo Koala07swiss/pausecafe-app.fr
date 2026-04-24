@@ -41,8 +41,7 @@
         .mobile-menu-item.premium-item .item-icon { background: rgba(107,63,160,0.12); }
         .mobile-menu-item.premium-item .item-label { color: var(--purple); }
         .mobile-menu-divider { height: 1px; background: rgba(44,24,16,0.08); margin: 8px 24px; }
-        .mobile-menu-footer { padding: 20px 24px; border-top: 1px solid rgba(196,135,58,0.15); }
-        .mobile-menu-footer a { display: block; background: var(--cafe); color: var(--cream); text-align: center; padding: 14px 24px; border-radius: 100px; font-size: 0.9rem; font-weight: 600; text-decoration: none; }
+        .mobile-menu-footer { padding: 20px 24px; border-top: 1px solid rgba(196,135,58,0.15); display: flex; justify-content: center; }
         .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 48px 80px; position: relative; overflow: hidden; }
         .hero-logo-bg { position: absolute; right: -4vw; top: 50%; transform: translateY(-50%); width: 44vw; max-width: 600px; opacity: 0.18; pointer-events: none; user-select: none; border-radius: 16px; }
         .hero-content { max-width: 680px; position: relative; z-index: 1; }
@@ -50,9 +49,12 @@
         .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 900; line-height: 1.05; color: var(--cafe); margin-bottom: 24px; animation: fadeUp 0.6s ease 0.1s both; }
         .hero h1 span { color: var(--caramel); font-style: italic; }
         .hero p { font-size: 1.15rem; line-height: 1.7; color: var(--cafe); opacity: 0.75; margin-bottom: 48px; max-width: 520px; font-weight: 300; animation: fadeUp 0.6s ease 0.2s both; }
-        .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeUp 0.6s ease 0.3s both; }
-        .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--cafe); color: var(--cream); padding: 16px 32px; border-radius: 100px; font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(44,24,16,0.25); }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(44,24,16,0.35); }
+        .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; animation: fadeUp 0.6s ease 0.3s both; }
+        /* Badge App Store officiel Apple */
+        .apple-badge { display: inline-block; transition: opacity 0.2s, transform 0.2s; }
+        .apple-badge:hover { opacity: 0.85; transform: translateY(-2px); }
+        .apple-badge img { display: block; height: 52px; width: auto; }
+        .apple-badge-lg img { height: 64px; }
         .btn-secondary { display: inline-flex; align-items: center; gap: 8px; color: var(--cafe); padding: 16px 24px; border-radius: 100px; font-size: 0.95rem; font-weight: 500; text-decoration: none; border: 1.5px solid rgba(44,24,16,0.25); transition: border-color 0.2s, background 0.2s; cursor: pointer; }
         .btn-secondary:hover { border-color: var(--caramel); background: rgba(196,135,58,0.06); }
         .features { padding: 100px 48px; background: var(--espresso); color: var(--cream); }
@@ -108,8 +110,6 @@
         .download::before { content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(196,135,58,0.12) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); }
         .download h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; color: var(--cafe); margin-bottom: 24px; position: relative; }
         .download p { font-size: 1.1rem; opacity: 0.65; margin-bottom: 48px; font-weight: 300; position: relative; }
-        .app-store-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--cafe); color: var(--cream); padding: 18px 40px; border-radius: 16px; text-decoration: none; font-weight: 500; font-size: 1rem; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 8px 30px rgba(44,24,16,0.25); position: relative; }
-        .app-store-btn:hover { transform: translateY(-3px); }
         footer { background: var(--espresso); color: var(--cream); padding: 60px 48px 40px; }
         .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); }
         .footer-brand h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
@@ -143,6 +143,8 @@
             footer { padding: 48px 24px 32px; } .footer-top, .footer-links { flex-direction: column; gap: 32px; }
             .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
             .legal-page { padding: 100px 24px 60px; }
+            .apple-badge img { height: 44px; }
+            .apple-badge-lg img { height: 52px; }
         }
     </style>
 </head>
@@ -194,8 +196,16 @@
                 <div class="item-text"><span class="item-label">Normes EFSA</span><span class="item-sub">La science derrière l'app</span></div>
             </button>
         </div>
+        <!-- Badge Apple officiel dans le menu mobile -->
         <div class="mobile-menu-footer">
-            <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" onclick="fermerMenuMobile()">🍎 Télécharger sur l'App Store</a>
+            <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Télécharger PauseCafé sur l'App Store"
+               class="apple-badge"
+               onclick="fermerMenuMobile()">
+                <img src="app-store-badge-fr.svg" alt="Disponible sur l'App Store" height="44" style="height:44px;width:auto;">
+            </a>
         </div>
     </div>
 </div>
@@ -208,7 +218,17 @@
             <h1>Maîtrise ta <span>caféine</span> au quotidien</h1>
             <p>PauseCafé t'aide à suivre ta consommation de caféine, respecter les recommandations EFSA et gagner de vraies récompenses grâce à tes bonnes habitudes.</p>
             <div class="hero-cta">
-                <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" class="btn-primary">🍎 Télécharger sur l'App Store</a>
+                <!-- Badge App Store officiel Apple — ne pas modifier -->
+                <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Télécharger PauseCafé sur l'App Store"
+                   class="apple-badge">
+                    <img src="app-store-badge-fr.svg"
+                         alt="Disponible sur l'App Store"
+                         height="52"
+                         style="height:52px;width:auto;">
+                </a>
                 <a onclick="showMain('features')" class="btn-secondary">Découvrir →</a>
             </div>
         </div>
@@ -346,7 +366,18 @@
     <section class="download" id="download">
         <h2>Commence aujourd'hui.<br>C'est gratuit.</h2>
         <p>Rejoins les utilisateurs qui reprennent le contrôle de leur caféine.</p>
-        <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" class="app-store-btn">🍎 &nbsp; Télécharger sur l'App Store</a>
+        <!-- Badge App Store officiel Apple — ne pas modifier -->
+        <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Télécharger PauseCafé sur l'App Store"
+           class="apple-badge apple-badge-lg"
+           style="display:inline-block;position:relative;">
+            <img src="app-store-badge-fr.svg"
+                 alt="Disponible sur l'App Store"
+                 height="64"
+                 style="height:64px;width:auto;">
+        </a>
     </section>
 
     <footer>
