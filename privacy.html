@@ -36,7 +36,7 @@ Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></p>
 
 <h2>3. Nature des données collectées</h2>
 <ul>
-  <li><strong>Données de compte</strong> : prénom, adresse email</li>
+  <li><strong>Données de compte</strong> : prénom, adresse email, pseudo communauté</li>
   <li><strong>Données de bien-être</strong> : boissons enregistrées, quantités en mg de caféine, horaires</li>
   <li><strong>Données de progression</strong> : points, badges, série, niveau</li>
   <li><strong>Données de parrainage</strong> : code de parrainage personnel, code du parrain utilisé à l'inscription le cas échéant, nombre de filleuls parrainés</li>
@@ -44,6 +44,7 @@ Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></p>
   <li><strong>Données de préférences de consommation</strong> : nombre habituel de boissons caféinées par jour, objectif personnel de suivi, heure habituelle de première consommation — collectées lors de l'onboarding, utilisées pour personnaliser l'expérience et les notifications</li>
   <li><strong>Adresse postale</strong> : collectée uniquement lors de la réclamation d'un cadeau physique, utilisée exclusivement pour la livraison</li>
   <li><strong>Données techniques</strong> : identifiant anonyme Firebase, données de crash anonymisées</li>
+  <li><strong>Préférences de communication</strong> : activation/désactivation des emails transactionnels et des notifications push</li>
 </ul>
 
 <div class="highlight">
@@ -59,13 +60,137 @@ Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></p>
   <li>Afficher des statistiques personnalisées</li>
   <li>Personnaliser l'expérience selon tes préférences de consommation déclarées</li>
   <li>Envoyer des notifications push adaptées à ton profil (avec ton consentement)</li>
-  <li>Envoyer des emails de suivi et de récompenses via Brevo (confirmation récompense, bonus points, bonus Premium, parrainage)</li>
+  <li>Envoyer des emails transactionnels via Brevo (voir section 15 ci-dessous)</li>
   <li>Gérer le programme de parrainage et attribuer les récompenses associées</li>
   <li>Gérer les demandes de cadeaux physiques et leur expédition</li>
+  <li>Afficher le classement communauté (pseudo uniquement — voir section 16)</li>
   <li>Améliorer l'application via Firebase Analytics (données anonymisées)</li>
   <li>Afficher des publicités via Google AdMob (avec ton consentement ATT)</li>
 </ul>
 
+<h2>5. Base légale</h2>
+<ul>
+  <li><strong>Exécution du contrat</strong> : fourniture du service, gestion du parrainage, expédition des cadeaux</li>
+  <li><strong>Consentement</strong> : publicités personnalisées, notifications push, emails transactionnels, collecte des préférences de consommation lors de l'onboarding, collecte de l'adresse postale lors d'une demande de cadeau</li>
+  <li><strong>Intérêt légitime</strong> : amélioration via analytics anonymisés, prévention de la fraude au parrainage, gestion administrative des comptes</li>
+</ul>
+
+<h2>6. Sous-traitants</h2>
+<ul>
+  <li><strong>Google Firebase</strong> — Google Ireland Limited, Dublin, Irlande. Données stockées dans l'UE. <a href="https://firebase.google.com/support/privacy">Politique Firebase</a></li>
+  <li><strong>Google AdMob</strong> — uniquement avec consentement ATT. <a href="https://policies.google.com/privacy">Politique Google</a></li>
+  <li><strong>Apple</strong> — Sign in with Apple, notifications, abonnements. <a href="https://www.apple.com/legal/privacy/fr-ww/">Politique Apple</a></li>
+  <li><strong>Brevo SAS</strong> (7 rue de Madrid, 75008 Paris, France) — envoi d'emails transactionnels. Données transmises : prénom et adresse email uniquement. <a href="https://www.brevo.com/fr/legal/privacypolicy/">Politique Brevo</a></li>
+</ul>
+<p><strong>Aucune donnée personnelle n'est vendue à des tiers.</strong></p>
+
+<h2>7. Transferts hors UE</h2>
+<p>Certains sous-traitants peuvent traiter des données hors UE, encadrés par des clauses contractuelles types de la Commission Européenne.</p>
+
+<h2>8. Durée de conservation</h2>
+<ul>
+  <li><strong>Données de compte</strong> : durée d'utilisation active</li>
+  <li><strong>Historique caféine</strong> : jusqu'à 2 ans dans l'application</li>
+  <li><strong>Données de préférences de consommation</strong> : durée d'utilisation active ; modifiables à tout moment dans les réglages</li>
+  <li><strong>Données de parrainage</strong> : durée d'utilisation active du compte</li>
+  <li><strong>Adresse postale (cadeaux)</strong> : conservée jusqu'à 90 jours après l'expédition confirmée, puis supprimée</li>
+  <li><strong>Suppression de compte</strong> : toutes les données effacées sous 30 jours</li>
+  <li><strong>Données anonymisées</strong> : conservation indéfinie</li>
+</ul>
+
+<h2>9. Tes droits (RGPD)</h2>
+<ul>
+  <li><strong>Accès</strong> : export CSV dans l'app (Évolution → Exporter mes données)</li>
+  <li><strong>Rectification</strong> : modifier ton profil dans les réglages</li>
+  <li><strong>Effacement</strong> : Réglages → Supprimer mon compte</li>
+  <li><strong>Portabilité</strong> : export CSV depuis l'app</li>
+  <li><strong>Opposition au tracking</strong> : Réglages iOS → Confidentialité → Suivi → PauseCafé</li>
+  <li><strong>Désabonnement emails</strong> : lien en bas de chaque email, ou Réglages → Notifications → Emails dans l'app</li>
+  <li><strong>Retrait du consentement</strong> : à tout moment</li>
+</ul>
+<p>Contact : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a> — réponse sous 30 jours.</p>
+
+<h2>10. Publicités et tracking (ATT)</h2>
+<ul>
+  <li><strong>Acceptation</strong> : publicités personnalisées via AdMob</li>
+  <li><strong>Refus</strong> : publicités non personnalisées, sans tracking</li>
+  <li><strong>Premium</strong> : aucune publicité, quel que soit ton choix</li>
+</ul>
+<p>Modifier : <strong>Réglages iOS → Confidentialité → Suivi → PauseCafé</strong></p>
+
+<h2>11. Sécurité</h2>
+<ul>
+  <li>Communications chiffrées HTTPS/TLS</li>
+  <li>Données chiffrées au repos via Firebase</li>
+  <li>Mots de passe hachés, jamais stockés en clair</li>
+  <li>Accès aux données restreint via les règles de sécurité Firebase</li>
+  <li>Accès administrateur limité à l'éditeur, soumis aux mêmes règles de confidentialité</li>
+</ul>
+
+<h2>12. Cookies</h2>
+<p>L'application mobile n'utilise pas de cookies. Le site pausecafe-app.fr est un site statique sans cookie de tracking.</p>
+
+<h2>13. Adresses postales (cadeaux physiques)</h2>
+<p>Dans le cadre du programme de cadeaux physiques (réservé aux abonnés Premium), l'application collecte une adresse postale de livraison lorsqu'un utilisateur échange ses points contre un cadeau physique. Cette adresse est :</p>
+<ul>
+  <li>Collectée avec le consentement explicite de l'utilisateur au moment de la demande de cadeau</li>
+  <li>Stockée dans Firebase (collection sécurisée, accès restreint) et conservée le temps nécessaire à l'expédition</li>
+  <li>Utilisée exclusivement pour l'envoi du cadeau physique correspondant</li>
+  <li>Jamais partagée avec des tiers commerciaux ni utilisée à des fins publicitaires</li>
+  <li>Supprimée dans les 90 jours suivant l'expédition confirmée</li>
+</ul>
+
+<h2>14. Gestion administrative des comptes</h2>
+<p>L'éditeur dispose d'un accès administrateur à la base de données Firebase lui permettant de :</p>
+<ul>
+  <li>Consulter les informations de compte d'un utilisateur (sur demande de support)</li>
+  <li>Attribuer manuellement des points ou des périodes Premium à titre de compensation ou de fidélisation — avec notification email automatique à l'utilisateur</li>
+  <li>Gérer les demandes de cadeaux physiques et les adresses de livraison associées</li>
+</ul>
+<p>Cet accès est soumis aux mêmes règles de confidentialité que le reste du traitement. Toute consultation est réalisée dans l'intérêt de l'utilisateur concerné et dans le respect du RGPD.</p>
+
+<h2>15. Emails transactionnels</h2>
+<p>En créant un compte PauseCafé, tu consens à recevoir des emails transactionnels liés à l'utilisation de l'application. Ces emails sont envoyés via <strong>Brevo SAS</strong> et incluent :</p>
+<ul>
+  <li>Email de bienvenue à l'inscription</li>
+  <li>Confirmation d'activation d'une récompense</li>
+  <li>Rappel d'expiration d'une récompense (3 jours avant)</li>
+  <li>Notification de bonus de points ou de Premium offert par l'équipe</li>
+  <li>Confirmation d'expédition d'un cadeau physique</li>
+  <li>Notifications liées au parrainage (filleul inscrit, filleul abonné)</li>
+  <li>Email de ré-engagement après une longue période d'inactivité</li>
+</ul>
+<p><strong>Droit de désabonnement :</strong> tu peux te désabonner à tout moment via :</p>
+<ul>
+  <li>Le lien "Se désabonner" présent en bas de chaque email</li>
+  <li>L'onglet <strong>Réglages → Notifications → Emails</strong> dans l'application</li>
+  <li>Un email à <a href="mailto:hello@pausecafe-app.fr?subject=Désabonnement emails PauseCafé">hello@pausecafe-app.fr</a> avec l'objet "Désabonnement emails"</li>
+</ul>
+<p><em>Les emails de sécurité du compte (vérification d'identité, suppression de compte) restent actifs même après désabonnement.</em></p>
+
+<h2>16. Classement communauté</h2>
+<p>PauseCafé propose un classement communauté visible par tous les utilisateurs connectés. Ce classement affiche uniquement :</p>
+<ul>
+  <li>Le <strong>pseudo</strong> choisi par l'utilisateur (distinct du prénom du compte)</li>
+  <li>Le nombre de points</li>
+  <li>La série en cours</li>
+  <li>Le niveau et le statut Premium (sans révéler les détails de l'abonnement)</li>
+</ul>
+<div class="highlight">
+<strong>Aucun nom réel, aucune adresse email ni aucune donnée personnelle identifiante n'est visible dans le classement communauté.</strong> Le pseudo est choisi librement par l'utilisateur lors de l'inscription ou depuis les réglages de l'application. Il peut être modifié à tout moment.
+</div>
+<p>Les données du classement sont stockées dans une collection Firebase distincte (<code>/leaderboard</code>), séparée des données de compte privées, accessible uniquement aux utilisateurs authentifiés.</p>
+
+<h2>17. Modifications</h2>
+<p>Cette politique peut être mise à jour. En cas de modification substantielle, une notification sera envoyée via l'application.</p>
+
+<h2>18. Contact et réclamation</h2>
+<p>Contact : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a></p>
+<p><strong>CNIL</strong> — 3 Place de Fontenoy, 75334 Paris Cedex 07 — <a href="https://www.cnil.fr">www.cnil.fr</a></p>
+
+<div class="footer">© 2026 PauseCafé. Tous droits réservés. — <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></div>
+</body>
+</html>
 <h2>5. Base légale</h2>
 <ul>
   <li><strong>Exécution du contrat</strong> : fourniture du service, gestion du parrainage, expédition des cadeaux</li>
