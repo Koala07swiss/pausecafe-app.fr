@@ -1,1 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Articles & Conseils — Caféine & Santé | PauseCafé</title>
+  <meta name="description" content="Articles scientifiques sur la caféine : effets sur la santé, le sommeil, le stress. Recommandations EFSA 400mg, FDA, ANSES 2021. Conseils pour maîtriser votre consommation.">
+  <meta name="keywords" content="caféine santé, limite caféine EFSA, café sommeil, stress caféine, tracker café, 400mg caféine journalier">
+  <link rel="canonical" href="https://pausecafe-app.fr/blog">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pausecafe-app.fr/blog">
+  <meta property="og:title" content="Articles Caféine & Santé — PauseCafé">
+  <meta property="og:description" content="Articles scientifiques sur la caféine, ses effets sur la santé, le sommeil et le stress.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"PauseCafé — Caféine & Santé","url":"https://pausecafe-app.fr/blog","publisher":{"@type":"Organization","name":"PauseCafé","url":"https://pausecafe-app.fr"}}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--cafe:#2C1810;--cream:#F5EDD6;--espresso:#1A0F0A;--caramel:#C4873A;--mousse:#E8D5B0;--purple:#6B3FA0;--purple-light:#9B6FD0;--text:#1A0F0A;}
+    *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+    /* NAV — identique index.html */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 48px;background:rgba(245,237,214,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(196,135,58,0.2);}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:var(--cafe);text-decoration:none;display:flex;align-items:center;gap:10px;}
+    .nav-logo-img{width:36px;height:36px;object-fit:contain;border-radius:8px;}
+    .nav-links{display:flex;gap:28px;list-style:none;}
+    .nav-links a{font-size:0.82rem;font-weight:500;color:var(--cafe);text-decoration:none;opacity:0.7;transition:opacity 0.2s;letter-spacing:0.05em;text-transform:uppercase;}
+    .nav-links a:hover,.nav-links a.active{opacity:1;}
+    .burger-btn{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--cafe);align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;transition:background 0.2s;}
+    .burger-btn svg{width:22px;height:22px;}
+    /* HERO */
+    .blog-hero{background:var(--espresso);padding:140px 48px 80px;position:relative;overflow:hidden;}
+    .blog-hero::before{content:'☕';position:absolute;font-size:28vw;right:-4vw;top:50%;transform:translateY(-50%);opacity:0.04;pointer-events:none;}
+    .blog-hero-inner{max-width:680px;}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--caramel);color:white;padding:5px 14px;border-radius:100px;font-size:0.72rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:24px;}
+    .blog-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;line-height:1.1;color:var(--cream);margin-bottom:20px;}
+    .blog-hero h1 span{color:var(--caramel);font-style:italic;}
+    .blog-hero p{font-size:1rem;line-height:1.75;color:var(--cream);opacity:0.6;font-weight:300;max-width:480px;}
+    /* CATEGORIES */
+    .categories-bar{background:var(--espresso);border-top:1px solid rgba(255,255,255,0.06);padding:20px 48px;display:flex;gap:10px;flex-wrap:wrap;}
+    .cat-btn{padding:7px 16px;border-radius:100px;border:1.5px solid rgba(255,255,255,0.15);cursor:pointer;font-size:0.8rem;font-family:'DM Sans',sans-serif;font-weight:500;transition:all 0.2s;background:transparent;color:rgba(245,237,214,0.65);}
+    .cat-btn.active{background:var(--caramel);border-color:var(--caramel);color:white;}
+    .cat-btn:hover:not(.active){border-color:var(--caramel);color:var(--cream);}
+    /* MAIN */
+    .blog-main{max-width:1100px;margin:0 auto;padding:64px 48px;}
+    .section-label{font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;opacity:0.4;margin-bottom:20px;}
+    /* FEATURED */
+    .article-featured{display:grid;grid-template-columns:1fr 1fr;background:var(--espresso);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 8px 40px rgba(26,15,10,0.15);transition:transform 0.3s,box-shadow 0.3s;margin-bottom:64px;}
+    .article-featured:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(26,15,10,0.22);}
+    .featured-left{padding:48px 44px;display:flex;flex-direction:column;justify-content:space-between;min-height:360px;}
+    .featured-tag{display:inline-block;background:var(--caramel);color:white;font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:4px 12px;border-radius:100px;width:fit-content;margin-bottom:24px;}
+    .featured-left h2{font-family:'Playfair Display',serif;font-size:1.7rem;line-height:1.25;color:var(--cream);flex:1;}
+    .featured-left .meta{font-size:0.78rem;opacity:0.35;color:var(--cream);margin-top:20px;}
+    .featured-right{padding:48px 44px;background:rgba(255,255,255,0.03);display:flex;flex-direction:column;justify-content:space-between;}
+    .featured-right p{font-size:0.9rem;line-height:1.8;opacity:0.65;color:var(--cream);font-weight:300;margin-bottom:16px;}
+    .sources{font-size:0.75rem;color:var(--caramel);margin-bottom:32px;}
+    .btn-lire{display:inline-flex;align-items:center;gap:8px;background:var(--caramel);color:white;padding:12px 24px;border-radius:100px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:0.88rem;text-decoration:none;transition:opacity 0.2s;width:fit-content;}
+    .btn-lire:hover{opacity:0.85;}
+    /* GRID */
+    .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:80px;}
+    .article-card{background:var(--espresso);border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;transition:transform 0.25s,box-shadow 0.25s;display:flex;flex-direction:column;}
+    .article-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(26,15,10,0.2);}
+    .card-top{padding:32px 28px 24px;flex:1;display:flex;flex-direction:column;}
+    .card-emoji{font-size:2.4rem;margin-bottom:20px;display:block;}
+    .card-tag{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--caramel);margin-bottom:10px;}
+    .card-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;line-height:1.35;color:var(--cream);margin-bottom:12px;}
+    .card-excerpt{font-size:0.83rem;line-height:1.65;opacity:0.5;color:var(--cream);font-weight:300;flex:1;}
+    .card-footer{padding:14px 28px;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;}
+    .card-date{font-size:0.75rem;opacity:0.3;color:var(--cream);}
+    .card-read{font-size:0.75rem;color:var(--caramel);font-weight:600;}
+    /* CTA */
+    .cta-app{background:var(--espresso);border-radius:20px;padding:64px 48px;text-align:center;position:relative;overflow:hidden;}
+    .cta-app::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(196,135,58,0.1) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);}
+    .cta-app h2{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--cream);margin-bottom:14px;position:relative;}
+    .cta-app p{font-size:0.95rem;opacity:0.5;color:var(--cream);margin-bottom:36px;font-weight:300;position:relative;}
+    .apple-badge{display:inline-block;transition:opacity 0.2s,transform 0.2s;position:relative;}
+    .apple-badge:hover{opacity:0.85;transform:translateY(-2px);}
+    .apple-badge img{display:block;height:52px;width:auto;}
+    /* FOOTER — identique index.html */
+    footer{background:var(--espresso);color:var(--cream);padding:60px 48px 40px;}
+    .footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.08);}
+    .footer-brand h3{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+    .footer-logo-img{width:32px;height:32px;object-fit:contain;border-radius:6px;opacity:0.85;}
+    .footer-brand p{font-size:0.85rem;opacity:0.45;font-weight:300;}
+    .footer-links{display:flex;gap:48px;}
+    .footer-col h4{font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;opacity:0.45;margin-bottom:16px;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .footer-col a{color:var(--cream);text-decoration:none;font-size:0.875rem;opacity:0.65;transition:opacity 0.2s;}
+    .footer-col a:hover{opacity:1;}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;opacity:0.35;}
+    @media(max-width:900px){.articles-grid{grid-template-columns:1fr 1fr;}.article-featured{grid-template-columns:1fr;}}
+    @media(max-width:768px){
+      nav{padding:12px 24px;}.nav-links{display:none;}.burger-btn{display:flex;}
+      .blog-hero{padding:110px 24px 60px;}.categories-bar{padding:16px 24px;}
+      .blog-main{padding:40px 24px;}.featured-left,.featured-right{padding:28px 24px;}
+      .articles-grid{grid-template-columns:1fr;}.cta-app{padding:40px 24px;}
+      footer{padding:48px 24px 32px;}.footer-top,.footer-links{flex-direction:column;gap:32px;}
+      .footer-bottom{flex-direction:column;gap:8px;text-align:center;}
+    }
+  </style>
+</head>
+<body>
 
+<nav>
+  <a href="https://pausecafe-app.fr" class="nav-logo">
+    <img src="logo.png" alt="PauseCafé" class="nav-logo-img">PauseCafé
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://pausecafe-app.fr#features">Fonctionnalités</a></li>
+    <li><a href="https://pausecafe-app.fr#premium" style="color:var(--purple);font-weight:700;opacity:1">👑 Premium</a></li>
+    <li><a href="https://pausecafe-app.fr#normes">Normes EFSA</a></li>
+    <li><a href="/blog" class="active">Articles</a></li>
+  </ul>
+  <button class="burger-btn" aria-label="Menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+
+<section class="blog-hero">
+  <div class="blog-hero-inner">
+    <div class="hero-badge">Caféine & Santé</div>
+    <h1>La science de la <span>caféine</span>,<br>expliquée simplement</h1>
+    <p>Articles fondés sur des études cliniques validées — EFSA, FDA, ANSES. Pour comprendre votre consommation et agir en connaissance de cause.</p>
+  </div>
+</section>
+
+<div class="categories-bar">
+  <button class="cat-btn active">Tous</button>
+  <button class="cat-btn">Santé</button>
+  <button class="cat-btn">Sommeil</button>
+  <button class="cat-btn">Stress & Cortisol</button>
+  <button class="cat-btn">Études scientifiques</button>
+  <button class="cat-btn">Conseils pratiques</button>
+  <button class="cat-btn">Grossesse</button>
+</div>
+
+<main class="blog-main">
+
+  <p class="section-label">📌 À la une</p>
+  <a href="/blog/limite-cafeine-efsa-400mg" class="article-featured">
+    <div class="featured-left">
+      <div>
+        <span class="featured-tag">Études scientifiques</span>
+        <h2>La limite de 400 mg/jour : ce que disent vraiment EFSA, FDA et ANSES</h2>
+      </div>
+      <span class="meta">15 avril 2026 · 6 min de lecture</span>
+    </div>
+    <div class="featured-right">
+      <div>
+        <p>Vous avez certainement entendu parler de la fameuse limite de 400 mg de caféine par jour. Mais d'où vient ce chiffre, est-il vraiment universel, et que faire si vous le dépassez régulièrement ?</p>
+        <p>En 2015, l'EFSA a publié une analyse de 740 études sur la caféine. Résultat : 400 mg/jour ne présente pas de risque pour un adulte sain. Cette limite a été confirmée par la FDA et l'ANSES (France, 2021).</p>
+        <p class="sources">Sources : EFSA 2015 · FDA Guidelines · ANSES 2021</p>
+      </div>
+      <a href="/blog/limite-cafeine-efsa-400mg" class="btn-lire">Lire l'article →</a>
+    </div>
+  </a>
+
+  <p class="section-label">📖 Tous les articles</p>
+  <div class="articles-grid">
+
+    <a href="/blog/cafeine-sommeil" class="article-card">
+      <div class="card-top">
+        <span class="card-emoji">😴</span>
+        <p class="card-tag">Sommeil</p>
+        <h3 class="card-title">Caféine et sommeil : pourquoi votre café de 15h ruine votre nuit</h3>
+        <p class="card-excerpt">L'étude Drake et al. (2013) montre que la caféine consommée jusqu'à 6h avant le coucher réduit significativement la qualité du sommeil.</p>
+      </div>
+      <div class="card-footer"><span class="card-date">8 avril 2026</span><span class="card-read">5 min →</span></div>
+    </a>
+
+    <a href="/blog/cafeine-cortisol-stress" class="article-card">
+      <div class="card-top">
+        <span class="card-emoji">😰</span>
+        <p class="card-tag">Stress & Cortisol</p>
+        <h3 class="card-title">Caféine et cortisol : comment le café amplifie votre réponse au stress</h3>
+        <p class="card-excerpt">Lovallo et al. (2006) ont démontré que la caféine augmente la réponse cortisolique. Si vous êtes anxieux, votre consommation mérite attention.</p>
+      </div>
+      <div class="card-footer"><span class="card-date">1er avril 2026</span><span class="card-read">4 min →</span></div>
+    </a>
+
+    <a href="/blog/cafeine-anxiete" class="article-card">
+      <div class="card-top">
+        <span class="card-emoji">🧠</span>
+        <p class="card-tag">Santé mentale</p>
+        <h3 class="card-title">Au-delà de 400 mg : caféine et anxiété, ce que dit la science</h3>
+        <p class="card-excerpt">Nawrot et al. (2003) ont analysé les effets d'une consommation excessive. À partir de quand la caféine devient-elle un problème ?</p>
+      </div>
+      <div class="card-footer"><span class="card-date">22 mars 2026</span><span class="card-read">6 min →</span></div>
+    </a>
+
+    <a href="/blog/cafeine-grossesse" class="article-card">
+      <div class="card-top">
+        <span class="card-emoji">🤰</span>
+        <p class="card-tag">Grossesse</p>
+        <h3 class="card-title">Caféine et grossesse : pourquoi l'OMS recommande 300 mg maximum</h3>
+        <p class="card-excerpt">Pendant la grossesse, la limite descend à 300 mg/jour selon l'OMS. Comment adapter ses habitudes sans tout supprimer.</p>
+      </div>
+      <div class="card-footer"><span class="card-date">15 mars 2026</span><span class="card-read">4 min →</span></div>
+    </a>
+
+    <a href="/blog/tracker-cafeine-benefices" class="article-card">
+      <div class="card-top">
+        <span class="card-emoji">📊</span>
+        <p class="card-tag">Conseils pratiques</p>
+        <h3 class="card-title">Pourquoi tracker sa caféine change vraiment les habitudes</h3>
+        <p class="card-excerpt">La simple prise de conscience de sa consommation est la première étape. La science derrière la prise de conscience comportementale.</p>
+      </div>
+      <div class="card-footer"><span class="card-date">8 mars 2026</span><span class="card-read">3 min →</span></div>
+    </a>
+
+    <a href="/blog/sources-cafeine-insoupconnees" class="article-card">
+      <div class="card-top">
+        <span class="card-emoji">🍵</span>
+        <p class="card-tag">Conseils pratiques</p>
+        <h3 class="card-title">Les sources de caféine insoupçonnées : thé, chocolat, médicaments…</h3>
+        <p class="card-excerpt">La caféine ne vient pas que du café. Thé vert, matcha, boissons énergisantes : tour d'horizon des sources cachées.</p>
+      </div>
+      <div class="card-footer"><span class="card-date">1er mars 2026</span><span class="card-read">5 min →</span></div>
+    </a>
+
+  </div>
+
+  <div class="cta-app">
+    <h2>Passe à l'action.</h2>
+    <p>Télécharge PauseCafé et commence à suivre ta caféine aujourd'hui — gratuit.</p>
+    <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" rel="noopener" aria-label="Télécharger PauseCafé sur l'App Store" class="apple-badge">
+      <img src="app-store-badge-fr.svg" alt="Disponible sur l'App Store" height="52" style="height:52px;width:auto;">
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <h3><img src="logo.png" alt="PauseCafé" class="footer-logo-img">PauseCafé</h3>
+      <p>Suivi de caféine intelligent<br>Fait avec ❤️ en France</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Application</h4>
+        <ul>
+          <li><a href="https://pausecafe-app.fr#features">Fonctionnalités</a></li>
+          <li><a href="https://pausecafe-app.fr#premium">👑 Premium</a></li>
+          <li><a href="https://pausecafe-app.fr#normes">Normes EFSA</a></li>
+          <li><a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank">Télécharger</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ressources</h4>
+        <ul>
+          <li><a href="/blog">Articles & Conseils</a></li>
+          <li><a href="https://pausecafe-app.fr#normes">Normes EFSA</a></li>
+          <li><a href="mailto:hello@pausecafe-app.fr">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Légal</h4>
+        <ul>
+          <li><a href="privacy.html">Confidentialité</a></li>
+          <li><a href="cgu.html">CGU</a></li>
+          <li><a href="rgpd.html">Droits RGPD</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 PauseCafé. Tous droits réservés.</span>
+    <span>pausecafe-app.fr</span>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.cat-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
