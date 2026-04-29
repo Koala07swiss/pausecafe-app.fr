@@ -50,7 +50,6 @@
         .hero h1 span { color: var(--caramel); font-style: italic; }
         .hero p { font-size: 1.15rem; line-height: 1.7; color: var(--cafe); opacity: 0.75; margin-bottom: 48px; max-width: 520px; font-weight: 300; animation: fadeUp 0.6s ease 0.2s both; }
         .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; animation: fadeUp 0.6s ease 0.3s both; }
-        /* Badge App Store officiel Apple */
         .apple-badge { display: inline-block; transition: opacity 0.2s, transform 0.2s; }
         .apple-badge:hover { opacity: 0.85; transform: translateY(-2px); }
         .apple-badge img { display: block; height: 52px; width: auto; }
@@ -202,14 +201,8 @@
                 <div class="item-text"><span class="item-label">Articles</span><span class="item-sub">Caféine & Santé</span></div>
             </a>
         </div>
-        <!-- Badge Apple officiel dans le menu mobile -->
         <div class="mobile-menu-footer">
-            <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Télécharger PauseCafé sur l'App Store"
-               class="apple-badge"
-               onclick="fermerMenuMobile()">
+            <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" rel="noopener noreferrer" aria-label="Télécharger PauseCafé sur l'App Store" class="apple-badge" onclick="fermerMenuMobile()">
                 <img src="app-store-badge-fr.svg" alt="Disponible sur l'App Store" height="44" style="height:44px;width:auto;">
             </a>
         </div>
@@ -224,16 +217,8 @@
             <h1>Maîtrise ta <span>caféine</span> au quotidien</h1>
             <p>PauseCafé t'aide à suivre ta consommation de caféine, respecter les recommandations EFSA et gagner de vraies récompenses grâce à tes bonnes habitudes.</p>
             <div class="hero-cta">
-                <!-- Badge App Store officiel Apple — ne pas modifier -->
-                <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Télécharger PauseCafé sur l'App Store"
-                   class="apple-badge">
-                    <img src="app-store-badge-fr.svg"
-                         alt="Disponible sur l'App Store"
-                         height="52"
-                         style="height:52px;width:auto;">
+                <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" rel="noopener noreferrer" aria-label="Télécharger PauseCafé sur l'App Store" class="apple-badge">
+                    <img src="app-store-badge-fr.svg" alt="Disponible sur l'App Store" height="52" style="height:52px;width:auto;">
                 </a>
                 <a onclick="showMain('features')" class="btn-secondary">Découvrir →</a>
             </div>
@@ -266,6 +251,8 @@
             <div class="premium-card"><span class="premium-card-emoji">📷</span><h3>Scanner de code-barres</h3><p>Identifie automatiquement la teneur en caféine d'une boisson via Open Food Facts.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">⭐</span><h3>Points x2</h3><p>+4 pts par boisson et +20 pts par jour (vs +2 et +10 en gratuit). Tu accumules le double de points.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">🎁</span><h3>Cadeaux physiques</h3><p>Échange tes points contre de vrais cadeaux envoyés chez toi. Réservé aux abonnés Premium.</p></div>
+            <div class="premium-card"><span class="premium-card-emoji">⚡</span><h3>3 boissons favorites</h3><p>Marque jusqu'à 3 boissons comme favorites (⭐). Accès rapide en haut de la liste sur iPhone ET Watch.</p></div>
+            <div class="premium-card"><span class="premium-card-emoji">⚡</span><h3>Mode 1 tap</h3><p>Un tap sur la tasse = ta boisson favorite ajoutée directement. Sans liste, sans sélection. Sur iPhone ET Watch.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">🎯</span><h3>Offres exclusives</h3><p>Offres négociées spécialement pour les abonnés Premium. Bientôt disponibles.</p></div>
         </div>
 
@@ -294,6 +281,8 @@
                 <tr><td>Scanner de code-barres</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Points x2 (boisson + série)</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Cadeaux physiques</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>⚡ 3 boissons favorites</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>⚡ Mode 1 tap</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Offres exclusives négociées</td><td class="col-free">❌</td><td class="col-premium">✅ Bientôt</td></tr>
             </tbody>
         </table>
@@ -326,26 +315,10 @@
             <p style="font-size: 1rem; opacity: 0.65; font-weight: 300; margin-bottom: 16px; max-width: 600px;">Nous travaillons en permanence à améliorer PauseCafé. Voici ce qui arrive bientôt.</p>
             <p style="font-size: 0.8rem; opacity: 0.4; margin-bottom: 40px;">Certaines fonctionnalités pourront être incluses dans Premium.</p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
-                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;">
-                    <div style="font-size: 2rem; margin-bottom: 12px;">😴</div>
-                    <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Corrélation caféine / sommeil</h3>
-                    <p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Découvre l'impact réel de ta consommation sur la qualité de ton sommeil.</p>
-                </div>
-                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;">
-                    <div style="font-size: 2rem; margin-bottom: 12px;">🧠</div>
-                    <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Alertes intelligentes</h3>
-                    <p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Alertes personnalisées basées sur tes habitudes : "Il est 16h, tu as 320mg."</p>
-                </div>
-                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;">
-                    <div style="font-size: 2rem; margin-bottom: 12px;">🧠</div>
-                    <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Suivi stress &amp; anxiété</h3>
-                    <p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Questionnaire hebdomadaire avec corrélations personnalisées caféine/stress.</p>
-                </div>
-                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;">
-                    <div style="font-size: 2rem; margin-bottom: 12px;">📊</div>
-                    <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Modèle physiologique avancé</h3>
-                    <p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Visualise ta caféine active en temps réel et anticipe l'impact sur ton énergie.</p>
-                </div>
+                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;"><div style="font-size: 2rem; margin-bottom: 12px;">😴</div><h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Corrélation caféine / sommeil</h3><p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Découvre l'impact réel de ta consommation sur la qualité de ton sommeil.</p></div>
+                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;"><div style="font-size: 2rem; margin-bottom: 12px;">🧠</div><h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Alertes intelligentes</h3><p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Alertes personnalisées basées sur tes habitudes : "Il est 16h, tu as 320mg."</p></div>
+                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;"><div style="font-size: 2rem; margin-bottom: 12px;">🧠</div><h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Suivi stress &amp; anxiété</h3><p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Questionnaire hebdomadaire avec corrélations personnalisées caféine/stress.</p></div>
+                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;"><div style="font-size: 2rem; margin-bottom: 12px;">📊</div><h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Modèle physiologique avancé</h3><p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Visualise ta caféine active en temps réel et anticipe l'impact sur ton énergie.</p></div>
             </div>
         </div>
     </section>
@@ -366,6 +339,7 @@
                     <p style="font-size:0.95rem;line-height:1.8;opacity:0.7;font-weight:300;margin-bottom:24px">PauseCafé s'appuie sur les recommandations scientifiques validées par les trois principales autorités mondiales.</p>
                     <p style="font-size:0.95rem;line-height:1.8;opacity:0.7;font-weight:300;margin-bottom:24px">La convergence entre l'<strong>EFSA (UE, 2015)</strong>, la <strong>FDA (États-Unis)</strong> et l'<strong>ANSES (France, 2021)</strong> sur 400 mg/jour constitue un consensus scientifique solide. L'<strong>OMS</strong> recommande 300 mg/jour maximum pour les femmes enceintes.</p>
                     <p style="font-size:0.85rem;opacity:0.5;font-weight:300">Sources : EFSA 2015, FDA Guidelines, ANSES 2021, Nawrot 2003, Drake 2013, Lovallo 2006. OMS : max 300 mg/jour pour les femmes enceintes.</p>
+                    <p style="font-size:0.8rem;opacity:0.45;font-weight:300;margin-top:16px;font-style:italic;">⚠️ Les informations fournies par PauseCafé sont à titre indicatif uniquement et ne constituent pas un avis médical. Consultez un professionnel de santé pour tout conseil personnalisé.</p>
                 </div>
             </div>
         </div>
@@ -374,27 +348,15 @@
     <section class="download" id="download">
         <h2>Commence aujourd'hui.<br>C'est gratuit.</h2>
         <p>Rejoins les utilisateurs qui reprennent le contrôle de leur caféine.</p>
-        <!-- Badge App Store officiel Apple — ne pas modifier -->
-        <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="Télécharger PauseCafé sur l'App Store"
-           class="apple-badge apple-badge-lg"
-           style="display:inline-block;position:relative;">
-            <img src="app-store-badge-fr.svg"
-                 alt="Disponible sur l'App Store"
-                 height="64"
-                 style="height:64px;width:auto;">
+        <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" rel="noopener noreferrer" aria-label="Télécharger PauseCafé sur l'App Store" class="apple-badge apple-badge-lg" style="display:inline-block;position:relative;">
+            <img src="app-store-badge-fr.svg" alt="Disponible sur l'App Store" height="64" style="height:64px;width:auto;">
         </a>
     </section>
 
     <footer>
         <div class="footer-top">
             <div class="footer-brand">
-                <h3>
-                    <img src="logo.png" alt="PauseCafé" class="footer-logo-img">
-                    PauseCafé
-                </h3>
+                <h3><img src="logo.png" alt="PauseCafé" class="footer-logo-img">PauseCafé</h3>
                 <p>Suivi de caféine intelligent<br>Fait avec ❤️ en France</p>
             </div>
             <div class="footer-links">
