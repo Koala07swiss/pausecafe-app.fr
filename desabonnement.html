@@ -10,32 +10,24 @@
 <style>
   :root { --cafe: #2C1810; --cream: #F5EDD6; --espresso: #1A0F0A; --caramel: #C4873A; --mousse: #E8D5B0; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--cafe); min-height: 100vh; padding: 30px 20px 60px; line-height: 1.6; }
-  .container { max-width: 600px; margin: 0 auto; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--cafe); min-height: 100vh; padding: 40px 20px 60px; line-height: 1.6; display: flex; align-items: center; justify-content: center; }
+  .container { max-width: 540px; width: 100%; }
   nav { margin-bottom: 24px; }
   nav a { color: var(--caramel); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
-  h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; margin: 24px 0 12px; line-height: 1.15; }
-  .lead { font-size: 1rem; opacity: 0.75; margin-bottom: 32px; max-width: 520px; }
-  .card { background: white; border-radius: 16px; padding: 28px 24px; margin-bottom: 16px; box-shadow: 0 4px 24px rgba(44,24,16,0.06); }
-  .card h2 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-  .card p { font-size: 0.92rem; opacity: 0.75; margin-bottom: 16px; }
-  .badge-recommended { display: inline-block; background: var(--caramel); color: white; font-size: 0.65rem; font-weight: 700; padding: 3px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em; }
-  .step { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; font-size: 0.92rem; }
-  .step-num { background: var(--mousse); color: var(--cafe); min-width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; flex-shrink: 0; }
-  form { display: flex; flex-direction: column; gap: 14px; }
-  label { font-weight: 600; font-size: 0.85rem; }
-  input, textarea, select { padding: 12px 14px; border: 1.5px solid #d4c8b5; border-radius: 10px; font-family: inherit; font-size: 0.95rem; background: var(--cream); color: var(--cafe); width: 100%; }
-  input:focus, textarea:focus, select:focus { outline: none; border-color: var(--caramel); }
-  textarea { resize: vertical; min-height: 80px; font-family: inherit; }
-  button { background: var(--caramel); color: white; border: none; padding: 14px 24px; border-radius: 100px; font-family: inherit; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: opacity 0.2s, transform 0.1s; margin-top: 6px; }
-  button:hover { opacity: 0.9; }
-  button:active { transform: scale(0.98); }
-  .small { font-size: 0.78rem; opacity: 0.65; line-height: 1.55; }
-  .small a { color: var(--caramel); }
-  .footer { text-align: center; margin-top: 32px; font-size: 0.78rem; opacity: 0.55; line-height: 1.7; }
+  h1 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; margin: 24px 0 12px; line-height: 1.2; }
+  .lead { font-size: 1rem; opacity: 0.75; margin-bottom: 32px; }
+  .card { background: white; border-radius: 16px; padding: 32px 28px; margin-bottom: 16px; box-shadow: 0 4px 24px rgba(44,24,16,0.06); }
+  .step-row { display: flex; gap: 14px; margin-bottom: 14px; align-items: flex-start; font-size: 0.95rem; }
+  .step-row:last-of-type { margin-bottom: 0; }
+  .step-num { background: var(--caramel); color: white; min-width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+  .step-row strong { color: var(--cafe); }
+  .info-box { background: #FEF3C7; border-left: 4px solid #F59E0B; border-radius: 0 8px 8px 0; padding: 14px 16px; margin-top: 24px; }
+  .info-box p { font-size: 0.85rem; color: #78350F; margin: 0; line-height: 1.5; }
+  .info-box strong { color: #92400E; }
+  .help-link { display: block; margin-top: 24px; text-align: center; font-size: 0.85rem; opacity: 0.7; }
+  .help-link a { color: var(--caramel); text-decoration: none; font-weight: 600; }
+  .footer { text-align: center; margin-top: 32px; font-size: 0.78rem; opacity: 0.5; line-height: 1.7; }
   .footer a { color: var(--caramel); text-decoration: none; }
-  .success-msg { display: none; background: #DCFCE7; color: #15803D; padding: 16px; border-radius: 10px; font-size: 0.9rem; font-weight: 500; margin-top: 12px; }
-  .success-msg.show { display: block; }
 </style>
 </head>
 <body>
@@ -44,86 +36,24 @@
   <nav><a href="https://pausecafe-app.fr">← Retour au site</a></nav>
 
   <h1>Se désabonner des emails</h1>
-  <p class="lead">Tu peux te désabonner à tout moment. Les emails de sécurité (vérification, suppression de compte) restent toujours actifs.</p>
+  <p class="lead">Le désabonnement se fait directement dans l'app, en 3 étapes. C'est instantané.</p>
 
-  <!-- Méthode 1 : depuis l'app (recommandée) -->
   <div class="card">
-    <h2>📱 Depuis l'application <span class="badge-recommended">Recommandé</span></h2>
-    <p>Méthode la plus rapide — désabonnement instantané, sans attente.</p>
-    <div class="step"><div class="step-num">1</div><span>Ouvre l'application PauseCafé</span></div>
-    <div class="step"><div class="step-num">2</div><span>Va dans <strong>Réglages → Notifications → Emails</strong></span></div>
-    <div class="step"><div class="step-num">3</div><span>Désactive le toggle <strong>« Rapport hebdomadaire »</strong> (ou tous les emails que tu veux arrêter)</span></div>
+    <div class="step-row"><div class="step-num">1</div><span>Ouvre l'application <strong>PauseCafé</strong> sur ton iPhone</span></div>
+    <div class="step-row"><div class="step-num">2</div><span>Va dans <strong>Mon compte</strong> → <strong>Réglages</strong> → <strong>Notifications</strong> → <strong>Emails</strong></span></div>
+    <div class="step-row"><div class="step-num">3</div><span>Désactive le toggle <strong>« Emails de l'app »</strong> (ou uniquement <strong>« Rapport du lundi »</strong> si tu veux garder les autres)</span></div>
+
+    <div class="info-box">
+      <p><strong>💡 Pourquoi cette méthode ?</strong> Elle est instantanée et met à jour immédiatement tes préférences. Aucune attente, aucun formulaire à remplir.</p>
+    </div>
   </div>
 
-  <!-- Méthode 2 : formulaire -->
-  <div class="card">
-    <h2>📧 Via ce formulaire</h2>
-    <p>Si tu n'as plus accès à l'app ou que tu préfères passer par ici. Traitement sous <strong>5 jours ouvrés</strong>.</p>
-
-    <form id="desabForm">
-      <div>
-        <label for="email">Adresse email associée à ton compte *</label>
-        <input type="email" id="email" name="email" required placeholder="ton@email.com">
-      </div>
-
-      <div>
-        <label for="type">Quels emails veux-tu arrêter ? *</label>
-        <select id="type" name="type" required>
-          <option value="">— Choisir —</option>
-          <option value="hebdo">Uniquement le rapport hebdomadaire (lundi)</option>
-          <option value="defis">Uniquement les rappels de défis</option>
-          <option value="tous">Tous les emails marketing</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="raison">Raison (facultatif)</label>
-        <textarea id="raison" name="raison" placeholder="Trop d'emails, contenu pas pertinent, je n'utilise plus l'app..."></textarea>
-      </div>
-
-      <button type="submit">Envoyer la demande →</button>
-
-      <div class="success-msg" id="success">
-        ✅ Ton client mail va s'ouvrir avec la demande pré-remplie. Vérifie qu'il s'envoie bien.
-      </div>
-
-      <p class="small">⚠️ Ce formulaire ouvre ton client mail (Mail, Gmail, Outlook…). Si rien ne se passe, écris directement à <a href="mailto:hello@pausecafe-app.fr?subject=D%C3%A9sabonnement%20emails%20PauseCaf%C3%A9">hello@pausecafe-app.fr</a></p>
-    </form>
-  </div>
+  <p class="help-link">Tu n'as plus accès à l'app ? Écris-nous à <a href="mailto:hello@pausecafe-app.fr?subject=D%C3%A9sabonnement%20emails%20PauseCaf%C3%A9">hello@pausecafe-app.fr</a></p>
 
   <p class="footer">
-    PauseCafé · <a href="https://pausecafe-app.fr">pausecafe-app.fr</a><br>
-    <a href="cgu.html">CGU</a> · <a href="privacy.html">Confidentialité</a>
+    Les emails de sécurité (vérification, suppression de compte, expédition de cadeau) restent toujours actifs.<br><br>
+    PauseCafé · <a href="https://pausecafe-app.fr">pausecafe-app.fr</a> · <a href="cgu.html">CGU</a> · <a href="privacy.html">Confidentialité</a>
   </p>
 </div>
-
-<script>
-  document.getElementById('desabForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const email = document.getElementById('email').value.trim();
-    const type = document.getElementById('type').value;
-    const raison = document.getElementById('raison').value.trim();
-    if (!email || !type) return;
-
-    const typeLabels = {
-      'hebdo': 'Rapport hebdomadaire uniquement',
-      'defis': 'Rappels de défis uniquement',
-      'tous': 'Tous les emails marketing'
-    };
-    const typeText = typeLabels[type] || type;
-
-    const subject = encodeURIComponent('Désabonnement emails PauseCafé');
-    const body = encodeURIComponent(
-      'Email du compte : ' + email + '\n' +
-      'Type de désabonnement : ' + typeText + '\n\n' +
-      'Raison : ' + (raison || '(aucune)') + '\n\n' +
-      'Merci de retirer mon adresse de la liste correspondante sous 5 jours ouvrés.'
-    );
-
-    window.location.href = 'mailto:hello@pausecafe-app.fr?subject=' + subject + '&body=' + body;
-    document.getElementById('success').classList.add('show');
-  });
-</script>
-
 </body>
 </html>
