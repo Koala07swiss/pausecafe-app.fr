@@ -86,6 +86,12 @@
         .compare-table td.col-free { background: rgba(255,255,255,0.03); }
         .compare-table td.col-premium { background: rgba(107,63,160,0.15); }
         .compare-table tr:hover td { background: rgba(255,255,255,0.06); }
+        .paliers-points { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; max-width: 800px; margin: 0 auto 64px; }
+        .palier-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(155,111,208,0.3); border-radius: 16px; padding: 24px; text-align: center; }
+        .palier-card .palier-emoji { font-size: 2rem; margin-bottom: 12px; display: block; }
+        .palier-card .palier-titre { font-size: 1rem; font-weight: 700; color: white; margin-bottom: 4px; }
+        .palier-card .palier-pts { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--purple-light); margin-bottom: 4px; }
+        .palier-card .palier-detail { font-size: 0.8rem; opacity: 0.65; font-weight: 300; }
         .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 600px; margin: 0 auto; }
         .plan-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(155,111,208,0.3); padding: 32px 24px; border-radius: 20px; text-align: center; position: relative; transition: transform 0.2s; }
         .plan-card:hover { transform: translateY(-4px); }
@@ -137,7 +143,7 @@
             .hero { padding: 100px 24px 60px; }
             .hero-logo-bg { width: 80vw; right: 50%; transform: translate(50%, -50%); opacity: 0.08; top: 30%; }
             .features, .normes, .download, .premium { padding: 60px 24px; }
-            .normes-grid, .plans { grid-template-columns: 1fr; gap: 32px; }
+            .normes-grid, .plans, .paliers-points { grid-template-columns: 1fr; gap: 32px; }
             .compare-table { font-size: 0.8rem; } .compare-table td, .compare-table th { padding: 10px 12px; }
             footer { padding: 48px 24px 32px; } .footer-top, .footer-links { flex-direction: column; gap: 32px; }
             .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
@@ -231,7 +237,7 @@
         <div class="features-grid">
             <div class="feature-card"><span class="feature-emoji">☕</span><h3>Suis ta caféine</h3><p>Enregistre chaque boisson en un tap. Café, thé, tisane, soda, energy drink — tout est répertorié avec les valeurs exactes en mg de caféine.</p></div>
             <div class="feature-card"><span class="feature-emoji">🏆</span><h3>120 badges &amp; 8 niveaux</h3><p>Débloque des badges, gagne des points et monte en niveau. De Pousse 🌱 à Légende 🦁 — 120 badges à collectionner (dont 10 exclusifs Premium 👑), chacun récompensé selon sa difficulté. Certains sont mystérieux !</p></div>
-            <div class="feature-card"><span class="feature-emoji">🎁</span><h3>Vraies récompenses</h3><p>Bons plans partenaires pour tous. Pour les Premium : échange tes points contre des cadeaux ou des bons cadeaux. Pour les gratuits : échange tes points contre du temps Premium.</p></div>
+            <div class="feature-card"><span class="feature-emoji">🎁</span><h3>Vraies récompenses</h3><p>Bons plans partenaires pour tous. Pour les Premium : échange tes points contre des cadeaux ou des bons cadeaux (cooldown de 6 mois entre 2 réclamations physiques). Pour les gratuits : échange tes points contre du temps Premium.</p></div>
             <div class="feature-card"><span class="feature-emoji">📊</span><h3>Stats &amp; évolution</h3><p>Graphiques d'évolution, analyse par horaire, par jour de semaine, comparaison semaine/semaine.</p></div>
             <div class="feature-card"><span class="feature-emoji">🔥</span><h3>Séries &amp; motivation</h3><p>Maintiens ta série de jours consécutifs. Une série perdue coûte des points — la motivation ultime.</p></div>
             <div class="feature-card"><span class="feature-emoji">🎯</span><h3>Défis Communauté</h3><p>Relève des défis hebdomadaires, mensuels ou annuels et gagne des points bonus. Série, caféine, badges, parrainages… 9 types de défis, 3 actifs max simultanément. 5 badges exclusifs à débloquer.</p></div>
@@ -250,11 +256,35 @@
             <div class="premium-card"><span class="premium-card-emoji">🧪</span><h3>Boissons personnalisées</h3><p>Crée tes propres boissons avec le mg exact. Disponibles sur l'app ET la Watch.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">📷</span><h3>Scanner de code-barres</h3><p>Identifie automatiquement la teneur en caféine d'une boisson via Open Food Facts.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">⭐</span><h3>Points x2</h3><p>+4 pts par boisson et +20 pts par jour (vs +2 et +10 en gratuit). Tu accumules le double de points.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🎁</span><h3>Cadeaux & bons cadeaux</h3><p>Échange tes points contre des cadeaux ou des bons cadeaux.</p></div>
+            <div class="premium-card"><span class="premium-card-emoji">🎁</span><h3>Cadeaux & bons cadeaux</h3><p>Échange tes points contre des cadeaux ou des bons cadeaux. Cooldown de 6 mois entre deux réclamations physiques.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">⚡</span><h3>3 boissons favorites</h3><p>Marque jusqu'à 3 boissons comme favorites (⭐). Accès rapide en haut de la liste sur iPhone ET Watch.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">⚡</span><h3>Mode 1 tap</h3><p>Un tap sur la tasse = ta boisson favorite ajoutée directement. Sans liste, sans sélection. Sur iPhone ET Watch.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">🎯</span><h3>Offres exclusives</h3><p>Offres négociées spécialement pour les abonnés Premium. Bientôt disponibles.</p></div>
         </div>
+
+        <h3 class="compare-title">3 paliers Premium par échange de points</h3>
+        <p style="text-align:center;font-size:0.9rem;opacity:0.7;font-weight:300;max-width:600px;margin:0 auto 32px;">Pas envie d'attendre une promo ? Échange tes points contre du temps Premium. Disponible pour tous (gratuits comme Premium qui veulent prolonger leur abonnement).</p>
+        <div class="paliers-points">
+            <div class="palier-card">
+                <span class="palier-emoji">⏱️</span>
+                <div class="palier-titre">7 jours Premium</div>
+                <div class="palier-pts">4 500 pts</div>
+                <div class="palier-detail">Pour tester les fonctionnalités exclusives</div>
+            </div>
+            <div class="palier-card" style="border-color:var(--purple-light);background:rgba(107,63,160,0.18);">
+                <span class="palier-emoji">📅</span>
+                <div class="palier-titre">1 mois Premium</div>
+                <div class="palier-pts">9 000 pts</div>
+                <div class="palier-detail">Le palier le plus populaire</div>
+            </div>
+            <div class="palier-card">
+                <span class="palier-emoji">💎</span>
+                <div class="palier-titre">3 mois Premium</div>
+                <div class="palier-pts">15 000 pts</div>
+                <div class="palier-detail">Le meilleur rapport points/jours</div>
+            </div>
+        </div>
+        <p style="text-align:center;font-size:0.75rem;opacity:0.5;margin-bottom:48px;">Le temps Premium s'ajoute à ta date d'expiration actuelle. Aucun point n'a de valeur monétaire.</p>
 
         <h3 class="compare-title">Gratuit vs Premium</h3>
         <table class="compare-table">
@@ -275,12 +305,13 @@
                 <tr><td>Défis communauté 🎯</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Mode précaution OMS (300 mg)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Parrainage (code unique)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Échange points → temps Premium</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Publicités</td><td class="col-free">✅</td><td class="col-premium">❌</td></tr>
                 <tr><td>Apple Watch</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Boissons personnalisées</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Scanner de code-barres</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Points x2 (boisson + série)</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Cadeaux ou bons cadeaux</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Cadeaux physiques ou bons cadeaux</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>⚡ 3 boissons favorites</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>⚡ Mode 1 tap</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Offres exclusives négociées</td><td class="col-free">❌</td><td class="col-premium">✅ Bientôt</td></tr>
@@ -331,15 +362,15 @@
                 <div>
                     <div class="norme-item"><div class="norme-mg">&lt; 200 mg</div><div class="norme-info"><h4>✅ Zone idéale</h4><p>Recommandation EFSA 2015 — consommation optimale pour un adulte sain</p></div></div>
                     <div class="norme-item"><div class="norme-mg">&lt; 300 mg</div><div class="norme-info"><h4>🤰 Limite femmes enceintes</h4><p>Recommandation OMS — seuil maximum pour les femmes enceintes (mode précaution disponible dans l'app)</p></div></div>
-                    <div class="norme-item"><div class="norme-mg">&lt; 400 mg</div><div class="norme-info"><h4>⚠️ Limite adulte sain</h4><p>Seuil EFSA, FDA &amp; ANSES 2021 — au-delà, risques d'anxiété et troubles du sommeil</p></div></div>
-                    <div class="norme-item"><div class="norme-mg">&gt; 400 mg</div><div class="norme-info"><h4>😰 Zone à risque</h4><p>Nawrot et al. 2003 — anxiété. Drake et al. 2013 — sommeil perturbé jusqu'à 6h après</p></div></div>
-                    <div class="norme-item"><div class="norme-mg">&gt; 1000 mg</div><div class="norme-info"><h4>☠️ Dose toxique</h4><p>Risques potentiels pour la santé. Lovallo et al. 2006 — augmentation du cortisol</p></div></div>
+                    <div class="norme-item"><div class="norme-mg">&lt; 400 mg</div><div class="norme-info"><h4>🟡 Limite adulte sain</h4><p>Seuil EFSA, FDA &amp; ANSES 2021 — au-delà, certaines personnes peuvent ressentir de l'anxiété ou des troubles du sommeil</p></div></div>
+                    <div class="norme-item"><div class="norme-mg">&gt; 400 mg</div><div class="norme-info"><h4>🟠 Zone à risque</h4><p>Nawrot et al. 2003 — anxiété possible. Drake et al. 2013 — sommeil perturbé jusqu'à 6h après</p></div></div>
+                    <div class="norme-item"><div class="norme-mg">&gt; 1000 mg</div><div class="norme-info"><h4>🔴 Niveau très élevé</h4><p>Quantité largement au-dessus des recommandations des autorités de santé. Si tu consommes régulièrement à ce niveau, parles-en à un professionnel.</p></div></div>
                 </div>
                 <div>
                     <p style="font-size:0.95rem;line-height:1.8;opacity:0.7;font-weight:300;margin-bottom:24px">PauseCafé s'appuie sur les recommandations scientifiques validées par les trois principales autorités mondiales.</p>
                     <p style="font-size:0.95rem;line-height:1.8;opacity:0.7;font-weight:300;margin-bottom:24px">La convergence entre l'<strong>EFSA (UE, 2015)</strong>, la <strong>FDA (États-Unis)</strong> et l'<strong>ANSES (France, 2021)</strong> sur 400 mg/jour constitue un consensus scientifique solide. L'<strong>OMS</strong> recommande 300 mg/jour maximum pour les femmes enceintes.</p>
                     <p style="font-size:0.85rem;opacity:0.5;font-weight:300">Sources : EFSA 2015, FDA Guidelines, ANSES 2021, Nawrot 2003, Drake 2013, Lovallo 2006. OMS : max 300 mg/jour pour les femmes enceintes.</p>
-                    <p style="font-size:0.8rem;opacity:0.45;font-weight:300;margin-top:16px;font-style:italic;">⚠️ Les informations fournies par PauseCafé sont à titre indicatif uniquement et ne constituent pas un avis médical. Consultez un professionnel de santé pour tout conseil personnalisé.</p>
+                    <p style="font-size:0.8rem;opacity:0.45;font-weight:300;margin-top:16px;font-style:italic;">Les informations fournies par PauseCafé sont à titre indicatif uniquement et ne constituent pas un avis médical. Pour toute question concernant ta santé personnelle, consulte un professionnel de santé.</p>
                 </div>
             </div>
         </div>
@@ -392,7 +423,7 @@
 <div id="legal-page" class="legal-page">
     <button class="back-btn" onclick="showMain()">← Retour</button>
     <h1>Mentions légales</h1>
-    <p class="legal-date">Dernière mise à jour : avril 2026</p>
+    <p class="legal-date">Dernière mise à jour : mai 2026</p>
     <h2>1. Éditeur</h2>
     <p><strong>Kévin Beguerie</strong>, particulier — personne physique, France<br>Email : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a><br><strong>Directeur de la publication :</strong> Kévin Beguerie</p>
     <h2>2. Hébergement du site</h2>
