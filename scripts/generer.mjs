@@ -113,7 +113,18 @@ function heroSVG(alt) {
 }
 
 // ---------------------------------------------------------------------------
-// 4. Vérification des liens (internes : dossier existe ; externes : HTTP)
+// 4. Disclaimer médical — ajouté automatiquement en bas de CHAQUE article
+// ---------------------------------------------------------------------------
+function blocDisclaimer() {
+  return `  <div class="disclaimer-box" style="background:#FBF5E9;border:1px solid rgba(196,135,58,0.35);border-radius:12px;padding:18px 22px;margin-top:48px;">
+    <p style="margin:0;font-size:0.82rem;line-height:1.6;color:#5C4033;">
+      <strong>⚕️ Information importante.</strong> Cet article a une vocation purement informative et de bien-être. Il ne constitue pas un avis médical, un diagnostic ou une prescription. Les effets de la caféine varient d'une personne à l'autre. En cas de question sur votre consommation, de symptôme, de grossesse, de traitement médical ou de problème de santé, consultez un professionnel de santé (médecin, pharmacien). Ne modifiez pas un traitement sur la seule base de cet article.
+    </p>
+  </div>`;
+}
+
+// ---------------------------------------------------------------------------
+// 5. Vérification des liens (internes : dossier existe ; externes : HTTP)
 // ---------------------------------------------------------------------------
 async function verifierLiens(html, slugsExistants) {
   const liens = [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map(m => m[1]);
@@ -142,7 +153,7 @@ async function verifierLiens(html, slugsExistants) {
 }
 
 // ---------------------------------------------------------------------------
-// 5. Assemblage du fichier HTML final (CSS = source unique, identique au blog)
+// 6. Assemblage du fichier HTML final (CSS = source unique, identique au blog)
 // ---------------------------------------------------------------------------
 function construireHTML(d, heroBlock, dHero, creditHTML, today) {
   const connexes = d.connexes.map(c =>
@@ -268,6 +279,8 @@ ${d.sourcesHTML}
     </ul>
   </div>
 
+${blocDisclaimer()}
+
   <div class="cta-section">
     <h3>Arrêtez d'estimer. Mesurez.</h3>
     <p>PauseCafé enregistre la teneur réelle en caféine de chaque boisson pour un cumul du jour fiable. Gratuit, sans pub.</p>
@@ -291,7 +304,7 @@ ${connexes}
 }
 
 // ---------------------------------------------------------------------------
-// 6. Programme principal
+// 7. Programme principal
 // ---------------------------------------------------------------------------
 async function main() {
   if (!API_KEY && !DRY) erreur('ANTHROPIC_API_KEY manquante (secret GitHub).');
@@ -363,7 +376,7 @@ Rédige l'article maintenant. Réponds en JSON strict uniquement. Utilise le slu
     await dormir(65000); // évite la limite 30 000 tokens/min du Tier 1
     log('Vérification des faits (API + recherche web)…');
     factCheck = await appelerClaude(
-      `Voici un article de blog santé sur la caféine. Pour CHAQUE étude, chiffre et affirmation factuelle, vérifie via recherche web qu'elle existe et est fidèle. Réponds en Markdown : une liste \`✅/⚠️\` par affirmation, puis un verdict. Sois concis et honnête.\n\n${d.corpsHTML}\n\nSources citées :\n${d.sourcesHTML}`,
+      `Voici un article de blog santé sur la caféine. Pour CHAQUE étude, chiffre et affirmation factuelle, vérifie via recherche web qu'elle existe et est fidèle. Signale toute attribution douteuse (chiffre attribué au mauvais auteur) et toute date non confirmée. Réponds en Markdown : une liste \`✅/⚠️\` par affirmation, puis un verdict global. Sois concis et honnête.\n\n${d.corpsHTML}\n\nSources citées :\n${d.sourcesHTML}`,
       { web: true, maxTokens: 2000 }
     );
   }
@@ -377,6 +390,7 @@ Rédige l'article maintenant. Réponds en JSON strict uniquement. Utilise le slu
 
 **Slug :** \`blog/${d.slug}/\` · **Catégorie :** ${d.categorie} · **${d.tempsLecture}**
 **Image :** ${img ? 'photo Unsplash (hotlink + crédit)' : 'SVG généré (repli)'}
+**Disclaimer médical :** ✅ ajouté automatiquement en bas d'article
 
 ## 🔗 Liens (internes + externes)
 ${liens}
