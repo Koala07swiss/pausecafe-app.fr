@@ -1,23 +1,149 @@
 {
   "_note": "L'agent prend le premier sujet 'a_faire' dont le slug n'existe pas encore dans /blog. Modifie/ajoute librement. statut: a_faire | brouillon | publie",
   "sujets": [
-    { "slug": "cafeine-sport-performance", "titre": "Caféine et sport : la bonne dose, au bon moment", "categorie": "Conseils pratiques", "angle": "Effet ergogénique : dose ≈3 mg/kg, timing 45-60 min avant l'effort, endurance vs force. Aucun article existant ne parle de sport.", "heroQuery": "running shoes morning coffee", "statut": "a_faire" },
-    { "slug": "reduire-cafeine-sans-craquer", "titre": "Réduire la caféine sans craquer : la méthode progressive", "categorie": "Conseils pratiques", "angle": "Sevrage en douceur : symptômes de manque, paliers sur 2-3 semaines, rôle de l'adénosine. Distinct de tracker et limite-400mg.", "heroQuery": "calm tea cup hands", "statut": "a_faire" },
-    { "slug": "cafeine-concentration-cerveau", "titre": "Comment la caféine agit vraiment sur la concentration", "categorie": "Santé", "angle": "Mécanisme adénosine/dopamine, fenêtre d'efficacité, plafond et 'crash'. Angle neuro, distinct de cortisol et sommeil.", "heroQuery": "focused person laptop coffee", "statut": "a_faire" },
-    { "slug": "cafe-deshydrate-mythe", "titre": "Le café déshydrate-t-il vraiment ? Ce que dit la science", "categorie": "Santé", "angle": "Mythe diurétique : aux doses usuelles le café hydrate quasi autant que l'eau. Sujet neuf.", "heroQuery": "glass of water and coffee", "statut": "a_faire" },
-    { "slug": "tolerance-cafeine", "titre": "Tolérance à la caféine : pourquoi votre café fait de moins en moins effet", "categorie": "Études scientifiques", "angle": "Up-regulation des récepteurs adénosine, escalade des doses, comment 'reset' sa sensibilité.", "heroQuery": "many coffee cups", "statut": "a_faire" },
-    { "slug": "boissons-energisantes-jeunes", "titre": "Boissons énergisantes : ce que les parents devraient savoir", "categorie": "Santé", "angle": "Teneurs réelles, recommandations ANSES ados, risque cumul sucre+caféine. Angle public/jeunes.", "heroQuery": "energy drink can", "statut": "a_faire" },
-    { "slug": "cafe-matin-meilleur-moment", "titre": "À quelle heure prendre son premier café (et pourquoi pas au réveil)", "categorie": "Conseils pratiques", "angle": "Chronobiologie du réveil, pic de cortisol matinal, fenêtre optimale. Complète l'article cortisol sans le refaire (focus timing pratique).", "heroQuery": "morning sunrise coffee window", "statut": "a_faire" },
-    { "slug": "genetique-cafeine-metaboliseur", "titre": "Métaboliseur lent ou rapide : pourquoi le café n'a pas le même effet sur tout le monde", "categorie": "Études scientifiques", "angle": "Gène CYP1A2, différences individuelles, ce que ça change concrètement. Sujet neuf.", "heroQuery": "dna science laboratory", "statut": "a_faire" },
-    { "slug": "the-vs-cafe-cafeine", "titre": "Thé ou café : lequel contient vraiment le plus de caféine ?", "categorie": "Conseils pratiques", "angle": "Comparaison thé/café à volume égal, L-théanine, libération plus lente. Distinct de 'sources cachées' (comparatif ciblé).", "heroQuery": "tea and coffee side by side", "statut": "a_faire" },
-    { "slug": "cafeine-anxiete-palpitations", "titre": "Caféine, palpitations et anxiété : où est la limite ?", "categorie": "Santé", "angle": "Mécanisme adrénergique, seuils de sensibilité, quand s'inquiéter. Distinct de cortisol (focus symptômes cardiaques/anxiété).", "heroQuery": "person relaxing breathing", "statut": "a_faire" },
-    { "slug": "cafeine-demi-vie-duree", "titre": "Combien de temps la caféine reste dans votre corps ?", "categorie": "Études scientifiques", "angle": "Demi-vie ~5h, courbe d'élimination, facteurs (tabac, pilule, âge). Complète sommeil sans le refaire (focus pharmacocinétique).", "heroQuery": "clock time coffee", "statut": "a_faire" },
-    { "slug": "cafe-bienfaits-sante", "titre": "Les bienfaits prouvés du café (et ceux qui sont des mythes)", "categorie": "Santé", "angle": "Antioxydants, foie, longévité : ce que disent les grandes cohortes vs les idées reçues. Sujet neuf.", "heroQuery": "coffee beans healthy", "statut": "a_faire" },
-    { "slug": "cafeine-femme-allaitement", "titre": "Caféine et allaitement : ce qui passe vraiment dans le lait", "categorie": "Grossesse", "angle": "Transfert dans le lait, seuils, timing des tétées. Distinct de l'article grossesse (focus allaitement).", "heroQuery": "mother baby calm", "statut": "a_faire" },
-    { "slug": "decaféiné-vraiment-sans-cafeine", "titre": "Décaféiné : combien de caféine reste-t-il vraiment ?", "categorie": "Études scientifiques", "angle": "Procédés de décaféination, mg résiduels, pour qui ça compte. Sujet neuf et précis.", "heroQuery": "decaf coffee cup", "statut": "a_faire" },
-    { "slug": "cafe-estomac-acidite", "titre": "Le café à jeun, mauvais pour l'estomac ? Ce que dit la science", "categorie": "Santé", "angle": "Acidité, reflux, sécrétion gastrique, idées reçues. Sujet neuf.", "heroQuery": "coffee morning stomach", "statut": "a_faire" },
-    { "slug": "cafeine-sieste-coffee-nap", "titre": "Le 'coffee nap' : pourquoi un café avant la sieste booste l'énergie", "categorie": "Conseils pratiques", "angle": "Synergie caféine + micro-sieste 20 min, mécanisme adénosine. Astuce pratique, sujet neuf.", "heroQuery": "person napping daytime", "statut": "a_faire" },
-    { "slug": "combien-cafes-par-jour", "titre": "Combien de cafés par jour est-ce trop ?", "categorie": "Conseils pratiques", "angle": "Traduire la limite 400 mg en nombre de tasses réelles, profils. Complète limite-400mg (focus pratique 'tasses').", "heroQuery": "row of coffee cups", "statut": "a_faire" },
-    { "slug": "cafeine-mythes-idees-recues", "titre": "7 idées reçues sur la caféine, démêlées par la science", "categorie": "Conseils pratiques", "angle": "Format mythes/vérités : 'le café fait grandir', 'ça dégrise', etc. Sujet neuf et partageable.", "heroQuery": "coffee questions myths", "statut": "a_faire" }
+    {
+      "slug": "cafeine-sport-performance",
+      "titre": "Caféine et sport : la bonne dose, au bon moment",
+      "categorie": "Conseils pratiques",
+      "angle": "Effet ergogénique : dose ≈3 mg/kg, timing 45-60 min avant l'effort, endurance vs force. Aucun article existant ne parle de sport.",
+      "heroQuery": "running shoes morning coffee",
+      "statut": "brouillon"
+    },
+    {
+      "slug": "reduire-cafeine-sans-craquer",
+      "titre": "Réduire la caféine sans craquer : la méthode progressive",
+      "categorie": "Conseils pratiques",
+      "angle": "Sevrage en douceur : symptômes de manque, paliers sur 2-3 semaines, rôle de l'adénosine. Distinct de tracker et limite-400mg.",
+      "heroQuery": "calm tea cup hands",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-concentration-cerveau",
+      "titre": "Comment la caféine agit vraiment sur la concentration",
+      "categorie": "Santé",
+      "angle": "Mécanisme adénosine/dopamine, fenêtre d'efficacité, plafond et 'crash'. Angle neuro, distinct de cortisol et sommeil.",
+      "heroQuery": "focused person laptop coffee",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafe-deshydrate-mythe",
+      "titre": "Le café déshydrate-t-il vraiment ? Ce que dit la science",
+      "categorie": "Santé",
+      "angle": "Mythe diurétique : aux doses usuelles le café hydrate quasi autant que l'eau. Sujet neuf.",
+      "heroQuery": "glass of water and coffee",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "tolerance-cafeine",
+      "titre": "Tolérance à la caféine : pourquoi votre café fait de moins en moins effet",
+      "categorie": "Études scientifiques",
+      "angle": "Up-regulation des récepteurs adénosine, escalade des doses, comment 'reset' sa sensibilité.",
+      "heroQuery": "many coffee cups",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "boissons-energisantes-jeunes",
+      "titre": "Boissons énergisantes : ce que les parents devraient savoir",
+      "categorie": "Santé",
+      "angle": "Teneurs réelles, recommandations ANSES ados, risque cumul sucre+caféine. Angle public/jeunes.",
+      "heroQuery": "energy drink can",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafe-matin-meilleur-moment",
+      "titre": "À quelle heure prendre son premier café (et pourquoi pas au réveil)",
+      "categorie": "Conseils pratiques",
+      "angle": "Chronobiologie du réveil, pic de cortisol matinal, fenêtre optimale. Complète l'article cortisol sans le refaire (focus timing pratique).",
+      "heroQuery": "morning sunrise coffee window",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "genetique-cafeine-metaboliseur",
+      "titre": "Métaboliseur lent ou rapide : pourquoi le café n'a pas le même effet sur tout le monde",
+      "categorie": "Études scientifiques",
+      "angle": "Gène CYP1A2, différences individuelles, ce que ça change concrètement. Sujet neuf.",
+      "heroQuery": "dna science laboratory",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "the-vs-cafe-cafeine",
+      "titre": "Thé ou café : lequel contient vraiment le plus de caféine ?",
+      "categorie": "Conseils pratiques",
+      "angle": "Comparaison thé/café à volume égal, L-théanine, libération plus lente. Distinct de 'sources cachées' (comparatif ciblé).",
+      "heroQuery": "tea and coffee side by side",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-anxiete-palpitations",
+      "titre": "Caféine, palpitations et anxiété : où est la limite ?",
+      "categorie": "Santé",
+      "angle": "Mécanisme adrénergique, seuils de sensibilité, quand s'inquiéter. Distinct de cortisol (focus symptômes cardiaques/anxiété).",
+      "heroQuery": "person relaxing breathing",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-demi-vie-duree",
+      "titre": "Combien de temps la caféine reste dans votre corps ?",
+      "categorie": "Études scientifiques",
+      "angle": "Demi-vie ~5h, courbe d'élimination, facteurs (tabac, pilule, âge). Complète sommeil sans le refaire (focus pharmacocinétique).",
+      "heroQuery": "clock time coffee",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafe-bienfaits-sante",
+      "titre": "Les bienfaits prouvés du café (et ceux qui sont des mythes)",
+      "categorie": "Santé",
+      "angle": "Antioxydants, foie, longévité : ce que disent les grandes cohortes vs les idées reçues. Sujet neuf.",
+      "heroQuery": "coffee beans healthy",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-femme-allaitement",
+      "titre": "Caféine et allaitement : ce qui passe vraiment dans le lait",
+      "categorie": "Grossesse",
+      "angle": "Transfert dans le lait, seuils, timing des tétées. Distinct de l'article grossesse (focus allaitement).",
+      "heroQuery": "mother baby calm",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "decaféiné-vraiment-sans-cafeine",
+      "titre": "Décaféiné : combien de caféine reste-t-il vraiment ?",
+      "categorie": "Études scientifiques",
+      "angle": "Procédés de décaféination, mg résiduels, pour qui ça compte. Sujet neuf et précis.",
+      "heroQuery": "decaf coffee cup",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafe-estomac-acidite",
+      "titre": "Le café à jeun, mauvais pour l'estomac ? Ce que dit la science",
+      "categorie": "Santé",
+      "angle": "Acidité, reflux, sécrétion gastrique, idées reçues. Sujet neuf.",
+      "heroQuery": "coffee morning stomach",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-sieste-coffee-nap",
+      "titre": "Le 'coffee nap' : pourquoi un café avant la sieste booste l'énergie",
+      "categorie": "Conseils pratiques",
+      "angle": "Synergie caféine + micro-sieste 20 min, mécanisme adénosine. Astuce pratique, sujet neuf.",
+      "heroQuery": "person napping daytime",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "combien-cafes-par-jour",
+      "titre": "Combien de cafés par jour est-ce trop ?",
+      "categorie": "Conseils pratiques",
+      "angle": "Traduire la limite 400 mg en nombre de tasses réelles, profils. Complète limite-400mg (focus pratique 'tasses').",
+      "heroQuery": "row of coffee cups",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-mythes-idees-recues",
+      "titre": "7 idées reçues sur la caféine, démêlées par la science",
+      "categorie": "Conseils pratiques",
+      "angle": "Format mythes/vérités : 'le café fait grandir', 'ça dégrise', etc. Sujet neuf et partageable.",
+      "heroQuery": "coffee questions myths",
+      "statut": "a_faire"
+    }
   ]
 }
