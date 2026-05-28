@@ -1,7 +1,8 @@
 // ============================================================================
 //  generer.mjs — Agent de rédaction PauseCafé
-//  Tourne dans la GitHub Action. Écrit blog/<slug>/index.html + hero + VERIFICATION.md
-//  N'enregistre RIEN en ligne : c'est la PR + ton merge qui publient.
+//  Flux : rédige → vérifie → CORRIGE (auto) → re-vérifie → PR
+//  Règle dure : rien de douteux ne survit. Corrigé, supprimé, ou signalé ⛔.
+//  Ne publie RIEN : c'est la PR + ton merge qui publient.
 // ============================================================================
 import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
@@ -41,6 +42,13 @@ async function listerSlugsExistants() {
   return ent.filter(e => e.isDirectory()).map(e => e.name);
 }
 
+// Compte les marqueurs de problème dans un rapport de vérif
+function compterProblemes(rapport) {
+  const avert = (rapport.match(/⚠️/g) || []).length;
+  const bloq  = (rapport.match(/⛔/g) || []).length;
+  return { avert, bloq, total: avert + bloq };
+}
+
 // ---------------------------------------------------------------------------
 // 2. Appel API Anthropic (recherche web + ré-essai auto si limite de débit)
 // ---------------------------------------------------------------------------
@@ -62,7 +70,6 @@ async function appelerClaude(prompt, { web = true, maxTokens = 8000, essai = 0 }
     body: JSON.stringify(body),
   });
 
-  // Limite de débit (Tier 1 = 30 000 tokens/min) : on attend puis on réessaie
   if (r.status === 429 && essai < 3) {
     const attente = Number(r.headers.get('retry-after')) || 65;
     log(`Limite de débit atteinte — pause ${attente}s puis nouvel essai…`);
@@ -82,7 +89,56 @@ function extraireJSON(txt) {
 }
 
 // ---------------------------------------------------------------------------
-// 3. Image : Unsplash (hotlink + crédit, conforme), repli SVG si échec
+// 3. Vérification des FAITS (renvoie le rapport markdown)
+// ---------------------------------------------------------------------------
+async function verifierFaits(corpsHTML, sourcesHTML) {
+  return appelerClaude(
+`Tu es un fact-checker rigoureux pour un site santé. Vérifie via recherche web CHAQUE étude, chiffre, date, revue et affirmation factuelle de cet article.
+
+Règles de notation STRICTES :
+- ✅ = vérifié et exact (source réelle, métadonnées correctes).
+- ⚠️ = douteux, imprécis, ou non confirmé par la recherche.
+- ⛔ = FAUX ou invérifiable (étude introuvable, mauvaise revue, chiffre erroné, mauvaise attribution).
+
+Signale en particulier : toute revue/journal mal attribué, toute date non confirmée, toute source que tu ne retrouves pas, tout chiffre attribué au mauvais auteur.
+
+Réponds en Markdown : une ligne ✅/⚠️/⛔ par affirmation, puis une dernière ligne "VERDICT: PROPRE" si tout est ✅, sinon "VERDICT: A_CORRIGER".
+
+ARTICLE (corps HTML) :
+${corpsHTML}
+
+SOURCES CITÉES :
+${sourcesHTML}`,
+    { web: true, maxTokens: 2500 }
+  );
+}
+
+// ---------------------------------------------------------------------------
+// 4. CORRECTION automatique : réécrit l'article d'après le rapport
+//    Règle dure : corriger ou SUPPRIMER tout ⚠️/⛔. Dans le doute → supprimer.
+// ---------------------------------------------------------------------------
+async function corrigerArticle(d, rapport) {
+  const txt = await appelerClaude(
+`Voici un article de blog santé (JSON) et un rapport de fact-checking qui a relevé des problèmes.
+
+RÈGLE ABSOLUE : pour CHAQUE point marqué ⚠️ ou ⛔ dans le rapport, tu DOIS soit le corriger avec une information vérifiée, soit SUPPRIMER l'affirmation/source/chiffre concerné. Dans le moindre doute : SUPPRIME plutôt que de garder. Ne laisse passer aucun problème signalé. Ne nomme une revue/journal que si tu es certain ; sinon retire le nom de la revue.
+
+Ne change RIEN d'autre (garde le ton, la structure, les parties ✅). Renvoie l'article corrigé au MÊME format JSON strict (mêmes clés : titre, slug, categorie, description, motsCles, tempsLecture, heroQuery, heroAlt, corpsHTML, sourcesHTML, connexes), sans aucun texte autour.
+
+RAPPORT DE FACT-CHECKING :
+${rapport}
+
+ARTICLE ACTUEL (JSON) :
+${JSON.stringify(d)}`,
+    { web: true, maxTokens: 8000 }
+  );
+  const corrige = extraireJSON(txt);
+  corrige.slug = d.slug; // on ne change jamais le slug
+  return corrige;
+}
+
+// ---------------------------------------------------------------------------
+// 5. Image : Unsplash (hotlink + crédit, conforme), repli SVG si échec
 // ---------------------------------------------------------------------------
 async function imageUnsplash(query, alt) {
   if (!UNSPLASH || DRY) return null;
@@ -113,7 +169,7 @@ function heroSVG(alt) {
 }
 
 // ---------------------------------------------------------------------------
-// 4. Disclaimer médical — ajouté automatiquement en bas de CHAQUE article
+// 6. Disclaimer médical — ajouté automatiquement en bas de CHAQUE article
 // ---------------------------------------------------------------------------
 function blocDisclaimer() {
   return `  <div class="disclaimer-box" style="background:#FBF5E9;border:1px solid rgba(196,135,58,0.35);border-radius:12px;padding:18px 22px;margin-top:48px;">
@@ -124,7 +180,7 @@ function blocDisclaimer() {
 }
 
 // ---------------------------------------------------------------------------
-// 5. Vérification des liens (internes : dossier existe ; externes : HTTP)
+// 7. Vérification des LIENS (internes : dossier existe ; externes : HTTP)
 // ---------------------------------------------------------------------------
 async function verifierLiens(html, slugsExistants) {
   const liens = [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map(m => m[1]);
@@ -153,7 +209,7 @@ async function verifierLiens(html, slugsExistants) {
 }
 
 // ---------------------------------------------------------------------------
-// 6. Assemblage du fichier HTML final (CSS = source unique, identique au blog)
+// 8. Assemblage du fichier HTML final
 // ---------------------------------------------------------------------------
 function construireHTML(d, heroBlock, dHero, creditHTML, today) {
   const connexes = d.connexes.map(c =>
@@ -304,7 +360,7 @@ ${connexes}
 }
 
 // ---------------------------------------------------------------------------
-// 7. Programme principal
+// 9. Programme principal — rédige → vérifie → corrige → re-vérifie → PR
 // ---------------------------------------------------------------------------
 async function main() {
   if (!API_KEY && !DRY) erreur('ANTHROPIC_API_KEY manquante (secret GitHub).');
@@ -337,7 +393,8 @@ ${slugsExistants.map(s => `  - /blog/${s}`).join('\n') || '  (aucun)'}
 
 Rédige l'article maintenant. Réponds en JSON strict uniquement. Utilise le slug imposé.`;
 
-  let d;
+  let d, rapportFaits, problemesRestants = { avert: 0, bloq: 0, total: 0 }, corrige = false;
+
   if (DRY) {
     d = {
       titre: sujet.titre, slug: sujet.slug, categorie: sujet.categorie,
@@ -348,10 +405,32 @@ Rédige l'article maintenant. Réponds en JSON strict uniquement. Utilise le slu
       sourcesHTML: '      <li>Auteur A. (2020). Titre. Revue.</li>',
       connexes: [{ slug: 'cafeine-sommeil', cat: 'Sommeil', titre: 'Caféine et sommeil' }],
     };
+    rapportFaits = '_(dry run)_';
   } else {
-    log('Rédaction (API + recherche web)…');
+    log('1/4 Rédaction (API + recherche web)…');
     d = extraireJSON(await appelerClaude(contexte, { web: true, maxTokens: 8000 }));
     d.slug = sujet.slug;
+
+    log('Pause anti-limite…'); await dormir(65000);
+    log('2/4 Vérification des faits…');
+    rapportFaits = await verifierFaits(d.corpsHTML, d.sourcesHTML);
+    let pb = compterProblemes(rapportFaits);
+    log(`   → ${pb.total} problème(s) détecté(s) (${pb.bloq} ⛔ / ${pb.avert} ⚠️)`);
+
+    if (pb.total > 0) {
+      log('Pause anti-limite…'); await dormir(65000);
+      log('3/4 Correction automatique de l\'article…');
+      d = await corrigerArticle(d, rapportFaits);
+
+      log('Pause anti-limite…'); await dormir(65000);
+      log('4/4 Re-vérification après correction…');
+      rapportFaits = await verifierFaits(d.corpsHTML, d.sourcesHTML);
+      problemesRestants = compterProblemes(rapportFaits);
+      corrige = true;
+      log(`   → après correction : ${problemesRestants.total} problème(s) restant(s)`);
+    } else {
+      log('Article propre dès la 1ère passe, aucune correction nécessaire.');
+    }
   }
 
   const dossier = path.join(BLOG, d.slug);
@@ -370,34 +449,36 @@ Rédige l'article maintenant. Réponds en JSON strict uniquement. Utilise le slu
   const contenuVariable = `${d.corpsHTML}\n${d.sourcesHTML}\n${connexesHrefs}`;
   const { rapport: liens, ko } = await verifierLiens(contenuVariable, slugsExistants.concat(d.slug));
 
-  let factCheck = '_(passe de vérification désactivée en dry run)_';
-  if (!DRY) {
-    log('Pause anti-limite avant la vérification…');
-    await dormir(65000); // évite la limite 30 000 tokens/min du Tier 1
-    log('Vérification des faits (API + recherche web)…');
-    factCheck = await appelerClaude(
-      `Voici un article de blog santé sur la caféine. Pour CHAQUE étude, chiffre et affirmation factuelle, vérifie via recherche web qu'elle existe et est fidèle. Signale toute attribution douteuse (chiffre attribué au mauvais auteur) et toute date non confirmée. Réponds en Markdown : une liste \`✅/⚠️\` par affirmation, puis un verdict global. Sois concis et honnête.\n\n${d.corpsHTML}\n\nSources citées :\n${d.sourcesHTML}`,
-      { web: true, maxTokens: 2000 }
-    );
-  }
-
   if (!SUJET_ARG) {
     const i = conf.sujets.findIndex(s => s.slug === d.slug);
     if (i >= 0) { conf.sujets[i].statut = 'brouillon'; await writeFile(SUJETS, JSON.stringify(conf, null, 2)); }
   }
 
-  const rapport = `# 📋 Brouillon : ${d.titre}
+  // Bandeau d'alerte en HAUT de la PR si quelque chose reste à corriger à la main
+  let bandeau = '';
+  if (problemesRestants.bloq > 0) {
+    bandeau = `> # ⛔ À CORRIGER À LA MAIN AVANT MERGE\n> Il reste **${problemesRestants.bloq} problème(s) bloquant(s)** non résolus automatiquement (voir ⛔ ci-dessous). **Ne pas merger en l'état.**\n\n`;
+  } else if (problemesRestants.avert > 0) {
+    bandeau = `> # ⚠️ À RELIRE\n> Il reste **${problemesRestants.avert} point(s)** à vérifier (voir ⚠️ ci-dessous).\n\n`;
+  } else if (corrige) {
+    bandeau = `> # ✅ Corrigé automatiquement\n> Des problèmes avaient été détectés puis corrigés. Plus aucun problème après correction.\n\n`;
+  } else {
+    bandeau = `> # ✅ Propre dès la première passe\n\n`;
+  }
+
+  const rapport = `${bandeau}# 📋 Brouillon : ${d.titre}
 
 **Slug :** \`blog/${d.slug}/\` · **Catégorie :** ${d.categorie} · **${d.tempsLecture}**
 **Image :** ${img ? 'photo Unsplash (hotlink + crédit)' : 'SVG généré (repli)'}
-**Disclaimer médical :** ✅ ajouté automatiquement en bas d'article
+**Disclaimer médical :** ✅ ajouté automatiquement
+**Correction auto :** ${corrige ? 'oui (article réécrit après détection de problèmes)' : 'non nécessaire'}
 
 ## 🔗 Liens (internes + externes)
 ${liens}
 ${ko ? `\n> ⚠️ **${ko} lien(s) à corriger avant merge.**` : '\n> ✅ Tous les liens sont valides.'}
 
-## 🔬 Vérification des faits
-${factCheck}
+## 🔬 Vérification des faits ${corrige ? '(après correction)' : ''}
+${rapportFaits}
 
 ---
 *Généré automatiquement. Relis, puis **merge** pour publier — ou ferme pour rejeter.*
