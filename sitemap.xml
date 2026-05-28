@@ -16,6 +16,12 @@
   <!-- Articles blog -->
   <!-- AGENT:NOUVELLE-URL -->
   <url>
+    <loc>https://pausecafe-app.fr/blog/reduire-cafeine-sans-craquer/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://pausecafe-app.fr/blog/cafeine-sport-performance/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
