@@ -1,6 +1,7 @@
 // ============================================================================
 //  generer.mjs — Agent de rédaction PauseCafé
 //  Flux : rédige → vérifie → CORRIGE (auto) → re-vérifie → PR
+//  À chaque article : crée la page + insère la carte dans blog.html + l'URL dans sitemap.xml
 //  Règle dure : rien de douteux ne survit. Corrigé, supprimé, ou signalé ⛔.
 //  Ne publie RIEN : c'est la PR + ton merge qui publient.
 // ============================================================================
@@ -12,6 +13,8 @@ const ROOT      = process.cwd();
 const BLOG      = path.join(ROOT, 'blog');
 const SUJETS    = path.join(ROOT, 'scripts', 'sujets.json');
 const GABARIT   = path.join(ROOT, 'scripts', 'gabarit-systeme.md');
+const BLOG_HTML = path.join(ROOT, 'blog.html');
+const SITEMAP   = path.join(ROOT, 'sitemap.xml');
 
 const API_KEY   = process.env.ANTHROPIC_API_KEY;
 const UNSPLASH  = process.env.UNSPLASH_ACCESS_KEY;
@@ -30,6 +33,9 @@ function slugify(s) {
   return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '').slice(0, 60);
 }
+function echapHTML(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
 
 const MOIS = ['janvier','février','mars','avril','mai','juin','juillet','août',
               'septembre','octobre','novembre','décembre'];
@@ -42,7 +48,6 @@ async function listerSlugsExistants() {
   return ent.filter(e => e.isDirectory()).map(e => e.name);
 }
 
-// Compte les marqueurs de problème dans un rapport de vérif
 function compterProblemes(rapport) {
   const avert = (rapport.match(/⚠️/g) || []).length;
   const bloq  = (rapport.match(/⛔/g) || []).length;
@@ -89,7 +94,7 @@ function extraireJSON(txt) {
 }
 
 // ---------------------------------------------------------------------------
-// 3. Vérification des FAITS (renvoie le rapport markdown)
+// 3. Vérification des FAITS
 // ---------------------------------------------------------------------------
 async function verifierFaits(corpsHTML, sourcesHTML) {
   return appelerClaude(
@@ -100,7 +105,7 @@ Règles de notation STRICTES :
 - ⚠️ = douteux, imprécis, ou non confirmé par la recherche.
 - ⛔ = FAUX ou invérifiable (étude introuvable, mauvaise revue, chiffre erroné, mauvaise attribution).
 
-Signale en particulier : toute revue/journal mal attribué, toute date non confirmée, toute source que tu ne retrouves pas, tout chiffre attribué au mauvais auteur.
+Signale en particulier : toute revue/journal mal attribué, toute date non confirmée, toute source que tu ne retrouves pas, tout chiffre attribué au mauvais auteur, tout numéro de page douteux.
 
 Réponds en Markdown : une ligne ✅/⚠️/⛔ par affirmation, puis une dernière ligne "VERDICT: PROPRE" si tout est ✅, sinon "VERDICT: A_CORRIGER".
 
@@ -115,13 +120,12 @@ ${sourcesHTML}`,
 
 // ---------------------------------------------------------------------------
 // 4. CORRECTION automatique : réécrit l'article d'après le rapport
-//    Règle dure : corriger ou SUPPRIMER tout ⚠️/⛔. Dans le doute → supprimer.
 // ---------------------------------------------------------------------------
 async function corrigerArticle(d, rapport) {
   const txt = await appelerClaude(
 `Voici un article de blog santé (JSON) et un rapport de fact-checking qui a relevé des problèmes.
 
-RÈGLE ABSOLUE : pour CHAQUE point marqué ⚠️ ou ⛔ dans le rapport, tu DOIS soit le corriger avec une information vérifiée, soit SUPPRIMER l'affirmation/source/chiffre concerné. Dans le moindre doute : SUPPRIME plutôt que de garder. Ne laisse passer aucun problème signalé. Ne nomme une revue/journal que si tu es certain ; sinon retire le nom de la revue.
+RÈGLE ABSOLUE : pour CHAQUE point marqué ⚠️ ou ⛔ dans le rapport, tu DOIS soit le corriger avec une information vérifiée, soit SUPPRIMER l'affirmation/source/chiffre concerné. Dans le moindre doute : SUPPRIME plutôt que de garder. Ne laisse passer aucun problème signalé. Ne nomme une revue/journal que si tu es certain ; sinon retire le nom de la revue. N'indique pas de numéros de page si tu n'en es pas certain.
 
 Ne change RIEN d'autre (garde le ton, la structure, les parties ✅). Renvoie l'article corrigé au MÊME format JSON strict (mêmes clés : titre, slug, categorie, description, motsCles, tempsLecture, heroQuery, heroAlt, corpsHTML, sourcesHTML, connexes), sans aucun texte autour.
 
@@ -133,7 +137,7 @@ ${JSON.stringify(d)}`,
     { web: true, maxTokens: 8000 }
   );
   const corrige = extraireJSON(txt);
-  corrige.slug = d.slug; // on ne change jamais le slug
+  corrige.slug = d.slug;
   return corrige;
 }
 
@@ -151,9 +155,10 @@ async function imageUnsplash(query, alt) {
     if (!photo) return null;
     fetch(`${photo.links.download_location}&client_id=${UNSPLASH}`).catch(() => {});
     const src = `${photo.urls.raw}&w=900&q=80&fm=jpg&fit=crop`;
+    const srcCarte = `${photo.urls.raw}&w=600&q=75&fm=jpg&fit=crop`;
     const prof = `${photo.user.links.html}?utm_source=pausecafe&utm_medium=referral`;
     const credit = `Photo : <a href="${prof}" target="_blank" rel="noopener">${photo.user.name}</a> / <a href="https://unsplash.com/?utm_source=pausecafe&utm_medium=referral" target="_blank" rel="noopener">Unsplash</a>`;
-    return { html: `<img src="${src}" alt="${alt}" loading="lazy">`, credit };
+    return { html: `<img src="${src}" alt="${alt}" loading="lazy">`, credit, srcCarte };
   } catch { return null; }
 }
 
@@ -169,7 +174,7 @@ function heroSVG(alt) {
 }
 
 // ---------------------------------------------------------------------------
-// 6. Disclaimer médical — ajouté automatiquement en bas de CHAQUE article
+// 6. Disclaimer médical
 // ---------------------------------------------------------------------------
 function blocDisclaimer() {
   return `  <div class="disclaimer-box" style="background:#FBF5E9;border:1px solid rgba(196,135,58,0.35);border-radius:12px;padding:18px 22px;margin-top:48px;">
@@ -180,7 +185,7 @@ function blocDisclaimer() {
 }
 
 // ---------------------------------------------------------------------------
-// 7. Vérification des LIENS (internes : dossier existe ; externes : HTTP)
+// 7. Vérification des LIENS
 // ---------------------------------------------------------------------------
 async function verifierLiens(html, slugsExistants) {
   const liens = [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map(m => m[1]);
@@ -209,7 +214,70 @@ async function verifierLiens(html, slugsExistants) {
 }
 
 // ---------------------------------------------------------------------------
-// 8. Assemblage du fichier HTML final
+// 8. Mise à jour de blog.html (insère la carte au repère AGENT)
+// ---------------------------------------------------------------------------
+async function majBlogHTML(d, srcCarte, today) {
+  if (!existsSync(BLOG_HTML)) { log('⚠️ blog.html introuvable, étape ignorée'); return false; }
+  let html = await readFile(BLOG_HTML, 'utf8');
+  const REPERE = '<!-- AGENT:NOUVELLE-CARTE -->';
+  if (!html.includes(REPERE)) { log('⚠️ repère AGENT absent de blog.html, étape ignorée'); return false; }
+  if (html.includes(`/blog/${d.slug}"`)) { log('Carte déjà présente dans blog.html'); return true; }
+
+  const imgSrc = srcCarte || 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=75&auto=format&fit=crop';
+  const carte = `
+    <a href="/blog/${d.slug}" class="article-card">
+      <div class="card-img">
+        <img src="${imgSrc}" alt="${echapHTML(d.heroAlt || d.titre)}" loading="lazy">
+      </div>
+      <div class="card-top">
+        <p class="card-tag">${echapHTML(d.categorie)}</p>
+        <h3 class="card-title">${echapHTML(d.titre)}</h3>
+        <p class="card-excerpt">${echapHTML(d.description)}</p>
+      </div>
+      <div class="card-footer"><span class="card-date">${today}</span><span class="card-read">${echapHTML(d.tempsLecture).replace(' de lecture','')} →</span></div>
+    </a>`;
+  html = html.replace(REPERE, REPERE + carte);
+
+  // Ajoute la catégorie dans l'objet JS `categories = {`
+  const ancre = 'const categories = {';
+  if (html.includes(ancre) && !html.includes(`'${d.slug}':`)) {
+    html = html.replace(ancre, `${ancre}\n    '${d.slug}': '${d.categorie}',`);
+  }
+  await writeFile(BLOG_HTML, html);
+  log('blog.html : carte insérée');
+  return true;
+}
+
+// ---------------------------------------------------------------------------
+// 9. Mise à jour de sitemap.xml (insère l'URL au repère AGENT)
+// ---------------------------------------------------------------------------
+async function majSitemap(d, isoToday) {
+  if (!existsSync(SITEMAP)) { log('⚠️ sitemap.xml introuvable, étape ignorée'); return false; }
+  let xml = await readFile(SITEMAP, 'utf8');
+  const REPERE = '<!-- AGENT:NOUVELLE-URL -->';
+  if (!xml.includes(REPERE)) { log('⚠️ repère AGENT absent de sitemap.xml, étape ignorée'); return false; }
+  if (xml.includes(`/blog/${d.slug}/`)) { log('URL déjà présente dans sitemap.xml'); return true; }
+
+  const bloc = `${REPERE}
+  <url>
+    <loc>https://pausecafe-app.fr/blog/${d.slug}/</loc>
+    <lastmod>${isoToday}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>`;
+  xml = xml.replace(REPERE, bloc);
+  // Met à jour le lastmod de la page /blog
+  xml = xml.replace(
+    /(<loc>https:\/\/pausecafe-app\.fr\/blog<\/loc>\s*<lastmod>)[^<]*(<\/lastmod>)/,
+    `$1${isoToday}$2`
+  );
+  await writeFile(SITEMAP, xml);
+  log('sitemap.xml : URL ajoutée + date /blog actualisée');
+  return true;
+}
+
+// ---------------------------------------------------------------------------
+// 10. Assemblage du fichier HTML article
 // ---------------------------------------------------------------------------
 function construireHTML(d, heroBlock, dHero, creditHTML, today) {
   const connexes = d.connexes.map(c =>
@@ -221,13 +289,13 @@ function construireHTML(d, heroBlock, dHero, creditHTML, today) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${d.titre} | PauseCafé</title>
-  <meta name="description" content="${d.description}">
-  <meta name="keywords" content="${d.motsCles}">
+  <meta name="description" content="${echapHTML(d.description)}">
+  <meta name="keywords" content="${echapHTML(d.motsCles)}">
   <link rel="canonical" href="https://pausecafe-app.fr/blog/${d.slug}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://pausecafe-app.fr/blog/${d.slug}">
-  <meta property="og:title" content="${d.titre}">
-  <meta property="og:description" content="${d.description}">
+  <meta property="og:title" content="${echapHTML(d.titre)}">
+  <meta property="og:description" content="${echapHTML(d.description)}">
   <meta property="og:image" content="https://pausecafe-app.fr/logo.png">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"${d.titre.replace(/"/g,'\\"')}","author":{"@type":"Person","name":"Kévin Beguerie"},"publisher":{"@type":"Organization","name":"PauseCafé","url":"https://pausecafe-app.fr"},"datePublished":"${dHero}","dateModified":"${dHero}","mainEntityOfPage":"https://pausecafe-app.fr/blog/${d.slug}"}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -360,7 +428,7 @@ ${connexes}
 }
 
 // ---------------------------------------------------------------------------
-// 9. Programme principal — rédige → vérifie → corrige → re-vérifie → PR
+// 11. Programme principal
 // ---------------------------------------------------------------------------
 async function main() {
   if (!API_KEY && !DRY) erreur('ANTHROPIC_API_KEY manquante (secret GitHub).');
@@ -419,17 +487,16 @@ Rédige l'article maintenant. Réponds en JSON strict uniquement. Utilise le slu
 
     if (pb.total > 0) {
       log('Pause anti-limite…'); await dormir(65000);
-      log('3/4 Correction automatique de l\'article…');
+      log('3/4 Correction automatique…');
       d = await corrigerArticle(d, rapportFaits);
-
       log('Pause anti-limite…'); await dormir(65000);
-      log('4/4 Re-vérification après correction…');
+      log('4/4 Re-vérification…');
       rapportFaits = await verifierFaits(d.corpsHTML, d.sourcesHTML);
       problemesRestants = compterProblemes(rapportFaits);
       corrige = true;
       log(`   → après correction : ${problemesRestants.total} problème(s) restant(s)`);
     } else {
-      log('Article propre dès la 1ère passe, aucune correction nécessaire.');
+      log('Article propre dès la 1ère passe.');
     }
   }
 
@@ -445,6 +512,10 @@ Rédige l'article maintenant. Réponds en JSON strict uniquement. Utilise le slu
   await writeFile(path.join(dossier, 'index.html'), html);
   log('Écrit :', `blog/${d.slug}/index.html`);
 
+  // 🆕 Mise à jour automatique de la page liste + sitemap
+  const blogOk = await majBlogHTML(d, img ? img.srcCarte : null, dateAffichee(today));
+  const sitemapOk = await majSitemap(d, dateISO(today));
+
   const connexesHrefs = d.connexes.map(c => `href="/blog/${c.slug}"`).join(' ');
   const contenuVariable = `${d.corpsHTML}\n${d.sourcesHTML}\n${connexesHrefs}`;
   const { rapport: liens, ko } = await verifierLiens(contenuVariable, slugsExistants.concat(d.slug));
@@ -454,10 +525,9 @@ Rédige l'article maintenant. Réponds en JSON strict uniquement. Utilise le slu
     if (i >= 0) { conf.sujets[i].statut = 'brouillon'; await writeFile(SUJETS, JSON.stringify(conf, null, 2)); }
   }
 
-  // Bandeau d'alerte en HAUT de la PR si quelque chose reste à corriger à la main
   let bandeau = '';
   if (problemesRestants.bloq > 0) {
-    bandeau = `> # ⛔ À CORRIGER À LA MAIN AVANT MERGE\n> Il reste **${problemesRestants.bloq} problème(s) bloquant(s)** non résolus automatiquement (voir ⛔ ci-dessous). **Ne pas merger en l'état.**\n\n`;
+    bandeau = `> # ⛔ À CORRIGER À LA MAIN AVANT MERGE\n> Il reste **${problemesRestants.bloq} problème(s) bloquant(s)** non résolus (voir ⛔ ci-dessous). **Ne pas merger en l'état.**\n\n`;
   } else if (problemesRestants.avert > 0) {
     bandeau = `> # ⚠️ À RELIRE\n> Il reste **${problemesRestants.avert} point(s)** à vérifier (voir ⚠️ ci-dessous).\n\n`;
   } else if (corrige) {
@@ -471,7 +541,9 @@ Rédige l'article maintenant. Réponds en JSON strict uniquement. Utilise le slu
 **Slug :** \`blog/${d.slug}/\` · **Catégorie :** ${d.categorie} · **${d.tempsLecture}**
 **Image :** ${img ? 'photo Unsplash (hotlink + crédit)' : 'SVG généré (repli)'}
 **Disclaimer médical :** ✅ ajouté automatiquement
-**Correction auto :** ${corrige ? 'oui (article réécrit après détection de problèmes)' : 'non nécessaire'}
+**Correction auto :** ${corrige ? 'oui' : 'non nécessaire'}
+**Page liste (blog.html) :** ${blogOk ? '✅ carte ajoutée' : '⚠️ non mise à jour'}
+**Sitemap :** ${sitemapOk ? '✅ URL ajoutée' : '⚠️ non mis à jour'}
 
 ## 🔗 Liens (internes + externes)
 ${liens}
