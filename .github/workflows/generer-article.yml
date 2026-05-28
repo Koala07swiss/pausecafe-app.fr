@@ -1,0 +1,48 @@
+name: Générer un article
+
+# Quand l'agent tourne :
+#  - automatiquement chaque lundi à 7h00 UTC (≈ 8h/9h en France)
+#  - ou à la demande : onglet "Actions" → ce workflow → "Run workflow"
+on:
+  schedule:
+    - cron: '0 7 * * 1'
+  workflow_dispatch:
+    inputs:
+      sujet:
+        description: "Sujet précis (laisser vide = prochain sujet du backlog)"
+        required: false
+
+permissions:
+  contents: write          # pour committer le brouillon sur une branche
+  pull-requests: write     # pour ouvrir la Pull Request
+
+jobs:
+  generer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le repo
+        uses: actions/checkout@v4
+
+      - name: Installer Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Générer l'article (recherche + rédaction + vérif)
+        env:
+          ANTHROPIC_API_KEY:   ${{ secrets.ANTHROPIC_API_KEY }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          SUJET:               ${{ github.event.inputs.sujet }}
+        run: node scripts/generer.mjs
+
+      - name: Ouvrir la Pull Request (NE PUBLIE PAS — attend ton merge)
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: article/run-${{ github.run_id }}
+          delete-branch: true
+          title: ${{ env.PR_TITRE }}
+          commit-message: ${{ env.PR_TITRE }}
+          body-path: VERIFICATION.md
+          add-paths: |
+            blog/**
+            scripts/sujets.json
