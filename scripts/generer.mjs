@@ -20,6 +20,7 @@ const DRY       = process.env.DRY_RUN === '1';
 
 const log = (...a) => console.log('•', ...a);
 const erreur = (m) => { console.error('✗', m); process.exit(1); };
+function dormir(ms) { return new Promise(r => setTimeout(r, ms)); }
 
 // ---------------------------------------------------------------------------
 // 1. Outils
@@ -41,15 +42,15 @@ async function listerSlugsExistants() {
 }
 
 // ---------------------------------------------------------------------------
-// 2. Appel API Anthropic (avec recherche web côté serveur)
+// 2. Appel API Anthropic (recherche web + ré-essai auto si limite de débit)
 // ---------------------------------------------------------------------------
-async function appelerClaude(prompt, { web = true, maxTokens = 8000 } = {}) {
+async function appelerClaude(prompt, { web = true, maxTokens = 8000, essai = 0 } = {}) {
   const body = {
     model: MODELE,
     max_tokens: maxTokens,
     messages: [{ role: 'user', content: prompt }],
   };
-  if (web) body.tools = [{ type: 'web_search_20250305', name: 'web_search', max_uses: 6 }];
+  if (web) body.tools = [{ type: 'web_search_20250305', name: 'web_search', max_uses: 4 }];
 
   const r = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
@@ -60,6 +61,14 @@ async function appelerClaude(prompt, { web = true, maxTokens = 8000 } = {}) {
     },
     body: JSON.stringify(body),
   });
+
+  // Limite de débit (Tier 1 = 30 000 tokens/min) : on attend puis on réessaie
+  if (r.status === 429 && essai < 3) {
+    const attente = Number(r.headers.get('retry-after')) || 65;
+    log(`Limite de débit atteinte — pause ${attente}s puis nouvel essai…`);
+    await dormir(attente * 1000);
+    return appelerClaude(prompt, { web, maxTokens, essai: essai + 1 });
+  }
   if (!r.ok) throw new Error(`API Anthropic ${r.status}: ${await r.text()}`);
   const data = await r.json();
   return data.content.filter(b => b.type === 'text').map(b => b.text).join('\n').trim();
@@ -84,7 +93,6 @@ async function imageUnsplash(query, alt) {
     const j = await r.json();
     const photo = j.results?.[0];
     if (!photo) return null;
-    // Conformité Unsplash : déclencher le endpoint download + créditer + hotlink
     fetch(`${photo.links.download_location}&client_id=${UNSPLASH}`).catch(() => {});
     const src = `${photo.urls.raw}&w=900&q=80&fm=jpg&fit=crop`;
     const prof = `${photo.user.links.html}?utm_source=pausecafe&utm_medium=referral`;
@@ -351,6 +359,8 @@ Rédige l'article maintenant. Réponds en JSON strict uniquement. Utilise le slu
 
   let factCheck = '_(passe de vérification désactivée en dry run)_';
   if (!DRY) {
+    log('Pause anti-limite avant la vérification…');
+    await dormir(65000); // évite la limite 30 000 tokens/min du Tier 1
     log('Vérification des faits (API + recherche web)…');
     factCheck = await appelerClaude(
       `Voici un article de blog santé sur la caféine. Pour CHAQUE étude, chiffre et affirmation factuelle, vérifie via recherche web qu'elle existe et est fidèle. Réponds en Markdown : une liste \`✅/⚠️\` par affirmation, puis un verdict. Sois concis et honnête.\n\n${d.corpsHTML}\n\nSources citées :\n${d.sourcesHTML}`,
