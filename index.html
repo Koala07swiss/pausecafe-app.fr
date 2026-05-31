@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PauseCafé — Suivi de caféine intelligent</title>
+    <title>PauseCafé — Suivi de caféine et d'hydratation intelligent</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        :root { --cafe: #2C1810; --cream: #F5EDD6; --espresso: #1A0F0A; --caramel: #C4873A; --mousse: #E8D5B0; --purple: #6B3FA0; --purple-light: #9B6FD0; --text: #1A0F0A; }
+        :root { --cafe: #2C1810; --cream: #F5EDD6; --espresso: #1A0F0A; --caramel: #C4873A; --mousse: #E8D5B0; --purple: #6B3FA0; --purple-light: #9B6FD0; --blue: #378ADD; --blue-light: #6BAEEC; --text: #1A0F0A; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
@@ -48,6 +48,7 @@
         .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--caramel); color: white; padding: 6px 16px; border-radius: 100px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 32px; animation: fadeUp 0.6s ease both; }
         .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 900; line-height: 1.05; color: var(--cafe); margin-bottom: 24px; animation: fadeUp 0.6s ease 0.1s both; }
         .hero h1 span { color: var(--caramel); font-style: italic; }
+        .hero h1 .blue-accent { color: var(--blue); }
         .hero p { font-size: 1.15rem; line-height: 1.7; color: var(--cafe); opacity: 0.75; margin-bottom: 48px; max-width: 520px; font-weight: 300; animation: fadeUp 0.6s ease 0.2s both; }
         .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; animation: fadeUp 0.6s ease 0.3s both; }
         .apple-badge { display: inline-block; transition: opacity 0.2s, transform 0.2s; }
@@ -62,6 +63,8 @@
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2px; }
         .feature-card { background: rgba(255,255,255,0.04); padding: 40px 32px; transition: background 0.2s; }
         .feature-card:hover { background: rgba(255,255,255,0.08); }
+        .feature-card.feature-water { background: rgba(55,138,221,0.08); border: 1px solid rgba(55,138,221,0.18); }
+        .feature-card.feature-water:hover { background: rgba(55,138,221,0.14); }
         .feature-emoji { font-size: 2.5rem; margin-bottom: 20px; display: block; }
         .feature-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; color: var(--cream); }
         .feature-card p { font-size: 0.9rem; line-height: 1.65; opacity: 0.6; font-weight: 300; }
@@ -109,6 +112,7 @@
         .normes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; max-width: 1100px; margin: 0 auto; }
         .norme-item { display: flex; align-items: flex-start; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(44,24,16,0.1); }
         .norme-mg { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; min-width: 100px; color: var(--caramel); }
+        .norme-mg.water-accent { color: var(--blue); }
         .norme-info h4 { font-weight: 500; margin-bottom: 4px; font-size: 0.95rem; }
         .norme-info p { font-size: 0.8rem; opacity: 0.6; font-weight: 300; }
         .download { padding: 120px 48px; text-align: center; background: var(--cream); position: relative; overflow: hidden; }
@@ -162,7 +166,7 @@
     <ul class="nav-links">
         <li><a onclick="showMain('features')">Fonctionnalités</a></li>
         <li><a onclick="showMain('premium')" style="color:var(--purple);font-weight:700;opacity:1">👑 Premium</a></li>
-        <li><a onclick="showMain('normes')">Normes EFSA</a></li>
+        <li><a onclick="showMain('normes')">Normes</a></li>
         <li><a href="/blog">Articles</a></li>
     </ul>
     <button class="burger-btn" onclick="ouvrirMenuMobile()" aria-label="Menu">
@@ -199,12 +203,12 @@
             <div class="mobile-menu-divider"></div>
             <button class="mobile-menu-item" onclick="naviguerVers('normes')">
                 <div class="item-icon">🔬</div>
-                <div class="item-text"><span class="item-label">Normes EFSA</span><span class="item-sub">La science derrière l'app</span></div>
+                <div class="item-text"><span class="item-label">Normes EFSA &amp; OMS</span><span class="item-sub">La science derrière l'app</span></div>
             </button>
             <div class="mobile-menu-divider"></div>
             <a href="/blog" class="mobile-menu-item" onclick="fermerMenuMobile()">
                 <div class="item-icon">📖</div>
-                <div class="item-text"><span class="item-label">Articles</span><span class="item-sub">Caféine & Santé</span></div>
+                <div class="item-text"><span class="item-label">Articles</span><span class="item-sub">Caféine, hydratation &amp; santé</span></div>
             </a>
         </div>
         <div class="mobile-menu-footer">
@@ -220,8 +224,8 @@
         <img src="logo.png" alt="" class="hero-logo-bg" aria-hidden="true">
         <div class="hero-content">
             <div class="hero-badge">📱 Disponible sur App Store</div>
-            <h1>Maîtrise ta <span>caféine</span> au quotidien</h1>
-            <p>PauseCafé t'aide à suivre ta consommation de caféine, respecter les recommandations EFSA et gagner de vraies récompenses grâce à tes bonnes habitudes.</p>
+            <h1>Maîtrise ta <span>caféine</span><br>et ton <span class="blue-accent">hydratation</span></h1>
+            <p>PauseCafé suit ta caféine et ton hydratation au quotidien, respecte les recommandations EFSA et OMS, et te récompense pour tes bonnes habitudes.</p>
             <div class="hero-cta">
                 <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" rel="noopener noreferrer" aria-label="Télécharger PauseCafé sur l'App Store" class="apple-badge">
                     <img src="app-store-badge-fr.svg" alt="Disponible sur l'App Store" height="52" style="height:52px;width:auto;">
@@ -236,13 +240,14 @@
         <h2 class="section-title">Tout ce qu'il faut pour prendre soin de toi</h2>
         <div class="features-grid">
             <div class="feature-card"><span class="feature-emoji">☕</span><h3>Suis ta caféine</h3><p>Enregistre chaque boisson en un tap. Café, thé, tisane, soda, energy drink — tout est répertorié avec les valeurs exactes en mg de caféine.</p></div>
+            <div class="feature-card feature-water"><span class="feature-emoji">💧</span><h3>Suis ton hydratation</h3><p>Compteur d'eau dédié visible via l'anneau bleu autour de la tasse. Objectif personnel de 4 à 12 verres / jour (par défaut 8 verres = 2 L, reco OMS). Bouton « + Eau » pour ajouter un verre en un tap.</p></div>
             <div class="feature-card"><span class="feature-emoji">🏆</span><h3>120 badges &amp; 8 niveaux</h3><p>Débloque des badges, gagne des points et monte en niveau. De Pousse 🌱 à Légende 🦁 — 120 badges à collectionner (dont 10 exclusifs Premium 👑), chacun récompensé selon sa difficulté. Certains sont mystérieux !</p></div>
             <div class="feature-card"><span class="feature-emoji">🎁</span><h3>Vraies récompenses</h3><p>Bons plans partenaires pour tous. Pour les Premium : échange tes points contre des cadeaux ou des bons cadeaux (cooldown de 6 mois entre 2 réclamations physiques). Pour les gratuits : échange tes points contre du temps Premium.</p></div>
-            <div class="feature-card"><span class="feature-emoji">📊</span><h3>Stats &amp; évolution</h3><p>Graphiques d'évolution, analyse par horaire, par jour de semaine, comparaison semaine/semaine.</p></div>
+            <div class="feature-card"><span class="feature-emoji">📊</span><h3>Stats &amp; évolution</h3><p>Onglets ☕ Caféine et 💧 Eau séparés. Graphiques d'évolution, analyse par horaire, par jour de semaine, comparaison semaine/semaine.</p></div>
             <div class="feature-card"><span class="feature-emoji">🔥</span><h3>Séries &amp; motivation</h3><p>Maintiens ta série de jours consécutifs. Une série perdue coûte des points — la motivation ultime.</p></div>
             <div class="feature-card"><span class="feature-emoji">🎯</span><h3>Défis Communauté</h3><p>Relève des défis hebdomadaires, mensuels ou annuels et gagne des points bonus. Série, caféine, badges, parrainages… 9 types de défis, 3 actifs max simultanément. 5 badges exclusifs à débloquer.</p></div>
             <div class="feature-card"><span class="feature-emoji">🤝</span><h3>Parrainage &amp; récompenses</h3><p>Partage ton code unique à tes amis. Ils reçoivent +100 points de bienvenue, toi tu gagnes +100 points à l'inscription. Et si ton filleul s'abonne, tu reçois 1 mois Premium offert — jusqu'à 10 filleuls.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🤰</span><h3>Mode précaution</h3><p>Active le mode précaution pour adapter automatiquement ta limite à 300 mg/jour — recommandation OMS pour les femmes enceintes. Gratuit pour toutes.</p></div>
+            <div class="feature-card"><span class="feature-emoji">🤰</span><h3>Mode précaution</h3><p>Adapte automatiquement ta limite caféine à 300 mg/jour ET ton objectif d'hydratation à 9 verres (2,3 L) — recommandations OMS pour les femmes enceintes. Gratuit pour toutes.</p></div>
             <div class="feature-card"><span class="feature-emoji">🏷️</span><h3>Bons plans partenaires</h3><p>Accède à des codes promo exclusifs chez nos partenaires sélectionnés. Disponible gratuitement pour tous les utilisateurs.</p></div>
         </div>
     </section>
@@ -252,11 +257,11 @@
         <h2 class="section-title" style="color:white">Passe au niveau supérieur 👑</h2>
         <div class="premium-cards">
             <div class="premium-card"><span class="premium-card-emoji">🔕</span><h3>Sans publicité</h3><p>Expérience 100% fluide, sans interruption publicitaire.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">⌚</span><h3>Apple Watch incluse</h3><p>Ajoute tes boissons directement depuis ton poignet.</p></div>
+            <div class="premium-card"><span class="premium-card-emoji">⌚</span><h3>Apple Watch incluse</h3><p>Ajoute tes boissons (café et eau) directement depuis ton poignet.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">🧪</span><h3>Boissons personnalisées</h3><p>Crée tes propres boissons avec le mg exact. Disponibles sur l'app ET la Watch.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">📷</span><h3>Scanner de code-barres</h3><p>Identifie automatiquement la teneur en caféine d'une boisson via Open Food Facts.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">⭐</span><h3>Points x2</h3><p>+4 pts par boisson et +20 pts par jour (vs +2 et +10 en gratuit). Tu accumules le double de points.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🎁</span><h3>Cadeaux & bons cadeaux</h3><p>Échange tes points contre des cadeaux ou des bons cadeaux. Cooldown de 6 mois entre deux réclamations physiques.</p></div>
+            <div class="premium-card"><span class="premium-card-emoji">🎁</span><h3>Cadeaux &amp; bons cadeaux</h3><p>Échange tes points contre des cadeaux ou des bons cadeaux. Cooldown de 6 mois entre deux réclamations physiques.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">⚡</span><h3>3 boissons favorites</h3><p>Marque jusqu'à 3 boissons comme favorites (⭐). Accès rapide en haut de la liste sur iPhone ET Watch.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">⚡</span><h3>Mode 1 tap</h3><p>Un tap sur la tasse = ta boisson favorite ajoutée directement. Sans liste, sans sélection. Sur iPhone ET Watch.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">🎯</span><h3>Offres exclusives</h3><p>Offres négociées spécialement pour les abonnés Premium. Bientôt disponibles.</p></div>
@@ -297,17 +302,18 @@
             </thead>
             <tbody>
                 <tr><td>Suivi caféine quotidien</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Suivi d'hydratation (compteur d'eau)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Widget iOS (écran d'accueil)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>120 badges &amp; 8 niveaux</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Stats &amp; évolution complètes</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Stats &amp; évolution (caféine + eau)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Export CSV des données (RGPD)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Bons plans partenaires</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Défis communauté 🎯</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Mode précaution OMS (300 mg)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Mode précaution OMS (caféine + eau)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Parrainage (code unique)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Échange points → temps Premium</td><td class="col-free">✅</td><td class="col-premium">— <span style="font-size:0.7rem;opacity:0.6">(réservé gratuit)</span></td></tr>
                 <tr><td>Publicités</td><td class="col-free">✅</td><td class="col-premium">❌</td></tr>
-                <tr><td>Apple Watch</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Apple Watch (caféine + eau)</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Boissons personnalisées</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Scanner de code-barres</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Points x2 (boisson + série)</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
@@ -347,6 +353,7 @@
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
                 <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;"><div style="font-size: 2rem; margin-bottom: 12px;">😴</div><h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Corrélation caféine / sommeil</h3><p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Découvre l'impact réel de ta consommation sur la qualité de ton sommeil.</p></div>
                 <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;"><div style="font-size: 2rem; margin-bottom: 12px;">🧠</div><h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Alertes intelligentes</h3><p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Alertes personnalisées basées sur tes habitudes : "Il est 16h, tu as 320mg."</p></div>
+                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(55,138,221,0.25); border-radius: 16px; padding: 28px 24px;"><div style="font-size: 2rem; margin-bottom: 12px;">💧</div><h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Stats &amp; badges hydratation</h3><p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Statistiques dédiées (régularité, meilleur jour, corrélation eau/caféine) et nouveaux badges, dont la Journée mondiale de l'eau (22 mars).</p></div>
                 <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;"><div style="font-size: 2rem; margin-bottom: 12px;">🧠</div><h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Suivi stress &amp; anxiété</h3><p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Questionnaire hebdomadaire avec corrélations personnalisées caféine/stress.</p></div>
                 <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;"><div style="font-size: 2rem; margin-bottom: 12px;">📊</div><h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Modèle physiologique avancé</h3><p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Visualise ta caféine active en temps réel et anticipe l'impact sur ton énergie.</p></div>
             </div>
@@ -356,19 +363,25 @@
     <section class="normes" id="normes">
         <div style="max-width:1100px;margin:0 auto">
             <div class="section-label">Science</div>
-            <h2 class="section-title" style="color:var(--cafe)">Basé sur les normes EFSA officielles</h2>
+            <h2 class="section-title" style="color:var(--cafe)">Basé sur les normes officielles EFSA &amp; OMS</h2>
             <div class="normes-grid">
                 <div>
+                    <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--cafe);margin-bottom:8px;">☕ Caféine</h3>
                     <div class="norme-item"><div class="norme-mg">&lt; 200 mg</div><div class="norme-info"><h4>✅ Zone idéale</h4><p>Recommandation EFSA 2015 — consommation optimale pour un adulte sain</p></div></div>
                     <div class="norme-item"><div class="norme-mg">&lt; 300 mg</div><div class="norme-info"><h4>🤰 Limite femmes enceintes</h4><p>Recommandation OMS — seuil maximum pour les femmes enceintes (mode précaution disponible dans l'app)</p></div></div>
                     <div class="norme-item"><div class="norme-mg">&lt; 400 mg</div><div class="norme-info"><h4>🟡 Limite adulte sain</h4><p>Seuil EFSA, FDA &amp; ANSES 2021 — au-delà, certaines personnes peuvent ressentir de l'anxiété ou des troubles du sommeil</p></div></div>
                     <div class="norme-item"><div class="norme-mg">&gt; 400 mg</div><div class="norme-info"><h4>🟠 Zone à risque</h4><p>Nawrot et al. 2003 — anxiété possible. Drake et al. 2013 — sommeil perturbé jusqu'à 6h après</p></div></div>
                     <div class="norme-item"><div class="norme-mg">&gt; 1000 mg</div><div class="norme-info"><h4>🔴 Niveau très élevé</h4><p>Quantité largement au-dessus des recommandations des autorités de santé. Si tu consommes régulièrement à ce niveau, parles-en à un professionnel.</p></div></div>
+
+                    <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--cafe);margin-top:40px;margin-bottom:8px;">💧 Hydratation</h3>
+                    <div class="norme-item"><div class="norme-mg water-accent">2 L</div><div class="norme-info"><h4>💧 Reco OMS adulte sain</h4><p>Soit 8 verres de 250 ml — objectif par défaut dans PauseCafé. Modifiable de 4 à 12 verres selon ton activité et tes besoins.</p></div></div>
+                    <div class="norme-item"><div class="norme-mg water-accent">2,3 L</div><div class="norme-info"><h4>🤰 Reco OMS grossesse &amp; allaitement</h4><p>Soit 9 verres de 250 ml — appliqué automatiquement en mode précaution. Les besoins en eau augmentent pendant ces périodes.</p></div></div>
                 </div>
                 <div>
-                    <p style="font-size:0.95rem;line-height:1.8;opacity:0.7;font-weight:300;margin-bottom:24px">PauseCafé s'appuie sur les recommandations scientifiques validées par les trois principales autorités mondiales.</p>
-                    <p style="font-size:0.95rem;line-height:1.8;opacity:0.7;font-weight:300;margin-bottom:24px">La convergence entre l'<strong>EFSA (UE, 2015)</strong>, la <strong>FDA (États-Unis)</strong> et l'<strong>ANSES (France, 2021)</strong> sur 400 mg/jour constitue un consensus scientifique solide. L'<strong>OMS</strong> recommande 300 mg/jour maximum pour les femmes enceintes.</p>
-                    <p style="font-size:0.85rem;opacity:0.5;font-weight:300">Sources : EFSA 2015, FDA Guidelines, ANSES 2021, Nawrot 2003, Drake 2013, Lovallo 2006. OMS : max 300 mg/jour pour les femmes enceintes.</p>
+                    <p style="font-size:0.95rem;line-height:1.8;opacity:0.7;font-weight:300;margin-bottom:24px">PauseCafé s'appuie sur les recommandations scientifiques validées par les principales autorités mondiales de santé.</p>
+                    <p style="font-size:0.95rem;line-height:1.8;opacity:0.7;font-weight:300;margin-bottom:24px">La convergence entre l'<strong>EFSA (UE, 2015)</strong>, la <strong>FDA (États-Unis)</strong> et l'<strong>ANSES (France, 2021)</strong> sur 400 mg/jour de caféine constitue un consensus scientifique solide. L'<strong>OMS</strong> recommande 300 mg/jour maximum pour les femmes enceintes.</p>
+                    <p style="font-size:0.95rem;line-height:1.8;opacity:0.7;font-weight:300;margin-bottom:24px">Pour l'<strong>hydratation</strong>, l'<strong>OMS</strong> recommande environ 2 L/jour pour un adulte sain (besoins en eau totale incluant les boissons). Ce seuil monte à 2,3 L pendant la grossesse et l'allaitement.</p>
+                    <p style="font-size:0.85rem;opacity:0.5;font-weight:300">Sources : EFSA 2015, FDA Guidelines, ANSES 2021, OMS (caféine + hydratation), Nawrot 2003, Drake 2013, Lovallo 2006.</p>
                     <p style="font-size:0.8rem;opacity:0.45;font-weight:300;margin-top:16px;font-style:italic;">Les informations fournies par PauseCafé sont à titre indicatif uniquement et ne constituent pas un avis médical. Pour toute question concernant ta santé personnelle, consulte un professionnel de santé.</p>
                 </div>
             </div>
@@ -377,7 +390,7 @@
 
     <section class="download" id="download">
         <h2>Commence aujourd'hui.<br>C'est gratuit.</h2>
-        <p>Rejoins les utilisateurs qui reprennent le contrôle de leur caféine.</p>
+        <p>Rejoins les utilisateurs qui reprennent le contrôle de leur caféine et de leur hydratation.</p>
         <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" rel="noopener noreferrer" aria-label="Télécharger PauseCafé sur l'App Store" class="apple-badge apple-badge-lg" style="display:inline-block;position:relative;">
             <img src="app-store-badge-fr.svg" alt="Disponible sur l'App Store" height="64" style="height:64px;width:auto;">
         </a>
@@ -387,7 +400,7 @@
         <div class="footer-top">
             <div class="footer-brand">
                 <h3><img src="logo.png" alt="PauseCafé" class="footer-logo-img">PauseCafé</h3>
-                <p>Suivi de caféine intelligent<br>Fait avec ❤️ en France</p>
+                <p>Suivi de caféine &amp; d'hydratation intelligent<br>Fait avec ❤️ en France</p>
             </div>
             <div class="footer-links">
                 <div class="footer-col">
@@ -395,7 +408,7 @@
                     <ul>
                         <li><a onclick="showMain('features')">Fonctionnalités</a></li>
                         <li><a onclick="showMain('premium')">👑 Premium</a></li>
-                        <li><a onclick="showMain('normes')">Normes EFSA</a></li>
+                        <li><a onclick="showMain('normes')">Normes EFSA &amp; OMS</a></li>
                         <li><a href="/blog">Articles &amp; Conseils</a></li>
                         <li><a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank">Télécharger</a></li>
                     </ul>
