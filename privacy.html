@@ -37,16 +37,17 @@ Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></p>
 <h2>3. Nature des données collectées</h2>
 <ul>
   <li><strong>Données de compte</strong> : prénom, adresse email, pseudo communauté</li>
-  <li><strong>Données de bien-être</strong> : boissons enregistrées, quantités en mg, horaires</li>
+  <li><strong>Données de bien-être (caféine)</strong> : boissons caféinées enregistrées, quantités en mg, horaires</li>
+  <li><strong>Données d'hydratation</strong> : verres d'eau enregistrés, horaires, objectif d'hydratation personnel (4 à 12 verres / jour), statut d'activation du compteur d'eau et des rappels d'hydratation</li>
   <li><strong>Données de progression</strong> : points, badges, série, niveau</li>
   <li><strong>Données de parrainage</strong> : code personnel, code du parrain utilisé, nombre de filleuls</li>
   <li><strong>Données communauté</strong> : pseudo du classement, scores visibles dans le leaderboard, participations aux défis communauté (progression, statut), liste d'amis (pseudos uniquement)</li>
-  <li><strong>Données de santé indicatives</strong> : statut mode précaution (activé/désactivé), objectif mg — strictement personnelles, non partagées</li>
-  <li><strong>Données de préférences</strong> : nombre habituel de boissons, objectif personnel, heure de première consommation — collectées à l'onboarding, modifiables</li>
+  <li><strong>Données de santé indicatives</strong> : statut mode précaution (activé/désactivé), objectif caféine en mg, objectif d'hydratation en verres — strictement personnelles, non partagées</li>
+  <li><strong>Données de préférences</strong> : nombre habituel de boissons, objectif personnel caféine, objectif personnel hydratation, heure de première consommation — collectées à l'onboarding, modifiables à tout moment</li>
   <li><strong>Préférences de boissons (Premium)</strong> : boissons favorites (jusqu'à 3 noms de boissons), boisson configurée pour le mode 1 tap, état du mode 1 tap — liées au compte, chiffrées en transit, supprimées à la fermeture du compte</li>
   <li><strong>Adresse postale</strong> : collectée uniquement lors de la réclamation d'un cadeau physique (Premium)</li>
   <li><strong>Données techniques</strong> : identifiant anonyme Firebase, données de crash anonymisées</li>
-  <li><strong>Préférences de communication</strong> : toggles notifications push et emails</li>
+  <li><strong>Préférences de communication</strong> : toggles notifications push (caféine et hydratation) et emails</li>
 </ul>
 
 <div class="highlight">
@@ -55,11 +56,12 @@ Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></p>
 
 <h2>4. Finalités du traitement</h2>
 <ul>
-  <li>Fournir le service de suivi de caféine et de gamification</li>
+  <li>Fournir le service de suivi de caféine et d'hydratation</li>
+  <li>Fournir le système de gamification (points, badges, niveaux, défis)</li>
   <li>Synchroniser les données entre appareils (iPhone, Apple Watch, Widget)</li>
-  <li>Afficher des statistiques personnalisées et graphiques d'évolution</li>
-  <li>Personnaliser l'expérience selon les préférences déclarées</li>
-  <li>Envoyer des notifications push (avec consentement)</li>
+  <li>Afficher des statistiques personnalisées et graphiques d'évolution (onglets Caféine et Eau séparés)</li>
+  <li>Personnaliser l'expérience selon les préférences déclarées (objectif caféine, objectif hydratation, mode précaution)</li>
+  <li>Envoyer des notifications push pour la caféine et l'hydratation (avec consentement)</li>
   <li>Envoyer des emails transactionnels via Brevo (voir section 15)</li>
   <li>Envoyer le rapport hebdomadaire caféine du lundi (avec consentement, désactivable)</li>
   <li>Gérer le programme de parrainage et attribuer les récompenses</li>
@@ -73,7 +75,7 @@ Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></p>
 <h2>5. Base légale</h2>
 <ul>
   <li><strong>Exécution du contrat</strong> : fourniture du service, parrainage, expédition des cadeaux</li>
-  <li><strong>Consentement</strong> : publicités personnalisées, notifications push, emails transactionnels, rapport hebdomadaire, préférences onboarding, adresse postale cadeaux, préférences de boissons favorites</li>
+  <li><strong>Consentement</strong> : publicités personnalisées, notifications push (caféine et hydratation), emails transactionnels, rapport hebdomadaire, préférences onboarding, adresse postale cadeaux, préférences de boissons favorites</li>
   <li><strong>Intérêt légitime</strong> : analytics anonymisés, prévention fraude au parrainage, gestion administrative</li>
 </ul>
 
@@ -92,8 +94,8 @@ Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></p>
 <h2>8. Durée de conservation</h2>
 <ul>
   <li><strong>Données de compte</strong> : durée d'utilisation active</li>
-  <li><strong>Historique caféine</strong> : jusqu'à 2 ans dans l'application</li>
-  <li><strong>Données de préférences</strong> : durée d'utilisation active, modifiables à tout moment</li>
+  <li><strong>Historique caféine et hydratation</strong> : jusqu'à 2 ans dans l'application</li>
+  <li><strong>Données de préférences (caféine + hydratation)</strong> : durée d'utilisation active, modifiables à tout moment</li>
   <li><strong>Données parrainage et défis</strong> : durée d'utilisation active</li>
   <li><strong>Données communauté (classement, amis)</strong> : durée d'utilisation active ; supprimées à la suppression du compte</li>
   <li><strong>Préférences de boissons favorites</strong> : durée d'utilisation active ; réinitialisées à la déconnexion du compte, supprimées définitivement à la fermeture du compte</li>
@@ -104,12 +106,13 @@ Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></p>
 
 <h2>9. Tes droits (RGPD)</h2>
 <ul>
-  <li><strong>Accès</strong> : export CSV dans l'app (Évolution → Exporter mes données)</li>
-  <li><strong>Rectification</strong> : modifier ton profil dans les réglages</li>
+  <li><strong>Accès</strong> : export CSV dans l'app (Évolution → Exporter mes données) — inclut caféine et hydratation</li>
+  <li><strong>Rectification</strong> : modifier ton profil dans les réglages (y compris objectifs caféine et hydratation)</li>
   <li><strong>Effacement</strong> : Réglages → Supprimer mon compte</li>
   <li><strong>Portabilité</strong> : export CSV depuis l'app (article 20 RGPD)</li>
   <li><strong>Opposition au tracking</strong> : Réglages iOS → Confidentialité → Suivi → PauseCafé</li>
   <li><strong>Désabonnement emails / rapport hebdo</strong> : lien en bas de chaque email, ou Réglages → Notifications → Emails (sauf emails transactionnels obligatoires, voir CGU section 22.3)</li>
+  <li><strong>Désactivation des rappels hydratation</strong> : Réglages → Hydratation, ou Réglages → Notifications → Rappels quotidiens</li>
   <li><strong>Retrait du consentement</strong> : à tout moment</li>
 </ul>
 <p>Contact : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a> — réponse sous 30 jours.</p>
@@ -130,6 +133,7 @@ Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></p>
   <li>Vérification obligatoire de l'adresse email avant accès (comptes email/password)</li>
   <li>Accès aux données restreint via règles de sécurité Firebase</li>
   <li>Accès administrateur limité à l'éditeur, soumis aux mêmes règles</li>
+  <li>Réinitialisation des données locales à chaque déconnexion pour éviter toute persistance d'un compte précédent sur l'appareil</li>
 </ul>
 
 <h2>12. Cookies</h2>
@@ -160,7 +164,17 @@ Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></p>
 </div>
 <p><strong>Désabonnement :</strong> lien en bas de chaque email marketing/non-obligatoire, Réglages → Notifications → Emails dans l'app, ou <a href="mailto:hello@pausecafe-app.fr?subject=Désabonnement emails PauseCafé">hello@pausecafe-app.fr</a>.</p>
 
-<h2>16. Classement communauté et système d'amis</h2>
+<h2>16. Notifications push (caféine et hydratation)</h2>
+<p>PauseCafé peut envoyer plusieurs types de notifications push, toutes désactivables à tout moment :</p>
+<ul>
+  <li><strong>Rappels caféine</strong> : alertes basées sur ta consommation et ton objectif</li>
+  <li><strong>Rappels hydratation</strong> : 3 notifications par jour à 10h, 13h et 16h pour te rappeler de boire de l'eau. Activées automatiquement la première fois que tu actives le compteur d'eau, désactivables individuellement</li>
+  <li><strong>Rappels défis &amp; récompenses</strong> : pour t'éviter de perdre des points en oubliant de réclamer une récompense</li>
+  <li><strong>Streak en danger</strong> : alerte si ta série quotidienne risque d'être perdue</li>
+</ul>
+<p>Tous ces toggles sont configurables dans <strong>Réglages → Notifications</strong>. Les notifications planifiées sont automatiquement annulées à la déconnexion du compte.</p>
+
+<h2>17. Classement communauté et système d'amis</h2>
 <p>PauseCafé propose un classement communauté et un système d'amis. Ces fonctionnalités affichent uniquement :</p>
 <ul>
   <li>Le <strong>pseudo</strong> choisi librement par l'utilisateur (distinct du prénom)</li>
@@ -171,13 +185,13 @@ Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></p>
 </div>
 <p>Le système d'amis fonctionne par pseudos uniquement. Les données du classement sont stockées dans une collection Firebase distincte (<code>/leaderboard</code>), accessible uniquement aux utilisateurs authentifiés.</p>
 
-<h2>17. Défis communauté</h2>
+<h2>18. Défis communauté</h2>
 <p>Les participations aux défis (progression, statut, date d'activation) sont stockées dans Firebase (<code>/defiParticipations</code>). Elles sont visibles par tous les utilisateurs authentifiés dans le cadre du classement des défis, mais uniquement sous forme de pseudo et de progression.</p>
 
-<h2>18. Modifications</h2>
+<h2>19. Modifications</h2>
 <p>Cette politique peut être mise à jour. En cas de modification substantielle, notification via l'application.</p>
 
-<h2>19. Contact et réclamation</h2>
+<h2>20. Contact et réclamation</h2>
 <p>Contact : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a></p>
 <p><strong>CNIL</strong> — 3 Place de Fontenoy, 75334 Paris Cedex 07 — <a href="https://www.cnil.fr">www.cnil.fr</a></p>
 
