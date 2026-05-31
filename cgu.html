@@ -22,7 +22,6 @@
   .prix-card .montant { font-size: 1.4em; font-weight: 700; color: #c0722a; }
   .prix-card .detail { font-size: 0.8em; color: #666; }
   .highlight { background: #fff8f0; border: 1px solid #f5ddc0; border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
-  .footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; color: #888; font-size: 0.85em; text-align: center; }
 </style>
 </head>
 <body>
@@ -37,16 +36,18 @@
 <h2>2. Description du service</h2>
 <ul>
   <li>Suivi quotidien de la consommation de caféine en mg</li>
+  <li><strong>Suivi quotidien de l'hydratation</strong> en verres d'eau (compteur dédié, objectif personnalisable de 4 à 12 verres / jour)</li>
   <li>Système de progression avec points, badges, niveaux et séries</li>
-  <li>Statistiques personnalisées d'évolution</li>
+  <li>Statistiques personnalisées d'évolution (onglets ☕ Caféine et 💧 Eau séparés)</li>
   <li>Récompenses : codes promo partenaires pour tous, cadeaux physiques ou bons cadeaux / bons de réduction d'une valeur équivalente pour les abonnés Premium, échange de points contre du temps Premium pour les gratuits</li>
   <li>Système de parrainage permettant d'inviter des amis</li>
-  <li>Mode précaution — limite automatique à 300 mg/jour (recommandation OMS)</li>
-  <li>Widget iOS disponible pour tous les utilisateurs</li>
-  <li>Onboarding personnalisé configurant l'expérience selon tes habitudes</li>
+  <li><strong>Mode précaution</strong> — limite caféine automatique à 300 mg/jour ET objectif d'hydratation à 9 verres / 2,3 L (recommandations OMS pour les femmes enceintes et allaitantes)</li>
+  <li>Widget iOS disponible pour tous les utilisateurs (anneaux concentriques caféine + hydratation)</li>
+  <li>Onboarding personnalisé configurant l'expérience selon tes habitudes (caféine + hydratation)</li>
   <li>Classement communauté, défis communauté et système d'amis (pseudos uniquement)</li>
   <li><strong>Rapport hebdomadaire caféine</strong> — email envoyé chaque lundi 8h30 avec tes stats de la semaine (activable/désactivable depuis Réglages → Notifications → Emails)</li>
-  <li>Synchronisation Apple Watch — <strong>réservée aux abonnés Premium</strong></li>
+  <li><strong>Rappels d'hydratation</strong> — 3 notifications quotidiennes (10h, 13h, 16h) activables/désactivables</li>
+  <li>Synchronisation Apple Watch (caféine + eau) — <strong>réservée aux abonnés Premium</strong></li>
   <li>Abonnement Premium optionnel</li>
 </ul>
 
@@ -60,14 +61,15 @@
 <p>L'utilisation complète nécessite un compte via email/mot de passe, Google Sign-In ou Sign in with Apple. Tu es responsable de la confidentialité de tes identifiants. Toute utilisation non autorisée doit être signalée à <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a>.</p>
 
 <h2>5. Données de profil et personnalisation</h2>
-<p>Lors de la première utilisation (onboarding), l'application propose de renseigner trois informations facultatives :</p>
+<p>Lors de la première utilisation (onboarding), l'application propose de renseigner plusieurs informations facultatives :</p>
 <ul>
   <li>Le nombre habituel de boissons caféinées par jour</li>
-  <li>Ton objectif principal de suivi</li>
+  <li>Ton objectif principal de suivi caféine</li>
+  <li><strong>Ton objectif quotidien d'hydratation</strong> (de 4 à 12 verres, valeur par défaut intelligente selon le mode précaution)</li>
   <li>L'heure habituelle de ta première boisson caféinée</li>
 </ul>
 <div class="highlight">
-Ces informations sont <strong>entièrement facultatives</strong>. Elles sont utilisées exclusivement pour personnaliser l'expérience et les notifications. Modifiables à tout moment. Jamais partagées ni vendues.
+Ces informations sont <strong>entièrement facultatives</strong>. Elles sont utilisées exclusivement pour personnaliser l'expérience et les notifications. Modifiables à tout moment dans les réglages. Jamais partagées ni vendues.
 </div>
 
 <h2>6. Abonnement Premium et prix</h2>
@@ -83,7 +85,7 @@ Ces informations sont <strong>entièrement facultatives</strong>. Elles sont uti
     <div class="detail">TTC par an · soit 2,50 € TTC/mois environ</div>
   </div>
 </div>
-<p>L'abonnement Premium inclut : suppression des publicités, Apple Watch, points x2, échange de points contre cadeaux physiques ou bons cadeaux / bons de réduction, boissons personnalisées, scanner de code-barres, accès rapide à 3 boissons favorites sur iPhone et Apple Watch, mode 1 tap (ajout d'une boisson en un seul appui). Renouvellement automatique sauf résiliation 24h avant la fin depuis les Réglages de l'App Store. Achats traités par Apple.</p>
+<p>L'abonnement Premium inclut : suppression des publicités, Apple Watch (caféine + eau), points x2, échange de points contre cadeaux physiques ou bons cadeaux / bons de réduction, boissons personnalisées, scanner de code-barres, accès rapide à 3 boissons favorites sur iPhone et Apple Watch, mode 1 tap (ajout d'une boisson en un seul appui). Renouvellement automatique sauf résiliation 24h avant la fin depuis les Réglages de l'App Store. Achats traités par Apple.</p>
 <p style="font-size: 0.85em; color: #666; margin-top: 8px;"><em>Les prix affichés peuvent varier selon ta région et ton fuseau horaire. Le prix appliqué est celui affiché par Apple lors de la souscription.</em></p>
 
 <h2>7. Droit de rétractation</h2>
@@ -105,18 +107,28 @@ Conformément à l'article L.221-28 du Code de la consommation, le droit de rét
 
 <h3>9.1 Limite quotidienne de boissons éligibles aux points</h3>
 <div class="highlight">
-<strong>📊 Anti-abus — équité du système :</strong> afin de préserver l'équité du système de récompenses et prévenir tout détournement (farming de points), seules les <strong>10 premières boissons enregistrées par jour calendaire</strong> (de 00h00 à 23h59 dans le fuseau horaire local de ton appareil) sont éligibles aux points.
+<strong>📊 Anti-abus — équité du système :</strong> afin de préserver l'équité du système de récompenses et prévenir tout détournement (farming de points), seules les <strong>10 premières boissons enregistrées par jour calendaire</strong> (de 00h00 à 23h59 dans le fuseau horaire local de ton appareil) sont éligibles aux points. Cette limite s'applique à l'ensemble des entrées enregistrées (boissons caféinées et verres d'eau).
 <br><br>
 Au-delà de cette limite quotidienne :
 <ul style="margin-top: 8px; margin-bottom: 0;">
-  <li>Le tracking santé (caféine en mg, statistiques) <strong>continue normalement</strong>.</li>
+  <li>Le tracking santé (caféine en mg, hydratation en verres, statistiques) <strong>continue normalement</strong>.</li>
   <li>Aucun point (boisson, badge basé sur le nombre de boissons) <strong>n'est attribué</strong>.</li>
   <li>Le compteur est remis à zéro automatiquement à minuit, fuseau horaire local.</li>
 </ul>
 </div>
-<p><strong>Autres conditions de non-attribution de points :</strong> les boissons enregistrées au-delà de la limite quotidienne en mg (400 mg en mode standard, 300 mg en mode précaution OMS) ne rapportent aucun point, mais sont comptabilisées dans le suivi santé pour t'aider à prendre conscience de ta consommation.</p>
+<p><strong>Autres conditions de non-attribution de points :</strong> les boissons caféinées enregistrées au-delà de la limite quotidienne en mg (400 mg en mode standard, 300 mg en mode précaution OMS) ne rapportent aucun point, mais sont comptabilisées dans le suivi santé pour t'aider à prendre conscience de ta consommation. Les verres d'eau ne sont jamais limités par un plafond en mg (ils ne contiennent pas de caféine).</p>
 
-<p><strong>Clause de modification :</strong> L'éditeur se réserve le droit de modifier les mécaniques de jeu (barème de points, limites, cooldowns) sans préavis. Ces modifications ne donnent droit à aucune compensation.</p>
+<h3>9.2 Sémantique de l'eau dans les badges et défis</h3>
+<div class="highlight">
+<strong>💧 Comment l'eau est prise en compte :</strong>
+<ul style="margin-top: 8px; margin-bottom: 0;">
+  <li><strong>L'eau COMPTE</strong> comme une boisson pour les compteurs neutres (badges « 100 boissons », « 500 boissons », « 1000 boissons », défi « 100 boissons », nombre total d'entrées).</li>
+  <li><strong>L'eau est NEUTRE</strong> pour les badges sémantiquement caféinés (ex. « pas de café l'aprèm », « premier café avant 9h », « uniquement du thé », « réduction de la consommation moyenne »). L'eau n'invalide pas ces badges et n'est pas comptée dans les moyennes caféine.</li>
+  <li>Dans les statistiques Premium, un toggle « Inclure l'eau dans les stats » permet à l'utilisateur de choisir si l'eau apparaît dans la répartition par type, les moyennes par heure et le top boissons.</li>
+</ul>
+</div>
+
+<p><strong>Clause de modification :</strong> L'éditeur se réserve le droit de modifier les mécaniques de jeu (barème de points, limites, cooldowns, sémantique des badges) sans préavis. Ces modifications ne donnent droit à aucune compensation.</p>
 
 <h2>9bis. Défis Communauté</h2>
 <p>PauseCafé propose des défis communauté créés par l'éditeur. Chaque défi a un cycle de vie défini :</p>
@@ -182,9 +194,9 @@ Au-delà de cette limite quotidienne :
 </ul>
 
 <h2>12. Limitation de responsabilité</h2>
-<p>PauseCafé est un outil de <strong>bien-être personnel à titre purement indicatif</strong>. Les informations ne constituent pas un avis médical.</p>
+<p>PauseCafé est un outil de <strong>bien-être personnel à titre purement indicatif</strong>. Les informations (caféine et hydratation) ne constituent pas un avis médical.</p>
 <div class="highlight">
-<strong>Mode précaution :</strong> le mode précaution applique la recommandation OMS (300 mg/jour) à titre indicatif uniquement. Il ne remplace pas le suivi d'un professionnel de santé.
+<strong>Mode précaution :</strong> le mode précaution applique les recommandations OMS (300 mg de caféine et 2,3 L / 9 verres d'eau par jour) à titre indicatif uniquement. Il ne remplace pas le suivi d'un professionnel de santé.
 </div>
 
 <h2>13. Force majeure</h2>
@@ -263,7 +275,18 @@ Au-delà de cette limite quotidienne :
 <h2>23. Boissons favorites et mode 1 tap (Premium)</h2>
 <p>Les fonctionnalités <strong>Boissons favorites</strong> (jusqu'à 3) et <strong>Mode 1 tap</strong> sont réservées aux abonnés Premium. Les données de favoris (noms des boissons sélectionnées, boisson rapide configurée, état du mode 1 tap) sont associées au compte utilisateur et synchronisées via Firebase. Elles ne sont pas partagées entre comptes distincts et sont supprimées à la fermeture du compte.</p>
 
-<h2>24. Contact</h2>
+<h2>24. Suivi de l'hydratation</h2>
+<p>PauseCafé propose un compteur d'eau dédié, distinct du suivi caféine :</p>
+<ul>
+  <li><strong>Objectif personnalisable</strong> de 4 à 12 verres / jour (1 verre = 250 ml)</li>
+  <li><strong>Valeur par défaut</strong> : 8 verres (2 L), recommandation OMS pour un adulte sain. Le mode précaution applique automatiquement 9 verres (2,3 L), reco OMS grossesse et allaitement</li>
+  <li>L'<strong>activation du compteur d'eau</strong> est optionnelle et désactivable à tout moment depuis Réglages → Hydratation. Quand le compteur est désactivé, l'eau est incluse dans les statistiques par défaut (comportement neutre)</li>
+  <li>3 <strong>rappels quotidiens d'hydratation</strong> (10h, 13h, 16h) sont activés automatiquement la première fois que tu actives le compteur. Désactivables individuellement</li>
+  <li>L'eau peut être ajoutée depuis le bouton « + Eau » sur l'iPhone, depuis l'Apple Watch (Premium), ou via la liste classique des boissons</li>
+  <li><strong>Sémantique</strong> : voir section 9.2 ci-dessus pour le détail de la prise en compte de l'eau dans les badges et défis</li>
+</ul>
+
+<h2>25. Contact</h2>
 <p>Email : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a><br>
 Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></p>
 
