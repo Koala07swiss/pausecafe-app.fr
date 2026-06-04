@@ -3,9 +3,15 @@
   <!-- Pages principales -->
   <url>
     <loc>https://pausecafe-app.fr/</loc>
-    <lastmod>2026-04-30</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/cafeine-temps-reel.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://pausecafe-app.fr/blog</loc>
@@ -72,13 +78,13 @@
   <!-- Pages légales -->
   <url>
     <loc>https://pausecafe-app.fr/privacy.html</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://pausecafe-app.fr/cgu.html</loc>
-    <lastmod>2026-04-30</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
