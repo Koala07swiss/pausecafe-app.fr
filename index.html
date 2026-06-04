@@ -98,7 +98,7 @@
         .palier-card .palier-titre { font-size: 1rem; font-weight: 700; color: white; margin-bottom: 4px; }
         .palier-card .palier-pts { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--purple-light); margin-bottom: 4px; }
         .palier-card .palier-detail { font-size: 0.8rem; opacity: 0.65; font-weight: 300; }
-        .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 920px; margin: 0 auto; }
+        .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 600px; margin: 0 auto; }
         .plan-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(155,111,208,0.3); padding: 32px 24px; border-radius: 20px; text-align: center; position: relative; transition: transform 0.2s; }
         .plan-card:hover { transform: translateY(-4px); }
         .plan-card.popular { border-color: var(--purple-light); border-width: 2px; background: rgba(107,63,160,0.2); }
@@ -111,11 +111,6 @@
         .plan-features { font-size: 0.75rem; opacity: 0.6; margin-bottom: 24px; line-height: 1.6; }
         .plan-btn { display: block; background: linear-gradient(135deg, var(--purple), var(--purple-light)); color: white; padding: 12px 24px; border-radius: 100px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: opacity 0.2s; }
         .plan-btn:hover { opacity: 0.85; }
-        .compare-table th.col-premiumplus { background: linear-gradient(135deg, var(--blue), var(--purple-light)); border-radius: 12px 12px 0 0; color: white; }
-        .compare-table th.col-premiumplus span { display: block; font-size: 0.7rem; font-weight: 700; opacity: 0.9; margin-top: 4px; }
-        .compare-table td.col-premiumplus { background: rgba(55,138,221,0.12); }
-        .plan-card.plus { border-color: var(--blue-light); }
-        .plan-card .plan-soon { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--blue), var(--purple-light)); color: white; font-size: 0.7rem; font-weight: 700; padding: 4px 14px; border-radius: 100px; white-space: nowrap; }
         .normes { padding: 100px 48px; background: var(--mousse); }
         .normes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; max-width: 1100px; margin: 0 auto; }
         .norme-item { display: flex; align-items: flex-start; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(44,24,16,0.1); }
@@ -254,7 +249,7 @@
         <h2 class="section-title">Tout ce qu'il faut pour prendre soin de toi</h2>
         <div class="features-grid">
             <div class="feature-card"><span class="feature-emoji">☕</span><h3>Suis ta caféine</h3><p>Enregistre chaque boisson en un tap. Café, thé, tisane, soda, energy drink — tout est répertorié avec les valeurs exactes en mg de caféine.</p></div>
-            <a class="feature-card feature-active" href="cafeine-temps-reel.html"><span class="feature-emoji">📉</span><h3>Caféine en temps réel <span style="font-size:0.65rem;background:rgba(155,111,208,0.25);color:var(--purple-light);padding:2px 8px;border-radius:8px;vertical-align:middle;font-weight:700;">Premium+ · Bientôt</span></h3><p>Visualise la quantité de caféine encore présente dans ton corps, minute par minute, et anticipe l'heure idéale pour ta dernière tasse. <span class="feature-link">En savoir plus →</span></p></a>
+            <a class="feature-card feature-active" href="cafeine-temps-reel.html"><span class="feature-emoji">📉</span><h3>Caféine en temps réel <span style="font-size:0.65rem;background:rgba(155,111,208,0.25);color:var(--purple-light);padding:2px 8px;border-radius:8px;vertical-align:middle;font-weight:700;">Premium · Bientôt</span></h3><p>Visualise la quantité de caféine encore présente dans ton corps, minute par minute, et anticipe l'heure idéale pour ta dernière tasse. <span class="feature-link">En savoir plus →</span></p></a>
             <div class="feature-card feature-water"><span class="feature-emoji">💧</span><h3>Suis ton hydratation</h3><p>Compteur d'eau dédié visible via l'anneau bleu autour de la tasse. Objectif personnel de 4 à 12 verres / jour (par défaut 8 verres = 2 L, reco OMS). Bouton « + Eau » pour ajouter un verre en un tap.</p></div>
             <div class="feature-card"><span class="feature-emoji">🏆</span><h3>130 badges &amp; 8 niveaux</h3><p>Débloque des badges, gagne des points et monte en niveau. De Pousse 🌱 à Légende 🦁 — 130 badges à collectionner (dont 10 exclusifs Premium 👑 et 10 dédiés à l'hydratation 💧), chacun récompensé selon sa difficulté. Certains sont mystérieux !</p></div>
             <div class="feature-card"><span class="feature-emoji">🎁</span><h3>Vraies récompenses</h3><p>Bons plans partenaires pour tous. Pour les Premium : échange tes points contre des cadeaux ou des bons cadeaux (cooldown de 6 mois entre 2 réclamations physiques). Pour les gratuits : échange tes points contre du temps Premium.</p></div>
@@ -307,50 +302,49 @@
         </div>
         <p style="text-align:center;font-size:0.75rem;opacity:0.5;margin-bottom:48px;">Le temps Premium s'ajoute à ta date d'expiration actuelle. Aucun point n'a de valeur monétaire.</p>
 
-        <h3 class="compare-title">Gratuit, Premium &amp; Premium+</h3>
+        <h3 class="compare-title">Gratuit vs Premium</h3>
         <table class="compare-table">
             <thead>
                 <tr>
-                    <th style="width:40%"></th>
+                    <th style="width:50%"></th>
                     <th class="col-free">Gratuit</th>
                     <th class="col-premium">Premium 👑<span>dès 2,50 €/mois</span></th>
-                    <th class="col-premiumplus">Premium+ ✨<span>Bientôt</span></th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td>Suivi caféine quotidien</td><td class="col-free">✅</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
-                <tr><td>Suivi d'hydratation (compteur d'eau)</td><td class="col-free">✅</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
-                <tr><td>Widget iOS (écran d'accueil)</td><td class="col-free">✅</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
-                <tr><td>130 badges &amp; 8 niveaux</td><td class="col-free">✅</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
-                <tr><td>Stats &amp; évolution (caféine + eau)</td><td class="col-free">✅</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
-                <tr><td>Corrélation eau ↔ caféine</td><td class="col-free">❌</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
-                <tr><td>Export CSV des données (RGPD)</td><td class="col-free">✅</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
-                <tr><td>Bons plans partenaires</td><td class="col-free">✅</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
-                <tr><td>Défis communauté 🎯</td><td class="col-free">✅</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
-                <tr><td>Mode précaution OMS (caféine + eau)</td><td class="col-free">✅</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
-                <tr><td>Parrainage (code unique)</td><td class="col-free">✅</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
-                <tr><td>Publicités</td><td class="col-free">✅</td><td class="col-premium">❌</td><td class="col-premiumplus">❌</td></tr>
-                <tr><td>Apple Watch (caféine + eau)</td><td class="col-free">❌</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
-                <tr><td>Boissons personnalisées</td><td class="col-free">❌</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
-                <tr><td>Scanner de code-barres</td><td class="col-free">❌</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
-                <tr><td>Points x2 (boisson + série)</td><td class="col-free">❌</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
-                <tr><td>Cadeaux physiques ou bons cadeaux</td><td class="col-free">❌</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
-                <tr><td>⚡ 3 boissons favorites</td><td class="col-free">❌</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
-                <tr><td>⚡ Mode 1 tap</td><td class="col-free">❌</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
-                <tr><td>Offres exclusives négociées</td><td class="col-free">❌</td><td class="col-premium">✅ Bientôt</td><td class="col-premiumplus">✅ Bientôt</td></tr>
-                <tr><td>📉 Caféine active en temps réel</td><td class="col-free">❌</td><td class="col-premium">❌</td><td class="col-premiumplus">✅ Bientôt</td></tr>
-                <tr><td>😴 Corrélation caféine ↔ sommeil</td><td class="col-free">❌</td><td class="col-premium">❌</td><td class="col-premiumplus">✅ Bientôt</td></tr>
-                <tr><td>❤️ Corrélation caféine ↔ FC repos</td><td class="col-free">❌</td><td class="col-premium">❌</td><td class="col-premiumplus">✅ Bientôt</td></tr>
-                <tr><td>🧠 Alertes intelligentes</td><td class="col-free">❌</td><td class="col-premium">❌</td><td class="col-premiumplus">✅ Bientôt</td></tr>
-                <tr><td>🌿 Suivi stress &amp; anxiété</td><td class="col-free">❌</td><td class="col-premium">❌</td><td class="col-premiumplus">✅ Bientôt</td></tr>
-                <tr><td>🌡️ Hydratation adaptée à la météo</td><td class="col-free">❌</td><td class="col-premium">❌</td><td class="col-premiumplus">✅ Bientôt</td></tr>
-                <tr><td>Échange points → temps Premium</td><td class="col-free">✅</td><td class="col-premium">— <span style="font-size:0.7rem;opacity:0.6">(réservé gratuit)</span></td><td class="col-premiumplus">—</td></tr>
+                <tr><td>Suivi caféine quotidien</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Suivi d'hydratation (compteur d'eau)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Widget iOS (écran d'accueil)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>130 badges &amp; 8 niveaux</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Stats &amp; évolution (caféine + eau)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Corrélation eau ↔ caféine</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Export CSV des données (RGPD)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Bons plans partenaires</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Défis communauté 🎯</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Mode précaution OMS (caféine + eau)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Parrainage (code unique)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Publicités</td><td class="col-free">✅</td><td class="col-premium">❌</td></tr>
+                <tr><td>Apple Watch (caféine + eau)</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Boissons personnalisées</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Scanner de code-barres</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Points x2 (boisson + série)</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Cadeaux physiques ou bons cadeaux</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>⚡ 3 boissons favorites</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>⚡ Mode 1 tap</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>📉 Caféine active en temps réel</td><td class="col-free">❌</td><td class="col-premium">✅ Bientôt</td></tr>
+                <tr><td>😴 Corrélation caféine ↔ sommeil</td><td class="col-free">❌</td><td class="col-premium">✅ Bientôt</td></tr>
+                <tr><td>❤️ Corrélation caféine ↔ FC repos</td><td class="col-free">❌</td><td class="col-premium">✅ Bientôt</td></tr>
+                <tr><td>🧠 Alertes intelligentes</td><td class="col-free">❌</td><td class="col-premium">✅ Bientôt</td></tr>
+                <tr><td>🌿 Suivi stress &amp; anxiété</td><td class="col-free">❌</td><td class="col-premium">✅ Bientôt</td></tr>
+                <tr><td>🌡️ Hydratation adaptée à la météo</td><td class="col-free">❌</td><td class="col-premium">✅ Bientôt</td></tr>
+                <tr><td>Offres exclusives négociées</td><td class="col-free">❌</td><td class="col-premium">✅ Bientôt</td></tr>
+                <tr><td>Échange points → temps Premium</td><td class="col-free">✅</td><td class="col-premium">— <span style="font-size:0.7rem;opacity:0.6">(réservé gratuit)</span></td></tr>
             </tbody>
         </table>
 
         <div class="plans">
             <div class="plan-card">
-                <div class="plan-name">Mensuel</div>
+                <div class="plan-name">👑 Premium · Mensuel</div>
                 <div class="plan-price">2,99 €<span>/mois</span></div>
                 <div class="plan-detail">Prix TTC — Résiliable à tout moment</div>
                 <div class="plan-features">✅ Watch · ✅ Sans pub · ✅ Points x2</div>
@@ -358,24 +352,14 @@
             </div>
             <div class="plan-card popular">
                 <div class="plan-badge">⭐ Meilleur rapport</div>
-                <div class="plan-name">Annuel</div>
+                <div class="plan-name">👑 Premium · Annuel</div>
                 <div class="plan-price">29,99 €<span>/an</span></div>
                 <div class="plan-detail">Prix TTC — soit 2,50 €/mois environ</div>
                 <div class="plan-offre">🎉 2 mois offerts</div>
                 <div class="plan-features">✅ Watch · ✅ Sans pub · ✅ Points x2</div>
                 <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" class="plan-btn">Commencer</a>
             </div>
-            <div class="plan-card plus">
-                <div class="plan-soon">✨ Bientôt</div>
-                <div class="plan-name">Premium+</div>
-                <div class="plan-price">4,99 €<span>/mois</span></div>
-                <div class="plan-detail">ou 49,99 €/an — soit 4,17 €/mois environ</div>
-                <div class="plan-offre">🎉 2 mois offerts (annuel)</div>
-                <div class="plan-features">Tout le Premium + caféine active + analyses santé</div>
-                <span class="plan-btn" style="opacity:0.5;cursor:default;background:rgba(155,111,208,0.4);">Bientôt disponible</span>
-            </div>
         </div>
-        <p style="text-align:center;font-size:0.9rem;opacity:0.7;font-weight:300;max-width:620px;margin:32px auto 0;">Le <strong style="color:var(--purple-light)">Premium+</strong> inclut l'intégralité du Premium et y ajoute la <strong>caféine active en temps réel</strong> (<a href="cafeine-temps-reel.html" style="color:var(--purple-light)">en savoir plus →</a>), les corrélations sommeil et FC repos, les alertes intelligentes, le suivi du stress et l'hydratation adaptée à la météo. Ces fonctions arrivent progressivement ; le Premium+ n'est pas encore disponible à l'achat.</p>
         <p style="text-align:center;font-size:0.75rem;opacity:0.4;margin-top:24px">Abonnements gérés par Apple. Résiliation : Réglages iOS → App Store → Abonnements. Prix indicatifs en euros, susceptibles de varier selon ta région.</p>
     </section>
 
@@ -383,13 +367,13 @@
         <div style="max-width: 1100px; margin: 0 auto;">
             <div class="section-label" style="color: rgba(255,255,255,0.5)">En développement</div>
             <h2 class="section-title" style="color: white;">🚀 Prochainement</h2>
-            <p style="font-size: 1rem; opacity: 0.65; font-weight: 300; margin-bottom: 40px; max-width: 600px;">Nous travaillons en permanence à améliorer PauseCafé. Voici ce qui arrive bientôt — la plupart de ces analyses feront partie du futur <strong style="color:var(--purple-light)">Premium+</strong>.</p>
+            <p style="font-size: 1rem; opacity: 0.65; font-weight: 300; margin-bottom: 40px; max-width: 600px;">Nous travaillons en permanence à améliorer PauseCafé. Voici ce qui arrive bientôt — des fonctions <strong style="color:var(--purple-light)">Premium</strong>.</p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
-                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;"><div style="font-size: 2rem; margin-bottom: 12px;">😴</div><h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Corrélation caféine / sommeil <span style="font-size:0.7rem;background:rgba(155,111,208,0.3);color:var(--purple-light);padding:2px 8px;border-radius:8px;vertical-align:middle;">Premium+</span></h3><p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Découvre l'impact réel de ta consommation sur la qualité de ton sommeil, à partir des données Apple Santé.</p></div>
-                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;"><div style="font-size: 2rem; margin-bottom: 12px;">❤️</div><h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Corrélation caféine / FC repos <span style="font-size:0.7rem;background:rgba(155,111,208,0.3);color:var(--purple-light);padding:2px 8px;border-radius:8px;vertical-align:middle;">Premium+</span></h3><p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Un second signal santé : le lien entre ta caféine et ta fréquence cardiaque au repos.</p></div>
-                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;"><div style="font-size: 2rem; margin-bottom: 12px;">🧠</div><h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Alertes intelligentes <span style="font-size:0.7rem;background:rgba(155,111,208,0.3);color:var(--purple-light);padding:2px 8px;border-radius:8px;vertical-align:middle;">Premium+</span></h3><p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Alertes personnalisées basées sur tes habitudes : « Il est 16h, tu as 320 mg. »</p></div>
-                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;"><div style="font-size: 2rem; margin-bottom: 12px;">🌿</div><h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Suivi stress &amp; anxiété <span style="font-size:0.7rem;background:rgba(155,111,208,0.3);color:var(--purple-light);padding:2px 8px;border-radius:8px;vertical-align:middle;">Premium+</span></h3><p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Questionnaire hebdomadaire avec corrélations personnalisées caféine / stress.</p></div>
-                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;"><div style="font-size: 2rem; margin-bottom: 12px;">🌡️</div><h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Hydratation adaptée à la météo <span style="font-size:0.7rem;background:rgba(155,111,208,0.3);color:var(--purple-light);padding:2px 8px;border-radius:8px;vertical-align:middle;">Premium+</span></h3><p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">En cas de forte chaleur, des rappels d'hydratation renforcés selon la vigilance Météo-France (France).</p></div>
+                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;"><div style="font-size: 2rem; margin-bottom: 12px;">😴</div><h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Corrélation caféine / sommeil <span style="font-size:0.7rem;background:rgba(155,111,208,0.3);color:var(--purple-light);padding:2px 8px;border-radius:8px;vertical-align:middle;">Premium</span></h3><p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Découvre l'impact réel de ta consommation sur la qualité de ton sommeil, à partir des données Apple Santé.</p></div>
+                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;"><div style="font-size: 2rem; margin-bottom: 12px;">❤️</div><h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Corrélation caféine / FC repos <span style="font-size:0.7rem;background:rgba(155,111,208,0.3);color:var(--purple-light);padding:2px 8px;border-radius:8px;vertical-align:middle;">Premium</span></h3><p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Un second signal santé : le lien entre ta caféine et ta fréquence cardiaque au repos.</p></div>
+                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;"><div style="font-size: 2rem; margin-bottom: 12px;">🧠</div><h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Alertes intelligentes <span style="font-size:0.7rem;background:rgba(155,111,208,0.3);color:var(--purple-light);padding:2px 8px;border-radius:8px;vertical-align:middle;">Premium</span></h3><p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Alertes personnalisées basées sur tes habitudes : « Il est 16h, tu as 320 mg. »</p></div>
+                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;"><div style="font-size: 2rem; margin-bottom: 12px;">🌿</div><h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Suivi stress &amp; anxiété <span style="font-size:0.7rem;background:rgba(155,111,208,0.3);color:var(--purple-light);padding:2px 8px;border-radius:8px;vertical-align:middle;">Premium</span></h3><p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">Questionnaire hebdomadaire avec corrélations personnalisées caféine / stress.</p></div>
+                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 24px;"><div style="font-size: 2rem; margin-bottom: 12px;">🌡️</div><h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: white;">Hydratation adaptée à la météo <span style="font-size:0.7rem;background:rgba(155,111,208,0.3);color:var(--purple-light);padding:2px 8px;border-radius:8px;vertical-align:middle;">Premium</span></h3><p style="font-size: 0.9rem; opacity: 0.6; font-weight: 300; line-height: 1.6;">En cas de forte chaleur, des rappels d'hydratation renforcés selon la vigilance Météo-France (France).</p></div>
             </div>
         </div>
     </section>
