@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La caféine en temps réel — PauseCafé</title>
+    <meta name="description" content="Comprendre la caféine active : la quantité de caféine estimée présente dans ton corps à chaque instant. Méthode, sources EFSA, limites et cadrage bien-être.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --cafe: #2C1810; --cream: #F5EDD6; --espresso: #1A0F0A; --caramel: #C4873A; --mousse: #E8D5B0; --purple: #6B3FA0; --purple-light: #9B6FD0; --blue: #378ADD; --green: #4CAF7D; --text: #1A0F0A; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; background: rgba(245, 237, 214, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(196, 135, 58, 0.2); }
+        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--cafe); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .nav-logo-img { width: 36px; height: 36px; object-fit: contain; border-radius: 8px; }
+        .nav-back { font-size: 0.82rem; font-weight: 500; color: var(--cafe); text-decoration: none; opacity: 0.7; letter-spacing: 0.05em; text-transform: uppercase; transition: opacity 0.2s; }
+        .nav-back:hover { opacity: 1; }
+
+        .hero { padding: 140px 48px 60px; max-width: 860px; margin: 0 auto; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--caramel); color: white; padding: 6px 16px; border-radius: 100px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 28px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 900; line-height: 1.1; color: var(--cafe); margin-bottom: 20px; }
+        .hero h1 span { color: var(--caramel); font-style: italic; }
+        .hero .lead { font-size: 1.15rem; line-height: 1.7; opacity: 0.78; font-weight: 300; }
+
+        .content { max-width: 860px; margin: 0 auto; padding: 20px 48px 100px; }
+        .block { margin-top: 56px; }
+        .block h2 { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; color: var(--cafe); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+        .block p { font-size: 1rem; line-height: 1.8; opacity: 0.8; font-weight: 300; margin-bottom: 16px; }
+        .block strong { font-weight: 500; opacity: 1; color: var(--cafe); }
+
+        .card { background: white; border: 1px solid rgba(196,135,58,0.18); border-radius: 16px; padding: 28px 28px; margin: 24px 0; box-shadow: 0 6px 24px rgba(44,24,16,0.05); }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 24px 0; }
+        .mini-card { background: white; border: 1px solid rgba(196,135,58,0.18); border-radius: 14px; padding: 22px 20px; }
+        .mini-card .emoji { font-size: 1.8rem; display: block; margin-bottom: 10px; }
+        .mini-card h3 { font-size: 1rem; font-weight: 700; color: var(--cafe); margin-bottom: 6px; }
+        .mini-card p { font-size: 0.88rem; line-height: 1.6; opacity: 0.7; font-weight: 300; margin: 0; }
+
+        .steps { list-style: none; counter-reset: step; margin: 8px 0 0; }
+        .steps li { position: relative; padding: 14px 0 14px 52px; border-bottom: 1px solid rgba(44,24,16,0.08); font-size: 0.98rem; line-height: 1.7; opacity: 0.85; font-weight: 300; }
+        .steps li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 14px; width: 32px; height: 32px; background: var(--caramel); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; }
+        .steps li strong { color: var(--cafe); font-weight: 500; }
+
+        .seuil-note { background: rgba(76,175,125,0.1); border: 1px solid rgba(76,175,125,0.35); border-radius: 14px; padding: 20px 24px; margin: 24px 0; }
+        .seuil-note h3 { font-size: 1rem; font-weight: 700; color: var(--cafe); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .seuil-note p { font-size: 0.92rem; line-height: 1.7; opacity: 0.8; font-weight: 300; margin: 0; }
+
+        .disclaimer { background: #fff8f0; border: 1px solid #f5ddc0; border-radius: 14px; padding: 22px 24px; margin: 40px 0 0; }
+        .disclaimer h3 { font-size: 1rem; font-weight: 700; color: var(--cafe); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .disclaimer p { font-size: 0.9rem; line-height: 1.7; opacity: 0.78; font-weight: 300; margin: 0; }
+
+        .sources { font-size: 0.85rem; opacity: 0.6; font-weight: 300; line-height: 1.7; margin-top: 24px; }
+        .sources a { color: var(--caramel); }
+
+        .cta { text-align: center; background: var(--espresso); color: var(--cream); border-radius: 20px; padding: 48px 32px; margin-top: 64px; }
+        .cta h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; margin-bottom: 12px; color: var(--cream); justify-content: center; }
+        .cta p { opacity: 0.7; font-weight: 300; margin-bottom: 28px; }
+        .apple-badge img { height: 56px; width: auto; display: inline-block; }
+
+        footer { background: var(--espresso); color: var(--cream); padding: 40px 48px; text-align: center; }
+        footer a { color: var(--caramel); text-decoration: none; }
+        .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.85rem; }
+        .footer-links a { opacity: 0.7; }
+        .footer-bottom { font-size: 0.8rem; opacity: 0.4; }
+
+        @media (max-width: 768px) {
+            nav { padding: 12px 24px; }
+            .hero { padding: 110px 24px 40px; }
+            .content { padding: 16px 24px 70px; }
+            .cta { padding: 36px 24px; }
+            footer { padding: 36px 24px; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <a class="nav-logo" href="https://pausecafe-app.fr">
+        <img src="logo.png" alt="PauseCafé" class="nav-logo-img">
+        PauseCafé
+    </a>
+    <a class="nav-back" href="https://pausecafe-app.fr">← Retour au site</a>
+</nav>
+
+<header class="hero">
+    <div class="hero-badge">📉 Comprendre la caféine active</div>
+    <h1>La caféine <span>en temps réel</span></h1>
+    <p class="lead">PauseCafé n'affiche pas seulement ce que tu as bu dans la journée. Il estime, à chaque instant, la quantité de caféine encore <strong>présente dans ton corps</strong> — et comment elle redescend au fil des heures. Voici comment ça marche, et ce que ça veut dire (et ne veut pas dire).</p>
+</header>
+
+<main class="content">
+
+    <section class="block">
+        <h2>📉 C'est quoi, la « caféine active » ?</h2>
+        <p>La <strong>caféine active</strong> (ou caféine résiduelle) est la quantité de caféine, en milligrammes, que ton organisme contient encore <strong>maintenant</strong>. Ce n'est pas le total bu depuis ce matin : c'est ce qu'il en reste après que ton corps a commencé à l'éliminer.</p>
+        <p>Quand tu bois un café, cette quantité monte rapidement, atteint un pic, puis redescend progressivement. PauseCafé trace cette courbe pour chacune de tes boissons et les additionne, ce qui donne la courbe que tu vois sur l'écran d'accueil, sur ta montre et sur le widget.</p>
+        <div class="card-grid">
+            <div class="mini-card">
+                <span class="emoji">☕</span>
+                <h3>Ce que tu bois</h3>
+                <p>Chaque boisson ajoute sa dose de caféine au total présent dans le corps.</p>
+            </div>
+            <div class="mini-card">
+                <span class="emoji">📈</span>
+                <h3>La montée</h3>
+                <p>La caféine est absorbée vite : le pic est atteint en moins d'une heure.</p>
+            </div>
+            <div class="mini-card">
+                <span class="emoji">📉</span>
+                <h3>La descente</h3>
+                <p>Ensuite, l'organisme l'élimine peu à peu, heure après heure.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>⏳ Comment c'est calculé</h2>
+        <p>PauseCafé s'appuie sur la <strong>pharmacocinétique de la caféine</strong> : la façon dont le corps l'absorbe puis l'élimine. Deux repères clés, tirés de la littérature scientifique :</p>
+        <ul class="steps">
+            <li><strong>L'absorption.</strong> La caféine passe vite dans le sang. La quantité présente dans le corps atteint son maximum (le « pic ») environ <strong>45 minutes</strong> après la prise — la fourchette rapportée va de 30 minutes à 2 heures. À ne pas confondre avec les « 15 à 30 minutes » souvent cités : ceux-ci décrivent le début des <strong>effets ressentis</strong>, pas le pic de quantité.</li>
+            <li><strong>L'élimination.</strong> Ensuite, la quantité diminue selon une <strong>demi-vie d'environ 5 heures</strong> chez l'adulte en bonne santé (valeur moyenne retenue par l'EFSA). Autrement dit, toutes les 5 heures, il en reste à peu près la moitié.</li>
+            <li><strong>L'addition.</strong> PauseCafé applique ce calcul à chacune de tes boissons et fait la somme. Le résultat est la courbe de caféine active : la quantité totale estimée présente dans ton corps, minute par minute.</li>
+        </ul>
+        <p style="margin-top:24px;">Sous le capot, c'est un modèle pharmacocinétique classique <strong>à un compartiment</strong> (une phase de montée, une phase de descente). C'est volontairement simple : l'objectif n'est pas de simuler ta physiologie exacte, mais de te donner un <strong>repère utile et lisible</strong> — « combien il m'en reste, et où j'en serai ce soir ».</p>
+    </section>
+
+    <section class="block">
+        <h2>🌙 Le seuil sommeil</h2>
+        <p>En dessous d'un certain niveau, la caféine ne gêne plus vraiment l'endormissement. PauseCafé appelle ce repère le <strong>seuil sommeil</strong>.</p>
+        <div class="seuil-note">
+            <h3>🌙 Comment il est fixé</h3>
+            <p>Par défaut, le seuil est de <strong>100 mg</strong> — le repère mis en avant par l'EFSA pour l'impact de la caféine sur le sommeil. Si tu renseignes ton poids dans l'app, le seuil est affiné (environ <strong>1,4 mg par kilo</strong>). En regardant ta courbe en soirée, tu peux estimer à quelle heure tu repasses sous ce seuil, et viser un coucher plus serein.</p>
+        </div>
+        <p>Sur l'Apple Watch, ce seuil est même matérialisé par une <strong>zone verte</strong> sous la courbe, avec un repère vertical à ton heure de coucher : tu vois d'un coup d'œil combien de caféine il te restera au moment de dormir.</p>
+    </section>
+
+    <section class="block">
+        <h2>📲 Où tu la retrouves</h2>
+        <div class="card-grid">
+            <div class="mini-card">
+                <span class="emoji">📱</span>
+                <h3>Sur l'iPhone</h3>
+                <p>Une carte sur l'écran d'accueil affiche ta caféine active et sa courbe.</p>
+            </div>
+            <div class="mini-card">
+                <span class="emoji">⌚</span>
+                <h3>Sur l'Apple Watch</h3>
+                <p>Affichée directement dans l'app Watch, et en complications sur ton cadran : la valeur en cours et la courbe jusqu'au coucher.</p>
+            </div>
+            <div class="mini-card">
+                <span class="emoji">🔲</span>
+                <h3>Sur le widget</h3>
+                <p>Ta caféine active visible directement depuis l'écran d'accueil.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>🧮 Une estimation, pas une mesure</h2>
+        <p>C'est le point le plus important. Les chiffres affichés sont une <strong>estimation fondée sur une moyenne de population</strong>, pas une mesure de ton sang. Ta vitesse réelle d'élimination dépend de facteurs que l'application <strong>ne peut pas mesurer</strong> :</p>
+        <p>la <strong>génétique</strong> (l'enzyme CYP1A2, « métaboliseurs rapides » ou « lents »), le <strong>tabac</strong> (qui accélère l'élimination), les <strong>contraceptifs oraux</strong> et la <strong>grossesse</strong> (qui la ralentissent), l'<strong>âge</strong>, ou certains <strong>médicaments</strong>. C'est pourquoi PauseCafé ne personnalise pas la vitesse d'élimination selon le poids : ce serait une fausse précision.</p>
+        <p>De la même façon, la « caféine active » décrit une <strong>quantité estimée présente dans le corps</strong> — pas une intensité d'effet, ni une concentration sanguine en mg/L. Deux personnes avec la même quantité ne ressentiront pas forcément la même chose.</p>
+        <div class="disclaimer">
+            <h3>⚠️ Information de bien-être</h3>
+            <p>PauseCafé est une application de bien-être. Les informations fournies sont à titre indicatif et n'ont aucune valeur médicale : ce n'est ni un dispositif médical, ni un avis médical. Pour toute question sur ton sommeil ou ta santé, consulte un professionnel de santé.</p>
+        </div>
+        <p class="sources">Sources : EFSA, <em>Scientific Opinion on the safety of caffeine</em>, 2015 (EFSA Journal 2015;13(5):4102) — demi-vie moyenne ≈ 5 h chez l'adulte sain, seuil d'impact sommeil ≈ 100 mg. Données pharmacocinétiques d'absorption (pic ≈ 30 min – 2 h) issues de la littérature pharmacologique. <a href="https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2015.4102" target="_blank" rel="noopener noreferrer">Avis EFSA →</a></p>
+    </section>
+
+    <div class="cta">
+        <h2>Visualise ta caféine, en temps réel.</h2>
+        <p>Disponible gratuitement dans PauseCafé.</p>
+        <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" rel="noopener noreferrer" aria-label="Télécharger PauseCafé sur l'App Store" class="apple-badge">
+            <img src="app-store-badge-fr.svg" alt="Disponible sur l'App Store">
+        </a>
+    </div>
+
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="https://pausecafe-app.fr">Accueil</a>
+        <a href="https://pausecafe-app.fr/cgu.html">CGU</a>
+        <a href="https://pausecafe-app.fr/privacy.html">Confidentialité</a>
+        <a href="mailto:hello@pausecafe-app.fr">Contact</a>
+    </div>
+    <div class="footer-bottom">© 2026 PauseCafé. Tous droits réservés. — Information de bien-être, non médicale.</div>
+</footer>
+
+</body>
+</html>
