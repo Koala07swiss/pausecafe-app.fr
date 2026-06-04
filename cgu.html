@@ -18,8 +18,10 @@
   a { color: #c0722a; }
   .prix { display: flex; gap: 16px; margin: 16px 0; flex-wrap: wrap; }
   .prix-card { border: 1px solid #eee; border-radius: 12px; padding: 16px 20px; flex: 1; min-width: 200px; }
+  .prix-card.plus { border-color: #d9c6ef; background: #faf7ff; }
   .prix-card .label { font-size: 0.85em; color: #888; }
   .prix-card .montant { font-size: 1.4em; font-weight: 700; color: #c0722a; }
+  .prix-card.plus .montant { color: #6B3FA0; }
   .prix-card .detail { font-size: 0.8em; color: #666; }
   .highlight { background: #fff8f0; border: 1px solid #f5ddc0; border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
 </style>
@@ -28,7 +30,7 @@
 <nav><a href="https://pausecafe-app.fr">← Retour au site</a></nav>
 
 <h1>Conditions Générales d'Utilisation</h1>
-<p class="date">Dernière mise à jour : mai 2026 — Version française faisant foi</p>
+<p class="date">Dernière mise à jour : juin 2026 — Version française faisant foi</p>
 
 <h2>1. Objet et acceptation</h2>
 <p>Les présentes CGU régissent l'utilisation de l'application mobile PauseCafé et du site pausecafe-app.fr, édités par <strong>Kévin Beguerie</strong>, particulier, France. En utilisant PauseCafé, tu acceptes sans réserve les présentes CGU.</p>
@@ -37,6 +39,7 @@
 <ul>
   <li>Suivi quotidien de la consommation de caféine en mg</li>
   <li><strong>Suivi quotidien de l'hydratation</strong> en verres d'eau (compteur dédié, objectif personnalisable de 4 à 12 verres / jour)</li>
+  <li><strong>Caféine active</strong> — estimation, en temps réel, de la quantité de caféine présente dans l'organisme (caféine résiduelle), affichée sur iPhone, widget et Apple Watch. Fonction du <strong>Premium+</strong> (à venir, voir section 6bis)</li>
   <li>Système de progression avec points, badges, niveaux et séries</li>
   <li>Statistiques personnalisées d'évolution (onglets ☕ Caféine et 💧 Eau séparés)</li>
   <li>Récompenses : codes promo partenaires pour tous, cadeaux physiques ou bons cadeaux / bons de réduction d'une valeur équivalente pour les abonnés Premium, échange de points contre du temps Premium pour les gratuits</li>
@@ -47,8 +50,9 @@
   <li>Classement communauté, défis communauté et système d'amis (pseudos uniquement)</li>
   <li><strong>Rapport hebdomadaire caféine</strong> — email envoyé chaque lundi 8h30 avec tes stats de la semaine (activable/désactivable depuis Réglages → Notifications → Emails)</li>
   <li><strong>Rappels d'hydratation</strong> — 3 notifications quotidiennes (10h, 13h, 16h) activables/désactivables</li>
+  <li><strong>Intégration Apple Santé (HealthKit)</strong> — écriture optionnelle de la caféine et de l'eau dans Apple Santé ; lecture du sommeil et de la fréquence cardiaque au repos prévue avec le Premium+ (voir section 6ter)</li>
   <li>Synchronisation Apple Watch (caféine + eau) — <strong>réservée aux abonnés Premium</strong></li>
-  <li>Abonnement Premium optionnel</li>
+  <li>Abonnement Premium et, prochainement, Premium+ optionnels</li>
 </ul>
 
 <h2>3. Conditions d'accès</h2>
@@ -67,6 +71,7 @@
   <li>Ton objectif principal de suivi caféine</li>
   <li><strong>Ton objectif quotidien d'hydratation</strong> (de 4 à 12 verres, valeur par défaut intelligente selon le mode précaution)</li>
   <li>L'heure habituelle de ta première boisson caféinée</li>
+  <li><strong>Ton poids</strong> (facultatif) — sert à affiner ton seuil sommeil et ton objectif de caféine. Il est <strong>stocké uniquement sur ton appareil</strong> et n'est jamais transmis à nos serveurs.</li>
 </ul>
 <div class="highlight">
 Ces informations sont <strong>entièrement facultatives</strong>. Elles sont utilisées exclusivement pour personnaliser l'expérience et les notifications. Modifiables à tout moment dans les réglages. Jamais partagées ni vendues.
@@ -88,13 +93,44 @@ Ces informations sont <strong>entièrement facultatives</strong>. Elles sont uti
 <p>L'abonnement Premium inclut : suppression des publicités, Apple Watch (caféine + eau), points x2, échange de points contre cadeaux physiques ou bons cadeaux / bons de réduction, boissons personnalisées, scanner de code-barres, accès rapide à 3 boissons favorites sur iPhone et Apple Watch, mode 1 tap (ajout d'une boisson en un seul appui). Renouvellement automatique sauf résiliation 24h avant la fin depuis les Réglages de l'App Store. Achats traités par Apple.</p>
 <p style="font-size: 0.85em; color: #666; margin-top: 8px;"><em>Les prix affichés peuvent varier selon ta région et ton fuseau horaire. Le prix appliqué est celui affiché par Apple lors de la souscription.</em></p>
 
+<h2>6bis. Abonnement Premium+ (à venir)</h2>
+<p>PauseCafé prévoit un palier supérieur, <strong>Premium+</strong>, qui inclura l'intégralité des fonctions du Premium et y ajoutera une couche d'analyses santé.</p>
+<div class="prix">
+  <div class="prix-card plus">
+    <div class="label">Premium+ Mensuel</div>
+    <div class="montant">4,99 €</div>
+    <div class="detail">TTC par mois · sans engagement</div>
+  </div>
+  <div class="prix-card plus">
+    <div class="label">Premium+ Annuel — 2 mois offerts 🎉</div>
+    <div class="montant">49,99 €</div>
+    <div class="detail">TTC par an · soit 4,17 € TTC/mois environ</div>
+  </div>
+</div>
+<p>Le Premium+ comprendra notamment : la <strong>caféine active en temps réel</strong> (caféine résiduelle estimée sur iPhone, widget, Apple Watch et complications), la <strong>corrélation caféine ↔ sommeil</strong> et la <strong>corrélation caféine ↔ fréquence cardiaque au repos</strong> (à partir d'Apple Santé), les <strong>alertes intelligentes</strong>, le <strong>suivi du stress et de l'anxiété</strong>, et l'<strong>adaptation de l'hydratation à la météo</strong> (vigilance Météo-France).</p>
+<div class="highlight">
+<strong>Statut :</strong> ces fonctions sont en cours de développement et seront proposées progressivement. Le Premium+ <strong>n'est pas encore disponible à l'achat</strong> ; les prix indiqués sont prévisionnels et susceptibles de varier selon ta région. Le Premium+ inclura toujours l'ensemble des avantages du Premium.
+</div>
+
+<h2>6ter. Apple Santé (HealthKit)</h2>
+<div class="highlight">
+<strong>🍎 Tes données de santé restent sur ton appareil.</strong> PauseCafé peut interagir avec Apple Santé, uniquement avec ton autorisation explicite :
+<ul style="margin-top: 8px; margin-bottom: 0;">
+  <li><strong>Écriture</strong> (disponible) : enregistrement optionnel de ta caféine et de ton eau dans Apple Santé.</li>
+  <li><strong>Lecture</strong> (Premium+, à venir) : sommeil et fréquence cardiaque au repos, pour analyser leur lien avec ta caféine.</li>
+  <li>Ces analyses sont effectuées <strong>sur ton appareil</strong>. Les données Apple Santé ne sont jamais transmises à nos serveurs, ni à des tiers, ni utilisées à des fins publicitaires.</li>
+  <li>Tu accordes ou révoques chaque autorisation dans Réglages iOS → Santé → Accès et appareils → PauseCafé.</li>
+</ul>
+<p style="margin-top: 8px; margin-bottom: 0;">PauseCafé est une application de bien-être : ces informations sont indicatives et ne constituent pas un avis médical. Détails dans la <a href="https://pausecafe-app.fr/privacy.html">Politique de confidentialité</a> (section 11bis).</p>
+</div>
+
 <h2>7. Droit de rétractation</h2>
 <div class="highlight">
 Conformément à l'article L.221-28 du Code de la consommation, le droit de rétractation de 14 jours ne s'applique pas aux contenus numériques dont l'exécution a commencé avec ton accord exprès. Pour toute demande de remboursement : <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.
 </div>
 
 <h2>8. Publicités</h2>
-<p>La version gratuite affiche des publicités via Google AdMob. Les utilisateurs Premium bénéficient d'une expérience sans publicité.</p>
+<p>La version gratuite affiche des publicités via Google AdMob. Les utilisateurs Premium et Premium+ bénéficient d'une expérience sans publicité.</p>
 
 <h2>9. Récompenses, points et mécaniques de jeu</h2>
 <ul>
@@ -194,9 +230,12 @@ Au-delà de cette limite quotidienne :
 </ul>
 
 <h2>12. Limitation de responsabilité</h2>
-<p>PauseCafé est un outil de <strong>bien-être personnel à titre purement indicatif</strong>. Les informations (caféine et hydratation) ne constituent pas un avis médical.</p>
+<p>PauseCafé est un outil de <strong>bien-être personnel à titre purement indicatif</strong>. Les informations (caféine, caféine active, hydratation, et analyses santé du Premium+) ne constituent pas un avis médical.</p>
 <div class="highlight">
 <strong>Mode précaution :</strong> le mode précaution applique les recommandations OMS (300 mg de caféine et 2,3 L / 9 verres d'eau par jour) à titre indicatif uniquement. Il ne remplace pas le suivi d'un professionnel de santé.
+</div>
+<div class="highlight">
+<strong>Caféine active &amp; analyses santé :</strong> la caféine active est une <strong>estimation</strong> fondée sur une moyenne de population (demi-vie d'environ 5 h), pas une mesure de ton organisme. Les corrélations proposées en Premium+ décrivent des <strong>associations statistiques personnelles</strong> et n'établissent aucun lien de cause à effet. Ces informations sont indicatives et non médicales.
 </div>
 
 <h2>13. Force majeure</h2>
@@ -206,7 +245,7 @@ Au-delà de cette limite quotidienne :
 <p>PauseCafé, son code, son design et ses contenus sont la propriété exclusive de Kévin Beguerie, protégés par le droit de la propriété intellectuelle français.</p>
 
 <h2>15. Données personnelles</h2>
-<p>Le traitement des données est décrit dans notre <a href="https://pausecafe-app.fr/privacy.html">Politique de confidentialité</a>. Sous-traitants : Google Firebase, Brevo SAS, Google AdMob, Apple StoreKit.</p>
+<p>Le traitement des données est décrit dans notre <a href="https://pausecafe-app.fr/privacy.html">Politique de confidentialité</a>. Sous-traitants : Google Firebase, Brevo SAS, Google AdMob, Apple StoreKit. Les données Apple Santé (HealthKit) sont traitées sur l'appareil et ne sont pas transmises à ces sous-traitants.</p>
 
 <h2>16. Modification des CGU</h2>
 <p>L'éditeur peut modifier les CGU. La poursuite de l'utilisation vaut acceptation. Notification via l'application en cas de modification substantielle.</p>
