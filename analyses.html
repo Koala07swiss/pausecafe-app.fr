@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La science des analyses — PauseCafé</title>
+    <meta name="description" content="Comment PauseCafé analyse tes données : méthode statistique (comparaison de groupes, corrélation de Spearman), exemples, sources scientifiques (EFSA, Drake 2013) et cadrage bien-être, non médical. Association n'est pas causalité.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --cafe: #2C1810; --cream: #F5EDD6; --espresso: #1A0F0A; --caramel: #C4873A; --mousse: #E8D5B0; --purple: #6B3FA0; --purple-light: #9B6FD0; --blue: #378ADD; --green: #4CAF7D; --text: #1A0F0A; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; background: rgba(245, 237, 214, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(196, 135, 58, 0.2); }
+        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--cafe); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .nav-logo-img { width: 36px; height: 36px; object-fit: contain; border-radius: 8px; }
+        .nav-back { font-size: 0.82rem; font-weight: 500; color: var(--cafe); text-decoration: none; opacity: 0.7; letter-spacing: 0.05em; text-transform: uppercase; transition: opacity 0.2s; }
+        .nav-back:hover { opacity: 1; }
+
+        .hero { padding: 140px 48px 60px; max-width: 860px; margin: 0 auto; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--caramel); color: white; padding: 6px 16px; border-radius: 100px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 28px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 900; line-height: 1.1; color: var(--cafe); margin-bottom: 20px; }
+        .hero h1 span { color: var(--caramel); font-style: italic; }
+        .hero .lead { font-size: 1.15rem; line-height: 1.7; opacity: 0.78; font-weight: 300; }
+
+        .content { max-width: 860px; margin: 0 auto; padding: 20px 48px 100px; }
+        .block { margin-top: 56px; }
+        .block h2 { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; color: var(--cafe); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+        .block h3.sub { font-family: 'DM Sans', sans-serif; font-size: 1.05rem; font-weight: 500; color: var(--cafe); margin: 26px 0 6px; }
+        .block p { font-size: 1rem; line-height: 1.8; opacity: 0.8; font-weight: 300; margin-bottom: 16px; }
+        .block strong { font-weight: 500; opacity: 1; color: var(--cafe); }
+
+        .card { background: white; border: 1px solid rgba(196,135,58,0.18); border-radius: 16px; padding: 28px 28px; margin: 24px 0; box-shadow: 0 6px 24px rgba(44,24,16,0.05); }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 24px 0; }
+        .mini-card { background: white; border: 1px solid rgba(196,135,58,0.18); border-radius: 14px; padding: 22px 20px; }
+        .mini-card .emoji { font-size: 1.8rem; display: block; margin-bottom: 10px; }
+        .mini-card h3 { font-size: 1rem; font-weight: 700; color: var(--cafe); margin-bottom: 6px; }
+        .mini-card p { font-size: 0.88rem; line-height: 1.6; opacity: 0.7; font-weight: 300; margin: 0; }
+
+        .steps { list-style: none; counter-reset: step; margin: 8px 0 0; }
+        .steps li { position: relative; padding: 14px 0 14px 52px; border-bottom: 1px solid rgba(44,24,16,0.08); font-size: 0.98rem; line-height: 1.7; opacity: 0.85; font-weight: 300; }
+        .steps li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 14px; width: 32px; height: 32px; background: var(--caramel); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; }
+        .steps li strong { color: var(--cafe); font-weight: 500; }
+
+        .seuil-note { background: rgba(76,175,125,0.1); border: 1px solid rgba(76,175,125,0.35); border-radius: 14px; padding: 20px 24px; margin: 20px 0; }
+        .seuil-note h3 { font-size: 1rem; font-weight: 700; color: var(--cafe); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .seuil-note p { font-size: 0.92rem; line-height: 1.7; opacity: 0.85; font-weight: 300; margin: 0; }
+
+        /* Bloc « exemple concret » — teinte caramel, lecture chiffrée */
+        .exemple { background: rgba(196,135,58,0.08); border: 1px solid rgba(196,135,58,0.3); border-radius: 14px; padding: 20px 24px; margin: 20px 0; }
+        .exemple h3 { font-size: 0.95rem; font-weight: 700; color: var(--cafe); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .exemple p { font-size: 0.92rem; line-height: 1.7; opacity: 0.85; font-weight: 300; margin: 0 0 8px; }
+        .exemple .chiffres { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+        .exemple .chiffre { flex: 1; min-width: 150px; background: white; border-radius: 10px; padding: 12px 14px; border: 1px solid rgba(196,135,58,0.18); }
+        .exemple .chiffre .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.6; }
+        .exemple .chiffre .valeur { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--cafe); margin-top: 4px; }
+        .exemple .lecture { font-size: 0.9rem; font-weight: 500; color: var(--cafe); margin: 6px 0 0; opacity: 1; }
+
+        /* Bloc « limites » — sobre, gris-beige */
+        .limites { border-left: 3px solid rgba(44,24,16,0.2); padding: 4px 0 4px 18px; margin: 16px 0 0; }
+        .limites p { font-size: 0.9rem; line-height: 1.7; opacity: 0.7; font-weight: 300; margin: 0; }
+        .limites strong { color: var(--cafe); }
+
+        .pill { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; vertical-align: middle; margin-left: 8px; }
+        .pill.premium { background: rgba(107,63,160,0.12); color: var(--purple); border: 1px solid rgba(107,63,160,0.3); }
+        .pill.encours { background: rgba(76,175,125,0.14); color: #2f8a5c; border: 1px solid rgba(76,175,125,0.4); }
+        .pill.avenir { background: rgba(196,135,58,0.14); color: #9a6420; border: 1px solid rgba(196,135,58,0.4); }
+
+        .disclaimer { background: #fff8f0; border: 1px solid #f5ddc0; border-radius: 14px; padding: 22px 24px; margin: 40px 0 0; }
+        .disclaimer h3 { font-size: 1rem; font-weight: 700; color: var(--cafe); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .disclaimer p { font-size: 0.9rem; line-height: 1.7; opacity: 0.78; font-weight: 300; margin: 0; }
+
+        .sources { font-size: 0.85rem; opacity: 0.6; font-weight: 300; line-height: 1.8; margin-top: 24px; }
+        .sources a { color: var(--caramel); }
+        .sources strong { font-weight: 500; opacity: 1; }
+
+        .cta { text-align: center; background: var(--espresso); color: var(--cream); border-radius: 20px; padding: 48px 32px; margin-top: 64px; }
+        .cta h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; margin-bottom: 12px; color: var(--cream); justify-content: center; }
+        .cta p { opacity: 0.7; font-weight: 300; margin-bottom: 0; }
+
+        footer { background: var(--espresso); color: var(--cream); padding: 40px 48px; text-align: center; }
+        footer a { color: var(--caramel); text-decoration: none; }
+        .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.85rem; }
+        .footer-links a { opacity: 0.7; }
+        .footer-bottom { font-size: 0.8rem; opacity: 0.4; }
+
+        @media (max-width: 768px) {
+            nav { padding: 12px 24px; }
+            .hero { padding: 110px 24px 40px; }
+            .content { padding: 16px 24px 70px; }
+            .cta { padding: 36px 24px; }
+            footer { padding: 36px 24px; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <a class="nav-logo" href="https://pausecafe-app.fr">
+        <img src="logo.png" alt="PauseCafé" class="nav-logo-img">
+        PauseCafé
+    </a>
+    <a class="nav-back" href="https://pausecafe-app.fr">← Retour au site</a>
+</nav>
+
+<header class="hero">
+    <div class="hero-badge">🔬 La science des analyses</div>
+    <h1>La science derrière <span>tes analyses</span></h1>
+    <p class="lead">PauseCafé ne se contente pas de compter tes cafés. Dans l'onglet Analyses, il croise tes habitudes pour faire apparaître <strong>tes propres</strong> tendances. Voici comment — la méthode statistique, pourquoi ces choix plutôt que d'autres, des exemples chiffrés, les sources scientifiques, et une honnêteté totale sur ce qu'on peut (et ne peut pas) en conclure.</p>
+</header>
+
+<main class="content">
+
+    <section class="block">
+        <h2>🧭 Le principe : tu es ta propre référence</h2>
+        <p>Toutes les analyses de PauseCafé reposent sur une idée simple : <strong>ne pas te comparer à une moyenne, mais à toi-même</strong>. On parle d'approche « N-of-1 » (un échantillon : toi) ou d'auto-observation.</p>
+        <p>Pourquoi ce choix ? Parce que la réaction à la caféine varie énormément d'une personne à l'autre — la vitesse d'élimination dépend de la génétique (l'enzyme du foie CYP1A2), du tabac, de certains médicaments, de la grossesse, de l'âge. Te dire « la moyenne des gens dort X heures » n'aurait aucune valeur pour toi. En revanche, comparer <strong>tes</strong> journées entre elles révèle un signal qui t'appartient.</p>
+        <div class="seuil-note">
+            <h3>🎯 La règle d'or : association ≠ causalité</h3>
+            <p>Une analyse peut montrer que tes nuits les plus courtes coïncident avec tes journées les plus caféinées. Cela ne <em>prouve</em> pas que le café a raccourci ton sommeil : d'autres causes (stress, écrans, repas tardif) peuvent expliquer les deux à la fois. PauseCafé te montre des <strong>coïncidences statistiques</strong> dans tes données — des pistes à explorer, jamais des verdicts. C'est une application de bien-être, pas un dispositif médical.</p>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>📊 La méthode commune aux analyses</h2>
+        <p>Les trois analyses (eau, sommeil, fréquence cardiaque) partagent la même mécanique. La voici, étape par étape :</p>
+        <ul class="steps">
+            <li><strong>On classe tes journées (ou tes nuits) par niveau de caféine.</strong> Chaque jour reçoit un total de caféine ingérée.</li>
+            <li><strong>On isole les deux extrêmes.</strong> Les 25 % de journées les plus caféinées d'un côté, les 25 % les moins caféinées de l'autre.</li>
+            <li><strong>On compare l'indicateur entre ces deux groupes.</strong> Par exemple : bois-tu en moyenne plus ou moins d'eau les jours très caféinés que les jours calmes ?</li>
+            <li><strong>En complément (eau), on calcule un coefficient de corrélation de rangs (Spearman)</strong> dès 7 jours de données, pour quantifier le lien sur l'ensemble des journées, pas seulement les extrêmes.</li>
+        </ul>
+
+        <h3 class="sub">Pourquoi comparer les 25 % extrêmes, plutôt que toutes les journées ?</h3>
+        <div class="seuil-note">
+            <h3>✅ Un contraste net, robuste aux jours « moyens »</h3>
+            <p>Les journées intermédiaires (ni très, ni peu caféinées) diluent le signal : elles ressemblent à tout le monde. En opposant le haut et le bas du spectre, on maximise le contraste et on obtient un message lisible (« les jours où tu forces sur le café, tu dors moins »). C'est aussi plus <strong>robuste</strong> : une seule journée atypique pèse moins quand on raisonne sur des groupes que sur une moyenne globale.</p>
+        </div>
+
+        <h3 class="sub">Pourquoi Spearman, et pas Pearson ?</h3>
+        <div class="seuil-note">
+            <h3>✅ Une corrélation de rangs, adaptée à des petits jeux de données bruités</h3>
+            <p>Le coefficient de Pearson mesure un lien <em>linéaire</em> et suppose des données à peu près normales : il est sensible aux valeurs extrêmes (un seul jour à 5 litres d'eau peut tout fausser). Spearman, lui, travaille sur les <strong>rangs</strong> (le classement des journées), pas sur les valeurs brutes. Résultat : il détecte n'importe quelle relation <strong>monotone</strong> (« plus de café → moins d'eau », même si ce n'est pas une droite parfaite), il ne suppose aucune distribution particulière, et il résiste aux jours hors-norme. Sur des données de comportement humain, peu nombreuses et bruitées, c'est le choix prudent.</p>
+        </div>
+
+        <h3 class="sub">Pourquoi 7 jours, puis 14 ?</h3>
+        <div class="seuil-note">
+            <h3>✅ Assez de points pour que ce ne soit pas du hasard</h3>
+            <p>En dessous de 7 jours, tout résultat serait anecdotique : trop peu de points, le hasard domine. À partir de <strong>7 jours/nuits</strong>, une <em>tendance</em> commence à se dessiner — et PauseCafé te le dit clairement, c'est encore fragile. À partir de <strong>14</strong>, les groupes « 25 % les plus / les moins caféinés » contiennent assez de journées pour offrir une comparaison plus fiable et actionnable. On préfère dire « patiente encore un peu » plutôt que d'afficher un chiffre trompeur.</p>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>💧 Analyse 1 — Eau ↔ caféine <span class="pill encours">En cours</span></h2>
+        <p>La première analyse croise ta consommation d'eau et ta caféine, jour après jour. Elle répond à une question : <strong>comment ton hydratation évolue-t-elle selon que tu bois beaucoup ou peu de café ?</strong> Selon le profil, le message diffère : « tu surcompenses » (plus d'eau les jours caféinés), « tu alternes », ou « hydratation stable ».</p>
+        <div class="exemple">
+            <h3>📐 Exemple chiffré (sur 14 jours)</h3>
+            <p>Supposons qu'on isole tes journées extrêmes :</p>
+            <div class="chiffres">
+                <div class="chiffre">
+                    <div class="label">Tes jours les + caféinés</div>
+                    <div class="valeur">1,1 L d'eau</div>
+                </div>
+                <div class="chiffre">
+                    <div class="label">Tes jours les + calmes</div>
+                    <div class="valeur">1,8 L d'eau</div>
+                </div>
+            </div>
+            <p class="lecture">Lecture : les jours où tu forces sur le café, tu bois nettement moins d'eau. Piste d'action : penser à t'hydrater davantage ces jours-là.</p>
+        </div>
+        <div class="limites">
+            <p><strong>Limites.</strong> C'est <em>ton</em> schéma de comportement, pas une loi physiologique. Le café n'a pas « asséché » ton corps : tu as simplement bu moins d'eau ces jours-là. L'analyse décrit, elle n'explique pas.</p>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>😴 Analyse 2 — Caféine ↔ sommeil <span class="pill premium">Premium</span></h2>
+        <p>Avec ton autorisation, PauseCafé lit ta durée de sommeil dans Apple Santé (<strong>sur ton appareil uniquement</strong>) et la croise avec ta caféine. Cette analyse s'appuie sur une base scientifique solide.</p>
+        <h3 class="sub">Ce que dit la science</h3>
+        <p>Une étude de référence (Drake et coll., 2013) a donné 400 mg de caféine à des dormeurs sains 0, 3 ou 6 heures avant le coucher. Résultat : <strong>même prise 6 heures avant de dormir, la caféine réduisait le temps de sommeil de plus d'une heure</strong>, de façon statistiquement significative. C'est ce qui justifie, dans l'app, le « seuil sommeil » (≈ 100 mg, repère EFSA) et la note d'impact sommeil A → G : ils estiment ce qu'il te restera de caféine au moment de te coucher.</p>
+        <h3 class="sub">Ce qu'on mesure</h3>
+        <p>On compare la durée moyenne de tes nuits selon tes apports de caféine, avec la méthode commune : tes <strong>nuits les plus caféinées (top 25 %)</strong> contre tes <strong>nuits les moins caféinées (bottom 25 %)</strong>, dès 7 nuits mesurées (tendance), 14 pour une comparaison plus fiable.</p>
+        <div class="exemple">
+            <h3>📐 Exemple chiffré</h3>
+            <div class="chiffres">
+                <div class="chiffre">
+                    <div class="label">Nuits les + caféinées</div>
+                    <div class="valeur">6 h 20</div>
+                </div>
+                <div class="chiffre">
+                    <div class="label">Nuits les - caféinées</div>
+                    <div class="valeur">7 h 15</div>
+                </div>
+            </div>
+            <p class="lecture">Lecture : sur tes données, tes nuits suivant une forte caféine sont en moyenne ~55 min plus courtes. À surveiller — sans conclure à une cause unique.</p>
+        </div>
+        <div class="limites">
+            <p><strong>Limites.</strong> La durée mesurée par une montre n'est pas une polysomnographie de laboratoire. Et d'autres facteurs (stress, écrans, alcool, repas tardif) influencent le sommeil en même temps que la caféine : la coïncidence observée n'isole pas la seule responsabilité du café.</p>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>❤️ Analyse 3 — Caféine ↔ fréquence cardiaque de repos <span class="pill premium">Premium</span></h2>
+        <p>Toujours avec ton autorisation et <strong>en lecture sur ton appareil</strong>, PauseCafé peut croiser ta fréquence cardiaque (FC) de repos avec ta caféine. C'est l'analyse la plus prudente — et il faut être honnête sur la science.</p>
+        <h3 class="sub">Ce que dit la science (avec nuance)</h3>
+        <p>La caféine stimule le système nerveux sympathique (en bloquant l'adénosine et en libérant des catécholamines). Les revues montrent un effet <strong>aigu assez net sur la pression artérielle</strong>, mais des données <strong>moins cohérentes sur la fréquence cardiaque</strong>. Surtout, une <strong>tolérance</strong> s'installe chez les consommateurs réguliers : l'organisme s'habitue, et l'effet sur la FC de repos devient variable, parfois faible. C'est précisément pour cela qu'on la présente comme une <strong>exploration personnelle</strong>, pas comme une relation établie.</p>
+        <h3 class="sub">Ce qu'on mesure</h3>
+        <p>Même méthode de comparaison : ta FC de repos moyenne les jours les plus caféinés (top 25 %) contre les jours les moins caféinés (bottom 25 %), dès 7 jours mesurés, 14 pour plus de lisibilité.</p>
+        <div class="exemple">
+            <h3>📐 Exemple chiffré</h3>
+            <div class="chiffres">
+                <div class="chiffre">
+                    <div class="label">Jours les + caféinés</div>
+                    <div class="valeur">63 bpm</div>
+                </div>
+                <div class="chiffre">
+                    <div class="label">Jours les - caféinés</div>
+                    <div class="valeur">61 bpm</div>
+                </div>
+            </div>
+            <p class="lecture">Lecture : un écart de 2 bpm est petit et peut tenir à beaucoup d'autres choses (activité, hydratation, stress). On te le présente comme une observation, pas comme un signal fort.</p>
+        </div>
+        <div class="limites">
+            <p><strong>Limites.</strong> Tolérance à la caféine, nombreux facteurs confondants (sport, sommeil, hydratation, stress), et mesure issue d'un capteur grand public. Cette analyse invite à l'observation, jamais à l'inquiétude. En cas de doute sur ton cœur, consulte un professionnel de santé.</p>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>🧠 À venir — Caféine ↔ stress <span class="pill avenir">Bientôt</span></h2>
+        <p>Une prochaine analyse croisera ta caféine avec un <strong>questionnaire de ressenti</strong> (stress, anxiété). La méthode restera la même : comparaison de tes périodes les plus / les moins caféinées, complétée d'une corrélation de rangs.</p>
+        <div class="limites">
+            <p><strong>Honnêteté méthodologique.</strong> Le stress auto-déclaré est subjectif, et le lien est probablement <em>bidirectionnel</em> : le stress pousse à boire plus de café, et le café peut majorer l'anxiété chez certaines personnes. L'analyse aidera à repérer ton schéma personnel, sans trancher le sens de la flèche.</p>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>🚫 Ce que PauseCafé ne fait pas</h2>
+        <p>La rigueur, c'est aussi savoir ce qu'on refuse de faire :</p>
+        <div class="card-grid">
+            <div class="mini-card">
+                <span class="emoji">⛓️</span>
+                <h3>Affirmer une cause</h3>
+                <p>On ne dira jamais « le café a réduit ton sommeil ». On montre une association, à toi de l'interpréter.</p>
+            </div>
+            <div class="mini-card">
+                <span class="emoji">⚖️</span>
+                <h3>Personnaliser la demi-vie par le poids</h3>
+                <p>L'élimination dépend du foie (CYP1A2), de la génétique, du tabac, de médicaments — non mesurables dans l'app. Le faire serait une fausse précision. Le poids ne sert que là où c'est valide : seuil sommeil (≈ 1,4 mg/kg) et objectif quotidien (≈ 5,7 mg/kg).</p>
+            </div>
+            <div class="mini-card">
+                <span class="emoji">🩺</span>
+                <h3>Poser un diagnostic</h3>
+                <p>Aucune analyse n'est un avis médical. PauseCafé est une app de bien-être.</p>
+            </div>
+            <div class="mini-card">
+                <span class="emoji">🔒</span>
+                <h3>Envoyer tes données santé</h3>
+                <p>Sommeil et fréquence cardiaque sont lus depuis Apple Santé <strong>sur ton appareil</strong> et n'en sortent jamais : aucune donnée santé n'est envoyée sur nos serveurs.</p>
+            </div>
+        </div>
+        <div class="disclaimer">
+            <h3>⚠️ Information de bien-être</h3>
+            <p>Les analyses de PauseCafé sont fournies à titre indicatif et n'ont aucune valeur médicale : ni dispositif médical, ni diagnostic, ni avis médical. Pour toute question sur ton sommeil, ton cœur ou ta santé, consulte un professionnel de santé.</p>
+        </div>
+        <p class="sources">
+            <strong>Sources.</strong>
+            EFSA, <em>Scientific Opinion on the safety of caffeine</em>, 2015 (EFSA Journal 2015;13(5):4102) — demi-vie moyenne ≈ 5 h, seuil d'impact sommeil ≈ 100 mg, dose journalière sans inquiétude ≈ 400 mg (≈ 5,7 mg/kg) et ≈ 200 mg par prise. <a href="https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2015.4102" target="_blank" rel="noopener noreferrer">Lien →</a><br>
+            Drake C, Roehrs T, Shambroom J, Roth T. <em>Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed.</em> J Clin Sleep Med 2013;9(11):1195–1200 — 12 dormeurs sains, 400 mg ; effet significatif jusqu'à 6 h avant le coucher. <a href="https://jcsm.aasm.org/doi/abs/10.5664/jcsm.3170" target="_blank" rel="noopener noreferrer">Lien →</a><br>
+            James JE. <em>The effects of caffeine on blood pressure and heart rate: a review</em> (Annals of Behavioral Medicine) — effet aigu marqué sur la pression, données sur la fréquence cardiaque moins cohérentes, tolérance chez les consommateurs réguliers.<br>
+            Nawrot P et coll. <em>Effects of caffeine on human health.</em> Food Addit Contam 2003;20(1):1–30 — synthèse des effets, sommeil et cardiovasculaire.<br>
+            Méthode statistique : coefficient de corrélation de rangs de Spearman (mesure non paramétrique d'une relation monotone, robuste aux valeurs extrêmes).
+        </p>
+    </section>
+
+    <div class="cta">
+        <h2>Tes analyses, bientôt dans PauseCafé Premium</h2>
+        <p>Caféine active en temps réel, corrélations sommeil et fréquence cardiaque : des pistes pour mieux te connaître, dans le respect de tes données.</p>
+    </div>
+
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="https://pausecafe-app.fr">Accueil</a>
+        <a href="https://pausecafe-app.fr/cafeine-temps-reel.html">La caféine en temps réel</a>
+        <a href="https://pausecafe-app.fr/privacy.html">Confidentialité</a>
+        <a href="https://pausecafe-app.fr/cgu.html">CGU</a>
+    </div>
+    <div class="footer-bottom">© 2026 PauseCafé · Application de bien-être · Informations indicatives, non médicales</div>
+</footer>
+
+</body>
+</html>
