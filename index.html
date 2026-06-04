@@ -98,7 +98,7 @@
         .palier-card .palier-titre { font-size: 1rem; font-weight: 700; color: white; margin-bottom: 4px; }
         .palier-card .palier-pts { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--purple-light); margin-bottom: 4px; }
         .palier-card .palier-detail { font-size: 0.8rem; opacity: 0.65; font-weight: 300; }
-        .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 600px; margin: 0 auto; }
+        .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 920px; margin: 0 auto; }
         .plan-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(155,111,208,0.3); padding: 32px 24px; border-radius: 20px; text-align: center; position: relative; transition: transform 0.2s; }
         .plan-card:hover { transform: translateY(-4px); }
         .plan-card.popular { border-color: var(--purple-light); border-width: 2px; background: rgba(107,63,160,0.2); }
@@ -111,18 +111,11 @@
         .plan-features { font-size: 0.75rem; opacity: 0.6; margin-bottom: 24px; line-height: 1.6; }
         .plan-btn { display: block; background: linear-gradient(135deg, var(--purple), var(--purple-light)); color: white; padding: 12px 24px; border-radius: 100px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: opacity 0.2s; }
         .plan-btn:hover { opacity: 0.85; }
-        .premiumplus { max-width: 820px; margin: 56px auto 0; background: linear-gradient(135deg, rgba(155,111,208,0.18), rgba(55,138,221,0.12)); border: 1.5px solid rgba(155,111,208,0.45); border-radius: 24px; padding: 40px 36px; position: relative; }
-        .premiumplus-badge { position: absolute; top: -14px; left: 36px; background: linear-gradient(135deg, var(--blue), var(--purple-light)); color: white; font-size: 0.72rem; font-weight: 700; padding: 5px 16px; border-radius: 100px; letter-spacing: 0.05em; text-transform: uppercase; }
-        .premiumplus h3 { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 900; color: white; margin-bottom: 6px; }
-        .premiumplus .pp-sub { font-size: 0.92rem; opacity: 0.7; font-weight: 300; margin-bottom: 24px; }
-        .premiumplus .pp-price { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
-        .premiumplus .pp-price .amount { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; color: white; }
-        .premiumplus .pp-price .amount span { font-size: 0.85rem; font-weight: 400; opacity: 0.6; }
-        .premiumplus .pp-price .free { font-size: 0.78rem; color: #90EE90; font-weight: 600; margin-top: 2px; }
-        .premiumplus .pp-feats { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px 24px; margin-bottom: 20px; }
-        .premiumplus .pp-feat { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; opacity: 0.85; font-weight: 300; }
-        .premiumplus .pp-feat .pp-emoji { font-size: 1.1rem; }
-        .premiumplus .pp-note { font-size: 0.8rem; opacity: 0.6; font-weight: 300; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 16px; }
+        .compare-table th.col-premiumplus { background: linear-gradient(135deg, var(--blue), var(--purple-light)); border-radius: 12px 12px 0 0; color: white; }
+        .compare-table th.col-premiumplus span { display: block; font-size: 0.7rem; font-weight: 700; opacity: 0.9; margin-top: 4px; }
+        .compare-table td.col-premiumplus { background: rgba(55,138,221,0.12); }
+        .plan-card.plus { border-color: var(--blue-light); }
+        .plan-card .plan-soon { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--blue), var(--purple-light)); color: white; font-size: 0.7rem; font-weight: 700; padding: 4px 14px; border-radius: 100px; white-space: nowrap; }
         .normes { padding: 100px 48px; background: var(--mousse); }
         .normes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; max-width: 1100px; margin: 0 auto; }
         .norme-item { display: flex; align-items: flex-start; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(44,24,16,0.1); }
@@ -163,8 +156,7 @@
             .hero-logo-bg { width: 80vw; right: 50%; transform: translate(50%, -50%); opacity: 0.08; top: 30%; }
             .features, .normes, .download, .premium { padding: 60px 24px; }
             .normes-grid, .plans, .paliers-points { grid-template-columns: 1fr; gap: 32px; }
-            .compare-table { font-size: 0.8rem; } .compare-table td, .compare-table th { padding: 10px 12px; }
-            .premiumplus { padding: 36px 24px; } .premiumplus-badge { left: 24px; }
+            .compare-table { font-size: 0.8rem; } .compare-table td, .compare-table th { padding: 10px 8px; }
             footer { padding: 48px 24px 32px; } .footer-top, .footer-links { flex-direction: column; gap: 32px; }
             .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
             .legal-page { padding: 100px 24px 60px; }
@@ -315,37 +307,44 @@
         </div>
         <p style="text-align:center;font-size:0.75rem;opacity:0.5;margin-bottom:48px;">Le temps Premium s'ajoute à ta date d'expiration actuelle. Aucun point n'a de valeur monétaire.</p>
 
-        <h3 class="compare-title">Gratuit vs Premium</h3>
+        <h3 class="compare-title">Gratuit, Premium &amp; Premium+</h3>
         <table class="compare-table">
             <thead>
                 <tr>
-                    <th style="width:50%"></th>
+                    <th style="width:40%"></th>
                     <th class="col-free">Gratuit</th>
                     <th class="col-premium">Premium 👑<span>dès 2,50 €/mois</span></th>
+                    <th class="col-premiumplus">Premium+ ✨<span>Bientôt</span></th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td>Suivi caféine quotidien</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Suivi d'hydratation (compteur d'eau)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Widget iOS (écran d'accueil)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>130 badges &amp; 8 niveaux</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Stats &amp; évolution (caféine + eau)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Corrélation eau ↔ caféine</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Export CSV des données (RGPD)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Bons plans partenaires</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Défis communauté 🎯</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Mode précaution OMS (caféine + eau)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Parrainage (code unique)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Échange points → temps Premium</td><td class="col-free">✅</td><td class="col-premium">— <span style="font-size:0.7rem;opacity:0.6">(réservé gratuit)</span></td></tr>
-                <tr><td>Publicités</td><td class="col-free">✅</td><td class="col-premium">❌</td></tr>
-                <tr><td>Apple Watch (caféine + eau + caféine active)</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Boissons personnalisées</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Scanner de code-barres</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Points x2 (boisson + série)</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Cadeaux physiques ou bons cadeaux</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>⚡ 3 boissons favorites</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>⚡ Mode 1 tap</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Offres exclusives négociées</td><td class="col-free">❌</td><td class="col-premium">✅ Bientôt</td></tr>
+                <tr><td>Suivi caféine quotidien</td><td class="col-free">✅</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
+                <tr><td>Suivi d'hydratation (compteur d'eau)</td><td class="col-free">✅</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
+                <tr><td>Widget iOS (écran d'accueil)</td><td class="col-free">✅</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
+                <tr><td>130 badges &amp; 8 niveaux</td><td class="col-free">✅</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
+                <tr><td>Stats &amp; évolution (caféine + eau)</td><td class="col-free">✅</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
+                <tr><td>Corrélation eau ↔ caféine</td><td class="col-free">❌</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
+                <tr><td>Export CSV des données (RGPD)</td><td class="col-free">✅</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
+                <tr><td>Bons plans partenaires</td><td class="col-free">✅</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
+                <tr><td>Défis communauté 🎯</td><td class="col-free">✅</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
+                <tr><td>Mode précaution OMS (caféine + eau)</td><td class="col-free">✅</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
+                <tr><td>Parrainage (code unique)</td><td class="col-free">✅</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
+                <tr><td>Publicités</td><td class="col-free">✅</td><td class="col-premium">❌</td><td class="col-premiumplus">❌</td></tr>
+                <tr><td>Apple Watch (caféine + eau)</td><td class="col-free">❌</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
+                <tr><td>Boissons personnalisées</td><td class="col-free">❌</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
+                <tr><td>Scanner de code-barres</td><td class="col-free">❌</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
+                <tr><td>Points x2 (boisson + série)</td><td class="col-free">❌</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
+                <tr><td>Cadeaux physiques ou bons cadeaux</td><td class="col-free">❌</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
+                <tr><td>⚡ 3 boissons favorites</td><td class="col-free">❌</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
+                <tr><td>⚡ Mode 1 tap</td><td class="col-free">❌</td><td class="col-premium">✅</td><td class="col-premiumplus">✅</td></tr>
+                <tr><td>Offres exclusives négociées</td><td class="col-free">❌</td><td class="col-premium">✅ Bientôt</td><td class="col-premiumplus">✅ Bientôt</td></tr>
+                <tr><td>📉 Caféine active en temps réel</td><td class="col-free">❌</td><td class="col-premium">❌</td><td class="col-premiumplus">✅ Bientôt</td></tr>
+                <tr><td>😴 Corrélation caféine ↔ sommeil</td><td class="col-free">❌</td><td class="col-premium">❌</td><td class="col-premiumplus">✅ Bientôt</td></tr>
+                <tr><td>❤️ Corrélation caféine ↔ FC repos</td><td class="col-free">❌</td><td class="col-premium">❌</td><td class="col-premiumplus">✅ Bientôt</td></tr>
+                <tr><td>🧠 Alertes intelligentes</td><td class="col-free">❌</td><td class="col-premium">❌</td><td class="col-premiumplus">✅ Bientôt</td></tr>
+                <tr><td>🌿 Suivi stress &amp; anxiété</td><td class="col-free">❌</td><td class="col-premium">❌</td><td class="col-premiumplus">✅ Bientôt</td></tr>
+                <tr><td>🌡️ Hydratation adaptée à la météo</td><td class="col-free">❌</td><td class="col-premium">❌</td><td class="col-premiumplus">✅ Bientôt</td></tr>
+                <tr><td>Échange points → temps Premium</td><td class="col-free">✅</td><td class="col-premium">— <span style="font-size:0.7rem;opacity:0.6">(réservé gratuit)</span></td><td class="col-premiumplus">—</td></tr>
             </tbody>
         </table>
 
@@ -366,32 +365,18 @@
                 <div class="plan-features">✅ Watch · ✅ Sans pub · ✅ Points x2</div>
                 <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" class="plan-btn">Commencer</a>
             </div>
+            <div class="plan-card plus">
+                <div class="plan-soon">✨ Bientôt</div>
+                <div class="plan-name">Premium+</div>
+                <div class="plan-price">4,99 €<span>/mois</span></div>
+                <div class="plan-detail">ou 49,99 €/an — soit 4,17 €/mois environ</div>
+                <div class="plan-offre">🎉 2 mois offerts (annuel)</div>
+                <div class="plan-features">Tout le Premium + caféine active + analyses santé</div>
+                <span class="plan-btn" style="opacity:0.5;cursor:default;background:rgba(155,111,208,0.4);">Bientôt disponible</span>
+            </div>
         </div>
+        <p style="text-align:center;font-size:0.9rem;opacity:0.7;font-weight:300;max-width:620px;margin:32px auto 0;">Le <strong style="color:var(--purple-light)">Premium+</strong> inclut l'intégralité du Premium et y ajoute la <strong>caféine active en temps réel</strong> (<a href="cafeine-temps-reel.html" style="color:var(--purple-light)">en savoir plus →</a>), les corrélations sommeil et FC repos, les alertes intelligentes, le suivi du stress et l'hydratation adaptée à la météo. Ces fonctions arrivent progressivement ; le Premium+ n'est pas encore disponible à l'achat.</p>
         <p style="text-align:center;font-size:0.75rem;opacity:0.4;margin-top:24px">Abonnements gérés par Apple. Résiliation : Réglages iOS → App Store → Abonnements. Prix indicatifs en euros, susceptibles de varier selon ta région.</p>
-
-        <div class="premiumplus">
-            <span class="premiumplus-badge">✨ Premium+ · Bientôt</span>
-            <h3>PauseCafé Premium+</h3>
-            <p class="pp-sub">Le palier « intelligence ». Sa fonction phare : la <strong>caféine active en temps réel</strong> (courbe iPhone, widget, Apple Watch et complications). Plus une couche d'analyses santé fondées sur tes données — sur ton appareil, dans le même cadre bien-être (non médical).</p>
-            <div class="pp-price">
-                <div>
-                    <div class="amount">4,99 €<span>/mois</span></div>
-                </div>
-                <div>
-                    <div class="amount">49,99 €<span>/an</span></div>
-                    <div class="free">🎉 2 mois offerts</div>
-                </div>
-            </div>
-            <div class="pp-feats">
-                <div class="pp-feat"><span class="pp-emoji">📉</span><span><strong>Caféine active en temps réel</strong> — la quantité de caféine présente dans ton corps, minute par minute, sur iPhone, widget, Apple Watch et complications. <a href="cafeine-temps-reel.html" style="color:var(--purple-light);">En savoir plus →</a></span></div>
-                <div class="pp-feat"><span class="pp-emoji">😴</span><span><strong>Corrélation caféine ↔ sommeil</strong> — l'impact réel de ta caféine sur ton sommeil (données Apple Santé, sur ton appareil).</span></div>
-                <div class="pp-feat"><span class="pp-emoji">❤️</span><span><strong>Corrélation caféine ↔ fréquence cardiaque au repos</strong> — un second signal pour affiner l'analyse.</span></div>
-                <div class="pp-feat"><span class="pp-emoji">🧠</span><span><strong>Alertes intelligentes</strong> — « il est 16h, tu as 320 mg, c'est l'heure de ta dernière tasse ».</span></div>
-                <div class="pp-feat"><span class="pp-emoji">🌿</span><span><strong>Suivi stress &amp; anxiété</strong> — questionnaire hebdomadaire avec corrélations personnalisées caféine / stress.</span></div>
-                <div class="pp-feat"><span class="pp-emoji">🌡️</span><span><strong>Hydratation adaptée à la météo</strong> — en cas de forte chaleur, des rappels d'hydratation renforcés (Météo-France, France).</span></div>
-            </div>
-            <p class="pp-note">Premium+ inclut l'intégralité du Premium (sans pub, Apple Watch, boissons perso, points x2, cadeaux…). Ces fonctions sont <strong>en cours de développement</strong> et arriveront progressivement ; le Premium+ n'est pas encore disponible à l'achat.</p>
-        </div>
     </section>
 
     <section style="padding: 80px 48px; background: var(--espresso); color: white;" id="prochainement">
