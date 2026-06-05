@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le suivi de l'hydratation — PauseCafé</title>
+    <meta name="description" content="Comment PauseCafé suit ton hydratation : ce que fait l'app, ce qu'elle va faire, sur quelle science elle se base (EFSA, OMS), ce qu'elle analyse, et le mythe « le café déshydrate ». Cadrage bien-être, non médical.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --cafe: #2C1810; --cream: #F5EDD6; --espresso: #1A0F0A; --caramel: #C4873A; --mousse: #E8D5B0; --purple: #6B3FA0; --purple-light: #9B6FD0; --blue: #378ADD; --green: #4CAF7D; --text: #1A0F0A; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; background: rgba(245, 237, 214, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(196, 135, 58, 0.2); }
+        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--cafe); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .nav-logo-img { width: 36px; height: 36px; object-fit: contain; border-radius: 8px; }
+        .nav-back { font-size: 0.82rem; font-weight: 500; color: var(--cafe); text-decoration: none; opacity: 0.7; letter-spacing: 0.05em; text-transform: uppercase; transition: opacity 0.2s; }
+        .nav-back:hover { opacity: 1; }
+
+        .hero { padding: 140px 48px 60px; max-width: 860px; margin: 0 auto; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--blue); color: white; padding: 6px 16px; border-radius: 100px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 28px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 900; line-height: 1.1; color: var(--cafe); margin-bottom: 20px; }
+        .hero h1 span { color: var(--blue); font-style: italic; }
+        .hero .lead { font-size: 1.15rem; line-height: 1.7; opacity: 0.78; font-weight: 300; }
+
+        .content { max-width: 860px; margin: 0 auto; padding: 20px 48px 100px; }
+        .block { margin-top: 56px; }
+        .block h2 { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; color: var(--cafe); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+        .block h3.sub { font-family: 'DM Sans', sans-serif; font-size: 1.05rem; font-weight: 500; color: var(--cafe); margin: 26px 0 6px; }
+        .block p { font-size: 1rem; line-height: 1.8; opacity: 0.8; font-weight: 300; margin-bottom: 16px; }
+        .block strong { font-weight: 500; opacity: 1; color: var(--cafe); }
+
+        .card { background: white; border: 1px solid rgba(196,135,58,0.18); border-radius: 16px; padding: 28px 28px; margin: 24px 0; box-shadow: 0 6px 24px rgba(44,24,16,0.05); }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 24px 0; }
+        .mini-card { background: white; border: 1px solid rgba(196,135,58,0.18); border-radius: 14px; padding: 22px 20px; }
+        .mini-card .emoji { font-size: 1.8rem; display: block; margin-bottom: 10px; }
+        .mini-card h3 { font-size: 1rem; font-weight: 700; color: var(--cafe); margin-bottom: 6px; }
+        .mini-card p { font-size: 0.88rem; line-height: 1.6; opacity: 0.7; font-weight: 300; margin: 0; }
+
+        .steps { list-style: none; counter-reset: step; margin: 8px 0 0; }
+        .steps li { position: relative; padding: 14px 0 14px 52px; border-bottom: 1px solid rgba(44,24,16,0.08); font-size: 0.98rem; line-height: 1.7; opacity: 0.85; font-weight: 300; }
+        .steps li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 14px; width: 32px; height: 32px; background: var(--blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; }
+        .steps li strong { color: var(--cafe); font-weight: 500; }
+
+        .seuil-note { background: rgba(55,138,221,0.09); border: 1px solid rgba(55,138,221,0.32); border-radius: 14px; padding: 20px 24px; margin: 20px 0; }
+        .seuil-note h3 { font-size: 1rem; font-weight: 700; color: var(--cafe); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .seuil-note p { font-size: 0.92rem; line-height: 1.7; opacity: 0.85; font-weight: 300; margin: 0; }
+
+        .exemple { background: rgba(55,138,221,0.07); border: 1px solid rgba(55,138,221,0.28); border-radius: 14px; padding: 20px 24px; margin: 20px 0; }
+        .exemple h3 { font-size: 0.95rem; font-weight: 700; color: var(--cafe); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .exemple p { font-size: 0.92rem; line-height: 1.7; opacity: 0.85; font-weight: 300; margin: 0 0 8px; }
+        .exemple .chiffres { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+        .exemple .chiffre { flex: 1; min-width: 150px; background: white; border-radius: 10px; padding: 12px 14px; border: 1px solid rgba(55,138,221,0.18); }
+        .exemple .chiffre .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.6; }
+        .exemple .chiffre .valeur { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--cafe); margin-top: 4px; }
+        .exemple .lecture { font-size: 0.9rem; font-weight: 500; color: var(--cafe); margin: 6px 0 0; opacity: 1; }
+
+        .limites { border-left: 3px solid rgba(44,24,16,0.2); padding: 4px 0 4px 18px; margin: 16px 0 0; }
+        .limites p { font-size: 0.9rem; line-height: 1.7; opacity: 0.7; font-weight: 300; margin: 0; }
+        .limites strong { color: var(--cafe); }
+
+        .pill { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; vertical-align: middle; margin-left: 8px; }
+        .pill.premium { background: rgba(107,63,160,0.12); color: var(--purple); border: 1px solid rgba(107,63,160,0.3); }
+        .pill.encours { background: rgba(76,175,125,0.14); color: #2f8a5c; border: 1px solid rgba(76,175,125,0.4); }
+        .pill.avenir { background: rgba(196,135,58,0.14); color: #9a6420; border: 1px solid rgba(196,135,58,0.4); }
+
+        .disclaimer { background: #fff8f0; border: 1px solid #f5ddc0; border-radius: 14px; padding: 22px 24px; margin: 40px 0 0; }
+        .disclaimer h3 { font-size: 1rem; font-weight: 700; color: var(--cafe); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .disclaimer p { font-size: 0.9rem; line-height: 1.7; opacity: 0.78; font-weight: 300; margin: 0; }
+
+        .sources { font-size: 0.85rem; opacity: 0.6; font-weight: 300; line-height: 1.8; margin-top: 24px; }
+        .sources a { color: var(--caramel); }
+        .sources strong { font-weight: 500; opacity: 1; }
+
+        .cta { text-align: center; background: var(--espresso); color: var(--cream); border-radius: 20px; padding: 48px 32px; margin-top: 64px; }
+        .cta h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; margin-bottom: 12px; color: var(--cream); justify-content: center; }
+        .cta p { opacity: 0.7; font-weight: 300; margin-bottom: 0; }
+
+        footer { background: var(--espresso); color: var(--cream); padding: 40px 48px; text-align: center; }
+        footer a { color: var(--caramel); text-decoration: none; }
+        .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.85rem; }
+        .footer-links a { opacity: 0.7; }
+        .footer-bottom { font-size: 0.8rem; opacity: 0.4; }
+
+        @media (max-width: 768px) {
+            nav { padding: 12px 24px; }
+            .hero { padding: 110px 24px 40px; }
+            .content { padding: 16px 24px 70px; }
+            .cta { padding: 36px 24px; }
+            footer { padding: 36px 24px; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <a class="nav-logo" href="https://pausecafe-app.fr">
+        <img src="logo.png" alt="PauseCafé" class="nav-logo-img">
+        PauseCafé
+    </a>
+    <a class="nav-back" href="https://pausecafe-app.fr">← Retour au site</a>
+</nav>
+
+<header class="hero">
+    <div class="hero-badge">💧 Le suivi de l'hydratation</div>
+    <h1>Bien suivre ton <span>hydratation</span></h1>
+    <p class="lead">PauseCafé ne suit pas que ta caféine : il t'aide aussi à boire assez d'eau, sans culpabilisation. Voici précisément ce que fait l'app aujourd'hui, ce qu'elle va faire, sur quelle science elle s'appuie, ce qu'elle analyse — et pourquoi « le café déshydrate » est un mythe.</p>
+</header>
+
+<main class="content">
+
+    <section class="block">
+        <h2>💧 Ce que fait l'app aujourd'hui</h2>
+        <p>Le suivi de l'hydratation est <strong>gratuit</strong> pour tout le monde. Il vit à côté du suivi de la caféine, autour de la même tasse.</p>
+        <ul class="steps">
+            <li><strong>Un compteur d'eau dédié.</strong> Chaque verre s'ajoute en un tap via le bouton « + Eau ». L'unité par défaut est le verre de 250 ml.</li>
+            <li><strong>Un objectif personnel.</strong> Réglable de 4 à 12 verres par jour. Par défaut : 8 verres, soit 2 litres — le repère grand public aligné sur l'apport adéquat de l'EFSA pour une femme adulte.</li>
+            <li><strong>Un anneau bleu.</strong> Autour de la tasse, un anneau bleu se remplit avec ta progression et passe au vert une fois ton objectif atteint (façon « anneaux d'activité »).</li>
+            <li><strong>Des statistiques dédiées.</strong> Dans l'onglet 💧 Eau de Mon Évolution : ta moyenne, ta régularité, tes records et la répartition de tes apports par tranche horaire.</li>
+            <li><strong>Le mode précaution.</strong> En grossesse/allaitement, ton objectif passe automatiquement à 9 verres (2,3 L) — recommandation OMS.</li>
+        </ul>
+        <div class="seuil-note">
+            <h3>💧 « Tout ce qui est incluable doit l'être »</h3>
+            <p>Une option permet d'inclure (ou non) l'eau dans tes statistiques globales. Le principe retenu : ce qui peut être pris en compte l'est par défaut, pour une vision complète de tes habitudes — tu gardes la main pour le désactiver.</p>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>🔭 Ce qu'elle va faire <span class="pill avenir">Bientôt · Premium</span></h2>
+        <p>La prochaine étape pour l'hydratation : <strong>adapter les rappels à la météo</strong>. En cas de forte chaleur ou de canicule, tes besoins en eau augmentent — l'app pourra renforcer ses rappels en conséquence.</p>
+        <ul class="steps">
+            <li><strong>Basée sur la vigilance Météo-France.</strong> En France, l'app pourra lire le niveau de vigilance (chaleur/canicule) de ton département pour ajuster ses messages.</li>
+            <li><strong>Avec ton autorisation de localisation</strong>, et un repli neutre si l'information n'est pas disponible.</li>
+            <li><strong>Cadrage bien-être.</strong> Des rappels d'encouragement, jamais des consignes médicales.</li>
+        </ul>
+    </section>
+
+    <section class="block">
+        <h2>🔬 Sur quoi ça se base</h2>
+        <p>Les repères d'hydratation de PauseCafé s'appuient sur les références officielles européennes, pas sur des chiffres inventés.</p>
+        <h3 class="sub">L'apport hydrique de référence</h3>
+        <p>L'<strong>EFSA</strong> (avis 2010) définit un <strong>apport adéquat en eau totale</strong> de <strong>2,0 L/jour pour une femme</strong> et <strong>2,5 L/jour pour un homme</strong>, dans des conditions de température et d'activité modérées. Point clé : il s'agit de l'<strong>eau totale</strong> — environ 80 % vient des boissons (toutes confondues) et 20 % des aliments. En grossesse, l'EFSA ajoute environ +300 ml/jour ; pendant l'allaitement, environ +700 ml/jour.</p>
+        <div class="seuil-note">
+            <h3>💡 Pourquoi « 8 verres / 2 L » comme repère, pas comme loi</h3>
+            <p>Le fameux « 8 verres par jour » est un <strong>repère pratique</strong>, pas une vérité universelle. Tes besoins réels dépendent de ta taille, de ton activité, du climat et de ce que tu manges. PauseCafé propose donc 2 L par défaut (aligné EFSA femme adulte) <strong>mais te laisse ajuster de 4 à 12 verres</strong> : l'objectif est un guide motivant, pas une prescription.</p>
+        </div>
+        <h3 class="sub">Le mythe « le café déshydrate »</h3>
+        <p>Beaucoup pensent qu'il faut « compenser » chaque café par de l'eau, parce que la caféine serait déshydratante. La science nuance fortement : la caféine est un <strong>diurétique léger</strong>, mais à des doses modérées (jusqu'à ~400 mg/jour), cet effet est <strong>compensé par le liquide de la boisson elle-même</strong>. Une étude contrôlée (Killer et coll., 2014) a comparé café et eau chez 50 buveurs réguliers : aucune différence sur un large éventail de marqueurs d'hydratation. Conclusion : consommé avec modération, le <strong>café hydrate à peu près comme l'eau</strong> chez les habitués.</p>
+        <div class="limites">
+            <p><strong>Ce que ça change pour l'app.</strong> PauseCafé compte l'eau séparément non pas pour « annuler » le café, mais pour t'encourager à garder une bonne habitude d'eau « simple » à côté de tes boissons caféinées. On ne diabolise pas le café — on t'aide juste à équilibrer.</p>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>🔍 Ce qu'on analyse</h2>
+        <p>Au-delà du compteur, PauseCafé met tes données d'eau en perspective :</p>
+        <div class="card-grid">
+            <div class="mini-card">
+                <span class="emoji">📈</span>
+                <h3>Régularité &amp; records</h3>
+                <p>Ta moyenne dans le temps, ta régularité jour après jour, et tes meilleurs jours — pour transformer l'hydratation en habitude.</p>
+            </div>
+            <div class="mini-card">
+                <span class="emoji">🕒</span>
+                <h3>Tranches horaires</h3>
+                <p>Quand bois-tu ? La répartition de tes apports sur la journée aide à repérer les moments où tu oublies de boire.</p>
+            </div>
+            <div class="mini-card">
+                <span class="emoji">🔗</span>
+                <h3>Corrélation eau ↔ caféine <span class="pill premium">Premium</span></h3>
+                <p>Comment ton hydratation évolue selon ta caféine : surcompensation, alternance ou stabilité.</p>
+            </div>
+        </div>
+        <div class="exemple">
+            <h3>📐 Exemple chiffré (corrélation eau ↔ caféine, sur 14 jours)</h3>
+            <div class="chiffres">
+                <div class="chiffre">
+                    <div class="label">Tes jours les + caféinés</div>
+                    <div class="valeur">1,1 L d'eau</div>
+                </div>
+                <div class="chiffre">
+                    <div class="label">Tes jours les + calmes</div>
+                    <div class="valeur">1,8 L d'eau</div>
+                </div>
+            </div>
+            <p class="lecture">Lecture : tu bois moins d'eau les jours très caféinés. C'est une coïncidence dans tes habitudes, pas une preuve de cause à effet.</p>
+        </div>
+        <p>Cette corrélation utilise la même méthode rigoureuse que les autres analyses de l'app (comparaison de tes jours extrêmes, corrélation de rangs de Spearman, seuils à 7 et 14 jours). <a href="analyses.html" style="color:var(--caramel);">Voir la méthode complète des analyses →</a></p>
+    </section>
+
+    <section class="block">
+        <h2>🚫 Ce que l'app ne fait pas</h2>
+        <div class="card-grid">
+            <div class="mini-card">
+                <span class="emoji">🔢</span>
+                <h3>Imposer un chiffre universel</h3>
+                <p>Aucun « il faut X litres » valable pour tous. Tes besoins varient ; l'objectif est ajustable et indicatif.</p>
+            </div>
+            <div class="mini-card">
+                <span class="emoji">🩺</span>
+                <h3>Donner un avis médical</h3>
+                <p>PauseCafé est une app de bien-être. En cas de pathologie (rein, cœur) ou de doute, c'est ton médecin qui décide.</p>
+            </div>
+            <div class="mini-card">
+                <span class="emoji">⚠️</span>
+                <h3>Pousser à trop boire</h3>
+                <p>Boire à l'excès n'est pas anodin (risque d'hyponatrémie à l'extrême). L'objectif vise un repère sain, pas un record.</p>
+            </div>
+            <div class="mini-card">
+                <span class="emoji">🔒</span>
+                <h3>Exploiter tes données santé</h3>
+                <p>Ton poids (utilisé pour certains repères) reste sur ton appareil. Aucune donnée santé n'est vendue.</p>
+            </div>
+        </div>
+        <div class="disclaimer">
+            <h3>⚠️ Information de bien-être</h3>
+            <p>Les repères et analyses d'hydratation de PauseCafé sont fournis à titre indicatif et n'ont aucune valeur médicale : ni dispositif médical, ni avis médical. Pour toute question sur tes besoins en eau ou ta santé, consulte un professionnel de santé.</p>
+        </div>
+        <p class="sources">
+            <strong>Sources.</strong>
+            EFSA, <em>Scientific Opinion on Dietary Reference Values for water</em>, 2010 (EFSA Journal 2010;8(3):1459) — apport adéquat 2,0 L/jour (femme) et 2,5 L/jour (homme) en eau totale ; +300 ml en grossesse, +700 ml en allaitement. <a href="https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2010.1459" target="_blank" rel="noopener noreferrer">Lien →</a><br>
+            Killer SC, Blannin AK, Jeukendrup AE. <em>No Evidence of Dehydration with Moderate Daily Coffee Intake.</em> PLoS ONE 2014;9(1):e84154 — café modéré ≈ même hydratation que l'eau chez les buveurs réguliers. <a href="https://doi.org/10.1371/journal.pone.0084154" target="_blank" rel="noopener noreferrer">Lien →</a><br>
+            Maughan RJ, Griffin J. <em>Caffeine ingestion and fluid balance: a review.</em> J Hum Nutr Diet 2003 — l'effet diurétique de la caféine est modéré et transitoire aux doses usuelles.<br>
+            OMS &amp; Institute of Medicine (2005) — repères d'apport hydrique selon l'âge, le sexe et le climat. Besoins individuels variables.
+        </p>
+    </section>
+
+    <div class="cta">
+        <h2>Bien s'hydrater, sans y penser</h2>
+        <p>Compteur d'eau, objectif ajustable, rappels — gratuit dans PauseCafé. Et bientôt, une hydratation qui s'adapte à la météo.</p>
+    </div>
+
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="https://pausecafe-app.fr">Accueil</a>
+        <a href="https://pausecafe-app.fr/cafeine-temps-reel.html">La caféine en temps réel</a>
+        <a href="https://pausecafe-app.fr/analyses.html">La science des analyses</a>
+        <a href="https://pausecafe-app.fr/privacy.html">Confidentialité</a>
+        <a href="https://pausecafe-app.fr/cgu.html">CGU</a>
+    </div>
+    <div class="footer-bottom">© 2026 PauseCafé · Application de bien-être · Informations indicatives, non médicales</div>
+</footer>
+
+</body>
+</html>
