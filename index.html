@@ -169,6 +169,7 @@
     <ul class="nav-links">
         <li><a onclick="showMain('features')">Fonctionnalités</a></li>
         <li><a href="cafeine-temps-reel.html">Caféine en temps réel</a></li>
+        <li><a href="hydratation.html">Hydratation</a></li>
         <li><a href="analyses.html">Analyses</a></li>
         <li><a onclick="showMain('premium')" style="color:var(--purple);font-weight:700;opacity:1">👑 Premium</a></li>
         <li><a onclick="showMain('normes')">Normes</a></li>
@@ -204,6 +205,11 @@
             <a href="cafeine-temps-reel.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
                 <div class="item-icon">📉</div>
                 <div class="item-text"><span class="item-label">Caféine en temps réel</span><span class="item-sub">La caféine active expliquée</span></div>
+            </a>
+            <div class="mobile-menu-divider"></div>
+            <a href="hydratation.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+                <div class="item-icon">💧</div>
+                <div class="item-text"><span class="item-label">Hydratation</span><span class="item-sub">Le suivi de l'eau &amp; la science</span></div>
             </a>
             <div class="mobile-menu-divider"></div>
             <a href="analyses.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
@@ -255,11 +261,10 @@
         <h2 class="section-title">Tout ce qu'il faut pour prendre soin de toi</h2>
         <div class="features-grid">
             <div class="feature-card"><span class="feature-emoji">☕</span><h3>Suis ta caféine</h3><p>Enregistre chaque boisson en un tap. Café, thé, tisane, soda, energy drink — tout est répertorié avec les valeurs exactes en mg de caféine.</p></div>
-            <a class="feature-card feature-active" href="cafeine-temps-reel.html"><span class="feature-emoji">📉</span><h3>Caféine en temps réel <span style="font-size:0.65rem;background:rgba(155,111,208,0.25);color:var(--purple-light);padding:2px 8px;border-radius:8px;vertical-align:middle;font-weight:700;">Premium · Bientôt</span></h3><p>Visualise la quantité de caféine encore présente dans ton corps, minute par minute, et anticipe l'heure idéale pour ta dernière tasse. <span class="feature-link">En savoir plus →</span></p></a>
-            <div class="feature-card feature-water"><span class="feature-emoji">💧</span><h3>Suis ton hydratation</h3><p>Compteur d'eau dédié visible via l'anneau bleu autour de la tasse. Objectif personnel de 4 à 12 verres / jour (par défaut 8 verres = 2 L, reco OMS). Bouton « + Eau » pour ajouter un verre en un tap.</p></div>
+            <a class="feature-card feature-water" href="hydratation.html" style="text-decoration:none;color:inherit;display:block;"><span class="feature-emoji">💧</span><h3>Suis ton hydratation</h3><p>Compteur d'eau dédié visible via l'anneau bleu autour de la tasse. Objectif personnel de 4 à 12 verres / jour (par défaut 8 verres = 2 L, reco OMS). Bouton « + Eau » pour ajouter un verre en un tap. <span class="feature-link" style="color:var(--blue);">En savoir plus →</span></p></a>
             <div class="feature-card"><span class="feature-emoji">🏆</span><h3>130 badges &amp; 8 niveaux</h3><p>Débloque des badges, gagne des points et monte en niveau. De Pousse 🌱 à Légende 🦁 — 130 badges à collectionner (dont 10 exclusifs Premium 👑 et 10 dédiés à l'hydratation 💧), chacun récompensé selon sa difficulté. Certains sont mystérieux !</p></div>
             <div class="feature-card"><span class="feature-emoji">🎁</span><h3>Vraies récompenses</h3><p>Bons plans partenaires pour tous. Pour les Premium : échange tes points contre des cadeaux ou des bons cadeaux (cooldown de 6 mois entre 2 réclamations physiques). Pour les gratuits : échange tes points contre du temps Premium.</p></div>
-            <div class="feature-card"><span class="feature-emoji">📊</span><h3>Stats &amp; évolution</h3><p>3 onglets sur Mon Évolution : ☕ Caféine (graphiques d'évolution, analyse par horaire et par jour de semaine), 💧 Eau (régularité, records, tranches horaires) et 🔍 Analyses (corrélations croisées entre tes habitudes).</p></div>
+            <div class="feature-card"><span class="feature-emoji">📊</span><h3>Stats &amp; évolution</h3><p>3 onglets sur Mon Évolution : ☕ Caféine (graphiques d'évolution, analyse par horaire et par jour de semaine), 💧 Eau (régularité, records, tranches horaires) et 🔍 Analyses (corrélations croisées, Premium).</p></div>
             <div class="feature-card"><span class="feature-emoji">🔥</span><h3>Séries &amp; motivation</h3><p>Maintiens ta série de jours consécutifs. Une série perdue coûte des points — la motivation ultime.</p></div>
             <div class="feature-card"><span class="feature-emoji">🎯</span><h3>Défis Communauté</h3><p>Relève des défis hebdomadaires, mensuels ou annuels et gagne des points bonus. Série, caféine, badges, parrainages… 9 types de défis, 3 actifs max simultanément. 5 badges exclusifs à débloquer.</p></div>
             <div class="feature-card"><span class="feature-emoji">🤝</span><h3>Parrainage &amp; récompenses</h3><p>Partage ton code unique à tes amis. Ils reçoivent +100 points de bienvenue, toi tu gagnes +100 points à l'inscription. Et si ton filleul s'abonne, tu reçois 1 mois Premium offert — jusqu'à 10 filleuls.</p></div>
@@ -281,6 +286,12 @@
             <div class="premium-card"><span class="premium-card-emoji">⚡</span><h3>3 boissons favorites</h3><p>Marque jusqu'à 3 boissons comme favorites (⭐). Accès rapide en haut de la liste sur iPhone ET Watch.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">⚡</span><h3>Mode 1 tap</h3><p>Un tap sur la tasse = ta boisson favorite ajoutée directement. Sans liste, sans sélection. Sur iPhone ET Watch.</p></div>
             <div class="premium-card"><span class="premium-card-emoji">🔗</span><h3>Corrélation eau ↔ caféine</h3><p>Dans l'onglet 🔍 Analyses, découvre comment ta consommation d'eau évolue en fonction de ta caféine : surcompensation, alternance ou hydratation stable. Analyse comparative à partir de 14 jours, ou tendance Spearman dès 7 jours.</p></div>
+            <div class="premium-card"><span class="premium-card-emoji">📉</span><h3>Caféine active en temps réel <span style="font-size:0.6rem;background:rgba(255,255,255,0.14);color:var(--purple-light);padding:2px 7px;border-radius:6px;vertical-align:middle;font-weight:700;letter-spacing:0.03em;">BIENTÔT</span></h3><p>La quantité de caféine encore présente dans ton corps, minute par minute, sur iPhone, Watch et widget. <a href="cafeine-temps-reel.html" style="color:var(--purple-light);">En savoir plus →</a></p></div>
+            <div class="premium-card"><span class="premium-card-emoji">😴</span><h3>Corrélation caféine ↔ sommeil <span style="font-size:0.6rem;background:rgba(255,255,255,0.14);color:var(--purple-light);padding:2px 7px;border-radius:6px;vertical-align:middle;font-weight:700;letter-spacing:0.03em;">BIENTÔT</span></h3><p>Le lien entre ta caféine et la durée de tes nuits, à partir d'Apple Santé (lecture sur ton appareil). <a href="analyses.html" style="color:var(--purple-light);">La méthode →</a></p></div>
+            <div class="premium-card"><span class="premium-card-emoji">❤️</span><h3>Corrélation caféine ↔ FC repos <span style="font-size:0.6rem;background:rgba(255,255,255,0.14);color:var(--purple-light);padding:2px 7px;border-radius:6px;vertical-align:middle;font-weight:700;letter-spacing:0.03em;">BIENTÔT</span></h3><p>Un second signal santé : le lien entre ta caféine et ta fréquence cardiaque au repos. <a href="analyses.html" style="color:var(--purple-light);">La méthode →</a></p></div>
+            <div class="premium-card"><span class="premium-card-emoji">🧠</span><h3>Alertes intelligentes <span style="font-size:0.6rem;background:rgba(255,255,255,0.14);color:var(--purple-light);padding:2px 7px;border-radius:6px;vertical-align:middle;font-weight:700;letter-spacing:0.03em;">BIENTÔT</span></h3><p>Des alertes personnalisées selon tes habitudes : « Il est 16 h, tu as déjà 320 mg. »</p></div>
+            <div class="premium-card"><span class="premium-card-emoji">🌿</span><h3>Suivi stress &amp; anxiété <span style="font-size:0.6rem;background:rgba(255,255,255,0.14);color:var(--purple-light);padding:2px 7px;border-radius:6px;vertical-align:middle;font-weight:700;letter-spacing:0.03em;">BIENTÔT</span></h3><p>Un questionnaire hebdomadaire avec corrélation personnalisée caféine ↔ stress.</p></div>
+            <div class="premium-card"><span class="premium-card-emoji">🌡️</span><h3>Hydratation adaptée à la météo <span style="font-size:0.6rem;background:rgba(255,255,255,0.14);color:var(--purple-light);padding:2px 7px;border-radius:6px;vertical-align:middle;font-weight:700;letter-spacing:0.03em;">BIENTÔT</span></h3><p>En cas de forte chaleur, des rappels d'hydratation renforcés selon la vigilance Météo-France. <a href="hydratation.html" style="color:var(--purple-light);">En savoir plus →</a></p></div>
             <div class="premium-card"><span class="premium-card-emoji">🎯</span><h3>Offres exclusives</h3><p>Offres négociées spécialement pour les abonnés Premium. Bientôt disponibles.</p></div>
         </div>
 
@@ -432,6 +443,7 @@
                     <ul>
                         <li><a onclick="showMain('features')">Fonctionnalités</a></li>
                         <li><a href="cafeine-temps-reel.html">Caféine en temps réel</a></li>
+                        <li><a href="hydratation.html">Hydratation</a></li>
                         <li><a href="analyses.html">Analyses</a></li>
                         <li><a onclick="showMain('premium')">👑 Premium</a></li>
                         <li><a onclick="showMain('normes')">Normes EFSA &amp; OMS</a></li>
