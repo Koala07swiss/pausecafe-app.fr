@@ -71,6 +71,14 @@
         .feature-emoji { font-size: 2.5rem; margin-bottom: 20px; display: block; }
         .feature-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; color: var(--cream); }
         .feature-card p { font-size: 0.9rem; line-height: 1.65; opacity: 0.6; font-weight: 300; }
+        .showcase { padding: 100px 48px; background: var(--mousse); }
+        .showcase-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+        .showcase-title { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 700; color: var(--cafe); margin-bottom: 16px; }
+        .showcase-title em { color: var(--caramel); font-style: italic; }
+        .showcase-text { font-size: 1.05rem; line-height: 1.7; opacity: 0.75; font-weight: 300; max-width: 600px; margin: 0 auto 36px; }
+        .showcase-curve { width: 100%; height: auto; display: block; border-radius: 20px; box-shadow: 0 18px 54px rgba(26,15,10,0.30); margin: 0 auto 28px; }
+        .showcase-link { display: inline-block; color: var(--caramel); font-weight: 500; text-decoration: none; font-size: 0.95rem; border-bottom: 1px solid rgba(196,135,58,0.4); padding-bottom: 2px; transition: opacity 0.2s; }
+        .showcase-link:hover { opacity: 0.7; }
         .premium { padding: 100px 48px; background: linear-gradient(135deg, #1a0a2e 0%, #2d1155 50%, #1a0a2e 100%); color: white; position: relative; overflow: hidden; }
         .premium::before { content: '👑'; position: absolute; font-size: 30vw; right: -5vw; top: 50%; transform: translateY(-50%); opacity: 0.04; pointer-events: none; }
         .premium-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 64px; }
@@ -149,7 +157,7 @@
             nav { padding: 12px 24px; } .nav-links { display: none; } .burger-btn { display: flex; }
             .hero { padding: 100px 24px 60px; }
             .hero-logo-bg { width: 80vw; right: 50%; transform: translate(50%, -50%); opacity: 0.08; top: 30%; }
-            .features, .normes, .download, .premium { padding: 60px 24px; }
+            .features, .normes, .download, .premium, .showcase { padding: 60px 24px; }
             .normes-grid, .plans, .paliers-points { grid-template-columns: 1fr; gap: 32px; }
             .compare-table { font-size: 0.8rem; } .compare-table td, .compare-table th { padding: 10px 8px; }
             footer { padding: 48px 24px 32px; } .footer-top, .footer-links { flex-direction: column; gap: 32px; }
@@ -270,6 +278,16 @@
             <div class="feature-card"><span class="feature-emoji">🤝</span><h3>Parrainage &amp; récompenses</h3><p>Partage ton code unique à tes amis. Ils reçoivent +100 points de bienvenue, toi tu gagnes +100 points à l'inscription. Et si ton filleul s'abonne, tu reçois 1 mois Premium offert — jusqu'à 10 filleuls.</p></div>
             <div class="feature-card"><span class="feature-emoji">🤰</span><h3>Mode précaution</h3><p>Adapte automatiquement ta limite caféine à 300 mg/jour ET ton objectif d'hydratation à 9 verres (2,3 L) — recommandations OMS pour les femmes enceintes. Gratuit pour toutes.</p></div>
             <div class="feature-card"><span class="feature-emoji">🏷️</span><h3>Bons plans partenaires</h3><p>Accède à des codes promo exclusifs chez nos partenaires sélectionnés. Disponible gratuitement pour tous les utilisateurs.</p></div>
+        </div>
+    </section>
+
+    <section class="showcase" id="cafeine-active">
+        <div class="showcase-inner">
+            <div class="section-label" style="opacity:0.6;">📉 Caféine active</div>
+            <h2 class="showcase-title">Vois ta caféine <em>en temps réel</em></h2>
+            <p class="showcase-text">PauseCafé estime la quantité de caféine encore présente dans ton corps, minute par minute : les pics ~45 min après chaque café, puis la descente jusqu'au coucher. D'un coup d'œil, tu sais combien il t'en restera au moment de dormir.</p>
+            <img src="hero_cafeine_active.svg" alt="Exemple de courbe de caféine active sur une journée : deux cafés, pics environ 45 minutes après la prise, puis décroissance jusqu'au coucher dans la zone verte" class="showcase-curve">
+            <a href="cafeine-temps-reel.html" class="showcase-link">Comment ça marche →</a>
         </div>
     </section>
 
