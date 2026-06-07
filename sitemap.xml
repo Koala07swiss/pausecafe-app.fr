@@ -3,7 +3,7 @@
   <!-- Pages principales -->
   <url>
     <loc>https://pausecafe-app.fr/</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -71,7 +71,7 @@
   </url>
   <url>
     <loc>https://pausecafe-app.fr/blog/cafeine-grossesse/</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -96,7 +96,7 @@
   </url>
   <url>
     <loc>https://pausecafe-app.fr/cgu.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
