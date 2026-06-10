@@ -2,6 +2,86 @@
   "_note": "L'agent prend le premier sujet 'a_faire' dont le slug n'existe pas encore dans /blog. Modifie/ajoute librement. statut: a_faire | brouillon | publie",
   "sujets": [
     {
+      "slug": "combien-eau-par-jour",
+      "titre": "Combien d'eau boire par jour ? Le vrai du faux sur les « 8 verres »",
+      "categorie": "Santé",
+      "angle": "Règle des 2 L / 8 verres : d'où elle vient, ce que dit vraiment l'OMS/EFSA, facteurs (climat, activité, alimentation). NEUF — distinct de 'cafe-deshydrate-mythe' (qui traite le mythe diurétique du café) et de 'combien-cafes-par-jour' (caféine).",
+      "heroQuery": "glass of water pouring",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "signes-deshydratation",
+      "titre": "Les signes de déshydratation qu'on ignore (et comment y remédier)",
+      "categorie": "Conseils pratiques",
+      "angle": "Soif tardive, couleur des urines, fatigue, baisse de concentration, maux de tête. Quand et comment se réhydrater. NEUF, lié au suivi d'eau de l'app.",
+      "heroQuery": "tired person desk water",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "boire-plus-eau-astuces",
+      "titre": "7 astuces simples pour boire plus d'eau sans y penser",
+      "categorie": "Conseils pratiques",
+      "angle": "Habitudes et déclencheurs (verre au réveil, gourde visible, rappels, eau aromatisée), rôle d'un compteur pour tenir l'objectif. NEUF et partageable, met en valeur le compteur d'eau de l'app.",
+      "heroQuery": "water bottle daily routine",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "heure-dernier-cafe-sommeil",
+      "titre": "À quelle heure arrêter le café pour ne pas gâcher ta nuit",
+      "categorie": "Conseils pratiques",
+      "angle": "Heure-limite pratique : seuil EFSA 100 mg le soir, demi-vie ~5 h appliquée à l'heure du coucher, marge de sécurité. Distinct de 'cafeine-sommeil' (mécanisme), de 'cafe-matin-meilleur-moment' (matin) et de 'cafeine-demi-vie-duree' (pharmacocinétique) — ici focus 'à quelle heure s'arrêter'. Met en avant la caféine active au coucher de l'app.",
+      "heroQuery": "evening coffee clock bedroom",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-residuelle-coucher",
+      "titre": "La caféine encore active au moment du coucher : pourquoi ça compte",
+      "categorie": "Santé",
+      "angle": "Notion de caféine 'résiduelle/active' présente dans le corps au coucher, seuil sous lequel l'impact sommeil devient négligeable (zone verte). NEUF — distinct de 'cafeine-sommeil' et 'cafeine-demi-vie-duree'. Pédagogie de la fonctionnalité phare 'caféine active'. Cadrage bien-être, non médical.",
+      "heroQuery": "night bedroom moon calm",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-frequence-cardiaque-repos",
+      "titre": "Caféine et fréquence cardiaque au repos : y a-t-il un lien ?",
+      "categorie": "Études scientifiques",
+      "angle": "Ce que la caféine fait (ou non) à la FC au repos, variabilité individuelle, ce que montrent les études, association n'est pas causalité. Distinct de 'cafeine-anxiete-palpitations' (symptômes anxiété/palpitations) — ici la FC au repos comme indicateur. Lié à la lecture FC repos via l'app Santé.",
+      "heroQuery": "smartwatch heart rate wrist",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "comprendre-frequence-cardiaque-repos",
+      "titre": "Comprendre ta fréquence cardiaque au repos (et ce qu'elle révèle)",
+      "categorie": "Santé",
+      "angle": "Qu'est-ce que la FC au repos, ordres de grandeur, facteurs (forme physique, sommeil, stress, caféine, hydratation), comment l'Apple Watch la mesure. NEUF, éducatif, lié à l'intégration Santé.",
+      "heroQuery": "heart rate monitor watch",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "app-sante-suivi-cafeine",
+      "titre": "Suivre sa caféine et son eau dans l'app Santé d'Apple",
+      "categorie": "Conseils pratiques",
+      "angle": "Pourquoi centraliser caféine et eau dans l'app Santé, ce qui est écrit/lu, données sur l'appareil, comment activer. Distinct de 'tracker-cafeine-benefices' (intérêt du suivi en général) — ici focus intégration Apple Santé. Lié à la nouvelle synchro Santé et à la page sante.html.",
+      "heroQuery": "iphone health app hand",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "correlation-cafeine-sommeil-donnees",
+      "titre": "Ce que tes données peuvent révéler sur ta caféine et ton sommeil",
+      "categorie": "Études scientifiques",
+      "angle": "Idée de corrélation personnelle caféine/sommeil à partir de ses propres données, limites (association ≠ causation, facteurs de confusion), lecture prudente. Distinct de 'cafeine-sommeil' (mécanisme général) — ici focus données personnelles/analyses. Met en avant les analyses Premium. Cadrage bien-être.",
+      "heroQuery": "data chart sleep tracking",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "hydratation-sommeil-lien",
+      "titre": "Hydratation et sommeil : le lien que l'on sous-estime",
+      "categorie": "Santé",
+      "angle": "Comment la déshydratation peut perturber le sommeil et inversement, bons réflexes du soir sans se réveiller la nuit. NEUF, relie deux piliers de l'app (eau + sommeil).",
+      "heroQuery": "water glass bedside night",
+      "statut": "a_faire"
+    },
+    {
       "slug": "cafeine-sport-performance",
       "titre": "Caféine et sport : la bonne dose, au bon moment",
       "categorie": "Conseils pratiques",
