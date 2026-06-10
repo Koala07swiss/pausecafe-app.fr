@@ -1,7 +1,7 @@
-// Agent social PauseCafé — génère un thread X + un carrousel Instagram (texte + images PNG).
-// Lit le gabarit + le prochain sujet "a_faire", appelle l'API Claude, rend les slides
-// du carrousel à la charte PauseCafé, écrit le tout dans social-drafts/ et marque le sujet.
-// Le workflow GitHub Actions ouvre ensuite une PR pour ta validation.
+// Agent social PauseCafé — thread X + carrousel Instagram (texte + images PNG).
+// Carrousel MIXTE : photo (couverture + slide finale) via Unsplash, texte au milieu.
+// Lit le gabarit + le prochain sujet "a_faire", appelle Claude, rend les slides à la
+// charte, écrit le tout dans social-drafts/ et marque le sujet. Le workflow ouvre une PR.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -44,7 +44,37 @@ function fichiersPolices() {
 }
 
 // ─────────────────────────────────────────────────────────────
-//  Slide Instagram (1080 x 1350) — mise en page validée
+//  Photos d'ambiance (Unsplash — même principe que l'agent blog)
+//  Sans clé UNSPLASH_ACCESS_KEY ou sans requête → carrousel 100% texte
+//  (aucune erreur, repli propre).
+// ─────────────────────────────────────────────────────────────
+async function chargerPhotos(query, nb) {
+  const cle = process.env.UNSPLASH_ACCESS_KEY;
+  if (!cle || !query) return [];
+  try {
+    const url = `https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&per_page=${nb}&orientation=portrait`;
+    const r = await fetch(url, { headers: { Authorization: `Client-ID ${cle}` } });
+    const j = await r.json();
+    const out = [];
+    for (const ph of (j.results || []).slice(0, nb)) {
+      const u = ph.urls?.regular;
+      if (!u) continue;
+      const img = await fetch(u);
+      const buf = Buffer.from(await img.arrayBuffer());
+      out.push({
+        dataUri: `data:image/jpeg;base64,${buf.toString("base64")}`,
+        credit: ph.user?.name || "",
+      });
+    }
+    return out;
+  } catch (e) {
+    console.error("Unsplash indisponible :", e.message);
+    return [];
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+//  Rendu des slides (1080 x 1350)
 // ─────────────────────────────────────────────────────────────
 function echapper(s) {
   return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -65,11 +95,13 @@ function couper(texte, maxCar) {
   if (ligne) lignes.push(ligne);
   return lignes;
 }
-function slideSvg({ title, body, index, total, cta }) {
+
+// Blocs de texte communs (marque, numéro, filet, titre, corps, CTA)
+function blocsTexte({ title, body, index, total, cta, couleurTitre, couleurCorps, couleurAccent }) {
   const W = 1080,
     H = 1350,
-    MX = 110;
-  const ty = 470,
+    MX = 110,
+    ty = 470,
     titreFs = 78,
     titreLh = 94,
     corpsFs = 42,
@@ -79,7 +111,7 @@ function slideSvg({ title, body, index, total, cta }) {
   const titreSvg = titreLignes
     .map(
       (l, i) =>
-        `<text x="${MX}" y="${ty + i * titreLh}" font-family="Playfair Display" font-weight="700" font-size="${titreFs}" fill="#2C1810">${echapper(l)}</text>`
+        `<text x="${MX}" y="${ty + i * titreLh}" font-family="Playfair Display" font-weight="700" font-size="${titreFs}" fill="${couleurTitre}">${echapper(l)}</text>`
     )
     .join("");
 
@@ -87,22 +119,50 @@ function slideSvg({ title, body, index, total, cta }) {
   const corpsSvg = couper(body, 38)
     .map(
       (l, i) =>
-        `<text x="${MX}" y="${by + i * corpsLh}" font-family="DM Sans" font-weight="400" font-size="${corpsFs}" fill="#3A2A1E">${echapper(l)}</text>`
+        `<text x="${MX}" y="${by + i * corpsLh}" font-family="DM Sans" font-weight="400" font-size="${corpsFs}" fill="${couleurCorps}">${echapper(l)}</text>`
     )
     .join("");
 
   const ctaSvg = cta
-    ? `<text x="${MX}" y="${H - 150}" font-family="DM Sans" font-weight="700" font-size="44" fill="#C4873A">${echapper(cta)}</text>`
+    ? `<text x="${MX}" y="${H - 150}" font-family="DM Sans" font-weight="700" font-size="44" fill="${couleurAccent}">${echapper(cta)}</text>`
     : "";
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}">
-<rect width="${W}" height="${H}" fill="#F6E1C8"/>
-<text x="${MX}" y="135" font-family="Playfair Display" font-weight="700" font-size="46" fill="#2C1810">PauseCafé</text>
-<text x="${W - MX}" y="135" text-anchor="end" font-family="DM Sans" font-weight="700" font-size="34" fill="#C4873A">${index}/${total}</text>
-<rect x="${MX}" y="300" width="96" height="10" rx="5" fill="#C4873A"/>
-${titreSvg}${corpsSvg}${ctaSvg}
+  const haut = `<text x="${MX}" y="135" font-family="Playfair Display" font-weight="700" font-size="46" fill="${couleurTitre}">PauseCafé</text>
+<text x="${W - MX}" y="135" text-anchor="end" font-family="DM Sans" font-weight="700" font-size="34" fill="${couleurAccent}">${index}/${total}</text>
+<rect x="${MX}" y="300" width="96" height="10" rx="5" fill="${couleurAccent}"/>`;
+
+  return haut + titreSvg + corpsSvg + ctaSvg;
+}
+
+// Slide texte (fond beige, texte foncé)
+function slideTexte(opts) {
+  const blocs = blocsTexte({
+    ...opts,
+    couleurTitre: "#2C1810",
+    couleurCorps: "#3A2A1E",
+    couleurAccent: "#C4873A",
+  });
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350">
+<rect width="1080" height="1350" fill="#F6E1C8"/>
+${blocs}
 </svg>`;
 }
+
+// Slide photo (photo plein cadre + voile sombre + texte clair)
+function slidePhoto(opts) {
+  const blocs = blocsTexte({
+    ...opts,
+    couleurTitre: "#F6E1C8",
+    couleurCorps: "#F0E4D2",
+    couleurAccent: "#E3A24F",
+  });
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350">
+<image href="${opts.imgDataUri}" x="0" y="0" width="1080" height="1350" preserveAspectRatio="xMidYMid slice"/>
+<rect width="1080" height="1350" fill="#1A0F0A" opacity="0.55"/>
+${blocs}
+</svg>`;
+}
+
 function rendrePng(svg, sortie) {
   const resvg = new Resvg(svg, {
     fitTo: { mode: "width", value: 1080 },
@@ -180,20 +240,29 @@ const dossier = path.join(DOSSIER_BROUILLONS, slug);
 fs.mkdirSync(dossier, { recursive: true });
 
 // ─────────────────────────────────────────────────────────────
-//  5) Rendre les slides du carrousel
+//  5) Photos + rendu du carrousel (mixte)
 // ─────────────────────────────────────────────────────────────
 const lignesImages = [];
+const credits = [];
 if (ig && Array.isArray(ig.slides)) {
   const total = ig.slides.length;
+  const photos = await chargerPhotos(ig.photo_query, 2);
+  for (const p of photos) if (p.credit) credits.push(p.credit);
+  const photoCouv = photos[0]?.dataUri || null;
+  const photoCta = photos[1]?.dataUri || photos[0]?.dataUri || null;
+
   ig.slides.forEach((s, i) => {
+    const estCouv = i === 0;
     const estCTA = i === total - 1;
-    const svg = slideSvg({
-      title: s.title || "",
-      body: s.body || "",
-      index: i + 1,
-      total,
-      cta: estCTA ? ig.cta || "Télécharge PauseCafé · App Store" : null,
-    });
+    const base = { title: s.title || "", body: s.body || "", index: i + 1, total };
+    let svg;
+    if (estCouv && photoCouv) {
+      svg = slidePhoto({ ...base, imgDataUri: photoCouv });
+    } else if (estCTA && photoCta) {
+      svg = slidePhoto({ ...base, cta: ig.cta || "Télécharge PauseCafé · App Store", imgDataUri: photoCta });
+    } else {
+      svg = slideTexte({ ...base, cta: estCTA ? ig.cta || "Télécharge PauseCafé · App Store" : null });
+    }
     const nom = `slide-${i + 1}.png`;
     try {
       rendrePng(svg, path.join(dossier, nom));
@@ -212,8 +281,9 @@ md += `- Archétype : ${sujet.archetype}\n- Angle : ${sujet.angle}\n- Généré 
 md += `> À relire et ajuster avant publication. (Le lien App Store est déjà inséré.)\n\n---\n\n`;
 md += `## X (thread)\n\n${threadX}\n\n`;
 if (ig) {
-  md += `## Instagram\n\n`;
-  md += `**Légende :** ${ig.caption || ""}\n\n`;
+  let legende = ig.caption || "";
+  if (credits.length) legende += `\n\n📷 Photos : ${[...new Set(credits)].join(", ")} / Unsplash`;
+  md += `## Instagram\n\n**Légende :** ${legende}\n\n`;
   if (Array.isArray(ig.hashtags)) md += `**Hashtags :** ${ig.hashtags.join(" ")}\n\n`;
   md += `**Visuel du thread X :** ${ig.visuel_x || ""}\n\n`;
   if (lignesImages.length) {
@@ -232,4 +302,6 @@ fs.writeFileSync(path.join(dossier, "post.md"), md, "utf8");
 sujets[idx].statut = "genere";
 fs.writeFileSync(CHEMIN_SUJETS, JSON.stringify(sujets, null, 2) + "\n", "utf8");
 
-console.log(`Brouillon écrit : social-drafts/${slug}/ (${lignesImages.length} slide(s) générée(s))`);
+console.log(
+  `Brouillon écrit : social-drafts/${slug}/ (${lignesImages.length} slide(s), ${credits.length} photo(s))`
+);

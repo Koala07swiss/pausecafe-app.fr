@@ -62,7 +62,8 @@ Réponds dans CET ordre, et rien d'autre :
   "caption": "légende Instagram + « 👉 lien en bio »",
   "hashtags": ["#…", "#…"],
   "cta": "Télécharge PauseCafé · App Store",
-  "visuel_x": "le visuel à joindre au thread X : screenshot précis OU illustration"
+  "visuel_x": "le visuel à joindre au thread X : screenshot précis OU illustration",
+  "photo_query": "termes de recherche photo en anglais (ex. 'morning coffee cup')"
 }
 ```
 Contraintes carrousel (IMPORTANT, pour que le texte tienne dans l'image) :
@@ -73,6 +74,10 @@ Contraintes carrousel (IMPORTANT, pour que le texte tienne dans l'image) :
 - Pour un post « fonctionnalité » ou « Santé », `visuel_x` indique le
   **screenshot précis** à utiliser (ex. « screenshot de la courbe de caféine
   active » ou « écran de synchro Santé + badge Works with Apple Health »).
+- `photo_query` = termes de recherche (en **anglais**) pour la photo d'ambiance
+  (café, eau, tasse…). Le carrousel est **mixte** : photo en **couverture**
+  (slide 1) et sur la **slide finale** (CTA), texte sur fond beige pour les
+  slides du milieu. Choisis une requête simple et évocatrice.
 
 ## Règle CTA / liens (IMPORTANT — coût X)
 Sur X, un post **contenant un lien** coûte beaucoup plus cher qu'un post simple.
@@ -125,6 +130,7 @@ Instagram, **jamais de lien** dans la légende → « lien en bio ».
   "caption": "Ton café de l'après-midi influence peut-être ta nuit. PauseCafé estime la caféine encore active dans ton corps, minute par minute. Indicatif, bien-être. 👉 lien en bio.",
   "hashtags": ["#café", "#caféine", "#sommeil", "#bienêtre", "#hydratation", "#habitudes", "#coffeelover", "#productivité", "#santé"],
   "cta": "Télécharge PauseCafé · App Store",
-  "visuel_x": "Screenshot de la courbe de caféine active de PauseCafé (écran d'accueil), montrant la descente vers le soir."
+  "visuel_x": "Screenshot de la courbe de caféine active de PauseCafé (écran d'accueil), montrant la descente vers le soir.",
+  "photo_query": "coffee cup evening dark"
 }
 ```
