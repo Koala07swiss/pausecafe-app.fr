@@ -1,0 +1,47 @@
+name: Génération posts sociaux PauseCafé
+
+on:
+  schedule:
+    # Lundi, mercredi, vendredi à 07:00 UTC (≈ 08:00/09:00 en France)
+    - cron: "0 7 * * 1,3,5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Installer les dépendances (SDK + rendu d'images + polices)
+        run: npm install @anthropic-ai/sdk @resvg/resvg-js @expo-google-fonts/playfair-display @expo-google-fonts/dm-sans
+
+      - name: Générer le brouillon (thread X + carrousel Instagram)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/generer-social.mjs
+
+      - name: Ouvrir une PR de validation
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: social-draft-${{ github.run_id }}
+          title: "Brouillon posts sociaux à valider"
+          commit-message: "Génération auto : brouillon posts sociaux (texte + images)"
+          body: |
+            Brouillon généré automatiquement (X + Instagram).
+            - Relis le texte et ajuste le ton si besoin.
+            - Vérifie les slides du carrousel (images PNG dans le dossier).
+            - Remplace [lien App Store] par ton lien (UTM).
+            - Puis publie via ton outil de planification (Buffer / Publer / Metricool…).
+          add-paths: |
+            social-drafts/**
+            scripts/sujets-social.json
