@@ -40,7 +40,7 @@ jobs:
             Brouillon généré automatiquement (X + Instagram).
             - Relis le texte et ajuste le ton si besoin.
             - Vérifie les slides du carrousel (images PNG dans le dossier).
-            - Remplace [lien App Store] par ton lien (UTM).
+            - Le lien App Store est déjà inséré (modifie-le dans le script si besoin).
             - Puis publie via ton outil de planification (Buffer / Publer / Metricool…).
           add-paths: |
             social-drafts/**
