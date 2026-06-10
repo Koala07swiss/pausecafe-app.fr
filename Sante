@@ -107,8 +107,8 @@
     <h1>PauseCafé &amp; <span>l'app Santé</span></h1>
     <p class="lead">PauseCafé peut se connecter à l'app <strong>Santé</strong> d'Apple, avec ton autorisation. Tes données restent <strong>sur ton appareil</strong> : tu gardes la main, et tu peux tout couper quand tu veux depuis les Réglages de l'iPhone.</p>
     <div style="margin-top:28px;">
-        <span style="display:inline-flex;align-items:center;padding:6px 2px;">
-            <img src="works-with-apple-health-fr.svg" alt="Fonctionne avec l'app Santé" style="height:42px;width:auto;display:block;">
+        <span style="display:inline-flex;align-items:center;background:#1A0F0A;border-radius:12px;padding:12px 18px;">
+            <img src="works-with-apple-health-fr.svg" alt="Fonctionne avec l'app Santé" style="height:40px;width:auto;display:block;">
         </span>
     </div>
 </header>
@@ -119,16 +119,8 @@
         <h2>📤 Ce que PauseCafé enregistre dans Santé</h2>
         <p>Quand tu actives la synchronisation, PauseCafé peut écrire dans l'app Santé les données que tu enregistres déjà dans l'app — pour que tu les retrouves au même endroit que le reste de ta santé.</p>
         <div class="card-grid">
-            <div class="mini-card">
-                <span class="emoji">☕</span>
-                <h3>Caféine</h3>
-                <p>Chaque boisson caféinée que tu enregistres peut être ajoutée à Santé (en milligrammes de caféine).</p>
-            </div>
-            <div class="mini-card">
-                <span class="emoji">💧</span>
-                <h3>Eau</h3>
-                <p>Chaque verre d'eau que tu ajoutes peut être enregistré comme apport hydrique dans Santé.</p>
-            </div>
+            <div class="mini-card"><span class="emoji">☕</span><h3>Caféine</h3><p>Chaque boisson caféinée que tu enregistres peut être ajoutée à Santé (en milligrammes de caféine).</p></div>
+            <div class="mini-card"><span class="emoji">💧</span><h3>Eau</h3><p>Chaque verre d'eau que tu ajoutes peut être enregistré comme apport hydrique dans Santé.</p></div>
         </div>
     </div>
 
@@ -136,16 +128,8 @@
         <h2>📥 Ce que PauseCafé lit dans Santé</h2>
         <p>Pour t'offrir des analyses plus parlantes, PauseCafé peut, <strong>uniquement si tu l'autorises</strong>, lire deux informations déjà présentes dans Santé. Il ne lit rien d'autre.</p>
         <div class="card-grid">
-            <div class="mini-card">
-                <span class="emoji">🌙</span>
-                <h3>Sommeil</h3>
-                <p>La durée de sommeil enregistrée par ta montre ou ton iPhone, pour la mettre en regard de ta caféine.</p>
-            </div>
-            <div class="mini-card">
-                <span class="emoji">❤️</span>
-                <h3>Fréquence cardiaque au repos</h3>
-                <p>Ta FC au repos, pour observer une éventuelle tendance avec ta consommation de caféine.</p>
-            </div>
+            <div class="mini-card"><span class="emoji">🌙</span><h3>Sommeil</h3><p>La durée de sommeil enregistrée par ta montre ou ton iPhone, pour la mettre en regard de ta caféine.</p></div>
+            <div class="mini-card"><span class="emoji">❤️</span><h3>Fréquence cardiaque au repos</h3><p>Ta FC au repos, pour observer une éventuelle tendance avec ta consommation de caféine.</p></div>
         </div>
     </div>
 
@@ -175,16 +159,14 @@
         <p>PauseCafé est une application de bien-être. Les informations et analyses fournies sont indicatives et ne constituent pas un avis médical. En cas de question de santé, parles-en à un professionnel.</p>
     </div>
 
-    <p class="sources">
-        « Fonctionne avec l'app Santé » indique la compatibilité de PauseCafé avec l'app Santé d'Apple. Apple et l'app Santé sont des marques d'Apple Inc.
-    </p>
+    <p class="sources">« Fonctionne avec l'app Santé » indique la compatibilité de PauseCafé avec l'app Santé d'Apple. Apple et l'app Santé sont des marques d'Apple Inc.</p>
 
 </main>
 
 <footer>
-    <div style="display:flex;justify-content:center;padding:6px 0 18px;">
-        <span style="display:inline-flex;align-items:center;background:#fff;border:1px solid rgba(0,0,0,0.06);border-radius:10px;padding:12px 16px;box-shadow:0 2px 10px rgba(0,0,0,0.12);">
-            <img src="works-with-apple-health-fr.svg" alt="Fonctionne avec l'app Santé" style="height:26px;width:auto;display:block;">
+    <div style="display:flex;justify-content:center;padding:8px 0 18px;">
+        <span style="display:inline-flex;align-items:center;background:#1A0F0A;border-radius:12px;padding:12px 18px;">
+            <img src="works-with-apple-health-fr.svg" alt="Fonctionne avec l'app Santé" style="height:30px;width:auto;display:block;">
         </span>
     </div>
     <div class="footer-links">
