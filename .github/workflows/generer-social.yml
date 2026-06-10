@@ -28,6 +28,7 @@ jobs:
       - name: Générer le brouillon (thread X + carrousel Instagram)
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
         run: node scripts/generer-social.mjs
 
       - name: Ouvrir une PR de validation
