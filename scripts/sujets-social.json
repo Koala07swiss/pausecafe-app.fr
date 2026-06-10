@@ -1,0 +1,122 @@
+[
+  {
+    "id": "dernier-cafe-sommeil",
+    "archetype": "Probleme -> solution app",
+    "angle": "Le café de l'après-midi qui gâche la nuit ; PauseCafé montre la caféine active restante au coucher.",
+    "feature": "Caféine active",
+    "source": "cafeine-sommeil",
+    "statut": "a_faire"
+  },
+  {
+    "id": "cafeine-active-cest-quoi",
+    "archetype": "Fait surprenant + app",
+    "angle": "On croit le café 'passé' bien avant qu'il parte ; PauseCafé estime ce qu'il reste, minute par minute.",
+    "feature": "Caféine active",
+    "source": "standalone",
+    "statut": "a_faire"
+  },
+  {
+    "id": "complication-watch",
+    "archetype": "Demo fonctionnalite",
+    "angle": "Voir sa caféine active au poignet, en direct, sans ouvrir l'app.",
+    "feature": "Complication Apple Watch",
+    "source": "standalone",
+    "statut": "a_faire"
+  },
+  {
+    "id": "widget-cafeine",
+    "archetype": "Demo fonctionnalite",
+    "angle": "Le widget caféine active sur l'écran d'accueil : la tendance d'un coup d'œil.",
+    "feature": "Widget iPhone",
+    "source": "standalone",
+    "statut": "a_faire"
+  },
+  {
+    "id": "synchro-sante",
+    "archetype": "Demo fonctionnalite",
+    "angle": "PauseCafé écrit caféine + eau dans l'app Santé et lit le sommeil ; tout reste sur l'appareil.",
+    "feature": "Synchronisation app Santé",
+    "source": "standalone",
+    "statut": "a_faire"
+  },
+  {
+    "id": "combien-eau-par-jour",
+    "archetype": "Conseil actionnable + app",
+    "angle": "Combien d'eau par jour (repère OMS ~2,3 L) ; PauseCafé compte tes verres et te rappelle.",
+    "feature": "Suivi hydratation",
+    "source": "combien-eau-par-jour",
+    "statut": "a_faire"
+  },
+  {
+    "id": "signes-deshydratation",
+    "archetype": "Probleme -> solution app",
+    "angle": "Fatigue/maux de tête = parfois juste un manque d'eau ; PauseCafé t'aide à tenir le rythme.",
+    "feature": "Suivi hydratation",
+    "source": "signes-deshydratation",
+    "statut": "a_faire"
+  },
+  {
+    "id": "limite-efsa-400",
+    "archetype": "Fait surprenant + app",
+    "angle": "400 mg/jour = repère EFSA ; sais-tu où tu en es ? PauseCafé suit ton total en direct.",
+    "feature": "Compteur caféine",
+    "source": "limite-cafeine-efsa-400mg",
+    "statut": "a_faire"
+  },
+  {
+    "id": "mode-precaution-grossesse",
+    "archetype": "Conseil actionnable + app",
+    "angle": "Repère 200 mg/jour (EFSA) en grossesse ; le mode précaution de PauseCafé adapte le seuil.",
+    "feature": "Mode précaution",
+    "source": "cafeine-grossesse",
+    "statut": "a_faire"
+  },
+  {
+    "id": "reduire-sans-craquer",
+    "archetype": "Conseil actionnable + app",
+    "angle": "Réduire la caféine sans frustration ; séries, badges et suivi de PauseCafé pour tenir.",
+    "feature": "Gamification (séries, badges)",
+    "source": "reduire-cafeine-sans-craquer",
+    "statut": "a_faire"
+  },
+  {
+    "id": "series-motivation",
+    "archetype": "Demo fonctionnalite",
+    "angle": "Les séries de jours : transformer une bonne habitude en jeu pour s'y tenir.",
+    "feature": "Séries / streaks",
+    "source": "standalone",
+    "statut": "a_faire"
+  },
+  {
+    "id": "build-pourquoi-pausecafe",
+    "archetype": "Coulisses / build-in-public",
+    "angle": "Pourquoi j'ai créé PauseCafé (dev solo) : le déclic, ce que je voulais résoudre.",
+    "feature": null,
+    "source": "standalone",
+    "statut": "a_faire"
+  },
+  {
+    "id": "build-cafeine-active-chantier",
+    "archetype": "Coulisses / build-in-public",
+    "angle": "Mon plus gros chantier : modéliser la caféine active (modèle de Bateman, demi-vie ~5 h).",
+    "feature": "Caféine active",
+    "source": "standalone",
+    "statut": "a_faire"
+  },
+  {
+    "id": "30-jours-suivi",
+    "archetype": "Mini-histoire / defi",
+    "angle": "30 jours à suivre ma caféine : 3 choses que ça m'a appris (et changé).",
+    "feature": "Suivi caféine",
+    "source": "standalone",
+    "statut": "a_faire"
+  },
+  {
+    "id": "cafe-deshydrate-mythe",
+    "archetype": "Fait surprenant + app",
+    "angle": "Le café déshydrate-t-il vraiment ? Le mythe vs la réalité ; PauseCafé suit café ET eau.",
+    "feature": "Suivi caféine + eau",
+    "source": "cafe-deshydrate-mythe",
+    "statut": "a_faire"
+  }
+]
