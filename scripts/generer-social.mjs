@@ -16,6 +16,10 @@ const DOSSIER_BROUILLONS = path.join(RACINE, "social-drafts");
 // Qualité/coût. Passe à "claude-opus-4-8" si tu veux une rédaction plus fine.
 const MODELE = "claude-sonnet-4-6";
 
+// Ton lien App Store, inséré automatiquement dans le dernier tweet.
+// Pour suivre les clics, ajoute par ex. : "...id6761892198?utm_source=x&utm_medium=social"
+const LIEN_APP_STORE = "https://apps.apple.com/app/id6761892198";
+
 function aujourdhui() {
   return new Date().toISOString().slice(0, 10); // yyyy-mm-dd
 }
@@ -205,7 +209,7 @@ if (ig && Array.isArray(ig.slides)) {
 // ─────────────────────────────────────────────────────────────
 let md = `# Brouillon posts sociaux — ${sujet.id}\n\n`;
 md += `- Archétype : ${sujet.archetype}\n- Angle : ${sujet.angle}\n- Généré le : ${aujourdhui()}\n\n`;
-md += `> À relire et ajuster. Remplace [lien App Store] par ton lien (UTM).\n\n---\n\n`;
+md += `> À relire et ajuster avant publication. (Le lien App Store est déjà inséré.)\n\n---\n\n`;
 md += `## X (thread)\n\n${threadX}\n\n`;
 if (ig) {
   md += `## Instagram\n\n`;
@@ -218,6 +222,8 @@ if (ig) {
   md += `**Textes des slides :**\n\n`;
   md += (ig.slides || []).map((s, i) => `${i + 1}. **${s.title}** — ${s.body}`).join("\n") + "\n";
 }
+// Insère ton vrai lien App Store partout où le modèle a laissé le repère.
+md = md.replace(/\[lien App Store\]/gi, LIEN_APP_STORE);
 fs.writeFileSync(path.join(dossier, "post.md"), md, "utf8");
 
 // ─────────────────────────────────────────────────────────────
