@@ -297,6 +297,11 @@ function construireHTML(d, heroBlock, dHero, creditHTML, today) {
   <meta property="og:title" content="${echapHTML(d.titre)}">
   <meta property="og:description" content="${echapHTML(d.description)}">
   <meta property="og:image" content="https://pausecafe-app.fr/logo.png">
+  <meta property="og:site_name" content="PauseCafé">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${echapHTML(d.titre)}">
+  <meta name="twitter:description" content="${echapHTML(d.description)}">
+  <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"${d.titre.replace(/"/g,'\\"')}","author":{"@type":"Person","name":"Kévin Beguerie"},"publisher":{"@type":"Organization","name":"PauseCafé","url":"https://pausecafe-app.fr"},"datePublished":"${dHero}","dateModified":"${dHero}","mainEntityOfPage":"https://pausecafe-app.fr/blog/${d.slug}"}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
