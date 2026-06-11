@@ -5,7 +5,7 @@
     "angle": "Le café de l'après-midi qui gâche la nuit ; PauseCafé montre la caféine active restante au coucher.",
     "feature": "Caféine active",
     "source": "cafeine-sommeil",
-    "statut": "a_faire"
+    "statut": "genere"
   },
   {
     "id": "cafeine-active-cest-quoi",
