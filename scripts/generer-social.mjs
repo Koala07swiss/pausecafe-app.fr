@@ -244,22 +244,24 @@ fs.mkdirSync(dossier, { recursive: true });
 // ─────────────────────────────────────────────────────────────
 const lignesImages = [];
 const credits = [];
+let photoCouvUri = null;
+let photoFinUri = null;
 if (ig && Array.isArray(ig.slides)) {
   const total = ig.slides.length;
   const photos = await chargerPhotos(ig.photo_query, 2);
   for (const p of photos) if (p.credit) credits.push(p.credit);
-  const photoCouv = photos[0]?.dataUri || null;
-  const photoCta = photos[1]?.dataUri || photos[0]?.dataUri || null;
+  photoCouvUri = photos[0]?.dataUri || null;
+  photoFinUri = photos[1]?.dataUri || photos[0]?.dataUri || null;
 
   ig.slides.forEach((s, i) => {
     const estCouv = i === 0;
     const estCTA = i === total - 1;
     const base = { title: s.title || "", body: s.body || "", index: i + 1, total };
     let svg;
-    if (estCouv && photoCouv) {
-      svg = slidePhoto({ ...base, imgDataUri: photoCouv });
-    } else if (estCTA && photoCta) {
-      svg = slidePhoto({ ...base, cta: ig.cta || "Télécharge PauseCafé · App Store", imgDataUri: photoCta });
+    if (estCouv && photoCouvUri) {
+      svg = slidePhoto({ ...base, imgDataUri: photoCouvUri });
+    } else if (estCTA && photoFinUri) {
+      svg = slidePhoto({ ...base, cta: ig.cta || "Télécharge PauseCafé · App Store", imgDataUri: photoFinUri });
     } else {
       svg = slideTexte({ ...base, cta: estCTA ? ig.cta || "Télécharge PauseCafé · App Store" : null });
     }
@@ -298,8 +300,18 @@ fs.writeFileSync(path.join(dossier, "post.md"), md, "utf8");
 
 // Version structurée (à charger directement dans le Studio de slides).
 if (ig) {
-  const slidesJson = (ig.slides || []).map((s) => ({ title: s.title || "", body: s.body || "", cta: "" }));
-  if (slidesJson.length) slidesJson[slidesJson.length - 1].cta = ig.cta || "Télécharge PauseCafé · App Store";
+  const nbSlides = (ig.slides || []).length;
+  const slidesJson = (ig.slides || []).map((s, i) => {
+    const estCouv = i === 0;
+    const estFin = i === nbSlides - 1;
+    return {
+      title: s.title || "",
+      body: s.body || "",
+      cta: estFin ? ig.cta || "Télécharge PauseCafé · App Store" : "",
+      bg: estCouv || estFin ? "photo" : "fond",
+      photo: estCouv ? photoCouvUri : estFin ? photoFinUri : null,
+    };
+  });
   const postJson = {
     sujet: sujet.id,
     threadX: threadX.replace(/\[lien App Store\]/gi, LIEN_APP_STORE),
