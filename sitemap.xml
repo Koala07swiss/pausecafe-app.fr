@@ -3,25 +3,31 @@
   <!-- Pages principales -->
   <url>
     <loc>https://pausecafe-app.fr/</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://pausecafe-app.fr/cafeine-temps-reel.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://pausecafe-app.fr/analyses.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://pausecafe-app.fr/hydratation.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/sante.html</loc>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -96,13 +102,19 @@
   <!-- Pages légales -->
   <url>
     <loc>https://pausecafe-app.fr/privacy.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://pausecafe-app.fr/cgu.html</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/rgpd.html</loc>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
