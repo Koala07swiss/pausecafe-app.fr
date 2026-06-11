@@ -296,6 +296,22 @@ if (ig) {
 md = md.replace(/\[lien App Store\]/gi, LIEN_APP_STORE);
 fs.writeFileSync(path.join(dossier, "post.md"), md, "utf8");
 
+// Version structurée (à charger directement dans le Studio de slides).
+if (ig) {
+  const slidesJson = (ig.slides || []).map((s) => ({ title: s.title || "", body: s.body || "", cta: "" }));
+  if (slidesJson.length) slidesJson[slidesJson.length - 1].cta = ig.cta || "Télécharge PauseCafé · App Store";
+  const postJson = {
+    sujet: sujet.id,
+    threadX: threadX.replace(/\[lien App Store\]/gi, LIEN_APP_STORE),
+    slides: slidesJson,
+    caption: ig.caption || "",
+    hashtags: ig.hashtags || [],
+    visuel_x: ig.visuel_x || "",
+    photo_query: ig.photo_query || "",
+  };
+  fs.writeFileSync(path.join(dossier, "post.json"), JSON.stringify(postJson, null, 2) + "\n", "utf8");
+}
+
 // ─────────────────────────────────────────────────────────────
 //  7) Marquer le sujet comme généré
 // ─────────────────────────────────────────────────────────────
