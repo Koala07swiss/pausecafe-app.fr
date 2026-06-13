@@ -13,7 +13,7 @@
     "angle": "On croit le café 'passé' bien avant qu'il parte ; PauseCafé estime ce qu'il reste, minute par minute.",
     "feature": "Caféine active",
     "source": "standalone",
-    "statut": "a_faire"
+    "statut": "genere"
   },
   {
     "id": "complication-watch",
