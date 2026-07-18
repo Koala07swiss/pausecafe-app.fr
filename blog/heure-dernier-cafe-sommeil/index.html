@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À quelle heure arrêter le café pour ne pas gâcher votre nuit ? | PauseCafé</title>
+  <meta name="description" content="Demi-vie, seuils EFSA et calcul concret : découvrez comment déterminer votre heure-limite de café selon votre heure de coucher.">
+  <meta name="keywords" content="heure dernier café, café sommeil, caféine sommeil, heure limite caféine, coucher café, demi-vie caféine">
+  <link rel="canonical" href="https://pausecafe-app.fr/blog/heure-dernier-cafe-sommeil">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pausecafe-app.fr/blog/heure-dernier-cafe-sommeil">
+  <meta property="og:title" content="À quelle heure arrêter le café pour ne pas gâcher votre nuit ?">
+  <meta property="og:description" content="Demi-vie, seuils EFSA et calcul concret : découvrez comment déterminer votre heure-limite de café selon votre heure de coucher.">
+  <meta property="og:image" content="https://pausecafe-app.fr/logo.png">
+  <meta property="og:site_name" content="PauseCafé">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="À quelle heure arrêter le café pour ne pas gâcher votre nuit ?">
+  <meta name="twitter:description" content="Demi-vie, seuils EFSA et calcul concret : découvrez comment déterminer votre heure-limite de café selon votre heure de coucher.">
+  <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"À quelle heure arrêter le café pour ne pas gâcher votre nuit ?","author":{"@type":"Person","name":"Kévin Beguerie"},"publisher":{"@type":"Organization","name":"PauseCafé","url":"https://pausecafe-app.fr"},"datePublished":"2026-07-13","dateModified":"2026-07-13","mainEntityOfPage":"https://pausecafe-app.fr/blog/heure-dernier-cafe-sommeil"}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--cafe:#2C1810;--cream:#F5EDD6;--espresso:#1A0F0A;--caramel:#C4873A;--mousse:#E8D5B0;}
+    *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--cafe);overflow-x:hidden;line-height:1.7;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 48px;background:rgba(245,237,214,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(196,135,58,0.2);}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--cafe);text-decoration:none;display:flex;align-items:center;gap:10px;}
+    .nav-logo img{width:32px;height:32px;border-radius:8px;}
+    .nav-back{font-size:0.82rem;color:var(--cafe);text-decoration:none;opacity:0.6;}
+    .article-hero{background:var(--espresso);padding:140px 48px 80px;position:relative;overflow:hidden;}
+    .article-hero::before{content:'☕';position:absolute;font-size:22vw;right:-2vw;top:50%;transform:translateY(-50%);opacity:0.05;pointer-events:none;}
+    .hero-inner{max-width:780px;margin:0 auto;}
+    .article-cat{display:inline-block;background:var(--caramel);color:white;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:24px;}
+    .article-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.12;color:var(--cream);margin-bottom:20px;}
+    .article-meta{display:flex;gap:20px;flex-wrap:wrap;}
+    .meta-item{font-size:0.82rem;color:rgba(245,237,214,0.5);}
+    .meta-sep{color:rgba(245,237,214,0.2);}
+    .hero-image-wrap{padding:0 48px;margin-top:-40px;}
+    .hero-image-wrap img{width:100%;max-width:900px;display:block;margin:0 auto;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+    .hero-credit{max-width:900px;margin:8px auto 0;text-align:right;font-size:0.72rem;color:#9E8070;}
+    .hero-credit a{color:#9E8070;}
+    .article-body{max-width:780px;margin:0 auto;padding:64px 48px 80px;}
+    .article-body h2{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:var(--cafe);margin:48px 0 16px;line-height:1.2;}
+    .article-body h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--cafe);margin:32px 0 12px;}
+    .article-body p{font-size:1rem;line-height:1.85;color:#3D2010;margin-bottom:20px;font-weight:300;}
+    .article-body strong{font-weight:500;color:var(--cafe);}
+    .article-body a{color:var(--caramel);text-decoration:underline;text-underline-offset:2px;}
+    .article-body ul,ol{padding-left:24px;margin-bottom:20px;}
+    .article-body li{font-size:1rem;line-height:1.8;color:#3D2010;font-weight:300;margin-bottom:6px;}
+    .highlight-box{background:white;border-left:4px solid var(--caramel);border-radius:0 12px 12px 0;padding:20px 24px;margin:32px 0;box-shadow:0 4px 16px rgba(44,24,16,0.06);}
+    .highlight-box p{margin:0;font-size:0.95rem;color:#3D2010;}
+    .range-viz{background:white;border-radius:16px;padding:28px;margin:32px 0;box-shadow:0 4px 16px rgba(44,24,16,0.06);}
+    .range-viz h4{font-size:0.85rem;color:#9E8070;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:20px;}
+    .range-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+    .range-label{font-size:0.8rem;color:var(--cafe);min-width:160px;}
+    .range-track{position:relative;flex:1;height:16px;background:#F0E9D8;border-radius:100px;}
+    .range-fill{position:absolute;height:16px;border-radius:100px;background:var(--caramel);}
+    .range-val{font-size:0.78rem;color:#9E8070;min-width:78px;text-align:right;}
+    .range-scale{font-size:0.72rem;color:#B0A088;margin-top:6px;font-style:italic;}
+    .profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0;}
+    .profile-card{background:white;border-radius:12px;padding:20px;box-shadow:0 4px 12px rgba(44,24,16,0.06);}
+    .profile-card h4{font-size:0.9rem;font-weight:500;color:var(--cafe);margin-bottom:8px;}
+    .profile-card p{font-size:0.82rem;color:#5C4033;font-weight:300;margin:0;line-height:1.6;}
+    .profile-icon{font-size:1.8rem;margin-bottom:8px;}
+    .sources-section{background:var(--mousse);border-radius:16px;padding:28px 32px;margin-top:48px;}
+    .sources-section h4{font-size:0.85rem;font-weight:500;color:var(--cafe);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.08em;}
+    .sources-section ul{list-style:none;padding:0;}
+    .sources-section li{font-size:0.82rem;color:#5C4033;margin-bottom:6px;padding-left:16px;position:relative;}
+    .sources-section li::before{content:'→';position:absolute;left:0;color:var(--caramel);}
+    .cta-section{background:var(--espresso);border-radius:20px;padding:48px 40px;text-align:center;margin-top:64px;position:relative;overflow:hidden;}
+    .cta-section::before{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(196,135,58,0.12) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);}
+    .cta-section h3{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--cream);margin-bottom:12px;position:relative;}
+    .cta-section p{color:rgba(245,237,214,0.6);margin-bottom:32px;font-weight:300;position:relative;}
+    .cta-badge img{height:56px;width:auto;display:block;}
+    .cta-badge{display:inline-block;transition:opacity 0.2s,transform 0.2s;}
+    .cta-badge:hover{opacity:0.85;transform:translateY(-2px);}
+    .related{margin-top:64px;}
+    .related h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--cafe);margin-bottom:24px;}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+    .related-card{background:var(--espresso);border-radius:12px;padding:20px;text-decoration:none;transition:transform 0.2s;}
+    .related-card:hover{transform:translateY(-2px);}
+    .related-card .r-cat{font-size:0.7rem;color:var(--caramel);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;}
+    .related-card .r-title{font-size:0.9rem;font-weight:500;color:var(--cream);line-height:1.35;}
+    footer{background:var(--espresso);color:var(--cream);padding:48px;text-align:center;}
+    footer p{font-size:0.82rem;opacity:0.4;}footer a{color:var(--caramel);text-decoration:none;}
+    @media(max-width:768px){nav{padding:12px 20px;}.article-hero{padding:110px 24px 60px;}.hero-image-wrap{padding:0 24px;}.article-body{padding:40px 24px 60px;}.profile-grid{grid-template-columns:1fr;}.range-label{min-width:108px;font-size:0.72rem;}.range-val{min-width:64px;font-size:0.72rem;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="https://pausecafe-app.fr" class="nav-logo"><img src="/logo.png" alt="PauseCafé">PauseCafé</a>
+  <a href="/blog" class="nav-back">← Tous les articles</a>
+</nav>
+
+<section class="article-hero">
+  <div class="hero-inner">
+    <span class="article-cat">Conseils pratiques</span>
+    <h1>À quelle heure arrêter le café pour ne pas gâcher votre nuit ?</h1>
+    <div class="article-meta">
+      <span class="meta-item">13 juillet 2026</span>
+      <span class="meta-sep">·</span>
+      <span class="meta-item">7 min de lecture</span>
+      <span class="meta-sep">·</span>
+      <span class="meta-item">Par Kévin Beguerie</span>
+    </div>
+  </div>
+</section>
+
+<div class="hero-image-wrap">
+  <img src="https://images.unsplash.com/photo-1566392665193-f7b00b714cf0?ixid=M3w5NjMyMjN8MHwxfHNlYXJjaHwxfHxjb2ZmZWUlMjBjdXAlMjBhZnRlcm5vb24lMjBjbG9ja3xlbnwwfDB8fHwxNzgzOTM5MjcxfDA&ixlib=rb-4.1.0&w=900&q=80&fm=jpg&fit=crop" alt="Une tasse de café posée sur une table, avec une horloge en arrière-plan indiquant l'heure de l'après-midi" loading="lazy">
+</div>
+<p class="hero-credit">Photo : <a href="https://unsplash.com/@sixteenmilesout?utm_source=pausecafe&utm_medium=referral" target="_blank" rel="noopener">Sixteen Miles Out</a> / <a href="https://unsplash.com/?utm_source=pausecafe&utm_medium=referral" target="_blank" rel="noopener">Unsplash</a></p>
+
+<article class="article-body">
+
+<p>Vous vous couchez à une heure raisonnable, vous n'avez pas bu de café le soir… et pourtant vous vous réveillez moins reposé que prévu. L'explication tient souvent en un seul mot : <strong>le timing</strong>. Non pas la quantité de caféine, mais le moment de la journée où vous la consommez. Car la caféine ne disparaît pas magiquement une heure après votre expresso : elle continue d'agir dans votre organisme bien après que vous ayez oublié la tasse.</p>
+
+<p>Cet article vous propose un calcul simple et personnalisable pour déterminer votre heure-limite, fondé sur la pharmacocinétique réelle de la caféine et les recommandations des autorités sanitaires européennes. Pas de règle universelle rigide — mais une méthode pour trouver la vôtre.</p>
+
+<h2>Pourquoi l'heure compte autant que la dose</h2>
+
+<p>La caféine agit principalement en <strong>bloquant les récepteurs de l'adénosine</strong>, une molécule qui s'accumule naturellement dans le cerveau au fil de la journée et envoie le signal de somnolence. Tant que la caféine occupe ces récepteurs, votre corps reçoit un message erroné : « pas encore l'heure de dormir ». Mais il ne s'agit pas seulement de l'endormissement. Des études en polysomnographie montrent que la caféine modifie aussi l'architecture du sommeil, en particulier ses phases les plus réparatrices.</p>
+
+<div class="highlight-box"><p>🔬 <strong>Résultat clé :</strong> Une dose de 400 mg de caféine prise 6 heures avant le coucher a provoqué des effets perturbateurs importants sur le sommeil — et les participants ne percevaient pas cette perturbation. — Drake et al., 2013, <em>Journal of Clinical Sleep Medicine</em></p></div>
+
+<p>Ce résultat est particulièrement instructif : <strong>vous pouvez vous sentir « bien endormi » tout en ayant un sommeil objectivement dégradé</strong>. Des études mesurant les ondes cérébrales pendant le sommeil montrent que la caféine réduit l'activité delta — soit les ondes du sommeil lent profond — même lorsqu'elle est consommée plusieurs heures avant le coucher. Or c'est précisément cette phase de sommeil profond qui assure la récupération physique et la consolidation mémorielle.</p>
+
+<p>Une méta-analyse portant sur 24 études a par ailleurs chiffré l'impact moyen de la caféine sur le sommeil : réduction du temps de sommeil total d'environ 45 minutes, baisse de l'efficacité du sommeil de 7 %, et allongement du temps d'endormissement d'environ 9 minutes. Ces chiffres sont des moyennes — la variabilité individuelle est très importante — mais ils donnent un ordre de grandeur concret.</p>
+
+<h2>La demi-vie de la caféine : comprendre ce qui reste dans votre corps</h2>
+
+<p>La <strong>demi-vie</strong> d'une substance, c'est le temps nécessaire pour que votre organisme en élimine la moitié. Pour la caféine, cette durée varie considérablement selon les individus. Elle peut aller de 2 à 10 heures chez des adultes en bonne santé, ce qui rend toute recommandation universelle difficile à établir. Chez la plupart des adultes sans facteur particulier, elle se situe généralement entre 3 et 7 heures.</p>
+
+<div class="profile-grid">
+  <div class="profile-card">
+    <div class="profile-icon">⚡</div>
+    <h4>Métaboliseurs rapides</h4>
+    <p>Demi-vie : environ 3 à 4 heures. Souvent associé à une variante génétique du gène CYP1A2. Ces personnes éliminent la caféine plus vite et peuvent tolérer une consommation un peu plus tardive.</p>
+  </div>
+  <div class="profile-card">
+    <div class="profile-icon">🐢</div>
+    <h4>Métaboliseurs lents</h4>
+    <p>Demi-vie : 6 heures ou plus. Un café de 14 h peut encore peser sur le sommeil à minuit. Ces profils ont intérêt à avancer leur heure-limite de 1 à 2 heures supplémentaires.</p>
+  </div>
+  <div class="profile-card">
+    <div class="profile-icon">💊</div>
+    <h4>Contraception orale</h4>
+    <p>Les œstrogènes ralentissent le métabolisme de la caféine, pouvant presque doubler sa demi-vie. Une femme sous pilule combinée devrait prévoir une marge de sécurité plus large, de 8 à 10 heures avant le coucher.</p>
+  </div>
+  <div class="profile-card">
+    <div class="profile-icon">🌙</div>
+    <h4>Horaires décalés</h4>
+    <p>Les travailleurs en horaires postés ne peuvent pas raisonner en heure fixe. L'enjeu est de compter 6 à 8 heures avant leur vrai coucher, quelle que soit l'heure de la journée.</p>
+  </div>
+</div>
+
+<p>Ces variations ont une base génétique documentée : des différences dans l'expression du gène <strong>CYP1A2</strong> — l'enzyme hépatique principale du métabolisme de la caféine — et du récepteur à l'adénosine ADORA2A moduleraient à la fois la vitesse d'élimination et la sensibilité aux effets de la molécule. Autrement dit, votre rapport personnel à la caféine n'est pas qu'une question d'habitude ou de volonté.</p>
+
+<h2>Le calcul pratique : trouvez votre heure-limite</h2>
+
+<p>Voici la méthode concrète. Elle repose sur un objectif simple : <strong>avoir moins de 100 mg de caféine active dans votre organisme au moment de vous coucher</strong>. Pourquoi 100 mg ? C'est le seuil en dessous duquel les autorités sanitaires (EFSA) estiment que l'impact sur le sommeil devient marginal pour la plupart des adultes. Ce n'est pas une garantie absolue, mais un repère raisonnable.</p>
+
+<h3>Étape 1 — Estimez la dose de votre dernière consommation</h3>
+
+<div class="range-viz">
+  <h4>Teneur en caféine selon la boisson</h4>
+  <div class="range-row">
+    <span class="range-label">Espresso (30 ml)</span>
+    <div class="range-track"><div class="range-fill" style="left:20%;width:23%;"></div></div>
+    <span class="range-val">60–90 mg</span>
+  </div>
+  <div class="range-row">
+    <span class="range-label">Café filtre (200 ml)</span>
+    <div class="range-track"><div class="range-fill" style="left:27%;width:33%;"></div></div>
+    <span class="range-val">80–120 mg</span>
+  </div>
+  <div class="range-row">
+    <span class="range-label">Café allongé / Americano</span>
+    <div class="range-track"><div class="range-fill" style="left:20%;width:40%;"></div></div>
+    <span class="range-val">60–150 mg</span>
+  </div>
+  <div class="range-row">
+    <span class="range-label">Thé noir (200 ml)</span>
+    <div class="range-track"><div class="range-fill" style="left:7%;width:13%;"></div></div>
+    <span class="range-val">20–50 mg</span>
+  </div>
+  <div class="range-row">
+    <span class="range-label">Boisson énergisante (250 ml)</span>
+    <div class="range-track"><div class="range-fill" style="left:23%;width:43%;"></div></div>
+    <span class="range-val">70–160 mg</span>
+  </div>
+  <p class="range-scale">Échelle : 0 à 300 mg. Sources : EFSA (2015), bases de données composition nutritionnelle.</p>
+</div>
+
+<h3>Étape 2 — Appliquez la demi-vie à votre profil</h3>
+
+<p>Prenons un exemple concret avec une demi-vie moyenne de 5 heures (hypothèse centrale, valeur médiane couramment retenue) :</p>
+
+<ul>
+  <li>Vous buvez un café filtre à <strong>15 h</strong> → environ 100 mg de caféine.</li>
+  <li>À 20 h (5 heures plus tard) : il en reste environ <strong>50 mg</strong>.</li>
+  <li>À 22 h (7 heures plus tard) : environ <strong>35 mg</strong>.</li>
+  <li>Si votre coucher est à 22 h 30 : vous serez sous les 100 mg — dans la zone raisonnablement sûre.</li>
+</ul>
+
+<p>Maintenant, si vous buvez un grand café allongé contenant 150 mg à <strong>17 h</strong> :</p>
+
+<ul>
+  <li>À 22 h (5 heures plus tard) : environ <strong>75 mg</strong> restants.</li>
+  <li>À 23 h : environ <strong>60 mg</strong>.</li>
+  <li>Pour un coucher à 23 h, cela reste inférieur à 100 mg — mais la marge de sécurité est mince si votre métabolisme est plus lent que la moyenne.</li>
+</ul>
+
+<p>La règle empirique qui ressort de la littérature scientifique : <strong>prévoir une fenêtre d'au moins 6 heures entre votre dernière consommation et l'heure du coucher</strong>, avec une marge supplémentaire si votre dose dépasse 100 mg ou si vous êtes un métaboliseur lent. Pour des consommations modérées (un expresso ou un thé), une fenêtre de 4 à 5 heures peut suffire chez les métaboliseurs rapides — mais ce profil est difficile à identifier sans test génétique.</p>
+
+<h3>Étape 3 — Calculez votre heure-limite personnelle</h3>
+
+<ol>
+  <li>Notez votre heure de coucher cible (ex. : 23 h).</li>
+  <li>Soustrayez 6 heures (règle de base) → heure-limite : <strong>17 h</strong>.</li>
+  <li>Si vous êtes métaboliseur lent, prenez des contraceptifs oraux, ou si votre dose habituelle dépasse 150 mg, soustrayez 7 à 8 heures → heure-limite : <strong>15 h – 16 h</strong>.</li>
+  <li>Si vous n'êtes pas sûr de votre profil, partez sur la fenêtre de 7 heures par prudence.</li>
+</ol>
+
+<div class="highlight-box"><p>🔬 <strong>À retenir :</strong> La méta-analyse de Gardiner et al. (2023, <em>Sleep Medicine Reviews</em>) portant sur 24 études a établi que la consommation de caféine réduisait en moyenne le temps de sommeil total de <strong>45 minutes</strong> et l'efficacité du sommeil de <strong>7 %</strong>, avec un allongement du temps d'endormissement d'environ <strong>9 minutes</strong>.</p></div>
+
+<h2>Le piège de la tolérance : « moi, ça ne m'empêche pas de dormir »</h2>
+
+<p>C'est l'un des arguments les plus fréquents — et l'un des plus documentés dans la littérature scientifique. Des études polysomnographiques montrent que <strong>les consommateurs réguliers de caféine peuvent croire sincèrement que leur sommeil n'est pas affecté</strong>, alors que des mesures objectives révèlent une réduction du sommeil profond. En d'autres termes, la tolérance développée par le cerveau (voir notre article sur la <a href="/blog/cafeine-demi-vie-duree">pharmacocinétique de la caféine</a>) atténue la perception subjective de l'éveil, sans nécessairement protéger la qualité réelle du sommeil.</p>
+
+<p>Cela ne signifie pas qu'il faut supprimer totalement la caféine — mais que l'auto-évaluation est un outil imparfait.</p>
+
+<p>Pour les personnes qui souhaitent mieux comprendre leur lien entre caféine et stress ou niveau de cortisol en fin de journée, notre article sur la <a href="/blog/cafeine-cortisol-stress">caféine et le cortisol</a> apporte des éléments complémentaires utiles.</p>
+
+<h2>Que boire après l'heure-limite ?</h2>
+
+<p>La bonne nouvelle : la coupure caféinée n'implique pas de renoncer au rituel de la boisson chaude. Plusieurs alternatives permettent de conserver ce moment sans impacter le sommeil :</p>
+
+<ul>
+  <li><strong>Tisanes</strong> (camomille, tilleul, valériane, verveine) : naturellement sans caféine, certaines ont des propriétés légèrement apaisantes.</li>
+  <li><strong>Chicorée</strong> : saveur proche du café, sans caféine.</li>
+  <li><strong>Rooibos</strong> : infusion d'Afrique du Sud, naturellement sans caféine ni tanins en excès.</li>
+  <li><strong>Décaféiné</strong> : attention, il contient encore 2 à 5 mg de caféine par tasse — quantité généralement négligeable, mais à noter si vous êtes très sensible.</li>
+  <li><strong>Eau chaude citronnée</strong> : neutre et hydratante, idéale le soir (voir aussi notre guide sur <a href="/blog/boire-plus-eau-astuces">comment boire plus d'eau au quotidien</a>).</li>
+</ul>
+
+<p>Il n'existe pas de solution universelle, mais ces options permettent de maintenir un rituel du soir sans compromettre la qualité du sommeil.</p>
+
+<h2>L'application PauseCafé : voir la caféine active au coucher</h2>
+
+<p>Déterminer son heure-limite « à la main » demande un minimum de calcul. C'est précisément pour cela que la fonctionnalité <strong>caféine active</strong> de PauseCafé vous indique en temps réel la quantité de caféine encore présente dans votre organisme à n'importe quel moment de la journée, en tenant compte de vos consommations enregistrées et d'une demi-vie paramétrée selon votre profil.</p>
+
+<p>Ainsi, au moment où vous envisagez votre prochaine tasse en fin d'après-midi, vous pouvez voir directement quelle sera votre charge estimée au coucher — et décider en connaissance de cause. Pas de culpabilité, juste de la clarté.</p>
+
+<p>Pour les personnes qui souhaitent aussi mieux gérer leur consommation globale, notre article sur <a href="/blog/reduire-cafeine-sans-craquer">réduire la caféine sans craquer</a> propose des stratégies progressives et bienveillantes.</p>
+
+<h2>En résumé : les points clés à retenir</h2>
+
+<ul>
+  <li>La caféine a une demi-vie de <strong>3 à 7 heures</strong> selon les individus — elle reste active bien après la dernière gorgée.</li>
+  <li>Une consommation prise 6 heures avant le coucher peut provoquer des perturbations importantes du sommeil, sans que vous le perceviez forcément.</li>
+  <li>La règle pratique : <strong>au moins 6 heures entre votre dernière caféine et votre coucher</strong>, avec une marge supplémentaire si votre dose est élevée ou votre métabolisme lent.</li>
+  <li>L'objectif : passer sous les <strong>100 mg de caféine active</strong> au moment de vous coucher.</li>
+  <li>La tolérance atténue la perception de l'impact sur le sommeil, pas l'impact lui-même.</li>
+  <li>Votre profil (génétique, âge, contraception, tabac) influence fortement votre fenêtre optimale.</li>
+</ul>
+
+  <div class="sources-section">
+    <h4>Sources scientifiques</h4>
+    <ul>
+<li>Drake C., Roehrs T., Shambroom J., Roth T. (2013). Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed. <em>Journal of Clinical Sleep Medicine</em>, 9(11), 1195–1200. doi:10.5664/jcsm.3170</li><li>Gardiner C., Weakley J., Burke L.M. et al. (2023). The effect of caffeine on subsequent sleep: a systematic review and meta-analysis. <em>Sleep Medicine Reviews</em>, 69, 101764.</li><li>Kocak A., Georgousopoulou E., Knight-Agarwal C.R., Matthews R., Minehan M. (2025). The effect of consuming caffeine before late afternoon/evening training or competition on sleep: a systematic review with meta-analysis. <em>Sports</em>, 13(9), 317. doi:10.3390/sports13090317</li><li>EFSA Panel on Dietetic Products, Nutrition and Allergies (2015). Scientific Opinion on the safety of caffeine. <em>EFSA Journal</em>, 13(5), 4102.</li><li>Heckman M.A., Weil J., Gonzalez de Mejia E. (2010). Caffeine (1, 3, 7-trimethylxanthine) in foods: a comprehensive review on consumption, functionality, safety, and regulatory matters. <em>Journal of Food Science</em>, 75(3), R77–R87.</li>
+    </ul>
+  </div>
+
+  <div class="disclaimer-box" style="background:#FBF5E9;border:1px solid rgba(196,135,58,0.35);border-radius:12px;padding:18px 22px;margin-top:48px;">
+    <p style="margin:0;font-size:0.82rem;line-height:1.6;color:#5C4033;">
+      <strong>⚕️ Information importante.</strong> Cet article a une vocation purement informative et de bien-être. Il ne constitue pas un avis médical, un diagnostic ou une prescription. Les effets de la caféine varient d'une personne à l'autre. En cas de question sur votre consommation, de symptôme, de grossesse, de traitement médical ou de problème de santé, consultez un professionnel de santé (médecin, pharmacien). Ne modifiez pas un traitement sur la seule base de cet article.
+    </p>
+  </div>
+
+  <div class="cta-section">
+    <h3>Arrêtez d'estimer. Mesurez.</h3>
+    <p>PauseCafé enregistre la teneur réelle en caféine de chaque boisson pour un cumul du jour fiable. Gratuit, sans pub.</p>
+    <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" rel="noopener" class="cta-badge">
+      <img src="/app-store-badge-fr.svg" alt="Télécharger PauseCafé sur l'App Store">
+    </a>
+  </div>
+
+  <div class="related">
+    <h3>Articles connexes</h3>
+    <div class="related-grid">
+      <a href="/blog/cafeine-sommeil" class="related-card"><div class="r-cat">Santé</div><div class="r-title">Caféine et sommeil : comment ça marche ?</div></a>
+      <a href="/blog/cafeine-demi-vie-duree" class="related-card"><div class="r-cat">Études scientifiques</div><div class="r-title">Demi-vie de la caféine : combien de temps reste-t-elle active ?</div></a>
+      <a href="/blog/reduire-cafeine-sans-craquer" class="related-card"><div class="r-cat">Conseils pratiques</div><div class="r-title">Réduire la caféine sans craquer</div></a>
+    </div>
+  </div>
+
+</article>
+<footer><p>© 2026 PauseCafé · <a href="https://pausecafe-app.fr">pausecafe-app.fr</a> · <a href="/blog">Tous les articles</a></p></footer>
+</body>
+</html>
