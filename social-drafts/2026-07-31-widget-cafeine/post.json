@@ -1,0 +1,56 @@
+{
+  "sujet": "widget-cafeine",
+  "threadX": "1/ Ton écran d'accueil te dit l'heure, la météo… mais combien de caféine il te reste ? ☕\n2/ La plupart des gens gèrent ça de tête. « Mon café date de 2 h, ça va. » Sauf que la demi-vie de la caféine est ~5 h. De tête, c'est approximatif.\n3/ PauseCafé a un widget iPhone : tu vois la caféine encore active dans ton corps sans ouvrir l'app. Un chiffre, une tendance, un coup d'œil.\n4/ En hausse = tu as bu récemment, la caféine monte encore. En descente = elle s'élimine. Tu sais où tu en es avant de commander une autre tasse.\n5/ C'est utile surtout en fin d'après-midi : est-ce que ce café supplémentaire va encore être là à 23h ? Le widget te donne le contexte immédiat.\n6/ Toutes les données restent sur ton appareil, synchronisées avec l'app Santé d'Apple. Rien sur un serveur. 🔒\n7/ Essaie le widget PauseCafé — disponible sur l'App Store 👉 https://apps.apple.com/app/id6761892198",
+  "slides": [
+    {
+      "title": "Ta caféine, sur ton écran d'accueil",
+      "body": "Plus besoin d'ouvrir une app. Le widget PauseCafé te donne la tendance en un coup d'œil.",
+      "cta": "",
+      "bg": "photo",
+      "photo": null
+    },
+    {
+      "title": "La caféine, ça se calcule pas de tête",
+      "body": "Demi-vie ~5 h, plusieurs tasses par jour : impossible d'estimer où tu en es sans un outil.",
+      "cta": "",
+      "bg": "fond",
+      "photo": null
+    },
+    {
+      "title": "Un chiffre, une flèche, tout de suite",
+      "body": "Caféine en hausse ou en baisse ? Le widget l'affiche en temps réel, sans que tu ouvres quoi que ce soit.",
+      "cta": "",
+      "bg": "fond",
+      "photo": null
+    },
+    {
+      "title": "Utile avant ce café de 16h",
+      "body": "En un regard tu sais si une tasse de plus sera encore là à 23h. Indicatif, pour décider en connaissance de cause.",
+      "cta": "",
+      "bg": "fond",
+      "photo": null
+    },
+    {
+      "title": "Installe le widget, reprends la main",
+      "body": "Données locales, synchro app Santé Apple. PauseCafé sur l'App Store.",
+      "cta": "Télécharge PauseCafé · App Store",
+      "bg": "photo",
+      "photo": null
+    }
+  ],
+  "caption": "Et si ton écran d'accueil t'indiquait aussi ta caféine encore active ? Le widget PauseCafé affiche la tendance en temps réel — sans ouvrir l'app. Indicatif, bien-être, données sur ton appareil via l'app Santé Apple. 👉 lien en bio.",
+  "hashtags": [
+    "#widget",
+    "#iPhone",
+    "#caféine",
+    "#café",
+    "#bienêtre",
+    "#sommeil",
+    "#AppleHealth",
+    "#habitudes",
+    "#coffeelover",
+    "#santé"
+  ],
+  "visuel_x": "Screenshot de l'écran d'accueil iPhone avec le widget PauseCafé visible, affichant la caféine active et la flèche de tendance.",
+  "photo_query": "iPhone home screen morning coffee desk"
+}
