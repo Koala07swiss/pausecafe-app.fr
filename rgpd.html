@@ -7,6 +7,12 @@
     <!-- ══ Métadonnées : SEO + partage social + découvrabilité IA ══ -->
     <meta name="description" content="Tes droits RGPD et comment les exercer dans PauseCafé.">
     <link rel="canonical" href="https://pausecafe-app.fr/rgpd.html">
+    <!-- Versions linguistiques : indique a Google que ces deux pages sont
+         la MEME page en deux langues, et non du contenu duplique. -->
+    <link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/rgpd.html">
+    <link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/gdpr.html">
+    <link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/rgpd.html">
+
 
     <!-- Open Graph (Facebook, LinkedIn, iMessage, WhatsApp…) -->
     <meta property="og:type" content="website">
@@ -23,19 +29,12 @@
     <meta name="twitter:description" content="Tes droits RGPD et comment les exercer dans PauseCafé.">
     <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">    <link rel="stylesheet" href="/base.css">
+
     <style>
-        :root { --cafe: #2C1810; --cream: #F6E1C8; --caramel: #C4873A; --mousse: #E8D5B0; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'DM Sans', sans-serif; background: var(--mousse); color: var(--cafe); min-height: 100vh; }
-        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: #F6E1C8; border-bottom: 1px solid rgba(196, 135, 58, 0.2); }
-        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--cafe); text-decoration: none; display: flex; align-items: center; gap: 10px; }
-        .nav-logo-img { width: 32px; height: 32px; object-fit: contain; border-radius: 8px; }
-        .nav-back { font-size: 0.85rem; font-weight: 500; color: var(--cafe); text-decoration: none; opacity: 0.6; transition: opacity 0.2s; }
-        .nav-back:hover { opacity: 1; }
-        .container { max-width: 680px; margin: 0 auto; padding: 120px 48px 80px; }
+
         .contact-box { background: white; border-radius: 20px; padding: 48px; box-shadow: 0 8px 30px rgba(44,24,16,0.08); }
-        h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; color: var(--cafe); margin-bottom: 12px; }
+
         .subtitle { font-size: 0.9rem; opacity: 0.65; margin-bottom: 32px; font-weight: 300; line-height: 1.7; }
         .info-box { background: rgba(196,135,58,0.08); border-left: 3px solid var(--caramel); padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 32px; font-size: 0.85rem; line-height: 1.7; opacity: 0.8; }
         .form-group { margin-bottom: 20px; }
@@ -52,20 +51,25 @@
         .alternatives { margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(44,24,16,0.1); }
         .alternatives h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 16px; }
         .alt-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; font-size: 0.85rem; opacity: 0.75; }
-        footer { text-align: center; padding: 40px 24px; font-size: 0.8rem; opacity: 0.4; }
+
         @media (max-width: 768px) { nav { padding: 16px 24px; } .container { padding: 100px 24px 60px; } .contact-box { padding: 32px 24px; } }
     </style>
 </head>
 <body>
 <nav>
-    <a href="https://pausecafe-app.fr" class="nav-logo">
-        <img src="logo.png" alt="PauseCafé" class="nav-logo-img">
+    <a href="/" class="nav-logo">
+        <img src="/logo.png" alt="PauseCafé" class="nav-logo-img">
         PauseCafé
     </a>
-    <a href="https://pausecafe-app.fr" class="nav-back">← Retour au site</a>
+    <a href="/" class="nav-back">← Retour au site</a>
+    <span class="lang-switch">
+        <a href="/rgpd.html" aria-current="true" hreflang="fr">FR</a>
+        <span class="sep">/</span>
+        <a href="/en/gdpr.html" hreflang="en">EN</a>
+    </span>
 </nav>
 
-<div class="container">
+<div class="page-legale">
     <div class="contact-box">
         <h1>🔒 Exercer tes droits RGPD</h1>
         <p class="subtitle">Conformément au RGPD, tu peux demander la suppression de ton compte, l'export de tes données, ou la rectification de tes informations. Nous te répondrons sous 30 jours.</p>
@@ -116,7 +120,17 @@
     </div>
 </div>
 
-<footer>© 2026 PauseCafé. Tous droits réservés.</footer>
+<footer>
+    <div class="footer-links">
+        <a href="/">Accueil</a>
+        <a href="/blog">Articles</a>
+        <a href="/cgu.html">CGU</a>
+        <a href="/privacy.html">Confidentialité</a>
+        <a href="/rgpd.html">RGPD</a>
+        <a href="mailto:hello@pausecafe-app.fr">Contact</a>
+    </div>
+    <div class="footer-bottom">© 2026 PauseCafé — Information de bien-être, non médicale.</div>
+</footer>
 
 <script>
     function envoyerFormulaire(e) {
