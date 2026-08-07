@@ -9,6 +9,12 @@
     <meta name="description" content="Suis ta caféine et ton hydratation, et vois en temps réel la caféine encore active dans ton corps, sur iPhone et Apple Watch. Bien-être, non médical.">
     <meta name="keywords" content="suivi caféine, tracker café, hydratation, caféine active, caféine résiduelle, Apple Watch café, sommeil caféine, app bien-être">
     <link rel="canonical" href="https://pausecafe-app.fr/">
+    <!-- Versions linguistiques : indique a Google que ces deux pages sont
+         la MEME page en deux langues, et non du contenu duplique. -->
+    <link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/">
+    <link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/">
+    <link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/">
+
 
     <!-- Open Graph (Facebook, LinkedIn, iMessage, WhatsApp…) -->
     <meta property="og:type" content="website">
@@ -53,14 +59,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/base.css">
     <style>
         :root { --cafe: #2C1810; --cream: #F6E1C8; --espresso: #1A0F0A; --caramel: #C4873A; --mousse: #E8D5B0; --purple: #6B3FA0; --purple-light: #9B6FD0; --blue: #378ADD; --blue-light: #6BAEEC; --text: #1A0F0A; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
         nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; background: #F6E1C8; border-bottom: 1px solid rgba(196, 135, 58, 0.2); }
         .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--cafe); text-decoration: none; cursor: pointer; display: flex; align-items: center; gap: 10px; }
-        .nav-logo-img { width: 36px; height: 36px; object-fit: contain; border-radius: 8px; }
         .nav-links { display: flex; gap: 28px; list-style: none; }
         .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--cafe); text-decoration: none; opacity: 0.7; transition: opacity 0.2s; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; }
         .nav-links a:hover { opacity: 1; }
@@ -94,7 +97,6 @@
         .hero-content { max-width: 680px; position: relative; z-index: 1; }
         .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--caramel); color: white; padding: 6px 16px; border-radius: 100px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 32px; animation: fadeUp 0.6s ease both; }
         .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 900; line-height: 1.05; color: var(--cafe); margin-bottom: 24px; animation: fadeUp 0.6s ease 0.1s both; }
-        .hero h1 span { color: var(--caramel); font-style: italic; }
         .hero h1 .blue-accent { color: var(--blue); }
         .hero p { font-size: 1.15rem; line-height: 1.7; color: var(--cafe); opacity: 0.75; margin-bottom: 48px; max-width: 520px; font-weight: 300; animation: fadeUp 0.6s ease 0.2s both; }
         .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; animation: fadeUp 0.6s ease 0.3s both; }
@@ -201,8 +203,7 @@
         .back-btn:hover { opacity: 1; }
         #main-content { display: block; }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 768px) {
-            nav { padding: 12px 24px; } .nav-links { display: none; } .burger-btn { display: flex; }
+        @media (max-width: 768px) { .nav-links { display: none; } .burger-btn { display: flex; }
             .hero { padding: 100px 24px 60px; }
             .hero-logo-bg { width: 80vw; right: 50%; transform: translate(50%, -50%); opacity: 0.08; top: 30%; }
             .features, .normes, .download, .premium, .showcase { padding: 60px 24px; }
@@ -233,6 +234,11 @@
         <li><a onclick="showMain('normes')">Normes</a></li>
         <li><a href="/blog">Articles</a></li>
         <li><a href="changelog.html">Nouveautés</a></li>
+        <li><span class="lang-switch">
+            <a href="/" aria-current="true" hreflang="fr">FR</a>
+            <span class="sep">/</span>
+            <a href="/en/" hreflang="en">EN</a>
+        </span></li>
     </ul>
     <button class="burger-btn" onclick="ouvrirMenuMobile()" aria-label="Menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
