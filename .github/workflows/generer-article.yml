@@ -8,6 +8,11 @@ on:
       sujet:
         description: "Sujet précis (laisser vide = prochain sujet du backlog)"
         required: false
+      sans_en:
+        description: "Français seul (cocher pour sauter la traduction anglaise)"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -25,11 +30,12 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Générer l'article (recherche + rédaction + vérif + correction)
+      - name: Générer l'article FR + EN (recherche + rédaction + vérif + correction + traduction)
         env:
           ANTHROPIC_API_KEY:   ${{ secrets.ANTHROPIC_API_KEY }}
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
           SUJET:               ${{ github.event.inputs.sujet }}
+          SANS_EN:             ${{ github.event.inputs.sans_en == 'true' && '1' || '' }}
         run: node scripts/generer.mjs
 
       - name: Ouvrir la Pull Request (NE PUBLIE PAS — attend ton merge)
@@ -43,5 +49,8 @@ jobs:
           add-paths: |
             blog/**
             blog.html
+            en/blog/**
+            en/blog.html
             sitemap.xml
             scripts/sujets.json
+            scripts/slugs-en.json
