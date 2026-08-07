@@ -46,11 +46,14 @@ jobs:
           title: ${{ env.PR_TITRE }}
           commit-message: ${{ env.PR_TITRE }}
           body-path: VERIFICATION.md
+          # Chemins de DOSSIER, pas de motifs `**` : git s'arrête net sur un
+          # motif qui ne correspond à rien (`fatal: pathspec ... did not match`).
+          # `en/blog/**` n'existait pas tant qu'aucun article anglais n'était
+          # publié — d'où l'échec du 7 août. `en` existe toujours.
           add-paths: |
-            blog/**
+            blog
             blog.html
-            en/blog/**
-            en/blog.html
+            en
             sitemap.xml
             scripts/sujets.json
             scripts/slugs-en.json
