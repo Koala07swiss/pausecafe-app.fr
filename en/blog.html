@@ -241,18 +241,20 @@
 
   <div class="articles-grid">
     <!-- AGENT:NOUVELLE-CARTE -->
+    <a href="/en/blog/resting-heart-rate-explained" class="article-card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?ixid=M3w5NjMyMjN8MHwxfHNlYXJjaHwxfHxzbWFydHdhdGNoJTIwaGVhcnQlMjByYXRlJTIwd3Jpc3QlMjBtb3JuaW5nfGVufDB8MHx8fDE3ODYxMjIxMjd8MA&ixlib=rb-4.1.0&w=600&q=75&fm=jpg&fit=crop" alt="A smartwatch on a wrist displaying resting heart rate in the morning" loading="lazy">
+      </div>
+      <div class="card-top">
+        <p class="card-tag">Health</p>
+        <h3 class="card-title">Resting Heart Rate: What Your BPM Reveals About Your Health</h3>
+        <p class="card-excerpt">What is resting heart rate? Normal BPM ranges, key factors (fitness, sleep, stress, caffeine) and how your Apple Watch measures it. A complete guide.</p>
+      </div>
+      <div class="card-footer"><span class="card-date">7 August 2026</span><span class="card-read">7 min →</span></div>
+    </a>
   </div>
 
-<!-- AGENT:BLOC-VIDE-DEBUT -->
-  <div class="blog-vide">
-    <span class="puce">&#9749;</span>
-    <h2>English articles are on their way</h2>
-    <p>Our writing has been published in French so far. New pieces are now produced in both languages, so this page will fill up over the coming weeks.</p>
-    <p>In the meantime, the full archive is available in French &mdash; sixteen articles on caffeine, sleep, stress and hydration, each one sourced from published research.</p>
-    <a class="bouton" href="/blog">Browse the French articles &rarr;</a>
-    <p class="note">This block disappears on its own as soon as the first English article is published.</p>
-  </div>
-<!-- AGENT:BLOC-VIDE-FIN -->
+
 
 </main>
 
@@ -303,6 +305,7 @@
 <script>
   // Categorie de chaque article, alimentee par l'agent a chaque publication
   const categories = {
+    'resting-heart-rate-explained': 'Health',
   };
 
   document.querySelectorAll('.cat-btn').forEach(btn => {
