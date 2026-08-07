@@ -6,6 +6,12 @@
     <title>PauseCafé & l'app Santé — synchronisation et confidentialité</title>
     <!-- ══ Métadonnées : SEO + partage social + découvrabilité IA ══ -->
     <link rel="canonical" href="https://pausecafe-app.fr/sante.html">
+    <!-- Versions linguistiques : indique a Google que ces deux pages sont
+         la MEME page en deux langues, et non du contenu duplique. -->
+    <link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/sante.html">
+    <link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/health.html">
+    <link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/sante.html">
+
 
     <!-- Open Graph (Facebook, LinkedIn, iMessage, WhatsApp…) -->
     <meta property="og:type" content="website">
@@ -24,70 +30,30 @@
     <meta name="description" content="Comment PauseCafé fonctionne avec l'app Santé : ce qu'il enregistre (caféine, eau), ce qu'il lit (sommeil, fréquence cardiaque au repos), le tout sur ton appareil. Cadrage bien-être, non médical.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/base.css">
     <style>
         :root { --cafe: #2C1810; --cream: #F6E1C8; --espresso: #1A0F0A; --caramel: #C4873A; --mousse: #E8D5B0; --purple: #6B3FA0; --purple-light: #9B6FD0; --blue: #378ADD; --green: #4CAF7D; --text: #1A0F0A; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
         nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; background: #F6E1C8; border-bottom: 1px solid rgba(196, 135, 58, 0.2); }
-        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--cafe); text-decoration: none; display: flex; align-items: center; gap: 10px; }
-        .nav-logo-img { width: 36px; height: 36px; object-fit: contain; border-radius: 8px; }
-        .nav-back { font-size: 0.82rem; font-weight: 500; color: var(--cafe); text-decoration: none; opacity: 0.7; letter-spacing: 0.05em; text-transform: uppercase; transition: opacity 0.2s; }
-        .nav-back:hover { opacity: 1; }
-
-        .hero { padding: 140px 48px 60px; max-width: 860px; margin: 0 auto; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--caramel); color: white; padding: 6px 16px; border-radius: 100px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 28px; }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 900; line-height: 1.1; color: var(--cafe); margin-bottom: 20px; }
-        .hero h1 span { color: var(--caramel); font-style: italic; }
-        .hero .lead { font-size: 1.15rem; line-height: 1.7; opacity: 0.78; font-weight: 300; }
-
-        .content { max-width: 860px; margin: 0 auto; padding: 20px 48px 100px; }
-        .block { margin-top: 56px; }
-        .block h2 { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; color: var(--cafe); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
-        .block p { font-size: 1rem; line-height: 1.8; opacity: 0.8; font-weight: 300; margin-bottom: 16px; }
-        .block strong { font-weight: 500; opacity: 1; color: var(--cafe); }
 
         .card { background: white; border: 1px solid rgba(196,135,58,0.18); border-radius: 16px; padding: 28px 28px; margin: 24px 0; box-shadow: 0 6px 24px rgba(44,24,16,0.05); }
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 24px 0; }
         .mini-card { background: white; border: 1px solid rgba(196,135,58,0.18); border-radius: 14px; padding: 22px 20px; }
-        .mini-card .emoji { font-size: 1.8rem; display: block; margin-bottom: 10px; }
-        .mini-card h3 { font-size: 1rem; font-weight: 700; color: var(--cafe); margin-bottom: 6px; }
-        .mini-card p { font-size: 0.88rem; line-height: 1.6; opacity: 0.7; font-weight: 300; margin: 0; }
 
         /* Figure courbe caféine active (hero illustratif + légende explicative) */
         .curve-figure { margin: 32px 0 8px; }
         .curve-figure img, .curve-figure svg { width: 100%; height: auto; display: block; border-radius: 20px; box-shadow: 0 12px 44px rgba(26,15,10,0.35); }
         .curve-figure figcaption { font-size: 0.9rem; line-height: 1.7; opacity: 0.78; font-weight: 300; margin-top: 14px; padding: 0 2px; }
         .curve-figure figcaption strong { color: var(--cafe); font-weight: 500; opacity: 1; }
-
-        .steps { list-style: none; counter-reset: step; margin: 8px 0 0; }
         .steps li { position: relative; padding: 14px 0 14px 52px; border-bottom: 1px solid rgba(44,24,16,0.08); font-size: 0.98rem; line-height: 1.7; opacity: 0.85; font-weight: 300; }
-        .steps li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 14px; width: 32px; height: 32px; background: var(--caramel); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; }
-        .steps li strong { color: var(--cafe); font-weight: 500; }
 
         .seuil-note { background: rgba(76,175,125,0.1); border: 1px solid rgba(76,175,125,0.35); border-radius: 14px; padding: 20px 24px; margin: 24px 0; }
-        .seuil-note h3 { font-size: 1rem; font-weight: 700; color: var(--cafe); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
         .seuil-note p { font-size: 0.92rem; line-height: 1.7; opacity: 0.8; font-weight: 300; margin: 0; }
 
-        .disclaimer { background: #fff8f0; border: 1px solid #f5ddc0; border-radius: 14px; padding: 22px 24px; margin: 40px 0 0; }
-        .disclaimer h3 { font-size: 1rem; font-weight: 700; color: var(--cafe); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-        .disclaimer p { font-size: 0.9rem; line-height: 1.7; opacity: 0.78; font-weight: 300; margin: 0; }
-
         .sources { font-size: 0.85rem; opacity: 0.6; font-weight: 300; line-height: 1.7; margin-top: 24px; }
-        .sources a { color: var(--caramel); }
 
         .cta { text-align: center; background: var(--espresso); color: var(--cream); border-radius: 20px; padding: 48px 32px; margin-top: 64px; position: relative; overflow: hidden; }
         .cta-decor { position: absolute; left: 0; right: 0; bottom: -6%; width: 100%; height: auto; opacity: 0.18; pointer-events: none; }
         .cta h2, .cta p, .cta .apple-badge { position: relative; z-index: 1; }
-        .cta h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; margin-bottom: 12px; color: var(--cream); justify-content: center; }
         .cta p { opacity: 0.7; font-weight: 300; margin-bottom: 28px; }
-        .apple-badge img { height: 56px; width: auto; display: inline-block; }
-
-        footer { background: var(--espresso); color: var(--cream); padding: 40px 48px; text-align: center; }
-        footer a { color: var(--caramel); text-decoration: none; }
-        .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.85rem; }
-        .footer-links a { opacity: 0.7; }
-        .footer-bottom { font-size: 0.8rem; opacity: 0.4; }
 
         /* Bloc maths "pour les curieux" */
         .model-detail { background: #fffaf2; border: 1px solid rgba(196,135,58,0.28); border-radius: 16px; padding: 24px 26px; margin: 28px 0 8px; }
@@ -101,13 +67,6 @@
         .model-list li::before { content: '\00B7'; position: absolute; left: 4px; color: var(--caramel); font-weight: 700; }
         .model-note { font-size: 0.85rem !important; opacity: 0.62 !important; font-style: italic; }
 
-        @media (max-width: 768px) {
-            nav { padding: 12px 24px; }
-            .hero { padding: 110px 24px 40px; }
-            .content { padding: 16px 24px 70px; }
-            .cta { padding: 36px 24px; }
-            footer { padding: 36px 24px; }
-        }
     </style>
 </head>
 <body>
@@ -117,6 +76,11 @@
         PauseCafé
     </a>
     <a class="nav-back" href="https://pausecafe-app.fr">← Retour au site</a>
+    <span class="lang-switch">
+        <a href="/sante.html" aria-current="true" hreflang="fr">FR</a>
+        <span class="sep">/</span>
+        <a href="/en/health.html" hreflang="en">EN</a>
+    </span>
 </nav>
 
 <header class="hero">
