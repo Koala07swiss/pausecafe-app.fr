@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PauseCafé &amp; the Health app</title>
+    <!-- ══ Métadonnées : SEO + partage social + découvrabilité IA ══ -->
+    <link rel="canonical" href="https://pausecafe-app.fr/en/health.html">
+    <!-- Versions linguistiques : indique a Google que ces deux pages sont
+         la MEME page en deux langues, et non du contenu duplique. -->
+    <link rel="alternate" hreflang="fr" href="/en/health.html">
+    <link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/health.html">
+    <link rel="alternate" hreflang="x-default" href="/en/health.html">
+
+
+    <!-- Open Graph (Facebook, LinkedIn, iMessage, WhatsApp…) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PauseCafé">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:url" content="https://pausecafe-app.fr/en/health.html">
+    <meta property="og:title" content="PauseCafé &amp; the Health app">
+    <meta property="og:description" content="Caffeine and water written to Health, sleep and resting heart rate read with your permission. Everything stays on your device.">
+    <meta property="og:image" content="https://pausecafe-app.fr/logo.png">
+
+    <!-- Twitter / X (reprend l’image ; logo carré pour l’instant) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PauseCafé &amp; the Health app">
+    <meta name="twitter:description" content="Caffeine and water written to Health, sleep and resting heart rate read with your permission. Everything stays on your device.">
+    <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">
+    <meta name="description" content="How PauseCafé works with Apple Health: it writes your caffeine and water, reads sleep and resting heart rate, and processes everything on your device.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/base.css">
+    <style>
+        :root { --cafe: #2C1810; --cream: #F6E1C8; --espresso: #1A0F0A; --caramel: #C4873A; --mousse: #E8D5B0; --purple: #6B3FA0; --purple-light: #9B6FD0; --blue: #378ADD; --green: #4CAF7D; --text: #1A0F0A; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; background: #F6E1C8; border-bottom: 1px solid rgba(196, 135, 58, 0.2); }
+
+        .card { background: white; border: 1px solid rgba(196,135,58,0.18); border-radius: 16px; padding: 28px 28px; margin: 24px 0; box-shadow: 0 6px 24px rgba(44,24,16,0.05); }
+        .mini-card { background: white; border: 1px solid rgba(196,135,58,0.18); border-radius: 14px; padding: 22px 20px; }
+
+        /* Figure courbe caféine active (hero illustratif + légende explicative) */
+        .curve-figure { margin: 32px 0 8px; }
+        .curve-figure img, .curve-figure svg { width: 100%; height: auto; display: block; border-radius: 20px; box-shadow: 0 12px 44px rgba(26,15,10,0.35); }
+        .curve-figure figcaption { font-size: 0.9rem; line-height: 1.7; opacity: 0.78; font-weight: 300; margin-top: 14px; padding: 0 2px; }
+        .curve-figure figcaption strong { color: var(--cafe); font-weight: 500; opacity: 1; }
+        .steps li { position: relative; padding: 14px 0 14px 52px; border-bottom: 1px solid rgba(44,24,16,0.08); font-size: 0.98rem; line-height: 1.7; opacity: 0.85; font-weight: 300; }
+
+        .seuil-note { background: rgba(76,175,125,0.1); border: 1px solid rgba(76,175,125,0.35); border-radius: 14px; padding: 20px 24px; margin: 24px 0; }
+        .seuil-note p { font-size: 0.92rem; line-height: 1.7; opacity: 0.8; font-weight: 300; margin: 0; }
+
+        .sources { font-size: 0.85rem; opacity: 0.6; font-weight: 300; line-height: 1.7; margin-top: 24px; }
+
+        .cta { text-align: center; background: var(--espresso); color: var(--cream); border-radius: 20px; padding: 48px 32px; margin-top: 64px; position: relative; overflow: hidden; }
+        .cta-decor { position: absolute; left: 0; right: 0; bottom: -6%; width: 100%; height: auto; opacity: 0.18; pointer-events: none; }
+        .cta h2, .cta p, .cta .apple-badge { position: relative; z-index: 1; }
+        .cta p { opacity: 0.7; font-weight: 300; margin-bottom: 28px; }
+
+        /* Bloc maths "pour les curieux" */
+        .model-detail { background: #fffaf2; border: 1px solid rgba(196,135,58,0.28); border-radius: 16px; padding: 24px 26px; margin: 28px 0 8px; }
+        .model-detail h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--cafe); margin-bottom: 14px; }
+        .model-detail p { font-size: 0.95rem; line-height: 1.75; opacity: 0.82; font-weight: 300; margin-bottom: 14px; }
+        .model-detail strong { color: var(--cafe); font-weight: 500; opacity: 1; }
+        .formula { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 1.05rem; text-align: center; background: var(--espresso); color: var(--cream); padding: 18px 16px; border-radius: 12px; margin: 18px 0; line-height: 1.7; }
+        .formula sub { font-size: 0.7em; } .formula sup { font-size: 0.7em; }
+        .model-list { list-style: none; margin: 0 0 14px; padding: 0; }
+        .model-list li { font-size: 0.92rem; line-height: 1.7; opacity: 0.82; font-weight: 300; padding: 6px 0 6px 18px; position: relative; }
+        .model-list li::before { content: '\00B7'; position: absolute; left: 4px; color: var(--caramel); font-weight: 700; }
+        .model-note { font-size: 0.85rem !important; opacity: 0.62 !important; font-style: italic; }
+
+    </style>
+</head>
+<body>
+<nav>
+    <a class="nav-logo" href="/en/">
+        <img src=/logo.png" alt="PauseCafé" class="nav-logo-img">
+        PauseCafé
+    </a>
+    <a class="nav-back" href="/en/">← Back to the site</a>
+    <span class="lang-switch">
+        <a href="/sante.html" hreflang="fr">FR</a>
+        <span class="sep">/</span>
+        <a href="/en/health.html" aria-current="true" hreflang="en">EN</a>
+    </span>
+</nav>
+
+<header class="hero">
+    <div class="hero-badge">❤️ Works with the Health app</div>
+    <h1>PauseCafé &amp; <span>the Health app</span></h1>
+    <p class="lead">PauseCafé can connect to Apple's <strong>Health</strong> app, with your permission. Your data stays <strong>on your device</strong> : you stay in control, and you can switch it all off at any time from iPhone Settings.</p>
+    <div style="margin-top:26px;">
+        <img src=/works-with-apple-health-en.svg" alt="Fonctionne avec l'app Santé" style="height:46px;width:auto;display:block;">
+    </div>
+</header>
+
+<main class="content">
+
+    <div class="block">
+        <h2>📤 What PauseCafé writes to Health</h2>
+        <p>When you turn syncing on, PauseCafé can write the data you already log in the app to the Health app — so you find it in the same place as the rest of your health data.</p>
+        <div class="card-grid">
+            <div class="mini-card"><span class="emoji">☕</span><h3>Caffeine</h3><p>Every caffeinated drink you log can be added to Health (in milligrams of caffeine).</p></div>
+            <div class="mini-card"><span class="emoji">💧</span><h3>Water</h3><p>Every glass of water you add can be recorded as water intake in Health.</p></div>
+        </div>
+    </div>
+
+    <div class="block">
+        <h2>📥 What PauseCafé reads from Health</h2>
+        <p>To give you more meaningful insights, PauseCafé can, <strong>only if you allow it</strong>, read two pieces of information already in Health. It reads nothing else.</p>
+        <div class="card-grid">
+            <div class="mini-card"><span class="emoji">🌙</span><h3>Sleep</h3><p>The sleep duration recorded by your watch or your iPhone, to set alongside your caffeine.</p></div>
+            <div class="mini-card"><span class="emoji">❤️</span><h3>Resting heart rate</h3><p>Your resting heart rate, to look for any trend against your caffeine intake.</p></div>
+        </div>
+    </div>
+
+    <div class="seuil-note">
+        <h3>🔒 Your data stays on your device</h3>
+        <p>Data from the Health app (sleep, heart rate) is read and used <strong>directly on your iPhone</strong>. It is <strong>never</strong> sent to our servers or to any third party: the calculations and analyses happen locally. You can withdraw access at any time in Settings › Health › PauseCafé.</p>
+    </div>
+
+    <div class="block">
+        <h2>📊 Indicative analyses</h2>
+        <p>From this data, PauseCafé can offer you analyses: the possible link between your <strong>caffeine and your sleep</strong>, and between your <strong>caffeine and your resting heart rate</strong>. These analyses are part of Premium.</p>
+        <p>They are <strong>indicative</strong> : an observed association is not proof of cause and effect, and many other factors influence your sleep and your heart. Read them as food for thought, not as a diagnosis.</p>
+    </div>
+
+    <div class="block">
+        <h2>⚙️ How to turn it on</h2>
+        <ol class="steps">
+            <li>Open PauseCafé, then go to <strong>Settings</strong> in the app.</li>
+            <li>Turn on <strong>syncing with the Health app</strong>.</li>
+            <li>iOS asks which permissions to grant (read and/or write) — you decide.</li>
+            <li>You can change or withdraw these permissions at any time in <strong>Settings › Health › PauseCafé</strong>.</li>
+        </ol>
+    </div>
+
+    <div class="disclaimer">
+        <h3>ℹ️ Wellness information</h3>
+        <p>PauseCafé is a wellness app. The information and analyses it provides are indicative and do not constitute medical advice. If you have a health concern, speak to a professional.</p>
+    </div>
+
+    <p class="sources">“Works with the Health app” indicates that PauseCafé is compatible with Apple's Health app. Apple and the Health app are trademarks of Apple Inc.</p>
+
+</main>
+
+<footer>
+    <div style="display:flex;justify-content:center;padding:10px 0 18px;">
+        <img src=/works-with-apple-health-en.svg" alt="Fonctionne avec l'app Santé" style="height:34px;width:auto;display:block;">
+    </div>
+    <div class="footer-links">
+        <a href="/en/">Home</a>
+        <a href="/en/features.html">Features</a>
+        <a href="/en/changelog.html">What's new</a>
+        <a href="/en/real-time-caffeine.html">Real-time caffeine</a>
+        <a href="/en/insights.html">Insights</a>
+        <a href="/en/privacy.html">Privacy</a>
+        <a href="/en/terms.html">Terms</a>
+    </div>
+    <div class="footer-bottom">© 2026 PauseCafé · Wellness app · Indicative information, not medical</div>
+</footer>
+
+</body>
+</html>

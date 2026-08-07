@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydration tracking — PauseCafé</title>
+    <!-- ══ Métadonnées : SEO + partage social + découvrabilité IA ══ -->
+    <link rel="canonical" href="https://pausecafe-app.fr/en/hydration.html">
+    <!-- Versions linguistiques : indique a Google que ces deux pages sont
+         la MEME page en deux langues, et non du contenu duplique. -->
+    <link rel="alternate" hreflang="fr" href="/en/hydration.html">
+    <link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/hydration.html">
+    <link rel="alternate" hreflang="x-default" href="/en/hydration.html">
+
+
+    <!-- Open Graph (Facebook, LinkedIn, iMessage, WhatsApp…) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PauseCafé">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:url" content="https://pausecafe-app.fr/en/hydration.html">
+    <meta property="og:title" content="Hydration tracking — PauseCafé">
+    <meta property="og:description" content="A dedicated water counter, an adjustable goal and official EFSA benchmarks. Wellness, not medical.">
+    <meta property="og:image" content="https://pausecafe-app.fr/logo.png">
+
+    <!-- Twitter / X (reprend l’image ; logo carré pour l’instant) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hydration tracking — PauseCafé">
+    <meta name="twitter:description" content="A dedicated water counter, an adjustable goal and official EFSA benchmarks. Wellness, not medical.">
+    <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">
+    <meta name="description" content="How PauseCafé tracks your hydration: dedicated water counter, adjustable goal, EFSA benchmarks, and why “coffee dehydrates you” is a myth.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/base.css">
+    <style>
+        :root { --cafe: #2C1810; --cream: #F6E1C8; --espresso: #1A0F0A; --caramel: #C4873A; --mousse: #E8D5B0; --purple: #6B3FA0; --purple-light: #9B6FD0; --blue: #378ADD; --green: #4CAF7D; --text: #1A0F0A; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; background: #F6E1C8; border-bottom: 1px solid rgba(196, 135, 58, 0.2); }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--blue); color: white; padding: 6px 16px; border-radius: 100px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 28px; }
+        .hero h1 span { color: var(--blue); font-style: italic; }
+
+        .card { background: white; border: 1px solid rgba(196,135,58,0.18); border-radius: 16px; padding: 28px 28px; margin: 24px 0; box-shadow: 0 6px 24px rgba(44,24,16,0.05); }
+        .mini-card { background: white; border: 1px solid rgba(196,135,58,0.18); border-radius: 14px; padding: 22px 20px; }
+        .steps li { position: relative; padding: 14px 0 14px 52px; border-bottom: 1px solid rgba(44,24,16,0.08); font-size: 0.98rem; line-height: 1.7; opacity: 0.85; font-weight: 300; }
+        .steps li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 14px; width: 32px; height: 32px; background: var(--blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; }
+
+        .seuil-note { background: rgba(55,138,221,0.09); border: 1px solid rgba(55,138,221,0.32); border-radius: 14px; padding: 20px 24px; margin: 20px 0; }
+
+        .exemple { background: rgba(55,138,221,0.07); border: 1px solid rgba(55,138,221,0.28); border-radius: 14px; padding: 20px 24px; margin: 20px 0; }
+        .exemple h3 { font-size: 0.95rem; font-weight: 700; color: var(--cafe); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .exemple p { font-size: 0.92rem; line-height: 1.7; opacity: 0.85; font-weight: 300; margin: 0 0 8px; }
+        .exemple .chiffres { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+        .exemple .chiffre { flex: 1; min-width: 150px; background: white; border-radius: 10px; padding: 12px 14px; border: 1px solid rgba(55,138,221,0.18); }
+        .exemple .chiffre .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.6; }
+        .exemple .chiffre .valeur { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--cafe); margin-top: 4px; }
+        .exemple .lecture { font-size: 0.9rem; font-weight: 500; color: var(--cafe); margin: 6px 0 0; opacity: 1; }
+
+        .limites { border-left: 3px solid rgba(44,24,16,0.2); padding: 4px 0 4px 18px; margin: 16px 0 0; }
+        .limites p { font-size: 0.9rem; line-height: 1.7; opacity: 0.7; font-weight: 300; margin: 0; }
+        .limites strong { color: var(--cafe); }
+
+        .pill { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; vertical-align: middle; margin-left: 8px; }
+        .pill.premium { background: rgba(107,63,160,0.12); color: var(--purple); border: 1px solid rgba(107,63,160,0.3); }
+        .pill.encours { background: rgba(76,175,125,0.14); color: #2f8a5c; border: 1px solid rgba(76,175,125,0.4); }
+        .pill.avenir { background: rgba(196,135,58,0.14); color: #9a6420; border: 1px solid rgba(196,135,58,0.4); }
+
+    </style>
+</head>
+<body>
+<nav>
+    <a class="nav-logo" href="/en/">
+        <img src=/logo.png" alt="PauseCafé" class="nav-logo-img">
+        PauseCafé
+    </a>
+    <a class="nav-back" href="/en/">← Back to the site</a>
+    <span class="lang-switch">
+        <a href="/hydratation.html" hreflang="fr">FR</a>
+        <span class="sep">/</span>
+        <a href="/en/hydration.html" aria-current="true" hreflang="en">EN</a>
+    </span>
+</nav>
+
+<header class="hero">
+    <div class="hero-badge">💧 Hydration tracking</div>
+    <h1>Track your <span>hydration</span></h1>
+    <p class="lead">PauseCafé doesn't only track your caffeine: it also helps you drink enough water, without guilt-tripping you. Here's exactly what the app does today, what's coming, the science it rests on, what it analyses — and why “coffee dehydrates you” is a myth.</p>
+</header>
+
+<main class="content">
+
+    <section class="block">
+        <h2>💧 What the app does today</h2>
+        <p>Hydration tracking is <strong>free</strong> for everyone. It sits alongside caffeine tracking, around the same cup.</p>
+        <ul class="steps">
+            <li><strong>A dedicated water counter.</strong> Each glass is added in one tap via the “+ Water” button. The default unit is a 250 ml glass.</li>
+            <li><strong>A personal goal.</strong> Adjustable from 4 to 12 glasses a day. The default is 8 glasses, or 2 litres — the widely used benchmark, aligned with the EFSA adequate intake for an adult woman.</li>
+            <li><strong>A blue ring.</strong> Around the cup, a blue ring fills as you progress and turns green once you reach your goal — much like activity rings.</li>
+            <li><strong>Dedicated stats.</strong> In the 💧 Water tab of My Progress: your average, your consistency, your records and how your intake is spread across the day.</li>
+            <li><strong>Caution mode.</strong> During pregnancy or breastfeeding, your goal automatically moves to 9 glasses (2.3 L) — the WHO recommendation.</li>
+        </ul>
+        <p>The <strong>hydration reminders</strong> — nudges to drink during the day (around 10am, 1pm, 4pm), taking into account what you've already drunk so you're not prompted needlessly — are part of <strong>PauseCafé Premium</strong>.</p>
+        <div class="seuil-note">
+            <h3>💧 “If it can be counted, it should be”</h3>
+            <p>An option lets you include water in your overall stats, or not. The principle: anything that can be counted is counted by default, for a complete picture of your habits — and you can always turn it off.</p>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>🌡️ Weather-aware hydration <span class="pill encours">Available</span></h2>
+        <p>In hot weather or a heatwave, your water needs increase — PauseCafé alerts you and adapts its reminders accordingly.</p>
+        <ul class="steps">
+            <li><strong>Based on Météo-France alert levels.</strong> In France, the app reads the heat alert level for your département to adapt its messages.</li>
+            <li><strong>Département chosen manually</strong> in the app — no geolocation, and a neutral fallback if the information isn't available.</li>
+            <li><strong>Free alert for everyone</strong> : an alert banner appears on the home screen and the widget. The <strong>stepped-up hydration reminders</strong> during hot weather are part of Premium.</li>
+            <li><strong>Wellness framing.</strong> Encouraging nudges, never medical instructions.</li>
+        </ul>
+    </section>
+
+    <section class="block">
+        <h2>🔬 What this is based on</h2>
+        <p>PauseCafé's hydration benchmarks rest on official European references, not on made-up figures.</p>
+        <h3 class="sub">The reference water intake</h3>
+        <p>L'<strong>EFSA</strong> (2010 opinion) defines an <strong>adequate intake of total water</strong> de <strong>2.0 L/day for a woman</strong> et <strong>2.5 L/day for a man</strong>, under moderate temperature and activity conditions. The key point: this is <strong>total water</strong> — roughly 80% comes from drinks (of all kinds) and 20% from food. During pregnancy, EFSA adds around +300 ml/day; while breastfeeding, around +700 ml/day.</p>
+        <div class="seuil-note">
+            <h3>💡 Why “8 glasses / 2 L” is a benchmark, not a rule</h3>
+            <p>The famous “8 glasses a day” is a <strong>practical benchmark</strong>, not a universal truth. Your actual needs depend on your size, your activity, the climate and what you eat. PauseCafé therefore suggests 2 L by default (aligned with the EFSA adult-woman value) <strong>but lets you adjust from 4 to 12 glasses</strong> : the goal is a motivating guide, not a prescription.</p>
+        </div>
+        <h3 class="sub">The “coffee dehydrates you” myth</h3>
+        <p>Many people believe every coffee must be “offset” with water, because caffeine is supposedly dehydrating. The science says otherwise: caffeine is a <strong>mild diuretic</strong>, but at moderate doses (up to around 400 mg/day) this effect is <strong>offset by the liquid in the drink itself</strong>. A controlled study (Killer et al., 2014) compared coffee and water in 50 regular drinkers: no difference across a wide range of hydration markers. The conclusion: drunk in moderation, <strong>coffee hydrates about as well as water</strong> in habitual drinkers.</p>
+        <div class="limites">
+            <p><strong>What this means for the app.</strong> PauseCafé counts water separately not to “cancel out” coffee, but to encourage you to keep a good plain-water habit alongside your caffeinated drinks. We're not demonising coffee — we're just helping you find a balance.</p>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>🔍 What we analyse</h2>
+        <p>Beyond the counter, PauseCafé puts your water data in perspective:</p>
+        <div class="card-grid">
+            <div class="mini-card">
+                <span class="emoji">📈</span>
+                <h3>Consistency &amp; records</h3>
+                <p>Your average over time, your day-to-day consistency, and your best days — to turn hydration into a habit.</p>
+            </div>
+            <div class="mini-card">
+                <span class="emoji">🕒</span>
+                <h3>Time slots</h3>
+                <p>When do you drink? Seeing how your intake spreads across the day helps you spot the moments you forget.</p>
+            </div>
+            <div class="mini-card">
+                <span class="emoji">🔗</span>
+                <h3>Water ↔ caffeine correlation <span class="pill premium">Premium</span></h3>
+                <p>How your hydration shifts with your caffeine: over-compensation, trade-off, or steady.</p>
+            </div>
+        </div>
+        <div class="exemple">
+            <h3>📐 A worked example (water ↔ caffeine correlation, over 14 days)</h3>
+            <div class="chiffres">
+                <div class="chiffre">
+                    <div class="label">Your most caffeinated days</div>
+                    <div class="valeur">1.1 L of water</div>
+                </div>
+                <div class="chiffre">
+                    <div class="label">Your quietest days</div>
+                    <div class="valeur">1.8 L of water</div>
+                </div>
+            </div>
+            <p class="lecture">Reading: you drink less water on heavily caffeinated days. That's a pattern in your habits, not proof of cause and effect.</p>
+        </div>
+        <p>This correlation uses the same rigorous method as the app's other analyses (comparing your extreme days, Spearman rank correlation, thresholds at 7 and 14 days). <a href="/en/insights.html" style="color:var(--caramel);">See the full insights method →</a></p>
+    </section>
+
+    <section class="block">
+        <h2>🚫 What the app does not do</h2>
+        <div class="card-grid">
+            <div class="mini-card">
+                <span class="emoji">🔢</span>
+                <h3>Impose a universal number</h3>
+                <p>There's no “you must drink X litres” that holds for everyone. Your needs vary; the goal is adjustable and indicative.</p>
+            </div>
+            <div class="mini-card">
+                <span class="emoji">🩺</span>
+                <h3>Give medical advice</h3>
+                <p>PauseCafé is a wellness app. If you have a condition (kidney, heart) or any doubt, your doctor decides.</p>
+            </div>
+            <div class="mini-card">
+                <span class="emoji">⚠️</span>
+                <h3>Push you to drink too much</h3>
+                <p>Drinking to excess isn't harmless (hyponatraemia at the extreme). The goal aims at a healthy benchmark, not a record.</p>
+            </div>
+            <div class="mini-card">
+                <span class="emoji">🔒</span>
+                <h3>Exploit your health data</h3>
+                <p>Your weight (used for some benchmarks) stays on your device. No health data is ever sold.</p>
+            </div>
+        </div>
+        <div class="disclaimer">
+            <h3>⚠️ Wellness information</h3>
+            <p>PauseCafé's hydration benchmarks and analyses are provided for guidance and have no medical value: neither a medical device nor medical advice. For any question about your water needs or your health, consult a healthcare professional.</p>
+        </div>
+        <p class="sources">
+            <strong>Sources.</strong>
+            EFSA, <em>Scientific Opinion on Dietary Reference Values for water</em>, 2010 (EFSA Journal 2010;8(3):1459) — adequate intake of 2.0 L/day (women) and 2.5 L/day (men) of total water; +300 ml in pregnancy, +700 ml while breastfeeding. <a href="https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2010.1459" target="_blank" rel="noopener noreferrer">Link →</a><br>
+            Killer SC, Blannin AK, Jeukendrup AE. <em>No Evidence of Dehydration with Moderate Daily Coffee Intake.</em> PLoS ONE 2014;9(1):e84154 — moderate coffee ≈ the same hydration as water in regular drinkers. <a href="https://doi.org/10.1371/journal.pone.0084154" target="_blank" rel="noopener noreferrer">Link →</a><br>
+            Maughan RJ, Griffin J. <em>Caffeine ingestion and fluid balance: a review.</em> J Hum Nutr Diet 2003 — caffeine's diuretic effect is moderate and transient at usual doses.<br>
+            WHO &amp; Institute of Medicine (2005) — water intake benchmarks by age, sex and climate. Individual needs vary.
+        </p>
+    </section>
+
+    <div class="cta">
+        <h2>Stay hydrated without thinking about it</h2>
+        <p>Water counter, adjustable goal, statistics — free in PauseCafé. Smart hydration reminders are included with Premium, along with weather-aware hydration, available in France.</p>
+    </div>
+
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="/en/">Home</a>
+        <a href="/en/features.html">Features</a>
+        <a href="/en/changelog.html">What's new</a>
+        <a href="/en/real-time-caffeine.html">Real-time caffeine</a>
+        <a href="/en/insights.html">The science behind the insights</a>
+        <a href="/en/privacy.html">Privacy</a>
+        <a href="/en/terms.html">Terms</a>
+    </div>
+    <div style="display:flex;justify-content:center;padding:10px 0 18px;">
+<img src=/works-with-apple-health-en.svg" alt="Fonctionne avec l’app Santé" style="height:34px;width:auto;display:block;">
+</div>
+<div class="footer-bottom">© 2026 PauseCafé · Wellness app · Indicative information, not medical</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features — PauseCafé</title>
+
+    <!-- ══ Métadonnées : SEO + partage social + découvrabilité IA ══ -->
+    <meta name="description" content="Everything PauseCafé does: real-time active caffeine, hydration tracking, sleep and heart insights, Apple Watch, widgets and complications.">
+    <meta name="keywords" content="PauseCafé fonctionnalités, caféine active, hydratation, analyses sommeil, fréquence cardiaque, app Santé, Apple Watch, widgets, complications">
+    <link rel="canonical" href="https://pausecafe-app.fr/en/features.html">
+    <!-- Versions linguistiques : indique a Google que ces deux pages sont
+         la MEME page en deux langues, et non du contenu duplique. -->
+    <link rel="alternate" hreflang="fr" href="/en/features.html">
+    <link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/features.html">
+    <link rel="alternate" hreflang="x-default" href="/en/features.html">
+
+
+    <!-- Open Graph (Facebook, LinkedIn, iMessage, WhatsApp…) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PauseCafé">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:url" content="https://pausecafe-app.fr/en/features.html">
+    <meta property="og:title" content="Features — PauseCafé">
+    <meta property="og:description" content="Track your caffeine and hydration, understand their effects, and stay in control — on iPhone and Apple Watch.">
+    <meta property="og:image" content="https://pausecafe-app.fr/logo.png">
+
+    <!-- Twitter / X (reprend l'image ; logo carré pour l'instant) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Features — PauseCafé">
+    <meta name="twitter:description" content="Track your caffeine and hydration, understand their effects, and stay in control — on iPhone and Apple Watch.">
+    <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">
+
+    <!-- JSON-LD : page de présentation (lue par les moteurs ET les IA) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Fonctionnalités — PauseCafé",
+      "description": "Les fonctionnalités de PauseCafé : caféine active en temps réel, hydratation, analyses sommeil et cœur, app Santé, Apple Watch et widgets.",
+      "url": "https://pausecafe-app.fr/fonctionnalites.html",
+      "inLanguage": "fr",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "PauseCafé",
+        "url": "https://pausecafe-app.fr"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "PauseCafé",
+        "operatingSystem": "iOS, watchOS",
+        "applicationCategory": "HealthApplication",
+        "downloadUrl": "https://apps.apple.com/app/id6761892198"
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/base.css">
+    <style>
+        :root { --cafe: #2C1810; --cream: #F6E1C8; --espresso: #1A0F0A; --caramel: #C4873A; --mousse: #E8D5B0; --purple: #6B3FA0; --purple-light: #9B6FD0; --blue: #378ADD; --green: #4CAF7D; --text: #1A0F0A; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; background: #F6E1C8; border-bottom: 1px solid rgba(196, 135, 58, 0.2); }
+
+        .hero { padding: 140px 48px 30px; max-width: 920px; margin: 0 auto; }
+
+        .content { max-width: 920px; margin: 0 auto; padding: 20px 48px 100px; }
+
+        .feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin: 24px 0; }
+        .feat-card { display: block; background: white; border: 1px solid rgba(196,135,58,0.18); border-radius: 16px; padding: 26px 24px; text-decoration: none; color: inherit; box-shadow: 0 6px 24px rgba(44,24,16,0.05); transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s; }
+        .feat-card:hover { transform: translateY(-3px); box-shadow: 0 14px 38px rgba(44,24,16,0.12); border-color: rgba(196,135,58,0.5); }
+        .feat-card .emoji { font-size: 2rem; display: block; margin-bottom: 14px; }
+        .feat-card h2 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--cafe); margin-bottom: 8px; }
+        .feat-card p { font-size: 0.94rem; line-height: 1.65; opacity: 0.78; font-weight: 300; margin-bottom: 14px; }
+        .feat-card .more { font-size: 0.86rem; font-weight: 500; color: var(--caramel); }
+        .feat-card.premium { background: rgba(107,63,160,0.06); border-color: rgba(107,63,160,0.25); }
+        .feat-card.premium h2 { color: var(--purple); }
+        .feat-card.premium .more { color: var(--purple); }
+
+        .intro-note { font-size: 1rem; line-height: 1.8; opacity: 0.8; font-weight: 300; margin: 8px 0 4px; }
+        .intro-note strong { color: var(--cafe); font-weight: 500; }
+
+        .cta { text-align: center; background: var(--espresso); color: var(--cream); border-radius: 20px; padding: 48px 32px; margin-top: 56px; }
+        .cta h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; margin-bottom: 12px; color: var(--cream); }
+        .cta p { opacity: 0.7; font-weight: 300; margin-bottom: 28px; }
+        .cta-btn { display: inline-block; background: var(--caramel); color: white; padding: 15px 30px; border-radius: 100px; font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: opacity 0.2s, transform 0.2s; }
+        .cta-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+        .disclaimer h3 { font-size: 1rem; font-weight: 700; color: var(--cafe); margin-bottom: 8px; }
+
+        @media (max-width: 768px) {
+            .hero { padding: 110px 24px 24px; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <a class="nav-logo" href="/en/">
+        <img src=/logo.png" alt="PauseCafé" class="nav-logo-img">
+        PauseCafé
+    </a>
+    <a class="nav-back" href="/en/">← Back to the site</a>
+    <span class="lang-switch">
+        <a href="/fonctionnalites.html" hreflang="fr">FR</a>
+        <span class="sep">/</span>
+        <a href="/en/features.html" aria-current="true" hreflang="en">EN</a>
+    </span>
+</nav>
+
+<header class="hero">
+    <div class="hero-badge">✨ Features</div>
+    <h1>Everything <span>PauseCafé</span></h1>
+    <p class="lead">Track your caffeine and hydration, understand their effects, and stay in control — on iPhone and Apple Watch. Here's an overview, with a link to the detail of each feature.</p>
+</header>
+
+<main class="content">
+
+    <div class="feat-grid">
+
+        <a class="feat-card" href="/en/real-time-caffeine.html">
+            <span class="emoji">☕</span>
+            <h2>Real-time active caffeine</h2>
+            <p>See how much caffeine is still active in your body: it rises with each cup then falls away, so you know how much will be left at bedtime.</p>
+            <span class="more">Learn more →</span>
+        </a>
+
+        <a class="feat-card" href="/en/hydration.html">
+            <span class="emoji">💧</span>
+            <h2>Hydration tracking</h2>
+            <p>A dedicated water counter, a personalised daily goal and a blue ring around your cup. Smart hydration reminders with Premium.</p>
+            <span class="more">Learn more →</span>
+        </a>
+
+        <a class="feat-card premium" href="/en/insights.html">
+            <span class="emoji">📊</span>
+            <h2>Insights: sleep &amp; heart</h2>
+            <p>The possible link between your caffeine and your actual sleep, and between your caffeine and your resting heart rate. Indicative, not medical (Premium).</p>
+            <span class="more">Learn more →</span>
+        </a>
+
+        <a class="feat-card" href="/en/health.html">
+            <span class="emoji">❤️</span>
+            <h2>Health app</h2>
+            <p>Write your caffeine and water to the Health app, and read sleep and resting heart rate — all processed on your device.</p>
+            <span class="more">Learn more →</span>
+        </a>
+
+        <a class="feat-card" href="/en/real-time-caffeine.html">
+            <span class="emoji">⌚</span>
+            <h2>Apple Watch, widgets &amp; complications</h2>
+            <p>Today's caffeine and your active caffeine on your wrist, on the home screen and as complications on your watch face.</p>
+            <span class="more">See active caffeine →</span>
+        </a>
+
+        <a class="feat-card" href="/en/changelog.html">
+            <span class="emoji">📋</span>
+            <h2>What's new &amp; versions</h2>
+            <p>Every update to the app, version by version: new features, improvements and fixes.</p>
+            <span class="more">See the changelog →</span>
+        </a>
+
+    </div>
+
+    <p class="intro-note">There's also: <strong>points, badges and goals</strong> to keep you going, <strong>custom drinks</strong>, <strong>caution mode</strong> aligned with EFSA benchmarks, and a <strong>wellness</strong> framing throughout.</p>
+
+    <div class="disclaimer">
+        <h3>ℹ️ Wellness information</h3>
+        <p>PauseCafé is a wellness app. The information and analyses it provides are indicative and do not constitute medical advice. If you have a health concern, speak to a professional.</p>
+    </div>
+
+    <div class="cta">
+        <h2>Ready to try it?</h2>
+        <p>Track your caffeine and hydration, and see what's left before you sleep.</p>
+        <a class="cta-btn" href="https://apps.apple.com/app/id6761892198">Download on the App Store</a>
+    </div>
+
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="/en/">Home</a>
+        <a href="/en/real-time-caffeine.html">Real-time caffeine</a>
+        <a href="/en/hydration.html">Hydration</a>
+        <a href="/en/insights.html">Insights</a>
+        <a href="/en/health.html">Health app</a>
+        <a href="/en/changelog.html">What's new</a>
+        <a href="/en/privacy.html">Privacy</a>
+        <a href="/en/terms.html">Terms</a>
+    </div>
+    <div class="footer-bottom">© 2026 PauseCafé · Wellness app · Indicative information, not medical</div>
+</footer>
+
+</body>
+</html>

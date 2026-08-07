@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercising your GDPR rights — PauseCafé</title>
+    <!-- ══ Métadonnées : SEO + partage social + découvrabilité IA ══ -->
+    <meta name="description" content="Request deletion, export or correction of your data. A reply within 30 days.">
+    <link rel="canonical" href="https://pausecafe-app.fr/en/gdpr.html">
+    <!-- Versions linguistiques : indique a Google que ces deux pages sont
+         la MEME page en deux langues, et non du contenu duplique. -->
+    <link rel="alternate" hreflang="fr" href="/en/gdpr.html">
+    <link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/gdpr.html">
+    <link rel="alternate" hreflang="x-default" href="/en/gdpr.html">
+
+
+    <!-- Open Graph (Facebook, LinkedIn, iMessage, WhatsApp…) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PauseCafé">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:url" content="https://pausecafe-app.fr/en/gdpr.html">
+    <meta property="og:title" content="Droits RGPD — PauseCafé">
+    <meta property="og:description" content="Tes droits RGPD et comment les exercer dans PauseCafé.">
+    <meta property="og:image" content="https://pausecafe-app.fr/logo.png">
+
+    <!-- Twitter / X (reprend l’image ; logo carré pour l’instant) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Droits RGPD — PauseCafé">
+    <meta name="twitter:description" content="Tes droits RGPD et comment les exercer dans PauseCafé.">
+    <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">    <link rel="stylesheet" href="/base.css">
+
+    <style>
+        .avis-langue {
+            background: #fff8f0;
+            border: 1px solid #f5ddc0;
+            border-left: 4px solid var(--caramel);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin: 0 0 28px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+        .avis-langue strong { font-weight: 700; opacity: 1; color: var(--cafe); }
+        .avis-langue a { color: var(--caramel); }
+
+
+        .contact-box { background: white; border-radius: 20px; padding: 48px; box-shadow: 0 8px 30px rgba(44,24,16,0.08); }
+
+        .subtitle { font-size: 0.9rem; opacity: 0.65; margin-bottom: 32px; font-weight: 300; line-height: 1.7; }
+        .info-box { background: rgba(196,135,58,0.08); border-left: 3px solid var(--caramel); padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 32px; font-size: 0.85rem; line-height: 1.7; opacity: 0.8; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 500; color: var(--cafe); margin-bottom: 8px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 16px; border: 1.5px solid rgba(44,24,16,0.15); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--cafe); background: var(--cream); transition: border-color 0.2s; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--caramel); }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .form-submit { width: 100%; padding: 14px; background: var(--cafe); color: var(--cream); border: none; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
+        .form-submit:hover { opacity: 0.85; }
+        .form-note { font-size: 0.75rem; opacity: 0.5; margin-top: 12px; text-align: center; }
+        .form-success { display: none; text-align: center; padding: 32px 24px; background: rgba(45,106,79,0.1); border-radius: 12px; color: #2D6A4F; }
+        .form-success h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 12px; }
+        .form-success p { font-size: 0.9rem; opacity: 0.8; }
+        .alternatives { margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(44,24,16,0.1); }
+        .alternatives h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 16px; }
+        .alt-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; font-size: 0.85rem; opacity: 0.75; }
+
+        @media (max-width: 768px) { nav { padding: 16px 24px; } .container { padding: 100px 24px 60px; } .contact-box { padding: 32px 24px; } }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="/en/" class="nav-logo">
+        <img src="/logo.png" alt="PauseCafé" class="nav-logo-img">
+        PauseCafé
+    </a>
+    <a href="/en/" class="nav-back">← Back to the site</a>
+    <span class="lang-switch">
+        <a href="/rgpd.html" hreflang="fr">FR</a>
+        <span class="sep">/</span>
+        <a href="/en/gdpr.html" aria-current="true" hreflang="en">EN</a>
+    </span>
+</nav>
+
+<div class="page-legale">
+    <div class="contact-box">
+        <div class="avis-langue">
+    <strong>English translation for convenience.</strong>
+    This is an unofficial translation of the French GDPR page, provided to help you understand it.
+    In the event of any discrepancy, <a href="/rgpd.html">the French version</a> is the only one that
+    is legally binding.
+</div>
+
+<h1>🔒 Exercising your GDPR rights</h1>
+        <p class="subtitle">Under the GDPR, you can request deletion of your account, an export of your data, or correction of your information. We'll reply within 30 days.</p>
+
+        <div class="info-box">
+            💡 <strong>From the app, you can do the following directly:</strong><br>
+            • Delete your account → Settings → Delete my account<br>
+            • Export your data → Progress → Export my data<br>
+            • Edit your profile → Account settings
+        </div>
+
+        <form id="rgpd-form" onsubmit="envoyerFormulaire(event)">
+            <div class="form-group">
+                <label>Your email *</label>
+                <input type="email" id="email" placeholder="ton@email.fr" required>
+            </div>
+            <div class="form-group">
+                <label>Type of request *</label>
+                <select id="type" required>
+                    <option value="">Select an option</option>
+                    <option value="Suppression de compte et données">Deletion of my account and data</option>
+                    <option value="Export de mes données">Export of my data (portability)</option>
+                    <option value="Rectification de mes données">Correction of my data</option>
+                    <option value="Opposition au traitement">Objection to processing</option>
+                    <option value="Autre demande RGPD">Other GDPR request</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Message (optional)</label>
+                <textarea id="message" placeholder="Précise ta demande si nécessaire..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send my request</button>
+            <p class="form-note">Your data is used only to handle your request. A reply is guaranteed within 30 days.</p>
+        </form>
+
+        <div class="form-success" id="form-success">
+            <h2>✅ Request sent!</h2>
+            <p>We'll reply to you at <strong id="email-confirm"></strong> within 30 days at the latest.</p>
+        </div>
+
+        <div class="alternatives">
+            <h3>Other rights available directly</h3>
+            <div class="alt-item">📱 <span><strong>Ad tracking</strong> → iOS Settings → Privacy → Tracking → PauseCafé</span></div>
+            <div class="alt-item">🔔 <span><strong>Notifications</strong> → Settings → Notifications in the app</span></div>
+            <div class="alt-item">📋 <span><strong>Full policy</strong> → <a href="/en/privacy.html" style="color:var(--caramel)">Read our privacy policy</a></span></div>
+            <div class="alt-item">📧 <span><strong>Direct contact</strong> → <a href="mailto:hello@pausecafe-app.fr" style="color:var(--caramel)">hello@pausecafe-app.fr</a></span></div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="/en/">Home</a>
+        <a href="/en/blog">Articles</a>
+        <a href="/cgu.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/rgpd.html">GDPR</a>
+        <a href="mailto:hello@pausecafe-app.fr">Contact</a>
+    </div>
+    <div class="footer-bottom">© 2026 PauseCafé — Wellness information, not medical.</div>
+</footer>
+
+<script>
+    function envoyerFormulaire(e) {
+        e.preventDefault();
+        var email = document.getElementById('email').value;
+        var type = document.getElementById('type').value;
+        var message = document.getElementById('message').value;
+        var body = 'Email : ' + email + '\nType de demande : ' + type + (message ? '\nMessage : ' + message : '');
+        var mailto = 'mailto:hello@pausecafe-app.fr?subject=' + encodeURIComponent('Demande RGPD : ' + type) + '&body=' + encodeURIComponent(body);
+        window.location.href = mailto;
+        document.getElementById('rgpd-form').style.display = 'none';
+        document.getElementById('email-confirm').textContent = email;
+        document.getElementById('form-success').style.display = 'block';
+    }
+</script>
+</body>
+</html>

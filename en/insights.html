@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The science behind your insights — PauseCafé</title>
+    <!-- ══ Métadonnées : SEO + partage social + découvrabilité IA ══ -->
+    <link rel="canonical" href="https://pausecafe-app.fr/en/insights.html">
+    <!-- Versions linguistiques : indique a Google que ces deux pages sont
+         la MEME page en deux langues, et non du contenu duplique. -->
+    <link rel="alternate" hreflang="fr" href="/en/insights.html">
+    <link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/insights.html">
+    <link rel="alternate" hreflang="x-default" href="/en/insights.html">
+
+
+    <!-- Open Graph (Facebook, LinkedIn, iMessage, WhatsApp…) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PauseCafé">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:url" content="https://pausecafe-app.fr/en/insights.html">
+    <meta property="og:title" content="The science behind your insights — PauseCafé">
+    <meta property="og:description" content="N-of-1 approach, extreme-group comparison, Spearman correlation. Association is not causation.">
+    <meta property="og:image" content="https://pausecafe-app.fr/logo.png">
+
+    <!-- Twitter / X (reprend l’image ; logo carré pour l’instant) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The science behind your insights — PauseCafé">
+    <meta name="twitter:description" content="N-of-1 approach, extreme-group comparison, Spearman correlation. Association is not causation.">
+    <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">
+    <meta name="description" content="The statistical method behind PauseCafé's insights: N-of-1 approach, top/bottom 25% comparison, Spearman rank correlation, and complete honesty about the limits.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/base.css">
+    <style>
+        :root { --cafe: #2C1810; --cream: #F6E1C8; --espresso: #1A0F0A; --caramel: #C4873A; --mousse: #E8D5B0; --purple: #6B3FA0; --purple-light: #9B6FD0; --blue: #378ADD; --green: #4CAF7D; --text: #1A0F0A; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; background: #F6E1C8; border-bottom: 1px solid rgba(196, 135, 58, 0.2); }
+
+        .card { background: white; border: 1px solid rgba(196,135,58,0.18); border-radius: 16px; padding: 28px 28px; margin: 24px 0; box-shadow: 0 6px 24px rgba(44,24,16,0.05); }
+        .mini-card { background: white; border: 1px solid rgba(196,135,58,0.18); border-radius: 14px; padding: 22px 20px; }
+        .steps li { position: relative; padding: 14px 0 14px 52px; border-bottom: 1px solid rgba(44,24,16,0.08); font-size: 0.98rem; line-height: 1.7; opacity: 0.85; font-weight: 300; }
+
+        .seuil-note { background: rgba(76,175,125,0.1); border: 1px solid rgba(76,175,125,0.35); border-radius: 14px; padding: 20px 24px; margin: 20px 0; }
+
+        /* Bloc « exemple concret » — teinte caramel, lecture chiffrée */
+        .exemple { background: rgba(196,135,58,0.08); border: 1px solid rgba(196,135,58,0.3); border-radius: 14px; padding: 20px 24px; margin: 20px 0; }
+        .exemple h3 { font-size: 0.95rem; font-weight: 700; color: var(--cafe); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .exemple p { font-size: 0.92rem; line-height: 1.7; opacity: 0.85; font-weight: 300; margin: 0 0 8px; }
+        .exemple .chiffres { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+        .exemple .chiffre { flex: 1; min-width: 150px; background: white; border-radius: 10px; padding: 12px 14px; border: 1px solid rgba(196,135,58,0.18); }
+        .exemple .chiffre .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.6; }
+        .exemple .chiffre .valeur { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--cafe); margin-top: 4px; }
+        .exemple .lecture { font-size: 0.9rem; font-weight: 500; color: var(--cafe); margin: 6px 0 0; opacity: 1; }
+
+        /* Bloc « limites » — sobre, gris-beige */
+        .limites { border-left: 3px solid rgba(44,24,16,0.2); padding: 4px 0 4px 18px; margin: 16px 0 0; }
+        .limites p { font-size: 0.9rem; line-height: 1.7; opacity: 0.7; font-weight: 300; margin: 0; }
+        .limites strong { color: var(--cafe); }
+
+        .pill { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; vertical-align: middle; margin-left: 8px; }
+        .pill.premium { background: rgba(107,63,160,0.12); color: var(--purple); border: 1px solid rgba(107,63,160,0.3); }
+        .pill.encours { background: rgba(76,175,125,0.14); color: #2f8a5c; border: 1px solid rgba(76,175,125,0.4); }
+        .pill.avenir { background: rgba(196,135,58,0.14); color: #9a6420; border: 1px solid rgba(196,135,58,0.4); }
+
+    </style>
+</head>
+<body>
+<nav>
+    <a class="nav-logo" href="/en/">
+        <img src=/logo.png" alt="PauseCafé" class="nav-logo-img">
+        PauseCafé
+    </a>
+    <a class="nav-back" href="/en/">← Back to the site</a>
+    <span class="lang-switch">
+        <a href="/analyses.html" hreflang="fr">FR</a>
+        <span class="sep">/</span>
+        <a href="/en/insights.html" aria-current="true" hreflang="en">EN</a>
+    </span>
+</nav>
+
+<header class="hero">
+    <div class="hero-badge">🔬 The science behind the insights</div>
+    <h1>The science behind <span>your insights</span></h1>
+    <p class="lead">PauseCafé doesn't just count your coffees. In the Insights tab, it cross-references your habits to bring out <strong>your own</strong> trends. Here's how — the statistical method, why these choices rather than others, worked examples, the scientific sources, and complete honesty about what you can (and cannot) conclude.</p>
+</header>
+
+<main class="content">
+
+    <section class="block">
+        <h2>🧭 The principle: you are your own benchmark</h2>
+        <p>Every PauseCafé analysis rests on a simple idea: <strong>don't compare you to an average, compare you to yourself</strong>. This is known as an “N-of-1” approach (a sample of one: you), or self-tracking.</p>
+        <p>Why this choice? Because responses to caffeine vary enormously from person to person — how fast you clear it depends on genetics (the liver enzyme CYP1A2), smoking, certain medications, pregnancy and age. Telling you “the average person sleeps X hours” would mean nothing for you. Comparing <strong>your own</strong> days against each other, however, reveals a signal that belongs to you.</p>
+        <div class="seuil-note">
+            <h3>🎯 The golden rule: association ≠ causation</h3>
+            <p>An analysis might show that your shortest nights coincide with your most caffeinated days. That does not <em>prove</em> that coffee shortened your sleep: other causes (stress, screens, a late meal) could explain both at once. PauseCafé shows you <strong>statistical coincidences</strong> in your data — leads to explore, never verdicts. This is a wellness app, not a medical device.</p>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>📊 The method shared by all the analyses</h2>
+        <p>The three analyses (water, sleep, heart rate) share the same mechanics. Here they are, step by step:</p>
+        <ul class="steps">
+            <li><strong>We rank your days (or nights) by caffeine level.</strong> Each day is assigned a total caffeine intake.</li>
+            <li><strong>We isolate the two extremes.</strong> The 25% most caffeinated days on one side, the 25% least caffeinated on the other.</li>
+            <li><strong>We compare the metric between those two groups.</strong> For example: on average, do you drink more or less water on heavily caffeinated days than on quiet ones?</li>
+            <li><strong>In addition, we compute a rank correlation coefficient (Spearman)</strong> from 7 days of data, to quantify the link across all your days, not just the extremes.</li>
+        </ul>
+
+        <h3 class="sub">Why compare the extreme 25%, rather than all the days?</h3>
+        <div class="seuil-note">
+            <h3>✅ A clear contrast, robust to “average” days</h3>
+            <p>Middling days (neither heavily nor lightly caffeinated) dilute the signal: they look like everyone else's. By setting the top and bottom of the range against each other, we maximise the contrast and get a readable message (“on days you push the coffee, you sleep less”). It's also more <strong>robust</strong> : a single unusual day carries less weight when you reason in groups than in an overall average.</p>
+        </div>
+
+        <h3 class="sub">Why Spearman, and not Pearson?</h3>
+        <div class="seuil-note">
+            <h3>✅ A rank correlation, suited to small, noisy datasets</h3>
+            <p>Pearson's coefficient measures a <em>linear</em> relationship and assumes roughly normal data: it's sensitive to outliers (a single 5-litre day can throw everything off). Spearman works on <strong>ranks</strong> (how the days are ordered), not raw values. The result: it detects any <strong>monotonic</strong> relationship (“more coffee → less water”, even if it isn't a perfect straight line), it assumes no particular distribution, and it withstands outlying days. On human behaviour data — sparse and noisy — it's the cautious choice.</p>
+        </div>
+
+        <h3 class="sub">Why 7 days, then 14?</h3>
+        <div class="seuil-note">
+            <h3>✅ Enough data points that it isn't just chance</h3>
+            <p>Below 7 days, any result would be anecdotal: too few points, chance dominates. From <strong>7 days/nights</strong> onwards, a <em>trend</em> starts to emerge — and PauseCafé says plainly that it's still fragile. From <strong>14</strong> onwards, the “top / bottom 25%” groups hold enough days to give a more reliable and actionable comparison. We'd rather say “hang on a little longer” than show a misleading figure.</p>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>💧 Analysis 1 — Water ↔ caffeine <span class="pill premium">Premium</span></h2>
+        <p>The first analysis cross-references your water intake and your caffeine, day after day. It answers one question: <strong>how does your hydration change depending on whether you drink a lot or a little coffee?</strong> Depending on the pattern, the message differs: “you over-compensate” (more water on caffeinated days), “you trade off”, or “steady hydration”.</p>
+        <div class="exemple">
+            <h3>📐 A worked example (over 14 days)</h3>
+            <p>Suppose we isolate your extreme days:</p>
+            <div class="chiffres">
+                <div class="chiffre">
+                    <div class="label">Your most caffeinated days</div>
+                    <div class="valeur">1.1 L of water</div>
+                </div>
+                <div class="chiffre">
+                    <div class="label">Your quietest days</div>
+                    <div class="valeur">1.8 L of water</div>
+                </div>
+            </div>
+            <p class="lecture">Reading: on the days you push the coffee, you drink noticeably less water. Something to act on: remember to hydrate more on those days.</p>
+        </div>
+        <div class="limites">
+            <p><strong>Limitations.</strong> This is <em>your</em> behavioural pattern, not a physiological law. Coffee didn't “dry out” your body: you simply drank less water on those days. The analysis describes; it doesn't explain.</p>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>😴 Analysis 2 — Caffeine ↔ sleep <span class="pill premium">Premium</span></h2>
+        <p>With your permission, PauseCafé reads your sleep duration from Apple Health (<strong>on your device only</strong>) and cross-references it with your caffeine. This analysis rests on solid scientific ground.</p>
+        <h3 class="sub">What the science says</h3>
+        <p>A landmark study (Drake et al., 2013) gave 400 mg of caffeine to healthy sleepers 0, 3 or 6 hours before bed. The result: <strong>even taken 6 hours before sleep, caffeine cut sleep time by more than an hour</strong>, to a statistically significant degree. That's what justifies the app's “sleep threshold” (≈ 100 mg, the EFSA benchmark) and the A → G sleep impact grade: they estimate how much caffeine will be left when you go to bed.</p>
+        <h3 class="sub">What we measure</h3>
+        <p>We compare your average night length against your caffeine intake, using the shared method: your <strong>most caffeinated nights (top 25%)</strong> against your <strong>least caffeinated nights (bottom 25%)</strong>, from 7 measured nights (a trend), 14 for a more reliable comparison.</p>
+        <div class="exemple">
+            <h3>📐 A worked example</h3>
+            <div class="chiffres">
+                <div class="chiffre">
+                    <div class="label">Most caffeinated nights</div>
+                    <div class="valeur">6 h 20</div>
+                </div>
+                <div class="chiffre">
+                    <div class="label">Least caffeinated nights</div>
+                    <div class="valeur">7 h 15</div>
+                </div>
+            </div>
+            <p class="lecture">Reading: in your data, nights following heavy caffeine are on average around 55 minutes shorter. Worth watching — without concluding there's a single cause.</p>
+        </div>
+        <div class="limites">
+            <p><strong>Limitations.</strong> Duration measured by a watch is not laboratory polysomnography. And other factors (stress, screens, alcohol, a late meal) affect sleep alongside caffeine: the coincidence observed does not pin the blame on coffee alone.</p>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>❤️ Analysis 3 — Caffeine ↔ resting heart rate <span class="pill premium">Premium</span></h2>
+        <p>Again with your permission and <strong>read on your device</strong>, PauseCafé can cross-reference your resting heart rate with your caffeine. This is the most cautious analysis — and we should be honest about the science.</p>
+        <h3 class="sub">What the science says (with nuance)</h3>
+        <p>Caffeine stimulates the sympathetic nervous system (by blocking adenosine and releasing catecholamines). Reviews show a <strong>fairly clear acute effect on blood pressure</strong>, but <strong>less consistent data on heart rate</strong>. More importantly, <strong>tolerance</strong> builds in regular consumers: the body adapts, and the effect on resting heart rate becomes variable, sometimes small. That is precisely why we present it as a <strong>personal exploration</strong>, not as an established relationship.</p>
+        <h3 class="sub">What we measure</h3>
+        <p>Same comparison method: your average resting heart rate on the most caffeinated days (top 25%) against the least caffeinated (bottom 25%), from 7 measured days, 14 for greater clarity.</p>
+        <div class="exemple">
+            <h3>📐 A worked example</h3>
+            <div class="chiffres">
+                <div class="chiffre">
+                    <div class="label">Most caffeinated days</div>
+                    <div class="valeur">63 bpm</div>
+                </div>
+                <div class="chiffre">
+                    <div class="label">Least caffeinated days</div>
+                    <div class="valeur">61 bpm</div>
+                </div>
+            </div>
+            <p class="lecture">Reading: a 2 bpm gap is small and could come from many other things (activity, hydration, stress). We present it as an observation, not as a strong signal.</p>
+        </div>
+        <div class="limites">
+            <p><strong>Limitations.</strong> Caffeine tolerance, many confounding factors (exercise, sleep, hydration, stress), and a measurement from a consumer sensor. This analysis invites observation, never worry. If you have any doubt about your heart, consult a healthcare professional.</p>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>🧠 Coming soon — Caffeine ↔ stress <span class="pill avenir">Soon</span></h2>
+        <p>An upcoming analysis will cross-reference your caffeine with a <strong>self-report questionnaire</strong> (stress, anxiety). The method will stay the same: comparing your most and least caffeinated periods, backed by a rank correlation.</p>
+        <div class="limites">
+            <p><strong>Methodological honesty.</strong> Self-reported stress is subjective, and the link is probably <em>bidirectional</em> : stress drives you to drink more coffee, and coffee can heighten anxiety in some people. The analysis will help you spot your own pattern, without settling which way the arrow points.</p>
+        </div>
+    </section>
+
+    <section class="block">
+        <h2>🚫 What PauseCafé does not do</h2>
+        <p>Rigour also means knowing what you refuse to do:</p>
+        <div class="card-grid">
+            <div class="mini-card">
+                <span class="emoji">⛓️</span>
+                <h3>Claim a cause</h3>
+                <p>We will never say “coffee reduced your sleep”. We show an association; it's yours to interpret.</p>
+            </div>
+            <div class="mini-card">
+                <span class="emoji">⚖️</span>
+                <h3>Personalise half-life by body weight</h3>
+                <p>Clearance depends on the liver (CYP1A2), genetics, smoking and medications — none of which the app can measure. Doing it would be false precision. Weight is used only where it's valid: the sleep threshold (≈ 1.4 mg/kg) and the daily goal (≈ 5.7 mg/kg).</p>
+            </div>
+            <div class="mini-card">
+                <span class="emoji">🩺</span>
+                <h3>Make a diagnosis</h3>
+                <p>No analysis is medical advice. PauseCafé is a wellness app.</p>
+            </div>
+            <div class="mini-card">
+                <span class="emoji">🔒</span>
+                <h3>Send your health data anywhere</h3>
+                <p>Sleep and heart rate are read from Apple Health <strong>on your device</strong> and never leave it: no health data is sent to our servers.</p>
+            </div>
+        </div>
+        <div class="disclaimer">
+            <h3>⚠️ Wellness information</h3>
+            <p>PauseCafé's analyses are provided for guidance and have no medical value: neither a medical device, nor a diagnosis, nor medical advice. For any question about your sleep, your heart or your health, consult a healthcare professional.</p>
+        </div>
+        <p class="sources">
+            <strong>Sources.</strong>
+            EFSA, <em>Scientific Opinion on the safety of caffeine</em>, 2015 (EFSA Journal 2015;13(5):4102) — average half-life ≈ 5 h, sleep impact threshold ≈ 100 mg, daily dose of no concern ≈ 400 mg (≈ 5.7 mg/kg) and ≈ 200 mg per single dose. <a href="https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2015.4102" target="_blank" rel="noopener noreferrer">Link →</a><br>
+            Drake C, Roehrs T, Shambroom J, Roth T. <em>Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed.</em> J Clin Sleep Med 2013;9(11):1195–1200 — 12 healthy sleepers, 400 mg; significant effect up to 6 h before bed. <a href="https://jcsm.aasm.org/doi/abs/10.5664/jcsm.3170" target="_blank" rel="noopener noreferrer">Link →</a><br>
+            James JE. <em>The effects of caffeine on blood pressure and heart rate: a review</em> (Annals of Behavioral Medicine) — marked acute effect on blood pressure, less consistent heart rate data, tolerance in regular consumers.<br>
+            Nawrot P et al. <em>Effects of caffeine on human health.</em> Food Addit Contam 2003;20(1):1–30 — a synthesis of effects on sleep and the cardiovascular system.<br>
+            Statistical method: Spearman rank correlation coefficient (a non-parametric measure of a monotonic relationship, robust to outliers).
+        </p>
+    </section>
+
+    <div class="cta">
+        <h2>Your insights, in PauseCafé Premium</h2>
+        <p>Real-time active caffeine, sleep and heart rate correlations: leads to help you know yourself better, with your data respected.</p>
+    </div>
+
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="/en/">Home</a>
+        <a href="/en/features.html">Features</a>
+        <a href="/en/changelog.html">What's new</a>
+        <a href="/en/real-time-caffeine.html">Real-time caffeine</a>
+        <a href="/en/privacy.html">Privacy</a>
+        <a href="/en/terms.html">Terms</a>
+    </div>
+    <div style="display:flex;justify-content:center;padding:10px 0 18px;">
+<img src=/works-with-apple-health-en.svg" alt="Fonctionne avec l’app Santé" style="height:34px;width:auto;display:block;">
+</div>
+<div class="footer-bottom">© 2026 PauseCafé · Wellness app · Indicative information, not medical</div>
+</footer>
+
+</body>
+</html>

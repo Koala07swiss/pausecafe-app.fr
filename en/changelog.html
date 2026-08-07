@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's new &amp; versions — PauseCafé</title>
+
+    <!-- ══ Métadonnées : SEO + partage social + découvrabilité IA ══ -->
+    <meta name="description" content="Every PauseCafé update, version by version: new features, improvements and fixes.">
+    <meta name="keywords" content="PauseCafé nouveautés, changelog, mises à jour, caféine active, app Santé, Apple Watch, sommeil, hydratation, versions">
+    <link rel="canonical" href="https://pausecafe-app.fr/en/changelog.html">
+    <!-- Versions linguistiques : indique a Google que ces deux pages sont
+         la MEME page en deux langues, et non du contenu duplique. -->
+    <link rel="alternate" hreflang="fr" href="/en/changelog.html">
+    <link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/changelog.html">
+    <link rel="alternate" hreflang="x-default" href="/en/changelog.html">
+
+
+    <!-- Open Graph (Facebook, LinkedIn, iMessage, WhatsApp…) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PauseCafé">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:url" content="https://pausecafe-app.fr/en/changelog.html">
+    <meta property="og:title" content="What's new &amp; versions — PauseCafé">
+    <meta property="og:description" content="Every PauseCafé update, version by version: new features, improvements and fixes.">
+    <meta property="og:image" content="https://pausecafe-app.fr/logo.png">
+
+    <!-- Twitter / X (reprend l'image ; logo carré pour l'instant) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What's new &amp; versions — PauseCafé">
+    <meta name="twitter:description" content="Every PauseCafé update, version by version: new features, improvements and fixes.">
+    <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">
+
+    <!-- JSON-LD : l'application + sa dernière version (lu par les moteurs ET les IA) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "PauseCafé",
+      "operatingSystem": "iOS, watchOS",
+      "applicationCategory": "HealthApplication",
+      "description": "Suivi de caféine et d'hydratation avec estimation de la caféine active en temps réel, sur iPhone et Apple Watch. Information de bien-être, non médicale.",
+      "url": "https://pausecafe-app.fr/",
+      "downloadUrl": "https://apps.apple.com/app/id6761892198",
+      "inLanguage": "fr",
+      "softwareVersion": "1.3.1",
+      "releaseNotes": "Hydratation en millilitres, eau des boissons comptée, tailles S/M/L, alerte canicule Météo-France, complication Watch Hydratation, correction défi tisane et améliorations diverses.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PauseCafé",
+        "url": "https://pausecafe-app.fr",
+        "logo": "https://pausecafe-app.fr/logo.png"
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/base.css">
+    <style>
+        :root { --cafe: #2C1810; --cream: #F6E1C8; --espresso: #1A0F0A; --caramel: #C4873A; --mousse: #E8D5B0; --purple: #6B3FA0; --purple-light: #9B6FD0; --blue: #378ADD; --green: #4CAF7D; --text: #1A0F0A; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; background: #F6E1C8; border-bottom: 1px solid rgba(196, 135, 58, 0.2); }
+        .hero { padding: 140px 48px 40px; max-width: 860px; margin: 0 auto; }
+        .version { background: white; border: 1px solid rgba(196,135,58,0.18); border-radius: 16px; padding: 26px 28px; margin: 22px 0; box-shadow: 0 6px 24px rgba(44,24,16,0.05); }
+        .version-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+        .version-num { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; color: var(--cafe); }
+        .version-date { font-size: 0.8rem; font-weight: 500; color: var(--caramel); text-transform: uppercase; letter-spacing: 0.06em; }
+        .version-intro { font-size: 1rem; line-height: 1.7; opacity: 0.82; font-weight: 300; margin: 10px 0 4px; }
+        .version-intro strong { color: var(--cafe); font-weight: 500; }
+        .cl-label { font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin: 18px 0 6px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 100px; }
+        .cl-label.new { color: var(--purple); background: rgba(107,63,160,0.10); }
+        .cl-label.fix { color: var(--blue); background: rgba(55,138,221,0.10); }
+        .cl-list { list-style: none; margin: 0; padding: 0; }
+        .cl-list li { font-size: 0.96rem; line-height: 1.7; opacity: 0.85; font-weight: 300; padding: 7px 0 7px 20px; position: relative; }
+        .cl-list li::before { content: '·'; position: absolute; left: 5px; top: 4px; color: var(--caramel); font-weight: 700; font-size: 1.3em; }
+        .cl-list li strong { color: var(--cafe); font-weight: 500; }
+        .badge-latest { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; background: rgba(76,175,125,0.14); color: #2f8a5c; border: 1px solid rgba(76,175,125,0.4); vertical-align: middle; margin-left: 10px; }
+        .cta { text-align: center; background: var(--espresso); color: var(--cream); border-radius: 20px; padding: 48px 32px; margin-top: 56px; }
+        .cta h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; margin-bottom: 12px; color: var(--cream); }
+        .cta p { opacity: 0.7; font-weight: 300; margin-bottom: 28px; }
+        .cta-btn { display: inline-block; background: var(--caramel); color: white; padding: 15px 30px; border-radius: 100px; font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: opacity 0.2s, transform 0.2s; }
+        .cta-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+        @media (max-width: 768px) {
+            .hero { padding: 110px 24px 30px; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <a class="nav-logo" href="/en/">
+        <img src=/logo.png" alt="PauseCafé" class="nav-logo-img">
+        PauseCafé
+    </a>
+    <a class="nav-back" href="/en/">← Back to the site</a>
+    <span class="lang-switch">
+        <a href="/changelog.html" hreflang="fr">FR</a>
+        <span class="sep">/</span>
+        <a href="/en/changelog.html" aria-current="true" hreflang="en">EN</a>
+    </span>
+</nav>
+
+<header class="hero">
+    <div class="hero-badge">📋 Changelog</div>
+    <h1>What's new &amp; <span>versions</span></h1>
+    <p class="lead">Every PauseCafé update, from the first version to today: new features, improvements and fixes.</p>
+</header>
+
+<main class="content">
+
+    <article class="version">
+        <div class="version-head">
+            <span class="version-num">1.3.1 <span class="badge-latest">Latest version</span></span>
+            <span class="version-date">July 2026</span>
+        </div>
+        <span class="cl-label fix">🔧 Fix</span>
+        <ul class="cl-list">
+            <li><strong>Herbal tea challenge fixed</strong> — progress on the “Herbal tea break” challenge wasn't advancing, however many herbal teas you logged. Each one now counts properly.</li>
+        </ul>
+    </article>
+
+    <article class="version">
+        <div class="version-head">
+            <span class="version-num">1.3.0</span>
+            <span class="version-date">July 2026</span>
+        </div>
+        <p class="version-intro">A major release: hydration has been rebuilt from the ground up, drinks now come in sizes, and PauseCafé adapts to the weather.</p>
+        <span class="cl-label new">💧 Hydration rebuilt</span>
+        <ul class="cl-list">
+            <li><strong>Everything moves to millilitres</strong> — counter, history, statistics, goal, reminders and the summary email. More precise than the old glasses.</li>
+            <li><strong>The water in your drinks is counted</strong> — a coffee, a tea or a soda also provide water, and PauseCafé takes that into account automatically. You can turn it off in the settings.</li>
+        </ul>
+        <span class="cl-label new">☕ Drink sizes</span>
+        <ul class="cl-list">
+            <li><strong>Choose the size (S, M, L)</strong> — the volume and caffeine adjust accordingly each time you log a drink.</li>
+        </ul>
+        <span class="cl-label new">🌡️ Weather and heatwaves</span>
+        <ul class="cl-list">
+            <li><strong>Heatwave alert</strong> — in France, PauseCafé reads the Météo-France alert level for the département you choose (no geolocation). An alert banner appears on the home screen and the widget during hot weather, free for everyone.</li>
+            <li><strong>Stepped-up hydration reminders</strong> — during a heatwave, your reminders step up automatically (Premium).</li>
+            <li><strong>Annotated hydration chart</strong> — very hot days are flagged on your chart, so you can read your habits in context.</li>
+        </ul>
+        <span class="cl-label new">⌚ Apple Watch (Premium)</span>
+        <ul class="cl-list">
+            <li><strong>New Hydration complication</strong> on your watch face, alongside caffeine.</li>
+            <li><strong>More reliable syncing</strong> — a drink logged from the Watch is never lost again.</li>
+        </ul>
+        <span class="cl-label fix">🔧 Fixes and quality of life</span>
+        <ul class="cl-list">
+            <li>The weekly email summary is now optional (off by default).</li>
+            <li>The water shown in the widget now matches your actual total for the day exactly.</li>
+            <li>Better data isolation when switching accounts on the same device.</li>
+            <li>Various reliability improvements.</li>
+        </ul>
+    </article>
+
+    <article class="version">
+        <div class="version-head">
+            <span class="version-num">1.2.1</span>
+            <span class="version-date">June 2026</span>
+        </div>
+        <span class="cl-label fix">🔧 Fixes</span>
+        <ul class="cl-list">
+            <li>Your streak is now kept when you sign in on another device.</li>
+            <li>A drink logged from the Apple Watch in the morning is now counted on the correct day, even before the app is opened and even offline.</li>
+            <li>Fixed unwanted horizontal scrolling on the “My Progress” page.</li>
+            <li>Various reliability improvements.</li>
+        </ul>
+    </article>
+
+    <article class="version">
+        <div class="version-head">
+            <span class="version-num">1.2.0</span>
+            <span class="version-date">June 2026</span>
+        </div>
+        <p class="version-intro">PauseCafé's flagship feature arrives: <strong>active caffeine</strong>.</p>
+        <span class="cl-label new">✨ What's new</span>
+        <ul class="cl-list">
+            <li><strong>Real-time active caffeine</strong> — see the estimated amount of caffeine still in your body: it rises with each drink then falls away over the hours. At a glance, you know how much will be left at bedtime. Available in the app, in the widget, on Apple Watch and as complications on your watch face.</li>
+            <li><strong>Syncing with the Health app</strong> — write your caffeine and water to the Health app to find them alongside the rest of your data.</li>
+            <li><strong>Premium insights: caffeine, sleep and heart</strong> — discover the link between your caffeine and your actual sleep, and between your caffeine and your resting heart rate. The analyses use Health app data and are computed directly on your device: they never leave your iPhone.</li>
+        </ul>
+    </article>
+
+    <article class="version">
+        <div class="version-head">
+            <span class="version-num">1.1.0</span>
+            <span class="version-date">June 2026</span>
+        </div>
+        <p class="version-intro">PauseCafé looks after you even better!</p>
+        <span class="cl-label new">✨ What's new</span>
+        <ul class="cl-list">
+            <li><strong>Hydration tracking</strong> — track your hydration alongside your caffeine: a blue ring around your cup, a personalised daily goal and new statistics to understand your habits.</li>
+            <li><strong>Premium</strong> — water ↔ caffeine correlations in the Insights tab.</li>
+        </ul>
+    </article>
+
+    <article class="version">
+        <div class="version-head">
+            <span class="version-num">1.0.3</span>
+            <span class="version-date">June 2026</span>
+        </div>
+        <span class="cl-label fix">🔧 Fixes &amp; improvements</span>
+        <ul class="cl-list">
+            <li>Fixed a rare bug where the caffeine counter could reset partway through the day.</li>
+            <li>The delay between two entries is down to 30 seconds (from 5 minutes) for a smoother experience.</li>
+            <li>Reliability and stability improvements.</li>
+        </ul>
+    </article>
+
+    <article class="version">
+        <div class="version-head">
+            <span class="version-num">1.0.2</span>
+            <span class="version-date">May 2026</span>
+        </div>
+        <span class="cl-label fix">🔧 Fixes &amp; improvements</span>
+        <ul class="cl-list">
+            <li>Fixed a rare bug where the favourites counter could stay stuck at 3 while only 2 drinks appeared in quick access.</li>
+            <li>Your custom drinks are now saved to the cloud: find them on all your devices and after switching iPhone.</li>
+            <li>Creating a custom drink with a name already used in the app is now prevented.</li>
+            <li>Various stability improvements.</li>
+        </ul>
+    </article>
+
+    <article class="version">
+        <div class="version-head">
+            <span class="version-num">1.0.1</span>
+            <span class="version-date">May 2026</span>
+        </div>
+        <span class="cl-label fix">🔧 Fixes</span>
+        <ul class="cl-list">
+            <li>A bug fix and stability improvements.</li>
+        </ul>
+    </article>
+
+    <article class="version">
+        <div class="version-head">
+            <span class="version-num">1.0</span>
+            <span class="version-date">May 2026</span>
+        </div>
+        <p class="version-intro">The first version of PauseCafé.</p>
+        <span class="cl-label new">✨ Launch</span>
+        <ul class="cl-list">
+            <li>Track your daily caffeine intake, with points, badges and goals to keep you going.</li>
+        </ul>
+    </article>
+
+    <div class="disclaimer">
+        <h3>ℹ️ Wellness information</h3>
+        <p>PauseCafé is a wellness app. The information and analyses it provides are indicative and do not constitute medical advice. If you have a health concern, speak to a professional.</p>
+    </div>
+
+    <div class="cta">
+        <h2>Don't have the app yet?</h2>
+        <p>Track your caffeine and hydration, and see what's left before you sleep.</p>
+        <a class="cta-btn" href="https://apps.apple.com/app/id6761892198">Download on the App Store</a>
+    </div>
+
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="/en/">Home</a>
+        <a href="/en/features.html">Features</a>
+        <a href="/en/real-time-caffeine.html">Real-time caffeine</a>
+        <a href="/en/insights.html">Insights</a>
+        <a href="/en/hydration.html">Hydration</a>
+        <a href="/en/health.html">Health app</a>
+        <a href="/en/privacy.html">Privacy</a>
+        <a href="/en/terms.html">Terms</a>
+    </div>
+    <div class="footer-bottom">© 2026 PauseCafé · Wellness app · Indicative information, not medical</div>
+</footer>
+
+</body>
+</html>
