@@ -1,0 +1,56 @@
+{
+  "sujet": "widget-cafeine",
+  "threadX": "1/ Ton iPhone t'affiche la météo, tes pas, ta batterie… mais pas si tu peux prendre un café. ☕\n2/ PauseCafé a un widget pour l'écran d'accueil. Un coup d'œil, et tu vois la caféine encore active dans ton corps — maintenant.\n3/ Le widget affiche la tendance en temps réel : est-ce que ça monte encore ? Ça redescend ? Tu es dans la fenêtre pour une autre tasse ou pas.\n4/ Plus besoin d'ouvrir l'app. L'info est là, entre ta météo et tes rappels. En 2 secondes tu sais où tu en es.\n5/ C'est une estimation (modèle de Bateman, demi-vie ~5 h), pas une mesure médicale. Mais c'est suffisant pour prendre une décision éclairée.\n6/ Tu configures le widget en quelques secondes : appui long sur l'écran d'accueil → \"+\" → PauseCafé. C'est tout. 🎯\n7/ Essaie le widget PauseCafé → https://apps.apple.com/app/id6761892198",
+  "slides": [
+    {
+      "title": "La caféine active, d'un coup d'œil",
+      "body": "Un widget sur ton écran d'accueil. Plus besoin d'ouvrir une app pour savoir où tu en es.",
+      "cta": "",
+      "bg": "photo",
+      "photo": null
+    },
+    {
+      "title": "Une tendance en temps réel",
+      "body": "Ça monte encore ? Ça redescend ? Tu vois exactement où tu en es avant de commander une autre tasse.",
+      "cta": "",
+      "bg": "fond",
+      "photo": null
+    },
+    {
+      "title": "À côté de ta météo et tes rappels",
+      "body": "Le widget s'intègre à ton écran d'accueil en quelques secondes. Appui long → « + » → PauseCafé.",
+      "cta": "",
+      "bg": "fond",
+      "photo": null
+    },
+    {
+      "title": "Estimation, pas mesure médicale",
+      "body": "Basé sur le modèle de Bateman (~5 h de demi-vie). Un repère indicatif, concret et utile au quotidien.",
+      "cta": "",
+      "bg": "fond",
+      "photo": null
+    },
+    {
+      "title": "L'info au bon endroit, au bon moment",
+      "body": "Télécharge PauseCafé et place le widget sur ton écran d'accueil dès aujourd'hui. 👉 lien en bio",
+      "cta": "Télécharge PauseCafé · App Store",
+      "bg": "photo",
+      "photo": null
+    }
+  ],
+  "caption": "La caféine encore active dans ton corps, visible d'un coup d'œil depuis ton écran d'accueil. Le widget PauseCafé affiche la tendance en temps réel — sans même ouvrir l'app. Indicatif, bien-être. 👉 lien en bio.",
+  "hashtags": [
+    "#widget",
+    "#iPhone",
+    "#caféine",
+    "#café",
+    "#bienêtre",
+    "#iOS",
+    "#coffeelover",
+    "#habitudes",
+    "#santé",
+    "#astuceiPhone"
+  ],
+  "visuel_x": "Screenshot de l'écran d'accueil iPhone avec le widget PauseCafé visible, affichant la courbe de caféine active en temps réel.",
+  "photo_query": "iPhone home screen morning coffee desk"
+}
