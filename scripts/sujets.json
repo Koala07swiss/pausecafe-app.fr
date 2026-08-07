@@ -224,6 +224,166 @@
       "angle": "Format mythes/vérités : 'le café fait grandir', 'ça dégrise', etc. Sujet neuf et partageable.",
       "heroQuery": "coffee questions myths",
       "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-deshydratation-verite",
+      "titre": "Le café compte-t-il dans ton apport en eau ?",
+      "categorie": "Santé",
+      "angle": "Question distincte du mythe diuretique deja traite : ici on tranche si le volume d'eau du cafe compte dans l'objectif hydratation quotidien. Position EFSA sur les boissons cafeinees dans l'apport hydrique total. Lie directement au suivi eau de l'app.",
+      "heroQuery": "coffee cup glass water side by side",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-sevrage-symptomes",
+      "titre": "Sevrage de caféine : ce qui se passe vraiment les 5 premiers jours",
+      "categorie": "Santé",
+      "angle": "Chronologie jour par jour des symptomes de sevrage : cephalees, fatigue, irritabilite, pic a 24-48h, resolution sous 9 jours. Distinct de 'reduire-cafeine-sans-craquer' qui traite la methode : ici on decrit le vecu physiologique.",
+      "heroQuery": "tired person morning headache",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-adenosine-mecanisme",
+      "titre": "Comment la caféine agit sur le cerveau : le mécanisme de l'adénosine",
+      "categorie": "Études scientifiques",
+      "angle": "Le blocage des recepteurs a l'adenosine explique pourquoi la cafeine ne donne pas d'energie mais masque la fatigue, et pourquoi la dette de sommeil revient d'un coup. Distinct de 'cafeine-concentration-cerveau' qui traite les effets cognitifs.",
+      "heroQuery": "brain synapse illustration abstract",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-teneur-boissons-comparatif",
+      "titre": "Combien de caféine dans votre tasse ? Le comparatif complet",
+      "categorie": "Conseils pratiques",
+      "angle": "Tableau de reference : expresso, filtre, instantane, the noir, the vert, matcha, cola, energisantes, chocolat. Insister sur la variabilite enorme d'une meme boisson selon la preparation. Complement de 'sources-cafeine-insoupconnees'.",
+      "heroQuery": "various coffee cups lineup",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-hydratation-sport",
+      "titre": "S'hydrater quand on boit du café et qu'on fait du sport",
+      "categorie": "Conseils pratiques",
+      "angle": "Croise les deux piliers de l'app. Besoins hydriques a l'effort, place du cafe avant seance, signaux de deshydratation pendant l'entrainement. Distinct de 'cafeine-sport-performance' qui traite la dose ergogenique.",
+      "heroQuery": "athlete drinking water gym",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-chaleur-canicule",
+      "titre": "Café, chaleur et canicule : faut-il adapter sa consommation ?",
+      "categorie": "Santé",
+      "angle": "Sujet saisonnier, lie a la fonctionnalite alerte canicule de l'app. Pertes hydriques accrues, besoins majores, prudence sur les boissons tres cafeinees en forte chaleur. Cadrage bien-etre, non medical.",
+      "heroQuery": "hot summer day water glass",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-travail-nuit",
+      "titre": "Travail de nuit et caféine : comment tenir sans détruire son sommeil",
+      "categorie": "Conseils pratiques",
+      "angle": "Public specifique : infirmiers, securite, logistique. Placement de la cafeine dans le poste, fenetre d'arret avant le sommeil de jour, limites. Distinct de 'heure-dernier-cafe-sommeil' qui vise un rythme diurne classique.",
+      "heroQuery": "night shift worker desk lamp",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-decalage-horaire",
+      "titre": "Caféine et décalage horaire : l'utiliser pour recaler son horloge",
+      "categorie": "Conseils pratiques",
+      "angle": "Usage strategique de la cafeine en voyage pour avancer ou retarder le rythme circadien. Sujet a forte recherche internationale. Prudence sur les preuves : presenter comme piste, pas comme protocole.",
+      "heroQuery": "airplane window sunrise travel",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-adolescents-limites",
+      "titre": "Caféine et adolescents : quelles limites raisonnables ?",
+      "categorie": "Santé",
+      "angle": "Repere de 3 mg/kg/jour, sensibilite accrue, impact sur le sommeil en periode de croissance. Distinct de 'boissons-energisantes-jeunes' qui cible un produit : ici c'est la cafeine toutes sources confondues.",
+      "heroQuery": "teenager studying desk drink",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-seniors-age",
+      "titre": "La caféine après 60 ans : ce qui change",
+      "categorie": "Santé",
+      "angle": "Metabolisme, sommeil plus fragmente, interactions medicamenteuses plus frequentes, densite osseuse. Ton rassurant, renvoi systematique au professionnel de sante.",
+      "heroQuery": "older person coffee morning window",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-medicaments-interactions",
+      "titre": "Caféine et médicaments : les interactions à connaître",
+      "categorie": "Santé",
+      "angle": "Sujet sensible : rester descriptif, citer les classes documentees, ne jamais conseiller d'arreter ou de modifier un traitement. Renvoi explicite au pharmacien. Bien encadrer par le disclaimer.",
+      "heroQuery": "pharmacy pills glass water",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-cortisol-reveil",
+      "titre": "Faut-il vraiment attendre pour son premier café ? Le débat du cortisol",
+      "categorie": "Stress & Cortisol",
+      "angle": "Deconstruit la regle populaire du delai de 90 minutes au reveil : origine, ce que la litterature soutient reellement, ce qui releve de la simplification. Complement critique de 'cafe-matin-meilleur-moment'.",
+      "heroQuery": "morning sunlight kitchen coffee",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "hydratation-signes-couleur-urine",
+      "titre": "La couleur des urines : le repère d'hydratation le plus simple",
+      "categorie": "Conseils pratiques",
+      "angle": "Echelle de teinte, limites du repere, facteurs qui faussent la lecture. Tres recherche, tres actionnable. Complement de 'signes-deshydratation'.",
+      "heroQuery": "glass of water natural light",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "hydratation-eau-aliments",
+      "titre": "30 % de votre eau vient de ce que vous mangez",
+      "categorie": "Santé",
+      "angle": "Apport hydrique alimentaire souvent ignore dans les objectifs. Aliments les plus riches en eau, consequences sur l'objectif quotidien. Complement de 'combien-eau-par-jour'.",
+      "heroQuery": "fresh fruits vegetables water",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "hydratation-sport-endurance",
+      "titre": "Boire pendant l'effort : combien, quand, comment",
+      "categorie": "Conseils pratiques",
+      "angle": "Strategie hydrique avant, pendant, apres. Risque oppose de l'hyponatremie a mentionner avec prudence. Complement du volet hydratation de l'app.",
+      "heroQuery": "runner water bottle trail",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "hydratation-bureau-habitudes",
+      "titre": "Rester hydraté au bureau quand on enchaîne les réunions",
+      "categorie": "Conseils pratiques",
+      "angle": "Contexte tres concret : journees de reunions, oubli de boire, cafes en serie. Systemes de rappel, ancrages d'habitude. Distinct de 'boire-plus-eau-astuces' par le cadre professionnel.",
+      "heroQuery": "office desk water bottle laptop",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-suivi-donnees-personnelles",
+      "titre": "Pourquoi mesurer sa caféine change plus que la limiter",
+      "categorie": "Conseils pratiques",
+      "angle": "Angle comportemental : effet de la mesure sur la prise de conscience, biais d'estimation, ce que revele un suivi sur un mois. Complement de 'tracker-cafeine-benefices', angle donnees personnelles.",
+      "heroQuery": "notebook tracking habits pen",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-seuil-personnel-trouver",
+      "titre": "Trouver sa dose personnelle de caféine : la méthode en 3 semaines",
+      "categorie": "Conseils pratiques",
+      "angle": "Protocole d'auto-observation progressif : baseline, ajustement, stabilisation. Insister sur la variabilite individuelle et le cadrage bien-etre. Angle tres oriente usage de l'app.",
+      "heroQuery": "calendar planning coffee cup",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-qualite-sommeil-mesures",
+      "titre": "Ce que votre montre mesure vraiment de votre sommeil",
+      "categorie": "Études scientifiques",
+      "angle": "Ce que les capteurs poignet estiment reellement, leurs limites face a la polysomnographie, comment lire une correlation cafeine-sommeil sans surinterpreter. Lie a la fonctionnalite correlation de l'app.",
+      "heroQuery": "smartwatch sleep tracking night",
+      "statut": "a_faire"
+    },
+    {
+      "slug": "cafeine-froid-vs-chaud",
+      "titre": "Café glacé ou café chaud : y a-t-il une différence de caféine ?",
+      "categorie": "Études scientifiques",
+      "angle": "Cold brew, glace, chaud : effet de la temperature et du temps d'extraction sur la teneur reelle. Sujet saisonnier et tres recherche en anglais. Reste factuel sur l'extraction.",
+      "heroQuery": "iced coffee glass summer",
+      "statut": "a_faire"
     }
   ]
 }

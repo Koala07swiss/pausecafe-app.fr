@@ -91,7 +91,10 @@
         .mobile-menu-item.premium-item .item-icon { background: rgba(107,63,160,0.12); }
         .mobile-menu-item.premium-item .item-label { color: var(--purple); }
         .mobile-menu-divider { height: 1px; background: rgba(44,24,16,0.08); margin: 8px 24px; }
-        .mobile-menu-footer { padding: 20px 24px; border-top: 1px solid rgba(196,135,58,0.15); display: flex; justify-content: center; flex-shrink: 0; }
+        .mobile-menu-footer { padding: 20px 24px; border-top: 1px solid rgba(196,135,58,0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; }
+        .mobile-menu-footer .lang-switch a { color: var(--cafe); text-decoration: none; opacity: 0.5; }
+        .mobile-menu-footer .lang-switch a[aria-current] { opacity: 1; font-weight: 600; }
+        .mobile-menu-footer .lang-switch .sep { opacity: 0.25; margin: 0 6px; }
         .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 48px 80px; position: relative; overflow: hidden; }
         .hero-logo-bg { position: absolute; right: -4vw; top: 50%; transform: translateY(-50%); width: 44vw; max-width: 600px; opacity: 0.18; pointer-events: none; user-select: none; border-radius: 16px; }
         .hero-content { max-width: 680px; position: relative; z-index: 1; }
@@ -308,6 +311,11 @@
             </a>
         </div>
         <div class="mobile-menu-footer">
+            <span class="lang-switch" style="font-size:0.95rem;margin-bottom:16px;">
+                <a href="/" aria-current="true" hreflang="fr">FR</a>
+                <span class="sep">/</span>
+                <a href="/en/" hreflang="en">EN</a>
+            </span>
             <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" rel="noopener noreferrer" aria-label="Télécharger PauseCafé sur l'App Store" class="apple-badge" onclick="fermerMenuMobile()">
                 <img src="app-store-badge-fr.svg" alt="Disponible sur l'App Store" height="44" style="height:44px;width:auto;">
             </a>
