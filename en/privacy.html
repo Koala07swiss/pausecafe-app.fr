@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Features — PauseCafé</title>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy policy — PauseCafé</title>
     <!-- ══ Métadonnées : SEO + partage social + découvrabilité IA ══ -->
-    <meta name="description" content="Everything PauseCafé does: real-time active caffeine, hydration tracking, sleep and heart insights, Apple Watch, widgets and complications.">
-    <meta name="keywords" content="PauseCafé fonctionnalités, caféine active, hydratation, analyses sommeil, fréquence cardiaque, app Santé, Apple Watch, widgets, complications">
-    <link rel="canonical" href="https://pausecafe-app.fr/en/features.html">
+    <meta name="description" content="How PauseCafé handles your data: what is collected, why, for how long, and your GDPR rights. Health data stays on your device.">
+    <link rel="canonical" href="https://pausecafe-app.fr/en/privacy.html">
     <!-- Versions linguistiques : indique a Google que ces deux pages sont
          la MEME page en deux langues, et non du contenu duplique. -->
-    <link rel="alternate" hreflang="fr" href="/en/features.html">
-    <link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/features.html">
-    <link rel="alternate" hreflang="x-default" href="/en/features.html">
+    <link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/privacy.html">
+    <link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/privacy.html">
+    <link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/privacy.html">
 
 
     <!-- Open Graph (Facebook, LinkedIn, iMessage, WhatsApp…) -->
@@ -21,173 +19,265 @@
     <meta property="og:site_name" content="PauseCafé">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="fr_FR">
-    <meta property="og:url" content="https://pausecafe-app.fr/en/features.html">
-    <meta property="og:title" content="Features — PauseCafé">
-    <meta property="og:description" content="Track your caffeine and hydration, understand their effects, and stay in control — on iPhone and Apple Watch.">
+    <meta property="og:url" content="https://pausecafe-app.fr/en/privacy.html">
+    <meta property="og:title" content="Politique de confidentialité — PauseCafé">
+    <meta property="og:description" content="Politique de confidentialité de PauseCafé : quelles données sont traitées, et comment.">
     <meta property="og:image" content="https://pausecafe-app.fr/logo.png">
 
-    <!-- Twitter / X (reprend l'image ; logo carré pour l'instant) -->
+    <!-- Twitter / X (reprend l’image ; logo carré pour l’instant) -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Features — PauseCafé">
-    <meta name="twitter:description" content="Track your caffeine and hydration, understand their effects, and stay in control — on iPhone and Apple Watch.">
-    <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">
+    <meta name="twitter:title" content="Politique de confidentialité — PauseCafé">
+    <meta name="twitter:description" content="Politique de confidentialité de PauseCafé : quelles données sont traitées, et comment.">
+    <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">    <link rel="stylesheet" href="/base.css">
 
-    <!-- JSON-LD : page de présentation (lue par les moteurs ET les IA) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Fonctionnalités — PauseCafé",
-      "description": "Les fonctionnalités de PauseCafé : caféine active en temps réel, hydratation, analyses sommeil et cœur, app Santé, Apple Watch et widgets.",
-      "url": "https://pausecafe-app.fr/fonctionnalites.html",
-      "inLanguage": "fr",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "PauseCafé",
-        "url": "https://pausecafe-app.fr"
-      },
-      "about": {
-        "@type": "SoftwareApplication",
-        "name": "PauseCafé",
-        "operatingSystem": "iOS, watchOS",
-        "applicationCategory": "HealthApplication",
-        "downloadUrl": "https://apps.apple.com/app/id6761892198"
-      }
-    }
-    </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/base.css">
-    <style>
-        :root { --cafe: #2C1810; --cream: #F6E1C8; --espresso: #1A0F0A; --caramel: #C4873A; --mousse: #E8D5B0; --purple: #6B3FA0; --purple-light: #9B6FD0; --blue: #378ADD; --green: #4CAF7D; --text: #1A0F0A; }
-        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; background: #F6E1C8; border-bottom: 1px solid rgba(196, 135, 58, 0.2); }
-
-        .hero { padding: 140px 48px 30px; max-width: 920px; margin: 0 auto; }
-
-        .content { max-width: 920px; margin: 0 auto; padding: 20px 48px 100px; }
-
-        .feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin: 24px 0; }
-        .feat-card { display: block; background: white; border: 1px solid rgba(196,135,58,0.18); border-radius: 16px; padding: 26px 24px; text-decoration: none; color: inherit; box-shadow: 0 6px 24px rgba(44,24,16,0.05); transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s; }
-        .feat-card:hover { transform: translateY(-3px); box-shadow: 0 14px 38px rgba(44,24,16,0.12); border-color: rgba(196,135,58,0.5); }
-        .feat-card .emoji { font-size: 2rem; display: block; margin-bottom: 14px; }
-        .feat-card h2 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--cafe); margin-bottom: 8px; }
-        .feat-card p { font-size: 0.94rem; line-height: 1.65; opacity: 0.78; font-weight: 300; margin-bottom: 14px; }
-        .feat-card .more { font-size: 0.86rem; font-weight: 500; color: var(--caramel); }
-        .feat-card.premium { background: rgba(107,63,160,0.06); border-color: rgba(107,63,160,0.25); }
-        .feat-card.premium h2 { color: var(--purple); }
-        .feat-card.premium .more { color: var(--purple); }
-
-        .intro-note { font-size: 1rem; line-height: 1.8; opacity: 0.8; font-weight: 300; margin: 8px 0 4px; }
-        .intro-note strong { color: var(--cafe); font-weight: 500; }
-
-        .cta { text-align: center; background: var(--espresso); color: var(--cream); border-radius: 20px; padding: 48px 32px; margin-top: 56px; }
-        .cta h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; margin-bottom: 12px; color: var(--cream); }
-        .cta p { opacity: 0.7; font-weight: 300; margin-bottom: 28px; }
-        .cta-btn { display: inline-block; background: var(--caramel); color: white; padding: 15px 30px; border-radius: 100px; font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: opacity 0.2s, transform 0.2s; }
-        .cta-btn:hover { opacity: 0.9; transform: translateY(-2px); }
-        .disclaimer h3 { font-size: 1rem; font-weight: 700; color: var(--cafe); margin-bottom: 8px; }
-
-        @media (max-width: 768px) {
-            .hero { padding: 110px 24px 24px; }
+<style>
+        .avis-langue {
+            background: #fff8f0;
+            border: 1px solid #f5ddc0;
+            border-left: 4px solid var(--caramel);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin: 0 0 28px;
+            font-size: 0.9rem; line-height: 1.6; opacity: 0.85; font-weight: 300;
         }
-    </style>
+        .avis-langue strong { font-weight: 700; opacity: 1; color: var(--cafe); }
+        .avis-langue a { color: var(--caramel); }
+
+  .highlight { background: #fff8f0; border: 1px solid #f5ddc0; border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
+</style>
 </head>
 <body>
 <nav>
-    <a class="nav-logo" href="/en/">
+    <a href="/en/" class="nav-logo">
         <img src="/logo.png" alt="PauseCafé" class="nav-logo-img">
         PauseCafé
     </a>
-    <a class="nav-back" href="/en/">← Back to the site</a>
+    <a href="/en/" class="nav-back">← Back to the site</a>
     <span class="lang-switch">
-        <a href="/fonctionnalites.html" hreflang="fr">FR</a>
+        <a href="/privacy.html" hreflang="fr">FR</a>
         <span class="sep">/</span>
-        <a href="/en/features.html" aria-current="true" hreflang="en">EN</a>
+        <a href="/en/privacy.html" aria-current="true" hreflang="en">EN</a>
     </span>
 </nav>
 
-<header class="hero">
-    <div class="hero-badge">✨ Features</div>
-    <h1>Everything <span>PauseCafé</span></h1>
-    <p class="lead">Track your caffeine and hydration, understand their effects, and stay in control — on iPhone and Apple Watch. Here's an overview, with a link to the detail of each feature.</p>
-</header>
+<main class="page-legale">
 
-<main class="content">
+<div class="avis-langue">
+    <strong>English translation for convenience.</strong>
+    This is an unofficial translation of the French Privacy Policy, provided to help you
+    understand it. In the event of any discrepancy, <a href="/privacy.html">the French version</a>
+    is the only one that is legally binding.
+</div>
 
-    <div class="feat-grid">
 
-        <a class="feat-card" href="/en/real-time-caffeine.html">
-            <span class="emoji">☕</span>
-            <h2>Real-time active caffeine</h2>
-            <p>See how much caffeine is still active in your body: it rises with each cup then falls away, so you know how much will be left at bedtime.</p>
-            <span class="more">Learn more →</span>
-        </a>
 
-        <a class="feat-card" href="/en/hydration.html">
-            <span class="emoji">💧</span>
-            <h2>Hydration tracking</h2>
-            <p>A dedicated water counter, a personalised daily goal and a blue ring around your cup. Smart hydration reminders with Premium.</p>
-            <span class="more">Learn more →</span>
-        </a>
+<h1>Privacy policy</h1>
+<p class="maj">Last updated: June 2026</p>
 
-        <a class="feat-card premium" href="/en/insights.html">
-            <span class="emoji">📊</span>
-            <h2>Insights: sleep &amp; heart</h2>
-            <p>The possible link between your caffeine and your actual sleep, and between your caffeine and your resting heart rate. Indicative, not medical (Premium).</p>
-            <span class="more">Learn more →</span>
-        </a>
+<h2>1. Data controller</h2>
+<p><strong>Kévin Beguerie</strong>, private individual — natural person, France<br>
+Email: <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a><br>
+Website: <a href="/en/">pausecafe-app.fr</a></p>
+<p>Reply within <strong>30 days</strong>.</p>
 
-        <a class="feat-card" href="/en/health.html">
-            <span class="emoji">❤️</span>
-            <h2>Health app</h2>
-            <p>Write your caffeine and water to the Health app, and read sleep and resting heart rate — all processed on your device.</p>
-            <span class="more">Learn more →</span>
-        </a>
+<h2>2. Minimum age</h2>
+<p>PauseCafé is intended for people aged <strong>9 and over</strong>. To request deletion of a minor's data, contact: <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a>.</p>
 
-        <a class="feat-card" href="/en/real-time-caffeine.html">
-            <span class="emoji">⌚</span>
-            <h2>Apple Watch, widgets &amp; complications</h2>
-            <p>Today's caffeine and your active caffeine on your wrist, on the home screen and as complications on your watch face.</p>
-            <span class="more">See active caffeine →</span>
-        </a>
+<h2>3. What data is collected</h2>
+<ul>
+  <li><strong>Account data</strong> : first name, email address, community username</li>
+  <li><strong>Wellness data (caffeine)</strong> : caffeinated drinks logged, amounts in mg, times</li>
+  <li><strong>Hydration data</strong> : glasses of water logged, times, personal hydration goal (4 to 12 glasses a day), whether the water counter and hydration reminders are switched on</li>
+  <li><strong>Weight (optional)</strong> : entered voluntarily to refine your sleep threshold and caffeine goal. <strong>Stored on your device only</strong> (local settings), never sent to our servers or to third parties.</li>
+  <li><strong>Apple Health data (HealthKit)</strong> : see the dedicated section 11bis. When you allow it, the app writes your caffeine and water to Apple Health; with PauseCafé Premium, it can read your sleep and resting heart rate. This data stays <strong>on your device</strong>.</li>
+  <li><strong>Progress data</strong> : points, badges, streak, level</li>
+  <li><strong>Referral data</strong> : your own code, the referrer code used, number of referrals</li>
+  <li><strong>Community data</strong> : leaderboard username, scores visible on the leaderboard, community challenge participation (progress, status), friends list (usernames only)</li>
+  <li><strong>Indicative health data</strong> : caution mode status (on/off), caffeine goal in mg, hydration goal in glasses — strictly personal, not shared</li>
+  <li><strong>Preference data</strong> : your usual number of drinks, personal caffeine goal, personal hydration goal, time of first drink, bedtime — collected during onboarding or in the settings, editable at any time</li>
+  <li><strong>Drink preferences (Premium)</strong> : favourite drinks (up to 3 drink names), the drink set for 1-tap mode, whether 1-tap mode is on — linked to your account, encrypted in transit, deleted when the account is closed</li>
+  <li><strong>Postal address</strong> : collected only when you claim a physical gift (Premium)</li>
+  <li><strong>Technical data</strong> : anonymous Firebase identifier, anonymised crash data</li>
+  <li><strong>Communication preferences</strong> : push notification toggles (caffeine and hydration) and email toggles</li>
+</ul>
 
-        <a class="feat-card" href="/en/changelog.html">
-            <span class="emoji">📋</span>
-            <h2>What's new &amp; versions</h2>
-            <p>Every update to the app, version by version: new features, improvements and fixes.</p>
-            <span class="more">See the changelog →</span>
-        </a>
+<div class="highlight">
+<strong>Email verification:</strong> when you create an email/password account, a verification email is sent. Access to the app is only granted once the email address has been confirmed. Google and Apple accounts are considered verified natively by their own authentication systems.
+</div>
 
-    </div>
+<h2>4. Purposes of processing</h2>
+<ul>
+  <li>To provide the caffeine and hydration tracking service</li>
+  <li>To estimate, on your device, “active caffeine” (the amount of caffeine in your body) from your drinks — a Premium feature</li>
+  <li>To personalise the sleep threshold and caffeine goal from the weight you enter (computed on your device)</li>
+  <li>To provide the gamification system (points, badges, levels, challenges)</li>
+  <li>To sync data across devices (iPhone, Apple Watch, widget)</li>
+  <li>To write your caffeine and water to Apple Health, if you've allowed it</li>
+  <li>To analyse, on your device, the link between your caffeine and your sleep or resting heart rate (Premium, with your Apple Health permission)</li>
+  <li>To show personalised statistics and trend charts (separate Caffeine and Water tabs)</li>
+  <li>To personalise the experience according to your stated preferences (caffeine goal, hydration goal, caution mode)</li>
+  <li>To send push notifications for caffeine and hydration (with consent)</li>
+  <li>To send transactional emails via Brevo (see section 15)</li>
+  <li>To send the Monday weekly caffeine report (with consent, can be switched off)</li>
+  <li>To run the referral programme and award rewards</li>
+  <li>To handle physical gift claims and their dispatch</li>
+  <li>To display the community leaderboard (username only)</li>
+  <li>To run community challenges and the friends list</li>
+  <li>To improve the app via Firebase Analytics (anonymised data)</li>
+  <li>To display adverts via Google AdMob (with ATT consent)</li>
+</ul>
 
-    <p class="intro-note">There's also: <strong>points, badges and goals</strong> to keep you going, <strong>custom drinks</strong>, <strong>caution mode</strong> aligned with EFSA benchmarks, and a <strong>wellness</strong> framing throughout.</p>
+<h2>5. Legal basis</h2>
+<ul>
+  <li><strong>Performance of the contract</strong> : providing the service, referrals, dispatching gifts</li>
+  <li><strong>Consent</strong> : personalised adverts, push notifications (caffeine and hydration), transactional emails, weekly report, onboarding preferences, weight, Apple Health access (read/write), postal address for gifts, favourite drink preferences</li>
+  <li><strong>Legitimate interest</strong> : anonymised analytics, preventing referral fraud, administrative management</li>
+</ul>
 
-    <div class="disclaimer">
-        <h3>ℹ️ Wellness information</h3>
-        <p>PauseCafé is a wellness app. The information and analyses it provides are indicative and do not constitute medical advice. If you have a health concern, speak to a professional.</p>
-    </div>
+<h2>6. Processors</h2>
+<ul>
+  <li><strong>Google Firebase</strong> — Google Ireland Limited, Dublin, Ireland. Data held in the EU. <a href="https://firebase.google.com/support/privacy">Firebase policy</a></li>
+  <li><strong>Google AdMob</strong> — only with ATT consent. <a href="https://policies.google.com/privacy">Google policy</a></li>
+  <li><strong>Apple</strong> — Sign in with Apple, notifications, subscriptions, Apple Health (HealthKit, data kept on your device). <a href="https://www.apple.com/legal/privacy/fr-ww/">Apple policy</a></li>
+  <li><strong>Brevo SAS</strong> (7 rue de Madrid, 75008 Paris) — transactional emails. Data shared: first name and email only. <a href="https://www.brevo.com/fr/legal/privacypolicy/">Brevo policy</a></li>
+</ul>
+<p><strong>No personal data is sold to third parties.</strong></p>
 
-    <div class="cta">
-        <h2>Ready to try it?</h2>
-        <p>Track your caffeine and hydration, and see what's left before you sleep.</p>
-        <a class="cta-btn" href="https://apps.apple.com/app/id6761892198">Download on the App Store</a>
-    </div>
+<h2>7. Transfers outside the EU</h2>
+<p>Some processors may handle data outside the EU, governed by the European Commission's standard contractual clauses.</p>
 
+<h2>8. Retention periods</h2>
+<ul>
+  <li><strong>Account data</strong> : for as long as the account is actively used</li>
+  <li><strong>Caffeine and hydration history</strong> : up to 2 years in the app</li>
+  <li><strong>Weight</strong> : kept locally on the device for as long as you provide it; erased when the app is uninstalled or when you remove it in the settings</li>
+  <li><strong>Apple Health data</strong> : read on demand and processed on your device; <strong>not retained on our servers</strong>. You control this data in Apple's Health app</li>
+  <li><strong>Preference data (caffeine + hydration)</strong> : for as long as the account is actively used, editable at any time</li>
+  <li><strong>Referral and challenge data</strong> : for as long as the account is actively used</li>
+  <li><strong>Community data (leaderboard, friends)</strong> : for as long as the account is actively used; deleted when the account is deleted</li>
+  <li><strong>Favourite drink preferences</strong> : for as long as the account is actively used; reset on sign-out, permanently deleted when the account is closed</li>
+  <li><strong>Postal address (gifts)</strong> : up to 90 days after dispatch is confirmed, then deleted</li>
+  <li><strong>Account deletion</strong> : all data erased within 30 days</li>
+  <li><strong>Anonymised data</strong> : retained indefinitely</li>
+</ul>
+
+<h2>9. Your rights (GDPR)</h2>
+<ul>
+  <li><strong>Access</strong> : CSV export in the app (Progress → Export my data) — includes caffeine and hydration</li>
+  <li><strong>Rectification</strong> : edit your profile in the settings (including caffeine and hydration goals, and weight)</li>
+  <li><strong>Erasure</strong> : Settings → Delete my account</li>
+  <li><strong>Portability</strong> : CSV export from the app (GDPR article 20)</li>
+  <li><strong>Objection to tracking</strong> : iOS Settings → Privacy → Tracking → PauseCafé</li>
+  <li><strong>Withdraw Apple Health access</strong> : iOS Settings → Health → Data Access & Devices → PauseCafé</li>
+  <li><strong>Unsubscribing from emails / weekly report</strong> : link at the foot of every email, or Settings → Notifications → Emails (except mandatory transactional emails, see Terms section 22.3)</li>
+  <li><strong>Turning off hydration reminders</strong> : Settings → Hydration, or Settings → Notifications → Daily reminders</li>
+  <li><strong>Withdrawal of consent</strong> : at any time</li>
+</ul>
+<p>Contact: <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a> — reply within 30 days.</p>
+
+<h2>10. Adverts and tracking (ATT)</h2>
+<ul>
+  <li><strong>If you accept</strong> : personalised adverts via AdMob</li>
+  <li><strong>If you decline</strong> : non-personalised adverts, no tracking</li>
+  <li><strong>Premium</strong> : no adverts at all, whatever your choice</li>
+</ul>
+<p>To change this: <strong>iOS Settings → Privacy → Tracking → PauseCafé</strong></p>
+
+<h2>11. Security</h2>
+<ul>
+  <li>Communications encrypted with HTTPS/TLS</li>
+  <li>Data encrypted at rest via Firebase</li>
+  <li>Passwords hashed, never stored in plain text</li>
+  <li>Mandatory email address verification before access (email/password accounts)</li>
+  <li>Data access restricted by Firebase security rules</li>
+  <li>Administrator access limited to the publisher, subject to the same rules</li>
+  <li>Local data reset on every sign-out, so no previous account persists on the device</li>
+</ul>
+
+<h2>11bis. Apple Health (HealthKit) and health data</h2>
+<div class="highlight">
+<strong>🍎 The principle: your health data stays on your device.</strong> PauseCafé can interact with Apple Health, only with your explicit permission, and strictly locally:
+<ul style="margin-top: 8px; margin-bottom: 0;">
+  <li><strong>Writing (available):</strong> if you turn it on, the app records your <strong>caffeine</strong> and your <strong>water</strong> in Apple Health, so this data joins your health record.</li>
+  <li><strong>Reading (Premium):</strong> with your permission, the app reads your <strong>sleep</strong> and your <strong>resting heart rate</strong> in order to analyse any link with your caffeine intake.</li>
+  <li><strong>Local processing:</strong> these analyses are performed <strong>on your device</strong>. Apple Health data is <strong>never</strong> sent to Firebase, to our servers or to third parties, and is never used for advertising.</li>
+  <li><strong>Full control:</strong> you grant or withdraw each permission at any time in iOS Settings → Health → Data Access & Devices → PauseCafé.</li>
+</ul>
+<p style="margin-top: 8px; margin-bottom: 0;">PauseCafé is a <strong>wellness</strong> app. This information is indicative and does not constitute medical advice.</p>
+</div>
+
+<h2>12. Cookies</h2>
+<p>The mobile app uses no cookies. The pausecafe-app.fr website is a static site with no tracking cookies.</p>
+
+<h2>13. Postal addresses (physical gifts)</h2>
+<p>Collected with explicit consent, used solely to send the gift, never shared with third parties, deleted within 90 days of dispatch.</p>
+
+<h2>14. Administrative account management</h2>
+<p>The publisher may view account information (on a support request), award points or Premium periods, and handle gift claims. Any such access is in the user's interest and complies with the GDPR.</p>
+
+<h2>15. Transactional emails</h2>
+<p>By creating a PauseCafé account, you consent to receiving transactional emails via <strong>Brevo SAS</strong> :</p>
+<ul>
+  <li>Welcome email on sign-up</li>
+  <li>Email address verification (mandatory for email/password accounts)</li>
+  <li>Premium welcome email when you become a Premium member</li>
+  <li>Confirmation that a reward has been activated</li>
+  <li>Reward expiry reminder (3 days beforehand)</li>
+  <li>Notification of bonus points or complimentary Premium</li>
+  <li>Confirmation that a physical gift has been dispatched</li>
+  <li>Referral-related notifications</li>
+  <li>Halfway email on a community challenge (50% progress)</li>
+  <li><strong>Weekly caffeine report (every Monday at 8:30am)</strong> — can be switched on or off in Settings → Notifications → Emails</li>
+</ul>
+<div class="highlight">
+<strong>Emails that cannot be switched off:</strong> some transactional emails are mandatory because they are essential to the operation of your account or the delivery of your rewards. The full list is set out in our <a href="/en/terms.html">Terms, section 22.3</a> (email verification, Premium welcome, reward activation, gift dispatch, internal admin alert).
+</div>
+<p><strong>Unsubscribing:</strong> link at the foot of every marketing/non-mandatory email, Settings → Notifications → Emails in the app, or <a href="mailto:hello@pausecafe-app.fr?subject=Désabonnement emails PauseCafé">hello@pausecafe-app.fr</a>.</p>
+
+<h2>16. Push notifications (caffeine and hydration)</h2>
+<p>PauseCafé can send several types of push notification, all of which can be turned off at any time:</p>
+<ul>
+  <li><strong>Caffeine reminders</strong> : alerts based on your intake and your goal</li>
+  <li><strong>Hydration reminders</strong> : 3 notifications a day at 10am, 1pm and 4pm to remind you to drink water. Switched on automatically the first time you enable the water counter, and can be turned off individually</li>
+  <li><strong>Challenge &amp; reward reminders</strong> : so you don't lose points by forgetting to claim a reward</li>
+  <li><strong>Streak at risk</strong> : an alert if your daily streak is about to be lost</li>
+</ul>
+<p>All of these can be configured in <strong>Settings → Notifications</strong>. Scheduled notifications are automatically cancelled when you sign out.</p>
+
+<h2>17. Community leaderboard and friends system</h2>
+<p>PauseCafé offers a community leaderboard and a friends system. These features display only:</p>
+<ul>
+  <li>Le <strong>username</strong> chosen freely by the user (separate from their first name)</li>
+  <li>Their points total, streak, level and Premium status</li>
+</ul>
+<div class="highlight">
+<strong>No real name, email or identifying data is visible on the leaderboard or in the friends list.</strong> The username can be changed at any time from the settings.
+</div>
+<p>The friends system works by username only. Leaderboard data is stored in a separate Firebase collection (<code>/leaderboard</code>), accessible only to authenticated users.</p>
+
+<h2>18. Community challenges</h2>
+<p>Challenge participation (progress, status, activation date) is stored in Firebase (<code>/defiParticipations</code>). It is visible to all authenticated users as part of the challenge leaderboard, but only as a username and a progress figure.</p>
+
+<h2>19. Changes</h2>
+<p>This policy may be updated. In the event of a substantial change, you will be notified in the app.</p>
+
+<h2>20. Contact and complaints</h2>
+<p>Contact: <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a></p>
+<p><strong>CNIL</strong> — 3 Place de Fontenoy, 75334 Paris Cedex 07 — <a href="https://www.cnil.fr">www.cnil.fr</a></p>
+
+<div class="maj" style="margin-top:48px">© 2026 PauseCafé. All rights reserved. — <a href="/en/">pausecafe-app.fr</a></div>
 </main>
 
 <footer>
     <div class="footer-links">
         <a href="/en/">Home</a>
-        <a href="/en/real-time-caffeine.html">Real-time caffeine</a>
-        <a href="/en/hydration.html">Hydration</a>
-        <a href="/en/insights.html">Insights</a>
-        <a href="/en/health.html">Health app</a>
-        <a href="/en/changelog.html">What's new</a>
-        <a href="/en/privacy.html">Privacy</a>
+        <a href="/en/blog">Articles</a>
         <a href="/en/terms.html">Terms</a>
+        <a href="/en/privacy.html">Privacy</a>
+        <a href="/en/gdpr.html">GDPR</a>
+        <a href="mailto:hello@pausecafe-app.fr">Contact</a>
     </div>
-    <div class="footer-bottom">© 2026 PauseCafé · Wellness app · Indicative information, not medical</div>
+    <div class="footer-bottom">© 2026 PauseCafé — Wellness information, not medical.</div>
 </footer>
 
 </body>
