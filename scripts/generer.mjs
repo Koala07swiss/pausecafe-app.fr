@@ -733,7 +733,9 @@ ${slugsFr.map(s => `  - /blog/${s}`).join('\n') || '  (aucun)'}
 
 Rédige l'article maintenant. Réponds en JSON strict uniquement. Utilise le slug imposé.`;
 
-  let d, dEn = null, rapportFaits, problemesRestants = { avert: 0, bloq: 0, total: 0 }, corrige = false;
+  let d, dEn = null, rapportFaits, corrige = false;
+  let problemesInitiaux = { avert: 0, bloq: 0, total: 0 };
+  let problemesRestants = { avert: 0, bloq: 0, total: 0 };
 
   if (DRY) {
     d = {
@@ -760,7 +762,8 @@ Rédige l'article maintenant. Réponds en JSON strict uniquement. Utilise le slu
     log('Pause anti-limite…'); await dormir(65000);
     log('2/5 Vérification des faits…');
     rapportFaits = await verifierFaits(d.corpsHTML, d.sourcesHTML);
-    let pb = compterProblemes(rapportFaits);
+    problemesInitiaux = compterProblemes(rapportFaits);
+    const pb = problemesInitiaux;
     log(`   → ${pb.total} problème(s) détecté(s) (${pb.bloq} ⛔ / ${pb.avert} ⚠️)`);
 
     if (pb.total > 0) {
@@ -773,6 +776,12 @@ Rédige l'article maintenant. Réponds en JSON strict uniquement. Utilise le slu
       problemesRestants = compterProblemes(rapportFaits);
       corrige = true;
       log(`   → après correction : ${problemesRestants.total} problème(s) restant(s)`);
+      if (problemesRestants.total > problemesInitiaux.total) {
+        log(`   ⚠️ La correction n'a PAS amélioré le compte (${problemesInitiaux.total} → ${problemesRestants.total}).`);
+        log(`      Deux lectures possibles : réécriture qui a introduit de nouvelles`);
+        log(`      affirmations, ou second fact-check simplement plus sévère.`);
+        log(`      À trancher à la lecture du rapport.`);
+      }
     } else {
       log('Article propre dès la 1ère passe.');
     }
@@ -841,13 +850,29 @@ Rédige l'article maintenant. Réponds en JSON strict uniquement. Utilise le slu
     if (i >= 0) { conf.sujets[i].statut = 'brouillon'; await writeFile(SUJETS, JSON.stringify(conf, null, 2)); }
   }
 
+  // Trajectoire avant → après : c'est ce qui permet de juger si la
+  // correction a servi à quelque chose. Sans les deux chiffres, un « 18
+  // problèmes » isolé ne dit pas s'il y en avait 7 ou 40 au départ.
+  const trajet = corrige
+    ? `\n> Trajectoire : **${problemesInitiaux.total} problème(s)** à la 1re passe `
+      + `(${problemesInitiaux.bloq} ⛔ / ${problemesInitiaux.avert} ⚠️) → `
+      + `**${problemesRestants.total}** après correction `
+      + `(${problemesRestants.bloq} ⛔ / ${problemesRestants.avert} ⚠️).`
+      + (problemesRestants.total > problemesInitiaux.total
+         ? `\n>\n> ⚠️ **Le compte a augmenté.** Soit la réécriture a introduit de `
+           + `nouvelles affirmations invérifiables, soit le second fact-check a été `
+           + `plus sévère que le premier (ces vérifications ne sont pas déterministes). `
+           + `Comparer les deux listes avant de conclure.`
+         : '')
+    : '';
+
   let bandeau = '';
   if (problemesRestants.bloq > 0) {
-    bandeau = `> # ⛔ À CORRIGER À LA MAIN AVANT MERGE\n> Il reste **${problemesRestants.bloq} problème(s) bloquant(s)** non résolus (voir ⛔ ci-dessous). **Ne pas merger en l'état.**\n\n`;
+    bandeau = `> # ⛔ À CORRIGER À LA MAIN AVANT MERGE\n> Il reste **${problemesRestants.bloq} problème(s) bloquant(s)** non résolus (voir ⛔ ci-dessous). **Ne pas merger en l'état.**${trajet}\n\n`;
   } else if (problemesRestants.avert > 0) {
-    bandeau = `> # ⚠️ À RELIRE\n> Il reste **${problemesRestants.avert} point(s)** à vérifier (voir ⚠️ ci-dessous).\n\n`;
+    bandeau = `> # ⚠️ À RELIRE\n> Il reste **${problemesRestants.avert} point(s)** à vérifier (voir ⚠️ ci-dessous).${trajet}\n\n`;
   } else if (corrige) {
-    bandeau = `> # ✅ Corrigé automatiquement\n> Des problèmes avaient été détectés puis corrigés. Plus aucun problème après correction.\n\n`;
+    bandeau = `> # ✅ Corrigé automatiquement\n> Des problèmes avaient été détectés puis corrigés. Plus aucun problème après correction.${trajet}\n\n`;
   } else {
     bandeau = `> # ✅ Propre dès la première passe\n\n`;
   }
