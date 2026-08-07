@@ -7,6 +7,12 @@
     <!-- ══ Métadonnées : SEO + partage social + découvrabilité IA ══ -->
     <meta name="description" content="Comment te désabonner des e-mails de PauseCafé.">
     <link rel="canonical" href="https://pausecafe-app.fr/desabonnement.html">
+    <!-- Versions linguistiques : indique a Google que ces deux pages sont
+         la MEME page en deux langues, et non du contenu duplique. -->
+    <link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/desabonnement.html">
+    <link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/unsubscribe.html">
+    <link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/desabonnement.html">
+
 
     <!-- Open Graph (Facebook, LinkedIn, iMessage, WhatsApp…) -->
     <meta property="og:type" content="website">
@@ -24,15 +30,10 @@
     <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">    <link rel="stylesheet" href="/base.css">
+
 <style>
-  :root { --cafe: #2C1810; --cream: #F6E1C8; --espresso: #1A0F0A; --caramel: #C4873A; --mousse: #E8D5B0; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--cafe); min-height: 100vh; padding: 40px 20px 60px; line-height: 1.6; display: flex; align-items: center; justify-content: center; }
-  .container { max-width: 540px; width: 100%; }
-  nav { margin-bottom: 24px; }
-  nav a { color: var(--caramel); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
-  h1 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; margin: 24px 0 12px; line-height: 1.2; }
+
   .lead { font-size: 1rem; opacity: 0.75; margin-bottom: 32px; }
   .card { background: white; border-radius: 16px; padding: 32px 28px; margin-bottom: 16px; box-shadow: 0 4px 24px rgba(44,24,16,0.06); }
   .step-row { display: flex; gap: 14px; margin-bottom: 14px; align-items: flex-start; font-size: 0.95rem; }
@@ -44,14 +45,25 @@
   .info-box strong { color: #92400E; }
   .help-link { display: block; margin-top: 24px; text-align: center; font-size: 0.85rem; opacity: 0.7; }
   .help-link a { color: var(--caramel); text-decoration: none; font-weight: 600; }
-  .footer { text-align: center; margin-top: 32px; font-size: 0.78rem; opacity: 0.5; line-height: 1.7; }
+
   .footer a { color: var(--caramel); text-decoration: none; }
 </style>
 </head>
 <body>
-<div class="container">
+<div class="page-legale">
 
-  <nav><a href="https://pausecafe-app.fr">← Retour au site</a></nav>
+  <nav>
+    <a href="/" class="nav-logo">
+        <img src="/logo.png" alt="PauseCafé" class="nav-logo-img">
+        PauseCafé
+    </a>
+    <a href="/" class="nav-back">← Retour au site</a>
+    <span class="lang-switch">
+        <a href="/desabonnement.html" aria-current="true" hreflang="fr">FR</a>
+        <span class="sep">/</span>
+        <a href="/en/unsubscribe.html" hreflang="en">EN</a>
+    </span>
+</nav>
 
   <h1>Se désabonner des emails</h1>
   <p class="lead">Le désabonnement se fait directement dans l'app, en 3 étapes. C'est instantané.</p>
@@ -73,5 +85,17 @@
     PauseCafé · <a href="https://pausecafe-app.fr">pausecafe-app.fr</a> · <a href="cgu.html">CGU</a> · <a href="privacy.html">Confidentialité</a>
   </p>
 </div>
+<footer>
+    <div class="footer-links">
+        <a href="/">Accueil</a>
+        <a href="/blog">Articles</a>
+        <a href="/cgu.html">CGU</a>
+        <a href="/privacy.html">Confidentialité</a>
+        <a href="/rgpd.html">RGPD</a>
+        <a href="mailto:hello@pausecafe-app.fr">Contact</a>
+    </div>
+    <div class="footer-bottom">© 2026 PauseCafé — Information de bien-être, non médicale.</div>
+</footer>
+
 </body>
 </html>
