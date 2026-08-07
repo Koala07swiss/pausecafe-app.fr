@@ -228,6 +228,7 @@
 
 <main class="blog-main">
 
+  <!-- AGENT:UNE-DEBUT -->
   <p class="section-label">📌 À la une</p>
 
   <a href="/blog/limite-cafeine-efsa-400mg" class="article-featured">
@@ -245,6 +246,7 @@
       </div>
     </div>
   </a>
+  <!-- AGENT:UNE-FIN -->
 
   <p class="section-label">📖 Tous les articles</p>
   <div class="articles-grid">
@@ -527,9 +529,13 @@
         card.style.display = visible ? '' : 'none';
       });
 
-      // Carte featured : visible seulement si "Tous" ou "Études scientifiques"
+      // Carte featured : sa categorie est lue sur la carte elle-meme
+      // (data-cat), plus codee en dur — l'agent la remplace a chaque article.
       if (featured) {
-        featured.style.display = (filtre === 'Tous' || filtre === 'Études scientifiques') ? '' : 'none';
+        const catUne = featured.getAttribute('data-cat')
+                    || (featured.querySelector('.featured-tag') || {}).textContent
+                    || '';
+        featured.style.display = (filtre === 'Tous' || catUne.trim() === filtre) ? '' : 'none';
       }
     });
   });

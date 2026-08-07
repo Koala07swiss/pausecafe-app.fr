@@ -472,6 +472,52 @@ async function majBlogHTML(d, srcCarte, dateAff, lang) {
 }
 
 // ---------------------------------------------------------------------------
+// 8bis. Mise à jour de la carte « À la une »
+//       Le dernier article publié prend la vitrine. Le bloc est délimité par
+//       AGENT:UNE-DEBUT / AGENT:UNE-FIN : tout ce qui est entre les deux est
+//       remplacé, ce qui est autour n'est jamais touché.
+// ---------------------------------------------------------------------------
+async function majUne(d, srcCarte, dateAff, lang) {
+  const fichier = lang === 'en' ? BLOG_HTML_EN : BLOG_HTML;
+  const nom = lang === 'en' ? 'en/blog.html' : 'blog.html';
+  const T = TEXTES[lang];
+  const D = '<!-- AGENT:UNE-DEBUT -->', F = '<!-- AGENT:UNE-FIN -->';
+
+  if (!existsSync(fichier)) return false;
+  let html = await readFile(fichier, 'utf8');
+  const i = html.indexOf(D), j = html.indexOf(F);
+  if (i < 0 || j < 0 || j < i) { log(`⚠️ repères AGENT:UNE absents de ${nom}`); return false; }
+
+  const label = lang === 'en' ? '&#128204; Featured' : '&#128204; À la une';
+  const lire  = lang === 'en' ? 'Read the article →' : "Lire l'article →";
+  const img   = srcCarte || 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80&auto=format&fit=crop';
+
+  const une = `${D}
+  <p class="section-label">${label}</p>
+
+  <a href="${T.prefixe}/${d.slug}" class="article-featured" data-cat="${echapHTML(d.categorie)}">
+    <div class="featured-img">
+      <img src="${img.replace('w=600', 'w=800').replace('q=75', 'q=80')}" alt="${echapHTML(d.heroAlt || d.titre)}" loading="lazy">
+      <span class="featured-tag">${echapHTML(d.categorie)}</span>
+    </div>
+    <div class="featured-body">
+      <h2>${echapHTML(d.titre)}</h2>
+      <p>${echapHTML(d.description)}</p>
+      <div class="featured-footer">
+        <span class="featured-meta">${dateAff} · ${echapHTML(d.tempsLecture)}</span>
+        <span class="btn-lire">${lire}</span>
+      </div>
+    </div>
+  </a>
+  ${F}`;
+
+  html = html.slice(0, i) + une + html.slice(j + F.length);
+  await writeFile(fichier, html);
+  log(`${nom} : carte « à la une » remplacée`);
+  return true;
+}
+
+// ---------------------------------------------------------------------------
 // 9. Mise à jour de sitemap.xml (les 2 URL + leurs hreflang croisés)
 // ---------------------------------------------------------------------------
 async function majSitemap(dFr, dEn, isoToday) {
@@ -833,6 +879,8 @@ Rédige l'article maintenant. Réponds en JSON strict uniquement. Utilise le slu
   // ── Pages liste + sitemap ─────────────────────────────────────────────
   const blogOk   = await majBlogHTML(d, img ? img.srcCarte : null, affFR, 'fr');
   const blogEnOk = dEn ? await majBlogHTML(dEn, img ? img.srcCarte : null, affEN, 'en') : false;
+  const uneOk    = await majUne(d, img ? img.srcCarte : null, affFR, 'fr');
+  const uneEnOk  = dEn ? await majUne(dEn, img ? img.srcCarte : null, affEN, 'en') : false;
   const sitemapOk = await majSitemap(d, dEn, iso);
 
   // ── Vérification des liens (les deux langues) ─────────────────────────
@@ -881,6 +929,7 @@ Rédige l'article maintenant. Réponds en JSON strict uniquement. Utilise le slu
     ? `**Titre EN :** ${dEn.titre}
 **Slug EN :** \`en/blog/${dEn.slug}/\` · **Catégorie :** ${dEn.categorie} · **${dEn.tempsLecture}**
 **Page liste EN (en/blog.html) :** ${blogEnOk ? '✅ carte ajoutée' : '⚠️ non mise à jour'}
+**Carte « Featured » EN :** ${uneEnOk ? '✅ remplacée par cet article' : '⚠️ non mise à jour'}
 **hreflang croisés :** ✅ posés sur les deux pages
 **Liens internes EN :** ${(dEn.connexes || []).length} article(s) connexe(s) anglais disponible(s)`
     : `**Version anglaise :** ⚠️ non produite${SANS_EN ? ' (SANS_EN=1)' : ''}`;
@@ -893,6 +942,7 @@ Rédige l'article maintenant. Réponds en JSON strict uniquement. Utilise le slu
 **Disclaimer médical :** ✅ ajouté automatiquement
 **Correction auto :** ${corrige ? 'oui' : 'non nécessaire'}
 **Page liste (blog.html) :** ${blogOk ? '✅ carte ajoutée' : '⚠️ non mise à jour'}
+**Carte « À la une » :** ${uneOk ? '✅ remplacée par cet article' : '⚠️ non mise à jour'}
 
 ## 🇬🇧 Version anglaise
 ${blocEN}

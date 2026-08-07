@@ -119,6 +119,33 @@
       footer{padding:48px 24px 32px;}.footer-top,.footer-links{flex-direction:column;gap:32px;}
       .footer-bottom{flex-direction:column;gap:8px;text-align:center;}
     }
+
+    /* Carte a la une, posee par l'agent */
+    .article-featured{display:grid;grid-template-columns:1fr 1fr;border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 8px 40px rgba(26,15,10,0.15);transition:transform 0.3s,box-shadow 0.3s;margin-bottom:64px;background:white;}
+    .article-featured:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(26,15,10,0.22);}
+    .featured-img{position:relative;min-height:320px;overflow:hidden;}
+    .featured-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;}
+    .article-featured:hover .featured-img img{transform:scale(1.04);}
+    .featured-tag{position:absolute;top:18px;left:18px;background:var(--caramel);color:white;font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:5px 12px;border-radius:100px;}
+    .featured-body{padding:40px 36px;display:flex;flex-direction:column;justify-content:space-between;background:var(--espresso);}
+    .featured-body h2{font-family:'Playfair Display',serif;font-size:1.55rem;line-height:1.25;color:var(--cream);margin-bottom:16px;flex:1;}
+    .featured-body p{font-size:0.9rem;line-height:1.75;color:rgba(246, 225, 200,0.6);font-weight:300;margin-bottom:24px;}
+    .featured-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:auto;}
+    .featured-meta{font-size:0.78rem;color:rgba(246, 225, 200,0.35);}
+    .btn-lire{display:inline-flex;align-items:center;gap:6px;background:var(--caramel);color:white;padding:10px 20px;border-radius:100px;font-size:0.85rem;font-weight:600;transition:opacity 0.2s;white-space:nowrap;}
+    .btn-lire:hover{opacity:0.85;}
+    .article-featured{grid-template-columns:1fr;}
+    .featured-img{min-height:220px;}
+    .featured-body{padding:28px 24px;}
+    .article-featured');
+
+      // Cartes grille
+      document.querySelectorAll('.article-card').forEach(card => {
+        const lien = card.getAttribute('href').replace('/blog/', '');
+        const cat = categories[lien] || '';
+        const visible = filtre === 'Tous' || cat === filtre;
+        card.style.display = visible ? '' : 'none';
+      }
   </style>
   <style>
     .blog-vide{max-width:760px;margin:0 auto;padding:24px 48px 96px;text-align:center;}
@@ -239,6 +266,8 @@
 
 <main class="blog-main">
 
+  <!-- AGENT:UNE-DEBUT --><!-- AGENT:UNE-FIN -->
+
   <div class="articles-grid">
     <!-- AGENT:NOUVELLE-CARTE -->
     <a href="/en/blog/resting-heart-rate-explained" class="article-card">
@@ -313,6 +342,14 @@
       document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
       this.classList.add('active');
       const filtre = this.textContent.replace(/\s*\(\d+\)/, '').trim();
+      // Carte a la une : sa categorie est lue sur la carte elle-meme
+      const featured = document.querySelector('.article-featured');
+      if (featured) {
+        const catUne = featured.getAttribute('data-cat')
+                    || (featured.querySelector('.featured-tag') || {}).textContent
+                    || '';
+        featured.style.display = (filtre === 'All' || catUne.trim() === filtre) ? '' : 'none';
+      }
       document.querySelectorAll('.article-card').forEach(card => {
         const lien = card.getAttribute('href').replace('/en/blog/', '');
         const cat = categories[lien] || '';
