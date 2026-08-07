@@ -1,0 +1,121 @@
+/* ==========================================================================
+   nav-blog.css — Barre de navigation partagée du blog
+   --------------------------------------------------------------------------
+   Chargée par blog.html, en/blog.html et chaque article, APRÈS leur <style>
+   inline : ces pages redéfinissent nav/.nav-logo pour leur compte, il faut
+   donc passer en dernier pour reprendre la main.
+
+   Les articles ne déclarent pas --purple : la couleur Premium est en dur.
+   ========================================================================== */
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 48px;
+  background: rgba(246, 225, 200, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(196, 135, 58, 0.2);
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900;
+  color: #2C1810; text-decoration: none; cursor: pointer;
+  display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+}
+.nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
+
+.nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; align-items: center; }
+.nav-links a {
+  font-size: 0.82rem; font-weight: 500; color: #2C1810; text-decoration: none;
+  opacity: 0.7; transition: opacity 0.2s; letter-spacing: 0.05em;
+  text-transform: uppercase; cursor: pointer; white-space: nowrap;
+}
+.nav-links a:hover, .nav-links a.active { opacity: 1; }
+.nav-links a.active { font-weight: 700; }
+
+.lang-switch { font-size: 0.78rem; letter-spacing: 0.04em; white-space: nowrap; }
+.lang-switch a { color: #2C1810; text-decoration: none; opacity: 0.5; text-transform: none; }
+.lang-switch a[aria-current] { opacity: 1; font-weight: 600; }
+.lang-switch .sep { opacity: 0.25; margin: 0 4px; }
+
+.burger-btn {
+  display: none; background: none; border: none; cursor: pointer; padding: 6px;
+  color: #2C1810; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 10px; transition: background 0.2s;
+}
+.burger-btn:hover { background: rgba(44, 24, 16, 0.08); }
+.burger-btn svg { width: 22px; height: 22px; }
+
+/* --------------------------------------------------------------------------
+   Menu mobile — panneau latéral
+   La liste est la SEULE zone qui défile. min-height:0 lève le min-height:auto
+   implicite des éléments flex : sans lui, le bloc refuse de se réduire sous la
+   hauteur de son contenu, déborde du panneau, et les dernières entrées
+   deviennent inatteignables.
+   -------------------------------------------------------------------------- */
+.mobile-menu-overlay { display: none; position: fixed; inset: 0; z-index: 200; }
+.mobile-menu-overlay.open { display: block; }
+.mobile-menu-backdrop { position: absolute; inset: 0; background: rgba(26, 15, 10, 0.55); backdrop-filter: blur(4px); }
+
+.mobile-menu-panel {
+  position: absolute; top: 0; right: 0;
+  width: 280px; max-width: 85vw; height: 100%;
+  background: #F6E1C8; box-shadow: -8px 0 40px rgba(44, 24, 16, 0.2);
+  display: flex; flex-direction: column; overflow: hidden;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mobile-menu-overlay.open .mobile-menu-panel { transform: translateX(0); }
+
+.mobile-menu-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 24px; border-bottom: 1px solid rgba(196, 135, 58, 0.2);
+  flex-shrink: 0;
+}
+.mobile-menu-logo {
+  font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 900;
+  color: #2C1810; display: flex; align-items: center; gap: 8px;
+}
+.mobile-menu-logo-img { width: 28px; height: 28px; object-fit: contain; border-radius: 6px; }
+.mobile-menu-close {
+  background: none; border: none; cursor: pointer; padding: 6px; color: #2C1810;
+  opacity: 0.6; border-radius: 8px; transition: opacity 0.2s, background 0.2s;
+}
+.mobile-menu-close:hover { opacity: 1; background: rgba(44, 24, 16, 0.08); }
+.mobile-menu-close svg { width: 20px; height: 20px; display: block; }
+
+.mobile-menu-links {
+  padding: 16px 0 calc(16px + env(safe-area-inset-bottom));
+  flex: 1 1 auto; min-height: 0;
+  overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
+}
+.mobile-menu-item {
+  display: flex; align-items: center; gap: 14px; padding: 16px 24px;
+  font-size: 1rem; font-weight: 500; color: #2C1810; cursor: pointer;
+  transition: background 0.15s; border: none; background: none;
+  width: 100%; text-align: left; text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+}
+.mobile-menu-item:hover { background: rgba(196, 135, 58, 0.08); }
+.mobile-menu-item .item-icon {
+  font-size: 1.4rem; width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(196, 135, 58, 0.1); border-radius: 10px; flex-shrink: 0;
+}
+.mobile-menu-item .item-text { display: flex; flex-direction: column; gap: 2px; }
+.mobile-menu-item .item-label { font-size: 0.95rem; font-weight: 600; color: #2C1810; }
+.mobile-menu-item .item-sub { font-size: 0.75rem; opacity: 0.55; font-weight: 300; }
+.mobile-menu-item.premium-item .item-icon { background: rgba(107, 63, 160, 0.12); }
+.mobile-menu-item.premium-item .item-label { color: #6B3FA0; }
+.mobile-menu-divider { height: 1px; background: rgba(44, 24, 16, 0.08); margin: 8px 24px; }
+.mobile-menu-footer {
+  padding: 20px 24px; border-top: 1px solid rgba(196, 135, 58, 0.15);
+  display: flex; justify-content: center; flex-shrink: 0;
+}
+.mobile-menu-footer .lang-switch { font-size: 0.9rem; }
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .burger-btn { display: flex; }
+  nav { padding: 12px 24px; }
+}

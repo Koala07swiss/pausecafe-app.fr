@@ -86,12 +86,93 @@
     footer p{font-size:0.82rem;opacity:0.4;}footer a{color:var(--caramel);text-decoration:none;}
     @media(max-width:768px){nav{padding:12px 20px;}.article-hero{padding:110px 24px 60px;}.hero-image-wrap{padding:0 24px;}.article-body{padding:40px 24px 60px;}.profile-grid{grid-template-columns:1fr;}.range-label{min-width:108px;font-size:0.72rem;}.range-val{min-width:64px;font-size:0.72rem;}}
   </style>
+  <link rel="stylesheet" href="/nav-blog.css">
 </head>
 <body>
 <nav>
   <a href="https://pausecafe-app.fr" class="nav-logo"><img src="/logo.png" alt="PauseCafé">PauseCafé</a>
-  <a href="/blog" class="nav-back">← Tous les articles</a>
+  <ul class="nav-links">
+    <li><a href="/cafeine-temps-reel.html">Caféine en temps réel</a></li>
+    <li><a href="/hydratation.html">Hydratation</a></li>
+    <li><a href="/analyses.html">Analyses</a></li>
+    <li><a href="/sante.html">Santé</a></li>
+    <li><a href="/blog" class="active">Articles</a></li>
+    <li><a href="/changelog.html">Nouveautés</a></li>
+    <li><span class="lang-switch"><a href="https://pausecafe-app.fr/blog/boire-plus-eau-astuces" aria-current="true" hreflang="fr">FR</a><span class="sep">/</span><a href="https://pausecafe-app.fr/en/blog" hreflang="en">EN</a></span></li>
+  </ul>
+  <button class="burger-btn" onclick="ouvrirMenuMobile()" aria-label="Menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
 </nav>
+
+<div class="mobile-menu-overlay" id="mobile-menu" onclick="fermerMenuSiBackdrop(event)">
+  <div class="mobile-menu-backdrop"></div>
+  <div class="mobile-menu-panel">
+    <div class="mobile-menu-header">
+      <span class="mobile-menu-logo">
+        <img src="/logo.png" alt="PauseCafé" class="mobile-menu-logo-img">
+        PauseCafé
+      </span>
+      <button class="mobile-menu-close" onclick="fermerMenuMobile()" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="https://pausecafe-app.fr#features" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">☕</div>
+        <div class="item-text"><span class="item-label">Fonctionnalités</span><span class="item-sub">Ce que fait PauseCafé</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/cafeine-temps-reel.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">📉</div>
+        <div class="item-text"><span class="item-label">Caféine en temps réel</span><span class="item-sub">La caféine active expliquée</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/hydratation.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">💧</div>
+        <div class="item-text"><span class="item-label">Hydratation</span><span class="item-sub">Le suivi de l'eau &amp; la science</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/analyses.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">🔬</div>
+        <div class="item-text"><span class="item-label">Analyses</span><span class="item-sub">Méthode &amp; sources scientifiques</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/sante.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">❤️</div>
+        <div class="item-text"><span class="item-label">App Santé</span><span class="item-sub">Synchronisation avec l'app Santé</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="https://pausecafe-app.fr#premium" class="mobile-menu-item premium-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">👑</div>
+        <div class="item-text"><span class="item-label">Premium</span><span class="item-sub">Watch · boissons perso</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="https://pausecafe-app.fr#normes" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">🔬</div>
+        <div class="item-text"><span class="item-label">Normes EFSA &amp; OMS</span><span class="item-sub">La science derrière l'app</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/blog" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">📖</div>
+        <div class="item-text"><span class="item-label">Articles</span><span class="item-sub">Caféine, hydratation &amp; santé</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/changelog.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">🆕</div>
+        <div class="item-text"><span class="item-label">Nouveautés</span><span class="item-sub">Les dernières versions</span></div>
+      </a>
+    </div>
+    <div class="mobile-menu-footer">
+      <span class="lang-switch"><a href="https://pausecafe-app.fr/blog/boire-plus-eau-astuces" aria-current="true" hreflang="fr">FR</a><span class="sep">/</span><a href="https://pausecafe-app.fr/en/blog" hreflang="en">EN</a></span>
+    </div>
+  </div>
+</div>
+
 
 <section class="article-hero">
   <div class="hero-inner">
@@ -284,5 +365,6 @@
 
 </article>
 <footer><p>© 2026 PauseCafé · <a href="https://pausecafe-app.fr">pausecafe-app.fr</a> · <a href="/blog">Tous les articles</a></p></footer>
+<script src="/nav-blog.js"></script>
 </body>
 </html>
