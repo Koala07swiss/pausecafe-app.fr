@@ -1,9 +1,19 @@
 name: Génération posts sociaux PauseCafé
 
 on:
-  schedule:
-    # Lundi, mercredi, vendredi à 07:00 UTC (≈ 08:00/09:00 en France)
-    - cron: "0 7 * * 1,3,5"
+  # ─────────────────────────────────────────────────────────────────────
+  #  EN PAUSE depuis le 7 août 2026 — demandé par Kévin, réseaux sociaux
+  #  non utilisés pour le moment.
+  #
+  #  Le déclenchement automatique (lundi, mercredi, vendredi à 07:00 UTC)
+  #  est mis en commentaire ci-dessous. Le workflow reste lançable à la
+  #  main depuis l'onglet Actions, et le fait de le laisser en place
+  #  préserve l'historique et la file de sujets.
+  #
+  #  POUR LE RÉACTIVER : retire les deux dièses des deux lignes suivantes.
+  # schedule:
+  #   - cron: "0 7 * * 1,3,5"
+  # ─────────────────────────────────────────────────────────────────────
   workflow_dispatch: {}
 
 permissions:
