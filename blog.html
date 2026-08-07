@@ -7,6 +7,12 @@
   <meta name="description" content="Articles scientifiques sur la caféine : effets sur la santé, le sommeil, le stress. Recommandations EFSA 400mg, FDA, ANSES 2021. Conseils pour maîtriser votre consommation.">
   <meta name="keywords" content="caféine santé, limite caféine EFSA, café sommeil, stress caféine, tracker café, 400mg caféine journalier">
   <link rel="canonical" href="https://pausecafe-app.fr/blog">
+    <!-- Versions linguistiques : indique a Google que ces deux pages sont
+         la MEME page en deux langues, et non du contenu duplique. -->
+    <link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/blog">
+    <link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/blog">
+    <link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/blog">
+
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pausecafe-app.fr/blog">
   <meta property="og:title" content="Articles Caféine & Santé — PauseCafé">
@@ -19,7 +25,8 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"PauseCafé — Caféine & Santé","url":"https://pausecafe-app.fr/blog","publisher":{"@type":"Organization","name":"PauseCafé","url":"https://pausecafe-app.fr"}}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
+      <link rel="stylesheet" href="/base.css">
+<style>
     :root{--cafe:#2C1810;--cream:#F6E1C8;--espresso:#1A0F0A;--caramel:#C4873A;--mousse:#E8D5B0;--purple:#6B3FA0;--purple-light:#9B6FD0;}
     *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
     body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--cafe);overflow-x:hidden;}
@@ -125,6 +132,11 @@
     <li><a href="https://pausecafe-app.fr#normes">Normes EFSA</a></li>
     <li><a href="/blog" class="active">Articles</a></li>
     <li><a href="changelog.html">Nouveautés</a></li>
+    <li><span class="lang-switch">
+      <a href="/blog" aria-current="true" hreflang="fr">FR</a>
+      <span class="sep">/</span>
+      <a href="/en/blog" hreflang="en">EN</a>
+    </span></li>
   </ul>
 </nav>
 
@@ -169,17 +181,6 @@
   <p class="section-label">📖 Tous les articles</p>
   <div class="articles-grid">
     <!-- AGENT:NOUVELLE-CARTE -->
-    <a href="/blog/cafeine-frequence-cardiaque-repos" class="article-card">
-      <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1456324463128-7ff6903988d8?ixid=M3w5NjMyMjN8MHwxfHNlYXJjaHwxfHxoZWFydCUyMHJhdGUlMjBtb25pdG9yJTIwY29mZmVlJTIwZGVza3xlbnwwfDB8fHwxNzg1NzU0NjczfDA&ixlib=rb-4.1.0&w=600&q=75&fm=jpg&fit=crop" alt="Montre connectée affichant la fréquence cardiaque posée à côté d'une tasse de café" loading="lazy">
-      </div>
-      <div class="card-top">
-        <p class="card-tag">Études scientifiques</p>
-        <h3 class="card-title">Caféine et fréquence cardiaque au repos : ce que disent vraiment les études</h3>
-        <p class="card-excerpt">La caféine fait-elle vraiment monter votre fréquence cardiaque au repos ? Mécanismes, études randomisées et variabilité individuelle : tout ce qu'il faut savoir.</p>
-      </div>
-      <div class="card-footer"><span class="card-date">3 août 2026</span><span class="card-read">7 min →</span></div>
-    </a>
     <a href="/blog/cafeine-residuelle-coucher" class="article-card">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1581160351473-af6aba4f9750?ixid=M3w5NjMyMjN8MHwxfHNlYXJjaHwxfHxjb2ZmZWUlMjBjbG9jayUyMGV2ZW5pbmclMjBuaWdodHxlbnwwfDB8fHwxNzg1MTQ5ODg1fDA&ixlib=rb-4.1.0&w=600&q=75&fm=jpg&fit=crop" alt="Une tasse de café posée sur une table de nuit, horloge en arrière-plan indiquant une heure tardive" loading="lazy">
@@ -400,7 +401,6 @@
 <script>
   // Données de catégorie par article
   const categories = {
-    'cafeine-frequence-cardiaque-repos': 'Études scientifiques',
     'cafeine-residuelle-coucher': 'Santé',
     'heure-dernier-cafe-sommeil': 'Conseils pratiques',
     'boire-plus-eau-astuces': 'Conseils pratiques',
