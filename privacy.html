@@ -7,6 +7,12 @@
     <!-- ══ Métadonnées : SEO + partage social + découvrabilité IA ══ -->
     <meta name="description" content="Politique de confidentialité de PauseCafé : quelles données sont traitées, et comment.">
     <link rel="canonical" href="https://pausecafe-app.fr/privacy.html">
+    <!-- Versions linguistiques : indique a Google que ces deux pages sont
+         la MEME page en deux langues, et non du contenu duplique. -->
+    <link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/privacy.html">
+    <link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/privacy.html">
+    <link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/privacy.html">
+
 
     <!-- Open Graph (Facebook, LinkedIn, iMessage, WhatsApp…) -->
     <meta property="og:type" content="website">
@@ -21,27 +27,30 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Politique de confidentialité — PauseCafé">
     <meta name="twitter:description" content="Politique de confidentialité de PauseCafé : quelles données sont traitées, et comment.">
-    <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">
+    <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">    <link rel="stylesheet" href="/base.css">
+
 <style>
-  body { background: #F6E1C8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 800px; margin: 0 auto; padding: 20px 24px 60px; color: #1a1a1a; line-height: 1.7; }
-  nav { margin-bottom: 32px; }
-  nav a { color: #c0722a; text-decoration: none; font-weight: 600; }
-  h1 { font-size: 2em; margin-bottom: 4px; }
-  .date { color: #888; font-size: 0.9em; margin-bottom: 40px; }
-  h2 { font-size: 1.15em; font-weight: 700; margin-top: 36px; border-left: 4px solid #c0722a; padding-left: 12px; }
-  ul { padding-left: 20px; }
-  li { margin-bottom: 6px; }
-  strong { color: #1a1a1a; }
-  a { color: #c0722a; }
-  .footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; color: #888; font-size: 0.85em; text-align: center; }
   .highlight { background: #fff8f0; border: 1px solid #f5ddc0; border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
 </style>
 </head>
 <body>
-<nav><a href="https://pausecafe-app.fr">← Retour au site</a></nav>
+<nav>
+    <a href="/" class="nav-logo">
+        <img src="/logo.png" alt="PauseCafé" class="nav-logo-img">
+        PauseCafé
+    </a>
+    <a href="/" class="nav-back">← Retour au site</a>
+    <span class="lang-switch">
+        <a href="/privacy.html" aria-current="true" hreflang="fr">FR</a>
+        <span class="sep">/</span>
+        <a href="/en/privacy.html" hreflang="en">EN</a>
+    </span>
+</nav>
+
+<main class="page-legale">
 
 <h1>Politique de confidentialité</h1>
-<p class="date">Dernière mise à jour : juin 2026</p>
+<p class="maj">Dernière mise à jour : juin 2026</p>
 
 <h2>1. Responsable du traitement</h2>
 <p><strong>Kévin Beguerie</strong>, particulier — personne physique, France<br>
@@ -234,6 +243,20 @@ Site : <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></p>
 <p>Contact : <a href="mailto:hello@pausecafe-app.fr">hello@pausecafe-app.fr</a></p>
 <p><strong>CNIL</strong> — 3 Place de Fontenoy, 75334 Paris Cedex 07 — <a href="https://www.cnil.fr">www.cnil.fr</a></p>
 
-<div class="footer">© 2026 PauseCafé. Tous droits réservés. — <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></div>
+<div class="maj" style="margin-top:48px">© 2026 PauseCafé. Tous droits réservés. — <a href="https://pausecafe-app.fr">pausecafe-app.fr</a></div>
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="/">Accueil</a>
+        <a href="/blog">Articles</a>
+        <a href="/cgu.html">CGU</a>
+        <a href="/privacy.html">Confidentialité</a>
+        <a href="/rgpd.html">RGPD</a>
+        <a href="mailto:hello@pausecafe-app.fr">Contact</a>
+    </div>
+    <div class="footer-bottom">© 2026 PauseCafé — Information de bien-être, non médicale.</div>
+</footer>
+
 </body>
 </html>
