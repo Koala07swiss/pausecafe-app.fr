@@ -1,62 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <!-- Pages principales -->
   <url>
     <loc>https://pausecafe-app.fr/</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/"/>
   </url>
   <url>
     <loc>https://pausecafe-app.fr/cafeine-temps-reel.html</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/cafeine-temps-reel.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/real-time-caffeine.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/cafeine-temps-reel.html"/>
   </url>
   <url>
     <loc>https://pausecafe-app.fr/analyses.html</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/analyses.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/insights.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/analyses.html"/>
   </url>
   <url>
     <loc>https://pausecafe-app.fr/hydratation.html</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/hydratation.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/hydration.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/hydratation.html"/>
   </url>
   <url>
     <loc>https://pausecafe-app.fr/sante.html</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/sante.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/health.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/sante.html"/>
   </url>
   <url>
     <loc>https://pausecafe-app.fr/changelog.html</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/changelog.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/changelog.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/changelog.html"/>
   </url>
   <url>
     <loc>https://pausecafe-app.fr/fonctionnalites.html</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/fonctionnalites.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/features.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/fonctionnalites.html"/>
   </url>
   <url>
     <loc>https://pausecafe-app.fr/blog</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <!-- Articles blog -->
   <!-- AGENT:NOUVELLE-URL -->
-  <url>
-    <loc>https://pausecafe-app.fr/blog/cafeine-frequence-cardiaque-repos/</loc>
-    <lastmod>2026-08-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
   <url>
     <loc>https://pausecafe-app.fr/blog/cafeine-residuelle-coucher/</loc>
     <lastmod>2026-07-27</lastmod>
@@ -153,18 +169,128 @@
     <lastmod>2026-06-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/privacy.html"/>
   </url>
   <url>
     <loc>https://pausecafe-app.fr/cgu.html</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/cgu.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/cgu.html"/>
   </url>
   <url>
     <loc>https://pausecafe-app.fr/rgpd.html</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/rgpd.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/gdpr.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/rgpd.html"/>
   </url>
   <!-- desabonnement.html VOLONTAIREMENT EXCLU : balise noindex dans la page -->
+
+  <!-- Version anglaise -->
+  <url>
+    <loc>https://pausecafe-app.fr/en/</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/"/>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/en/features.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/fonctionnalites.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/features.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/fonctionnalites.html"/>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/en/real-time-caffeine.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/cafeine-temps-reel.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/real-time-caffeine.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/cafeine-temps-reel.html"/>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/en/hydration.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/hydratation.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/hydration.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/hydratation.html"/>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/en/insights.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/analyses.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/insights.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/analyses.html"/>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/en/health.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/sante.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/health.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/sante.html"/>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/en/changelog.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/changelog.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/changelog.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/changelog.html"/>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/en/terms.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/cgu.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/cgu.html"/>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/en/privacy.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/en/gdpr.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/rgpd.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/gdpr.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/rgpd.html"/>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/en/unsubscribe.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/desabonnement.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/unsubscribe.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/desabonnement.html"/>
+  </url>
 </urlset>
