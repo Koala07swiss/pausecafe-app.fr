@@ -74,6 +74,12 @@
   <!-- Articles blog -->
   <!-- AGENT:NOUVELLE-URL -->
   <url>
+    <loc>https://pausecafe-app.fr/blog/cafeine-frequence-cardiaque-repos/</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://pausecafe-app.fr/blog/cafeine-residuelle-coucher/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
