@@ -832,9 +832,11 @@ Rédige l'article maintenant. Réponds en JSON strict uniquement. Utilise le slu
       log('Article propre dès la 1ère passe.');
     }
 
-    // La traduction ne part que d'un article SANS problème bloquant :
-    // traduire un texte faux reviendrait à publier l'erreur deux fois.
-    if (bilingue && problemesRestants.bloq === 0) {
+    // La traduction part TOUJOURS. C'est le merge qui décide, pas le script :
+    // sauter la traduction quand il reste un ⛔ ne protégeait rien — le
+    // français partait quand même et les deux blogs divergeaient. Le bandeau
+    // ⛔ du rapport reste le seul juge, et il vaut pour les deux langues.
+    if (bilingue) {
       log('Pause anti-limite…'); await dormir(65000);
       log('5/5 Traduction anglaise…');
       try {
@@ -844,8 +846,6 @@ Rédige l'article maintenant. Réponds en JSON strict uniquement. Utilise le slu
         log(`⚠️ Traduction échouée (${e.message}) — le français part seul`);
         dEn = null;
       }
-    } else if (bilingue) {
-      log('⚠️ Problème bloquant non résolu : traduction anglaise volontairement sautée.');
     }
   }
 
@@ -916,7 +916,7 @@ Rédige l'article maintenant. Réponds en JSON strict uniquement. Utilise le slu
 
   let bandeau = '';
   if (problemesRestants.bloq > 0) {
-    bandeau = `> # ⛔ À CORRIGER À LA MAIN AVANT MERGE\n> Il reste **${problemesRestants.bloq} problème(s) bloquant(s)** non résolus (voir ⛔ ci-dessous). **Ne pas merger en l'état.**${trajet}\n\n`;
+    bandeau = `> # ⛔ À CORRIGER À LA MAIN AVANT MERGE\n> Il reste **${problemesRestants.bloq} problème(s) bloquant(s)** non résolus (voir ⛔ ci-dessous). **Ne pas merger en l'état.**\n>\n> ⚠️ **La version anglaise porte le même problème** : elle est traduite depuis ce texte. Corriger le français ne suffit pas — il faut corriger les deux, ou fermer la PR.${trajet}\n\n`;
   } else if (problemesRestants.avert > 0) {
     bandeau = `> # ⚠️ À RELIRE\n> Il reste **${problemesRestants.avert} point(s)** à vérifier (voir ⚠️ ci-dessous).${trajet}\n\n`;
   } else if (corrige) {
