@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Santé Apple et PauseCafé : pourquoi centraliser caféine et eau au même endroit | PauseCafé</title>
+  <meta name="description" content="Découvrez comment synchroniser PauseCafé avec l'app Santé Apple pour centraliser caféine et hydratation, protéger vos données et mieux comprendre vos habitudes.">
+  <meta name="keywords" content="app Santé Apple, suivi caféine iPhone, synchronisation HealthKit, hydratation, PauseCafé, données santé, caféine eau">
+  <link rel="canonical" href="https://pausecafe-app.fr/blog/app-sante-suivi-cafeine">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:url" content="https://pausecafe-app.fr/blog/app-sante-suivi-cafeine">
+  <meta property="og:title" content="App Santé Apple et PauseCafé : pourquoi centraliser caféine et eau au même endroit">
+  <meta property="og:description" content="Découvrez comment synchroniser PauseCafé avec l'app Santé Apple pour centraliser caféine et hydratation, protéger vos données et mieux comprendre vos habitudes.">
+  <meta property="og:image" content="https://pausecafe-app.fr/logo.png">
+  <meta property="og:site_name" content="PauseCafé">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="App Santé Apple et PauseCafé : pourquoi centraliser caféine et eau au même endroit">
+  <meta name="twitter:description" content="Découvrez comment synchroniser PauseCafé avec l'app Santé Apple pour centraliser caféine et hydratation, protéger vos données et mieux comprendre vos habitudes.">
+  <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"App Santé Apple et PauseCafé : pourquoi centraliser caféine et eau au même endroit","inLanguage":"fr","author":{"@type":"Person","name":"Kévin Beguerie"},"publisher":{"@type":"Organization","name":"PauseCafé","url":"https://pausecafe-app.fr"},"datePublished":"2026-08-10","dateModified":"2026-08-10","mainEntityOfPage":"https://pausecafe-app.fr/blog/app-sante-suivi-cafeine"}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--cafe:#2C1810;--cream:#F5EDD6;--espresso:#1A0F0A;--caramel:#C4873A;--mousse:#E8D5B0;}
+    *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--cafe);overflow-x:hidden;line-height:1.7;}
+    /* barre de navigation : voir /nav-blog.css, chargée après ce bloc */
+    .article-hero{background:var(--espresso);padding:140px 48px 80px;position:relative;overflow:hidden;}
+    .article-hero::before{content:'☕';position:absolute;font-size:22vw;right:-2vw;top:50%;transform:translateY(-50%);opacity:0.05;pointer-events:none;}
+    .hero-inner{max-width:780px;margin:0 auto;}
+    .article-cat{display:inline-block;background:var(--caramel);color:white;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:24px;}
+    .article-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.12;color:var(--cream);margin-bottom:20px;}
+    .article-meta{display:flex;gap:20px;flex-wrap:wrap;}
+    .meta-item{font-size:0.82rem;color:rgba(245,237,214,0.5);}
+    .meta-sep{color:rgba(245,237,214,0.2);}
+    .hero-image-wrap{padding:0 48px;margin-top:-40px;}
+    .hero-image-wrap img{width:100%;max-width:900px;display:block;margin:0 auto;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+    .hero-credit{max-width:900px;margin:8px auto 0;text-align:right;font-size:0.72rem;color:#9E8070;}
+    .hero-credit a{color:#9E8070;}
+    .article-body{max-width:780px;margin:0 auto;padding:64px 48px 80px;}
+    .article-body h2{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:var(--cafe);margin:48px 0 16px;line-height:1.2;}
+    .article-body h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--cafe);margin:32px 0 12px;}
+    .article-body p{font-size:1rem;line-height:1.85;color:#3D2010;margin-bottom:20px;font-weight:300;}
+    .article-body strong{font-weight:500;color:var(--cafe);}
+    .article-body a{color:var(--caramel);text-decoration:underline;text-underline-offset:2px;}
+    .article-body ul,ol{padding-left:24px;margin-bottom:20px;}
+    .article-body li{font-size:1rem;line-height:1.8;color:#3D2010;font-weight:300;margin-bottom:6px;}
+    .highlight-box{background:white;border-left:4px solid var(--caramel);border-radius:0 12px 12px 0;padding:20px 24px;margin:32px 0;box-shadow:0 4px 16px rgba(44,24,16,0.06);}
+    .highlight-box p{margin:0;font-size:0.95rem;color:#3D2010;}
+    .range-viz{background:white;border-radius:16px;padding:28px;margin:32px 0;box-shadow:0 4px 16px rgba(44,24,16,0.06);}
+    .range-viz h4{font-size:0.85rem;color:#9E8070;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:20px;}
+    .range-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+    .range-label{font-size:0.8rem;color:var(--cafe);min-width:160px;}
+    .range-track{position:relative;flex:1;height:16px;background:#F0E9D8;border-radius:100px;}
+    .range-fill{position:absolute;height:16px;border-radius:100px;background:var(--caramel);}
+    .range-val{font-size:0.78rem;color:#9E8070;min-width:78px;text-align:right;}
+    .range-scale{font-size:0.72rem;color:#B0A088;margin-top:6px;font-style:italic;}
+    .profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0;}
+    .profile-card{background:white;border-radius:12px;padding:20px;box-shadow:0 4px 12px rgba(44,24,16,0.06);}
+    .profile-card h4{font-size:0.9rem;font-weight:500;color:var(--cafe);margin-bottom:8px;}
+    .profile-card p{font-size:0.82rem;color:#5C4033;font-weight:300;margin:0;line-height:1.6;}
+    .profile-icon{font-size:1.8rem;margin-bottom:8px;}
+    .sources-section{background:var(--mousse);border-radius:16px;padding:28px 32px;margin-top:48px;}
+    .sources-section h4{font-size:0.85rem;font-weight:500;color:var(--cafe);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.08em;}
+    .sources-section ul{list-style:none;padding:0;}
+    .sources-section li{font-size:0.82rem;color:#5C4033;margin-bottom:6px;padding-left:16px;position:relative;}
+    .sources-section li::before{content:'→';position:absolute;left:0;color:var(--caramel);}
+    .cta-section{background:var(--espresso);border-radius:20px;padding:48px 40px;text-align:center;margin-top:64px;position:relative;overflow:hidden;}
+    .cta-section::before{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(196,135,58,0.12) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);}
+    .cta-section h3{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--cream);margin-bottom:12px;position:relative;}
+    .cta-section p{color:rgba(245,237,214,0.6);margin-bottom:32px;font-weight:300;position:relative;}
+    .cta-badge img{height:56px;width:auto;display:block;}
+    .cta-badge{display:inline-block;transition:opacity 0.2s,transform 0.2s;position:relative;z-index:1;}
+    .cta-badge:hover{opacity:0.85;transform:translateY(-2px);}
+    .related{margin-top:64px;}
+    .related h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--cafe);margin-bottom:24px;}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+    .related-card{background:var(--espresso);border-radius:12px;padding:20px;text-decoration:none;transition:transform 0.2s;}
+    .related-card:hover{transform:translateY(-2px);}
+    .related-card .r-cat{font-size:0.7rem;color:var(--caramel);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;}
+    .related-card .r-title{font-size:0.9rem;font-weight:500;color:var(--cream);line-height:1.35;}
+    footer{background:var(--espresso);color:var(--cream);padding:48px;text-align:center;}
+    footer p{font-size:0.82rem;opacity:0.4;}footer a{color:var(--caramel);text-decoration:none;}
+    @media(max-width:768px){nav{padding:12px 20px;}.article-hero{padding:110px 24px 60px;}.hero-image-wrap{padding:0 24px;}.article-body{padding:40px 24px 60px;}.profile-grid{grid-template-columns:1fr;}.range-label{min-width:108px;font-size:0.72rem;}.range-val{min-width:64px;font-size:0.72rem;}}
+  </style>
+  <link rel="stylesheet" href="/nav-blog.css">
+</head>
+<body>
+<nav>
+  <a href="https://pausecafe-app.fr" class="nav-logo"><img src="/logo.png" alt="PauseCafé">PauseCafé</a>
+  <ul class="nav-links">
+    <li><a href="/cafeine-temps-reel.html">Caféine en temps réel</a></li>
+    <li><a href="/hydratation.html">Hydratation</a></li>
+    <li><a href="/analyses.html">Analyses</a></li>
+    <li><a href="/sante.html">Santé</a></li>
+    <li><a href="/blog" class="active">Articles</a></li>
+    <li><a href="/changelog.html">Nouveautés</a></li>
+    <li><span class="lang-switch"><a href="/blog/app-sante-suivi-cafeine" aria-current="true" hreflang="fr">FR</a><span class="sep">/</span><a href="/en/blog" hreflang="en">EN</a></span></li>
+  </ul>
+  <button class="burger-btn" onclick="ouvrirMenuMobile()" aria-label="Menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+</nav>
+<div class="mobile-menu-overlay" id="mobile-menu" onclick="fermerMenuSiBackdrop(event)">
+  <div class="mobile-menu-backdrop"></div>
+  <div class="mobile-menu-panel">
+    <div class="mobile-menu-header">
+      <span class="mobile-menu-logo">
+        <img src="/logo.png" alt="PauseCafé" class="mobile-menu-logo-img">
+        PauseCafé
+      </span>
+      <button class="mobile-menu-close" onclick="fermerMenuMobile()" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="https://pausecafe-app.fr#features" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">☕</div>
+        <div class="item-text"><span class="item-label">Fonctionnalités</span><span class="item-sub">Ce que fait PauseCafé</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/cafeine-temps-reel.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">📉</div>
+        <div class="item-text"><span class="item-label">Caféine en temps réel</span><span class="item-sub">La caféine active expliquée</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/hydratation.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">💧</div>
+        <div class="item-text"><span class="item-label">Hydratation</span><span class="item-sub">Le suivi de l&rsquo;eau &amp; la science</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/analyses.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">🔬</div>
+        <div class="item-text"><span class="item-label">Analyses</span><span class="item-sub">Méthode &amp; sources scientifiques</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/sante.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">❤️</div>
+        <div class="item-text"><span class="item-label">App Santé</span><span class="item-sub">Synchronisation avec l&rsquo;app Santé</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="https://pausecafe-app.fr#premium" class="mobile-menu-item premium-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">👑</div>
+        <div class="item-text"><span class="item-label">Premium</span><span class="item-sub">Watch · boissons perso</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="https://pausecafe-app.fr#normes" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">🔬</div>
+        <div class="item-text"><span class="item-label">Normes EFSA &amp; OMS</span><span class="item-sub">La science derrière l&rsquo;app</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/blog" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">📖</div>
+        <div class="item-text"><span class="item-label">Articles</span><span class="item-sub">Caféine, hydratation &amp; santé</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/changelog.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">🆕</div>
+        <div class="item-text"><span class="item-label">Nouveautés</span><span class="item-sub">Les dernières versions</span></div>
+      </a>
+    </div>
+    <div class="mobile-menu-footer">
+      <span class="lang-switch"><a href="/blog/app-sante-suivi-cafeine" aria-current="true" hreflang="fr">FR</a><span class="sep">/</span><a href="/en/blog" hreflang="en">EN</a></span>
+    </div>
+  </div>
+</div>
+
+<section class="article-hero">
+  <div class="hero-inner">
+    <span class="article-cat">Conseils pratiques</span>
+    <h1>App Santé Apple et PauseCafé : pourquoi centraliser caféine et eau au même endroit</h1>
+    <div class="article-meta">
+      <span class="meta-item">10 août 2026</span>
+      <span class="meta-sep">·</span>
+      <span class="meta-item">6 min de lecture</span>
+      <span class="meta-sep">·</span>
+      <span class="meta-item">Par Kévin Beguerie</span>
+    </div>
+  </div>
+</section>
+
+<div class="hero-image-wrap">
+  <img src="https://images.unsplash.com/photo-1663661759357-5ab792c79dd1?ixid=M3w5NjMyMjN8MHwxfHNlYXJjaHwxfHxpUGhvbmUlMjBoZWFsdGglMjBhcHAlMjBjb2ZmZWUlMjB3YXRlcnxlbnwwfDB8fHwxNzg2MzUxOTYwfDA&ixlib=rb-4.1.0&w=900&q=80&fm=jpg&fit=crop" alt="Un iPhone affichant l'app Santé Apple avec une tasse de café posée à côté" loading="lazy">
+</div>
+<p class="hero-credit">Photo : <a href="https://unsplash.com/@huumsauna?utm_source=pausecafe&utm_medium=referral" target="_blank" rel="noopener">HUUM</a> / <a href="https://unsplash.com/?utm_source=pausecafe&utm_medium=referral" target="_blank" rel="noopener">Unsplash</a></p>
+
+<article class="article-body">
+
+<p>Vous notez déjà votre café du matin dans PauseCafé — mais saviez-vous que ces données peuvent rejoindre automatiquement l'app Santé d'Apple, aux côtés de votre hydratation, de votre sommeil et de votre fréquence cardiaque ? Cette centralisation, souvent ignorée, change la façon dont vous lisez vos journées. Voici ce qui se passe concrètement quand vous activez la synchronisation, ce qui reste sur votre appareil, et pourquoi cela vaut la peine d'y consacrer deux minutes.</p>
+
+<h2>L'app Santé Apple : un tableau de bord, pas un réseau social</h2>
+
+<p>L'app Santé (ou <em>Health</em>) est préinstallée sur chaque iPhone depuis iOS 8. Son rôle est simple : <strong>collecter, organiser et afficher les données de bien-être issues de sources multiples</strong> — capteurs de l'Apple Watch, données saisies manuellement, et applications tierces autorisées. Elle s'appuie sur le cadre logiciel HealthKit, conçu par Apple pour relier des apps entre elles tout en gardant le contrôle à l'utilisateur.</p>
+
+<p>Ce qui distingue l'app Santé d'un simple tableau de bord en ligne, c'est sa philosophie de confidentialité : <strong>les données sont stockées localement sur votre appareil</strong>, chiffrées. Si vous avez activé iCloud, vos données Santé y sont synchronisées par défaut — et dans ce cas, le chiffrement de bout en bout s'applique. Vous pouvez désactiver cette synchronisation à tout moment depuis Réglages → [votre nom] → iCloud.</p>
+
+<div class="highlight-box"><p>🔬 <strong>Point clé confidentialité :</strong> Lorsque votre iPhone est verrouillé par code, Touch ID ou Face ID, toutes vos données de santé dans l'app Santé sont chiffrées et inaccessibles — Apple Legal, apple.com</p></div>
+
+<p>Concrètement, <strong>Apple ne peut pas lire vos données de santé</strong> synchronisées sur iCloud si vous avez activé l'identification à deux facteurs. Et les apps tierces autorisées ne peuvent utiliser vos données de santé ni pour de la publicité ni pour du marketing — Apple l'interdit explicitement dans ses règles pour les développeurs.</p>
+
+<h2>Caféine et eau : deux types de données natifs dans HealthKit</h2>
+
+<p>Beaucoup d'utilisateurs ignorent qu'Apple Santé gère nativement la caféine et l'eau comme des <strong>types de données nutritionnelles</strong>, au même titre que les calories ou les protéines. Dans la documentation officielle pour développeurs, ces deux identifiants existent : <code>dietaryCaffeine</code> et <code>dietaryWater</code>.</p>
+
+<p>Cela signifie que lorsque PauseCafé enregistre un espresso à 8 h 30, il peut écrire la valeur correspondante en milligrammes de caféine <em>directement</em> dans l'app Santé Apple. De même pour chaque verre d'eau que vous saisissez. L'app Santé reçoit ces entrées et les affiche dans la section <strong>Nutrition</strong>, avec l'historique journalier, la moyenne hebdomadaire et un graphique.</p>
+
+<div class="profile-grid">
+  <div class="profile-card">
+    <div class="profile-icon">☕</div>
+    <h4>Caféine (dietaryCaffeine)</h4>
+    <p>Chaque boisson caféinée saisie dans PauseCafé — café, thé, maté, boisson énergisante — est transmise en milligrammes à l'app Santé. Visible dans Santé → Nutrition → Caféine.</p>
+  </div>
+  <div class="profile-card">
+    <div class="profile-icon">💧</div>
+    <h4>Eau (dietaryWater)</h4>
+    <p>Chaque verre ou bouteille enregistrée alimente le compteur d'hydratation. Visible dans Santé → Nutrition → Eau, avec votre objectif quotidien personnalisé.</p>
+  </div>
+  <div class="profile-card">
+    <div class="profile-icon">🕐</div>
+    <h4>Horodatage précis</h4>
+    <p>Chaque entrée porte un timestamp exact. Vous pouvez corréler votre dernier café à 16 h avec votre qualité de sommeil mesurée cette nuit-là.</p>
+  </div>
+  <div class="profile-card">
+    <div class="profile-icon">📊</div>
+    <h4>Historique continu</h4>
+    <p>L'app Santé conserve l'historique sur des mois, voire des années. Vous pouvez observer l'évolution de vos habitudes après des changements de routine.</p>
+  </div>
+</div>
+
+<h2>Ce qui est écrit, ce qui est lu : le principe de permission granulaire</h2>
+
+<p>Avant d'aller plus loin, une précision importante : <strong>chaque accès est soumis à votre accord explicite</strong>. Quand vous activez la synchronisation dans PauseCafé, une fenêtre iOS liste exactement les données que l'application souhaite lire ou écrire. Vous pouvez accorder ou refuser chaque type indépendamment.</p>
+
+<p>Dans le cas de PauseCafé, voici ce qui se passe :</p>
+
+<ul>
+  <li><strong>PauseCafé écrit</strong> dans l'app Santé : caféine (mg) et eau (ml) à chaque saisie.</li>
+  <li><strong>PauseCafé peut lire</strong> depuis l'app Santé : les entrées déjà présentes (par exemple, si vous avez saisi une boisson depuis une autre app ou depuis l'Apple Watch), afin d'éviter les doublons.</li>
+  <li><strong>Vous gardez la main</strong> : la synchronisation peut être désactivée à tout moment depuis les réglages de l'application, ou depuis Réglages iOS → Santé → Accès aux données et appareils.</li>
+</ul>
+
+<p>C'est ce qu'Apple appelle un accès «&nbsp;transparent, fondé sur le consentement&nbsp;» : l'utilisateur contrôle précisément quelles données sont partagées et dans quel sens.</p>
+
+<h2>Pourquoi centraliser ? La valeur de la corrélation</h2>
+
+<p>Suivre sa caféine dans PauseCafé, c'est déjà utile. Mais lorsque ces données rejoignent l'app Santé, elles deviennent <strong>comparables à d'autres signaux</strong> que vous collectez déjà : fréquence cardiaque au repos, durée de sommeil, niveau d'activité physique. C'est là que la valeur réelle apparaît.</p>
+
+<p>Quelques exemples concrets :</p>
+
+<ul>
+  <li>Vous remarquez que votre fréquence cardiaque au repos est plus élevée les jours où vous dépassez 300 mg de caféine — un signal à explorer avec votre médecin. (Pour en savoir plus sur ce lien, lisez notre article <a href="/blog/cafeine-frequence-cardiaque-repos">caféine et fréquence cardiaque au repos</a>.)</li>
+  <li>Vous croisez l'heure de votre dernier café avec votre score de sommeil : la corrélation devient visible semaine après semaine. Notre article <a href="/blog/cafeine-residuelle-coucher">caféine résiduelle au coucher</a> explique pourquoi cette fenêtre temporelle compte.</li>
+  <li>Vous constatez que vos journées les moins hydratées coïncident avec une fatigue plus marquée dans les données d'activité. Notre dossier <a href="/blog/signes-deshydratation">signes de déshydratation</a> détaille ce que le corps signale avant la soif.</li>
+</ul>
+
+<div class="highlight-box"><p>🔬 <strong>Principe clé :</strong> Par défaut, l'app Santé Apple classe les données par priorité : saisie manuelle en premier, puis données iPhone, iPad et Apple Watch, puis apps et appareils tiers. Vous pouvez modifier cet ordre à tout moment — Apple Support, support.apple.com/en-us/108779</p></div>
+
+<p>Cette hiérarchie des sources signifie que si vous saisissez manuellement une valeur dans l'app Santé (par exemple, un café bu au restaurant sans votre téléphone), elle primera sur ce que PauseCafé a éventuellement enregistré. Le système est conçu pour donner la priorité à votre propre jugement.</p>
+
+<h2>Vos données restent sur votre appareil</h2>
+
+<p>Un point que beaucoup d'utilisateurs apprécient particulièrement : <strong>HealthKit n'est pas un service cloud classique</strong>. C'est un stockage local sur votre iPhone. Vos données de caféine et d'eau ne transitent pas vers des serveurs Apple pour être analysées — elles restent sur votre appareil.</p>
+
+<p>Si vous avez activé iCloud, vos données Santé y sont synchronisées par défaut, avec chiffrement de bout en bout — ce qui signifie qu'elles sont inaccessibles même pour Apple. Vous pouvez désactiver cette synchronisation à tout moment depuis Réglages → [votre nom] → iCloud. Vous pouvez aussi exporter l'intégralité de vos données à tout moment : dans l'app Santé, appuyez sur votre photo de profil en haut à droite, puis sur <strong>«&nbsp;Exporter toutes les données Santé&nbsp;»</strong>.</p>
+
+<h2>Comment activer la synchronisation PauseCafé ↔ Santé</h2>
+
+<p>L'activation prend moins de deux minutes :</p>
+
+<ol>
+  <li>Ouvrez <strong>PauseCafé</strong> sur votre iPhone.</li>
+  <li>Allez dans <strong>Réglages</strong> (icône en bas à droite ou dans le menu).</li>
+  <li>Appuyez sur <strong>«&nbsp;Connexion à l'app Santé&nbsp;»</strong> ou <strong>«&nbsp;Santé Apple&nbsp;»</strong>.</li>
+  <li>iOS affiche la liste des autorisations demandées (caféine en écriture, eau en écriture, éventuellement lecture pour éviter les doublons). Activez les interrupteurs souhaités.</li>
+  <li>Confirmez. À partir de la prochaine saisie, vos données sont synchronisées en temps réel.</li>
+</ol>
+
+<p><strong>Pour vérifier que tout fonctionne :</strong> ouvrez l'app Santé Apple → onglet «&nbsp;Parcourir&nbsp;» → Nutrition → Caféine. Les entrées récentes de PauseCafé doivent apparaître avec leur horodatage et la mention «&nbsp;PauseCafé&nbsp;» comme source.</p>
+
+<p>Si vous souhaitez désactiver la synchronisation ultérieurement, allez dans <strong>Réglages iOS → Santé → Accès aux données et appareils → PauseCafé</strong>, et désactivez les permissions souhaitées.</p>
+
+<h2>Quelques nuances à garder en tête</h2>
+
+<p>Comme pour tout outil de suivi, <strong>la valeur des données dépend de la régularité de la saisie</strong>. Si vous oubliez d'enregistrer un café sur deux, les courbes dans l'app Santé seront incomplètes et les corrélations moins fiables. La synchronisation ne remplace pas l'habitude de saisie — elle l'amplifie.</p>
+
+<p>Par ailleurs, l'app Santé Apple <strong>n'est disponible que sur iPhone</strong> (pas sur iPad). Et les permissions HealthKit fonctionnent différemment des autres autorisations iOS : si vous refusez l'accès lors de la première demande, l'application ne pourra pas redemander automatiquement — il faudra aller dans les réglages iOS pour réactiver manuellement.</p>
+
+<p>Enfin, rappelons que ces données ont vocation à vous aider à mieux vous connaître, pas à établir un diagnostic. Les seuils de référence — 400 mg de caféine par jour maximum pour un adulte en bonne santé selon l'EFSA et la FDA, à moduler selon votre profil personnel — restent des repères généraux. Tout symptôme inhabituel mérite l'avis d'un professionnel de santé.</p>
+
+<div class="range-viz">
+  <h4>Rappel des seuils de référence caféine (adultes)</h4>
+  <div class="range-row">
+    <span class="range-label">Dose unique max conseillée</span>
+    <div class="range-track"><div class="range-fill" style="left:0%;width:33%;"></div></div>
+    <span class="range-val">~100 mg</span>
+  </div>
+  <div class="range-row">
+    <span class="range-label">Zone modérée (adulte sain)</span>
+    <div class="range-track"><div class="range-fill" style="left:0%;width:67%;"></div></div>
+    <span class="range-val">200 mg</span>
+  </div>
+  <div class="range-row">
+    <span class="range-label">Limite EFSA / FDA adulte</span>
+    <div class="range-track"><div class="range-fill" style="left:0%;width:100%;"></div></div>
+    <span class="range-val">400 mg</span>
+  </div>
+  <p class="range-scale">Échelle : 0 à 400 mg. Sources : EFSA (2015), FDA (guidance caféine). Ces seuils sont des repères généraux ; la sensibilité individuelle varie.</p>
+</div>
+
+  <div class="sources-section">
+    <h4>Sources scientifiques</h4>
+    <ul>
+<li>Apple Inc. Documentation développeur HealthKit — <em>Nutrition Type Identifiers</em> (dietaryCaffeine, dietaryWater). developer.apple.com/documentation/healthkit/data_types/nutrition_type_identifiers [consulté août 2026].</li><li>Apple Inc. — <em>App Santé et confidentialité</em>. apple.com/legal/privacy/data/fr/health-app/ [consulté août 2026].</li><li>Apple Inc. Support — <em>Gestion des données de l'app Santé sur votre iPhone</em>. support.apple.com/en-us/108779 [consulté août 2026].</li><li>EFSA Panel on Dietetic Products, Nutrition and Allergies (2015). Scientific Opinion on the safety of caffeine. <em>EFSA Journal</em>, 13(5):4102.</li><li>Apple Inc. — <em>HealthKit Framework Reference</em>. developer.apple.com/documentation/healthkit [consulté août 2026].</li><li>U.S. Food and Drug Administration (FDA) — <em>Spilling the Beans: How Much Caffeine is Too Much?</em> fda.gov [consulté août 2026].</li>
+    </ul>
+  </div>
+
+  <div class="disclaimer-box" style="background:#FBF5E9;border:1px solid rgba(196,135,58,0.35);border-radius:12px;padding:18px 22px;margin-top:48px;">
+    <p style="margin:0;font-size:0.82rem;line-height:1.6;color:#5C4033;">
+      <strong>⚕️ Information importante.</strong> Cet article a une vocation purement informative et de bien-être. Il ne constitue pas un avis médical, un diagnostic ou une prescription. Les effets de la caféine varient d'une personne à l'autre. En cas de question sur votre consommation, de symptôme, de grossesse, de traitement médical ou de problème de santé, consultez un professionnel de santé (médecin, pharmacien). Ne modifiez pas un traitement sur la seule base de cet article.
+    </p>
+  </div>
+
+  <div class="cta-section">
+    <h3>Arrêtez d'estimer. Mesurez.</h3>
+    <p>PauseCafé enregistre la teneur réelle en caféine de chaque boisson pour un cumul du jour fiable. Gratuit, sans pub.</p>
+    <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" rel="noopener" class="cta-badge">
+      <img src="/app-store-badge-fr.svg" alt="Télécharger PauseCafé sur l'App Store">
+    </a>
+  </div>
+
+  <div class="related">
+    <h3>Articles connexes</h3>
+    <div class="related-grid">
+      <a href="/blog/cafeine-residuelle-coucher" class="related-card"><div class="r-cat">Sommeil</div><div class="r-title">Caféine résiduelle au coucher : à quelle heure s'arrêter ?</div></a>
+      <a href="/blog/signes-deshydratation" class="related-card"><div class="r-cat">Santé</div><div class="r-title">Les signes de déshydratation à ne pas ignorer</div></a>
+      <a href="/blog/cafeine-frequence-cardiaque-repos" class="related-card"><div class="r-cat">Santé</div><div class="r-title">Caféine et fréquence cardiaque au repos : ce que disent les études</div></a>
+    </div>
+  </div>
+
+</article>
+<footer><p>© 2026 PauseCafé · <a href="https://pausecafe-app.fr">pausecafe-app.fr</a> · <a href="/blog">Tous les articles</a></p></footer>
+<script src="/nav-blog.js"></script>
+</body>
+</html>

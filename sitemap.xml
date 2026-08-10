@@ -86,6 +86,12 @@
   <!-- Articles blog -->
   <!-- AGENT:NOUVELLE-URL -->
   <url>
+    <loc>https://pausecafe-app.fr/blog/app-sante-suivi-cafeine/</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://pausecafe-app.fr/blog/comprendre-frequence-cardiaque-repos/</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
