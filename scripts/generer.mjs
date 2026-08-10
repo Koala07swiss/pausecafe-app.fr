@@ -339,8 +339,8 @@ const MENU = {
 // Sélecteur FR/EN. Sans paire bilingue, EN renvoie vers l'index anglais du
 // blog plutôt que vers une page inexistante.
 function selecteurLangue(lang, slugFr, slugEn) {
-  const uFr = slugFr ? `/blog/${slugFr}` : '/blog';
-  const uEn = slugEn ? `/en/blog/${slugEn}` : '/en/blog';
+  const uFr = slugFr ? `/blog/${slugFr}/` : '/blog';
+  const uEn = slugEn ? `/en/blog/${slugEn}/` : '/en/blog';
   return `<span class="lang-switch"><a href="${uFr}"${lang === 'fr' ? ' aria-current="true"' : ''} hreflang="fr">FR</a><span class="sep">/</span><a href="${uEn}"${lang === 'en' ? ' aria-current="true"' : ''} hreflang="en">EN</a></span>`;
 }
 
@@ -434,12 +434,12 @@ async function majBlogHTML(d, srcCarte, dateAff, lang) {
   let html = await readFile(fichier, 'utf8');
   const REPERE = '<!-- AGENT:NOUVELLE-CARTE -->';
   if (!html.includes(REPERE)) { log(`⚠️ repère AGENT absent de ${nom}, étape ignorée`); return false; }
-  if (html.includes(`${prefixe}/${d.slug}"`)) { log(`Carte déjà présente dans ${nom}`); return true; }
+  if (html.includes(`${prefixe}/${d.slug}/"`)) { log(`Carte déjà présente dans ${nom}`); return true; }
 
   const imgSrc = srcCarte || 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=75&auto=format&fit=crop';
   const lecture = String(d.tempsLecture).replace(' de lecture', '').replace(' read', '');
   const carte = `
-    <a href="${prefixe}/${d.slug}" class="article-card">
+    <a href="${prefixe}/${d.slug}/" class="article-card">
       <div class="card-img">
         <img src="${imgSrc}" alt="${echapHTML(d.heroAlt || d.titre)}" loading="lazy">
       </div>
@@ -495,7 +495,7 @@ async function majUne(d, srcCarte, dateAff, lang) {
   const une = `${D}
   <p class="section-label">${label}</p>
 
-  <a href="${T.prefixe}/${d.slug}" class="article-featured" data-cat="${echapHTML(d.categorie)}">
+  <a href="${T.prefixe}/${d.slug}/" class="article-featured" data-cat="${echapHTML(d.categorie)}">
     <div class="featured-img">
       <img src="${img.replace('w=600', 'w=800').replace('q=75', 'q=80')}" alt="${echapHTML(d.heroAlt || d.titre)}" loading="lazy">
       <span class="featured-tag">${echapHTML(d.categorie)}</span>
@@ -573,16 +573,16 @@ async function majSitemap(dFr, dEn, isoToday) {
 // ---------------------------------------------------------------------------
 function construireHTML(d, { lang, heroBlock, dISO, creditHTML, dateAff, slugFr, slugEn }) {
   const T = TEXTES[lang];
-  const url = `https://pausecafe-app.fr${T.prefixe}/${d.slug}`;
+  const url = `https://pausecafe-app.fr${T.prefixe}/${d.slug}/`;
 
   // hreflang croisés : uniquement si la paire existe réellement
   const hreflang = (slugFr && slugEn) ? `
-  <link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/blog/${slugFr}">
-  <link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/blog/${slugEn}">
-  <link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/blog/${slugFr}">` : '';
+  <link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/blog/${slugFr}/">
+  <link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/blog/${slugEn}/">
+  <link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/blog/${slugFr}/">` : '';
 
   const connexes = (d.connexes || []).map(c =>
-    `      <a href="${T.prefixe}/${c.slug}" class="related-card"><div class="r-cat">${echapHTML(c.cat)}</div><div class="r-title">${echapHTML(c.titre)}</div></a>`
+    `      <a href="${T.prefixe}/${c.slug}/" class="related-card"><div class="r-cat">${echapHTML(c.cat)}</div><div class="r-title">${echapHTML(c.titre)}</div></a>`
   ).join('\n');
 
   const blocConnexes = connexes ? `
