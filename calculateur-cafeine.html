@@ -193,6 +193,42 @@
             .champ input{width:100%;}
             .cta{padding:32px 22px;}
         }
+
+        /* ── Ergonomie tactile ─────────────────────────────────────────
+           Apple recommande 44 px minimum pour une cible tactile.        */
+        @media(min-width:761px){ .rappel{display:none;} }
+        @media(max-width:760px){
+            .ex{min-height:44px;padding:0 16px;display:inline-flex;align-items:center;}
+            .champ input{min-height:48px;font-size:1.05rem;}
+            .t-btn{padding:8px 2px 7px;}
+            .carte-b{padding:9px 10px 8px;}
+            .fam{margin-bottom:16px;}
+            .prises button{min-width:44px;min-height:44px;}
+
+            /* Les exemples defilent sur une ligne : empiles, ils repoussaient
+               le selecteur de plus d'un ecran vers le bas.               */
+            .exemples-btns{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:8px;
+                padding-bottom:6px;-webkit-overflow-scrolling:touch;
+                scroll-snap-type:x proximity;}
+            .exemples-btns .ex{flex:0 0 auto;scroll-snap-align:start;}
+
+            /* Rappel permanent du resultat : le selecteur fait plusieurs
+               ecrans de haut, sans lui il faut tout remonter pour le voir. */
+            body{padding-bottom:70px;}
+            .rappel{position:fixed;left:0;right:0;bottom:0;z-index:90;
+                display:flex;align-items:center;justify-content:space-between;gap:12px;
+                padding:11px 18px calc(11px + env(safe-area-inset-bottom));
+                background:var(--espresso);color:var(--cream);border:none;width:100%;
+                box-shadow:0 -4px 20px rgba(26,15,10,0.28);
+                transform:translateY(115%);transition:transform .25s ease;
+                font-family:'DM Sans',sans-serif;cursor:pointer;text-align:left;}
+            .rappel.visible{transform:translateY(0);}
+            .rappel .lib{font-size:0.76rem;opacity:0.62;display:block;line-height:1.35;}
+            .rappel .chiffre{font-family:'JetBrains Mono',monospace;font-size:1.15rem;font-weight:700;}
+            .rappel .chiffre.ok{color:#8FD9B6;}
+            .rappel .chiffre.trop{color:#E9A26B;}
+            .rappel .voir{font-size:0.78rem;opacity:0.72;white-space:nowrap;}
+        }
     </style>
 </head>
 <body>
@@ -373,6 +409,11 @@
 <footer>
     <p>© 2026 PauseCafé · <a href="https://pausecafe-app.fr">pausecafe-app.fr</a> · <a href="/cafeine-temps-reel.html">La caféine en temps réel</a></p>
 </footer>
+
+<button type="button" class="rappel" id="rappel" aria-live="polite">
+    <span><span class="lib">Au coucher, il resterait</span><span class="chiffre" id="rappel-mg">0 mg</span></span>
+    <span class="voir">Voir la courbe ↑</span>
+</button>
 
 <script>
 (function () {
@@ -720,7 +761,27 @@
             : (r.seuilH === null ? 'au-delà de 24 h' : enHeure(r.seuilH));
     }
 
-    function rendre() { ajusterHauteur(); rendreListe(); rendreGraphe(); rendreVerdict(); rendreReperes(); }
+    // ── Rappel flottant (mobile) ────────────────────────────────────────
+    // Sans lui, il faut remonter toute la liste des boissons pour revoir
+    // le total : sur telephone, le selecteur fait plusieurs ecrans de haut.
+    var elRappel = document.getElementById('rappel');
+    var elRappelMg = document.getElementById('rappel-mg');
+    if (elRappel) {
+        elRappel.addEventListener('click', function () {
+            document.querySelector('.courbe-carte')
+                .scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    }
+    function rendreRappel() {
+        if (!elRappel) return;
+        if (!prises.length) { elRappel.classList.remove('visible'); return; }
+        var mg = Math.round(totalA(minutesCoucher()));
+        elRappelMg.textContent = mg + '\u00A0mg';
+        elRappelMg.className = 'chiffre ' + (mg < SEUIL_SOMMEIL ? 'ok' : 'trop');
+        elRappel.classList.add('visible');
+    }
+
+    function rendre() { ajusterHauteur(); rendreListe(); rendreGraphe(); rendreVerdict(); rendreReperes(); rendreRappel(); }
 
     rendre();
 })();
