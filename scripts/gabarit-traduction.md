@@ -62,6 +62,19 @@ Même règle pour `connexes` : ne garde que les articles ayant une version
 anglaise. Si aucun ne qualifie, renvoie un tableau vide `[]` — le bloc
 « Related articles » sera simplement omis.
 
+## Lien vers une page produit — OBLIGATOIRE
+
+L'article anglais doit contenir **un lien contextuel vers la page produit anglaise
+la plus proche du sujet**, placé dans une phrase du corps du texte :
+
+- caféine active, demi-vie, courbe → `/en/real-time-caffeine.html`
+- eau, hydratation, chaleur → `/en/hydration.html`
+- corrélations, statistiques, méthode → `/en/insights.html`
+- Apple Health, montre, fréquence cardiaque → `/en/health.html`
+
+Ancre descriptive, jamais « click here ». Ces pages ne reçoivent aujourd'hui aucun
+lien éditorial, ce qui nuit à leur indexation.
+
 ## Catégorie
 
 Traduis la catégorie avec cette correspondance EXACTE, sans en inventer d'autre :
@@ -83,6 +96,7 @@ Markdown) :
 ```
 {
   "titre": "English H1, rewritten for English search intent (no site name)",
+  "titreSeo": "50-60 characters MAXIMUM, main keyword first. Used for the <title> tag Google displays and truncates beyond 60. May be a shortened version of the H1.",
   "slug": "english-keyword-slug",
   "categorie": "one of: Health | Sleep | Stress & Cortisol | Scientific studies | Practical advice | Pregnancy",
   "description": "meta description, 140-160 characters, with the keyword",

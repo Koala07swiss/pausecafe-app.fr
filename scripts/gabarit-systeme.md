@@ -42,14 +42,21 @@ Utilise UNIQUEMENT ces blocs (classes CSS déjà stylées sur le site) :
 - Barre de plages de valeurs (optionnel) :
   `<div class="range-viz"><h4>TITRE</h4><div class="range-row"><span class="range-label">Libellé</span><div class="range-track"><div class="range-fill" style="left:X%;width:Y%;"></div></div><span class="range-val">A–B mg</span></div>…<p class="range-scale">Échelle : 0 à 300 mg. Sources : …</p></div>`
   (left% = min/300×100 ; width% = (max−min)/300×100 ; cap à 300 mg)
-- Liens internes : `<a href="/blog/SLUG-EXISTANT">texte</a>`.
+- Liens internes vers d'autres articles : `<a href="/blog/SLUG-EXISTANT/">texte</a>` (barre oblique finale OBLIGATOIRE).
+- **Un lien vers la page produit la plus proche du sujet, OBLIGATOIRE**, placé dans une phrase du corps de l'article — jamais en fin de texte comme un renvoi isolé. Choisis selon le sujet :
+  - caféine active, demi-vie, courbe, coucher → `<a href="/cafeine-temps-reel.html">…</a>`
+  - eau, hydratation, soif, chaleur → `<a href="/hydratation.html">…</a>`
+  - corrélations, statistiques, méthode, sommeil mesuré → `<a href="/analyses.html">…</a>`
+  - Apple Santé, HealthKit, montre, fréquence cardiaque → `<a href="/sante.html">…</a>`
+  L'ancre doit être descriptive (« la courbe de caféine active de PauseCafé »), jamais « cliquez ici ». Ces quatre pages ne reçoivent aujourd'hui aucun lien éditorial : c'est ce qui les empêche d'être indexées.
 NE PRODUIS PAS : le `<head>`, la nav, le hero, le CTA, le disclaimer, le footer — la machine s'en charge.
 
 ## Format de SORTIE — JSON STRICT, rien d'autre
 Réponds avec UNIQUEMENT un objet JSON (pas de texte autour, pas de balises Markdown) :
 ```
 {
-  "titre": "Titre H1 (sans le nom du site)",
+  "titre": "Titre H1 complet, sans le nom du site — libre en longueur",
+  "titreSeo": "50-60 caractères MAXIMUM, mot-clé principal en tête. Sert à la balise <title> affichée par Google, qui tronque au-delà de 60. Peut être une version raccourcie du H1.",
   "slug": "slug-court-sans-accents-ni-espaces",
   "categorie": "une parmi : Santé | Sommeil | Stress & Cortisol | Études scientifiques | Conseils pratiques | Grossesse",
   "description": "meta-description, 140-160 caractères, accrocheuse et avec le mot-clé",
