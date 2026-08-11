@@ -349,7 +349,7 @@ function barreNav(lang, slugFr, slugEn) {
   const items = BARRE[lang].map(([t, h]) =>
     `    <li><a href="${h}"${h === actif ? ' class="active"' : ''}>${t}</a></li>`).join('\n');
   return `<nav>
-  <a href="${TEXTES[lang].accueil}" class="nav-logo"><img src="/logo.png" alt="PauseCafé">PauseCafé</a>
+  <a href="${TEXTES[lang].accueil}" class="nav-logo"><img src="/logo.webp" alt="PauseCafé">PauseCafé</a>
   <ul class="nav-links">
 ${items}
     <li>${selecteurLangue(lang, slugFr, slugEn)}</li>
@@ -373,7 +373,7 @@ function menuMobile(lang, slugFr, slugEn) {
   <div class="mobile-menu-panel">
     <div class="mobile-menu-header">
       <span class="mobile-menu-logo">
-        <img src="/logo.png" alt="PauseCafé" class="mobile-menu-logo-img">
+        <img src="/logo.webp" alt="PauseCafé" class="mobile-menu-logo-img">
         PauseCafé
       </span>
       <button class="mobile-menu-close" onclick="fermerMenuMobile()" aria-label="${lang === 'en' ? 'Close' : 'Fermer'}">
