@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caffeine at bedtime calculator — how much is left? | PauseCafé</title>
+    <meta name="description" content="How much caffeine is still in your system when you go to bed? Add your drinks, see the curve. 5-hour half-life, EFSA 100 mg sleep threshold.">
+    <meta name="keywords" content="caffeine calculator, caffeine at bedtime, caffeine half-life, caffeine left in body, sleep threshold 100 mg, caffeine sleep calculator">
+
+    <link rel="canonical" href="https://pausecafe-app.fr/en/caffeine-calculator.html">
+    <link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/calculateur-cafeine.html">
+    <link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/caffeine-calculator.html">
+    <link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/calculateur-cafeine.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://pausecafe-app.fr/en/caffeine-calculator.html">
+    <meta property="og:title" content="Caffeine at bedtime calculator — PauseCafé">
+    <meta property="og:description" content="Add your drinks, see what is still in your system at bedtime.">
+    <meta property="og:image" content="https://pausecafe-app.fr/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Caffeine at bedtime calculator">
+    <meta name="twitter:description" content="Add your drinks, see what is still in your system at bedtime.">
+    <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Caffeine at bedtime calculator","applicationCategory":"HealthApplication","operatingSystem":"Any browser","url":"https://pausecafe-app.fr/en/caffeine-calculator.html","inLanguage":"en","description":"Estimates how much caffeine is still in your body at bedtime, based on the drinks you had during the day.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"isPartOf":{"@type":"WebSite","name":"PauseCafé","url":"https://pausecafe-app.fr"},"about":{"@type":"SoftwareApplication","name":"PauseCafé","operatingSystem":"iOS, watchOS","applicationCategory":"HealthApplication","downloadUrl":"https://apps.apple.com/app/id6761892198"},"publisher":{"@type":"Organization","name":"PauseCafé","url":"https://pausecafe-app.fr"}}</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/base.css">
+    <style>
+        :root{--cafe:#2C1810;--cream:#F5EDD6;--espresso:#1A0F0A;--caramel:#C4873A;--mousse:#E8D5B0;--nuit:#3E5C50;--nuit-clair:#DCE8E1;}
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--cafe);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 48px;background:rgba(245,237,214,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(196,135,58,0.2);}
+        .nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--cafe);text-decoration:none;display:flex;align-items:center;gap:10px;}
+        .nav-logo-img{width:32px;height:32px;border-radius:8px;}
+        .nav-back{font-size:0.82rem;color:var(--cafe);text-decoration:none;opacity:0.6;}
+        .nav-back:hover{opacity:1;}
+        .lang-switch{font-size:0.78rem;letter-spacing:0.04em;}
+        .lang-switch a{color:var(--cafe);text-decoration:none;opacity:0.5;}
+        .lang-switch a[aria-current]{opacity:1;font-weight:600;}
+        .lang-switch .sep{opacity:0.25;margin:0 4px;}
+
+        .wrap{max-width:940px;margin:0 auto;padding:0 32px;}
+
+        /* ── En-tête ─────────────────────────────────────────── */
+        header.hero{padding:130px 0 34px;}
+        .eyebrow{font-size:0.72rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--caramel);margin-bottom:14px;}
+        h1{font-family:'Playfair Display',serif;font-size:clamp(2.1rem,5vw,3.3rem);font-weight:900;line-height:1.08;letter-spacing:-0.01em;margin-bottom:16px;}
+        h1 em{font-style:italic;color:var(--caramel);}
+        .chapeau{font-size:1.05rem;font-weight:300;color:#3D2010;max-width:60ch;}
+
+        /* ── Le graphique : élément signature ────────────────── */
+        .courbe-carte{background:var(--espresso);border-radius:20px;padding:26px 24px 18px;margin:26px 0 0;position:relative;overflow:hidden;}
+        .courbe-entete{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:6px;}
+        .verdict{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3.4vw,2rem);font-weight:700;color:var(--cream);line-height:1.2;}
+        .verdict .valeur{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15em;}
+        .verdict.sous-seuil .valeur{color:#8FD9B6;}
+        .verdict.sur-seuil .valeur{color:#E9A26B;}
+        .verdict-note{font-size:0.86rem;color:rgba(245,237,214,0.62);font-weight:300;max-width:46ch;margin-top:4px;}
+        svg.courbe{width:100%;height:auto;display:block;margin-top:10px;overflow:visible;}
+        .axe{stroke:rgba(245,237,214,0.16);stroke-width:1;}
+        .axe-txt{fill:rgba(245,237,214,0.45);font-family:'JetBrains Mono',monospace;font-size:9px;}
+        @media(max-width:760px){.axe-txt,.seuil-txt,.coucher-txt{font-size:12px;}}
+        .seuil-ligne{stroke:#8FD9B6;stroke-width:1;stroke-dasharray:3 3;opacity:0.55;}
+        .seuil-txt{fill:#8FD9B6;font-family:'JetBrains Mono',monospace;font-size:9px;opacity:0.85;paint-order:stroke;stroke:#1A0F0A;stroke-width:3;}
+        .zone-ok{fill:#8FD9B6;opacity:0.07;}
+        .trace{fill:none;stroke:var(--caramel);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round;}
+        .aire{fill:var(--caramel);opacity:0.13;}
+        .coucher-ligne{stroke:var(--cream);stroke-width:1;opacity:0.45;}
+        .coucher-txt{fill:rgba(245,237,214,0.6);font-family:'JetBrains Mono',monospace;font-size:9px;}
+        .point-coucher{fill:var(--cream);}
+        .prise{stroke:rgba(196,135,58,0.5);stroke-width:1;stroke-dasharray:2 3;}
+        .vide-txt{fill:rgba(245,237,214,0.35);font-family:'DM Sans',sans-serif;font-size:12px;}
+
+        /* ── Commandes ───────────────────────────────────────── */
+        .panneau{background:white;border-radius:18px;padding:26px 24px;margin-top:18px;box-shadow:0 4px 18px rgba(44,24,16,0.06);}
+        .panneau h2{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:4px;}
+        .panneau p.aide{font-size:0.86rem;color:#6B5445;font-weight:300;margin-bottom:16px;}
+        .ligne-champs{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;margin-bottom:18px;}
+        .champ{display:flex;flex-direction:column;gap:5px;}
+        .champ label{font-size:0.74rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#8A6D5A;}
+        .champ input{font-family:'JetBrains Mono',monospace;font-size:1rem;padding:9px 12px;border:1.5px solid rgba(196,135,58,0.35);border-radius:10px;background:var(--cream);color:var(--cafe);}
+        .champ input:focus{outline:2px solid var(--caramel);outline-offset:1px;border-color:transparent;}
+
+        .boissons{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:9px;}
+        .boisson{display:flex;align-items:center;gap:9px;padding:10px 12px;border:1.5px solid rgba(196,135,58,0.3);border-radius:12px;background:var(--cream);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.86rem;color:var(--cafe);text-align:left;transition:border-color 0.15s,transform 0.12s,background 0.15s;}
+        .boisson:hover{border-color:var(--caramel);background:#FBF3E2;}
+        .boisson:active{transform:scale(0.97);}
+        .boisson:focus-visible{outline:2px solid var(--caramel);outline-offset:2px;}
+        .boisson .ic{font-size:1.15rem;line-height:1;}
+        .boisson .nm{font-weight:500;line-height:1.2;}
+        .boisson .mg{display:block;font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#9E8070;font-weight:400;}
+
+        /* ── Journée ─────────────────────────────────────────── */
+        .journee{margin-top:16px;}
+        .journee h2{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:12px;}
+        .prises{list-style:none;display:flex;flex-direction:column;gap:7px;}
+        .prises li{display:flex;align-items:center;gap:12px;background:white;border-radius:11px;padding:9px 13px;box-shadow:0 2px 8px rgba(44,24,16,0.05);}
+        .prises .h{font-family:'JetBrains Mono',monospace;font-size:0.86rem;color:var(--caramel);font-weight:700;min-width:46px;}
+        .prises .n{flex:1;font-size:0.9rem;}
+        .prises .m{font-family:'JetBrains Mono',monospace;font-size:0.82rem;color:#8A6D5A;}
+        .prises button{background:none;border:none;cursor:pointer;color:#B09080;font-size:1.05rem;line-height:1;padding:4px 6px;border-radius:6px;}
+        .prises button:hover{color:#8A3A2A;background:rgba(138,58,42,0.08);}
+        .prises button:focus-visible{outline:2px solid var(--caramel);outline-offset:1px;}
+        .vide{background:var(--mousse);border-radius:12px;padding:18px 20px;font-size:0.9rem;color:#6B5445;font-weight:300;}
+        .total{margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:0.88rem;color:#6B5445;}
+        .total strong{color:var(--cafe);}
+        .total .depasse{color:#A6522E;font-weight:700;}
+
+        /* ── Texte ───────────────────────────────────────────── */
+        section.texte{padding:44px 0 0;}
+        section.texte h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;margin:32px 0 12px;}
+        section.texte h3{font-family:'Playfair Display',serif;font-size:1.08rem;font-weight:700;margin:22px 0 8px;}
+        section.texte p{font-size:0.99rem;font-weight:300;color:#3D2010;margin-bottom:15px;}
+        section.texte strong{font-weight:500;color:var(--cafe);}
+        section.texte a{color:var(--caramel);text-decoration:underline;text-underline-offset:2px;}
+        .formule{background:var(--espresso);color:var(--mousse);font-family:'JetBrains Mono',monospace;font-size:0.82rem;padding:16px 18px;border-radius:12px;overflow-x:auto;margin:14px 0 18px;line-height:1.75;}
+        .formule .cm{color:#8A9E93;}
+        .constantes{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin:16px 0 20px;}
+        .constantes li{background:white;border-left:3px solid var(--caramel);border-radius:0 11px 11px 0;padding:12px 15px;font-size:0.88rem;}
+        .constantes b{display:block;font-family:'JetBrains Mono',monospace;font-size:1.02rem;color:var(--cafe);margin-bottom:2px;}
+        .constantes span{color:#6B5445;font-weight:300;}
+        .avert{background:#FBF5E9;border:1px solid rgba(196,135,58,0.35);border-radius:12px;padding:17px 21px;margin:26px 0;}
+        .avert p{font-size:0.84rem;line-height:1.65;color:#5C4033;margin:0;font-weight:300;}
+        .sources{background:var(--mousse);border-radius:16px;padding:24px 26px;margin-top:26px;}
+        .sources h3{font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:11px;font-family:'DM Sans',sans-serif;}
+        .sources ul{list-style:none;}
+        .sources li{font-size:0.84rem;color:#5C4033;margin-bottom:7px;padding-left:17px;position:relative;font-weight:300;}
+        .sources li::before{content:'→';position:absolute;left:0;color:var(--caramel);}
+
+        .cta{background:var(--espresso);border-radius:20px;padding:42px 36px;text-align:center;margin:38px 0 0;}
+        .cta h2{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:900;color:var(--cream);margin-bottom:10px;}
+        .cta p{color:rgba(245,237,214,0.62);font-weight:300;margin-bottom:26px;font-size:0.96rem;}
+        .cta-badge{display:inline-block;transition:opacity 0.2s,transform 0.2s;position:relative;z-index:1;}
+        .cta-badge:hover{opacity:0.85;transform:translateY(-2px);}
+        .cta-badge img{height:54px;width:auto;display:block;margin:0 auto;}
+
+        footer{background:var(--espresso);color:var(--cream);padding:44px 32px;text-align:center;margin-top:52px;}
+        footer p{font-size:0.82rem;opacity:0.45;}
+        footer a{color:var(--caramel);text-decoration:none;}
+
+        @media(prefers-reduced-motion:no-preference){
+            .trace,.aire{transition:d 0.4s ease;}
+        }
+        @media(max-width:760px){
+            nav{padding:12px 20px;}
+            .wrap{padding:0 20px;}
+            header.hero{padding:104px 0 26px;}
+            .courbe-carte{padding:20px 15px 14px;border-radius:16px;}
+            .panneau{padding:20px 17px;}
+            .ligne-champs{gap:11px;}
+            .champ{flex:1;min-width:132px;}
+            .champ input{width:100%;}
+            .cta{padding:32px 22px;}
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a class="nav-logo" href="https://pausecafe-app.fr/en/">
+        <img src="/logo.webp" alt="PauseCafé" class="nav-logo-img">
+        PauseCafé
+    </a>
+    <a class="nav-back" href="https://pausecafe-app.fr/en/">← Back to the site</a>
+    <span class="lang-switch">
+        <a href="/calculateur-cafeine.html" hreflang="fr">FR</a>
+        <span class="sep">/</span>
+        <a href="/en/caffeine-calculator.html" aria-current="true" hreflang="en">EN</a>
+    </span>
+</nav>
+
+<div class="wrap">
+
+<header class="hero">
+    <p class="eyebrow">Calculator</p>
+    <h1>How much caffeine is left <em>when you go to bed</em>?</h1>
+    <p class="chapeau">Add what you drank today and when. The curve shows what your body clears, hour by hour, right up to bedtime.</p>
+</header>
+
+<div class="courbe-carte">
+    <div class="courbe-entete">
+        <div>
+            <p class="verdict" id="verdict">Add a drink to get started</p>
+            <p class="verdict-note" id="verdict-note">The 100 mg mark is the EFSA threshold above which falling asleep may take longer.</p>
+        </div>
+    </div>
+    <svg class="courbe" id="graphe" viewBox="0 0 700 250" role="img" aria-labelledby="graphe-titre">
+        <title id="graphe-titre">Curve of estimated caffeine in the body through the day</title>
+    </svg>
+</div>
+
+<div class="panneau">
+    <h2>Your day</h2>
+    <p class="aide">Pick the time, then tap a drink. Add as many as you need.</p>
+
+    <div class="ligne-champs">
+        <div class="champ">
+            <label for="heure-prise">Drink time</label>
+            <input type="time" id="heure-prise" value="08:00">
+        </div>
+        <div class="champ">
+            <label for="heure-coucher">Bedtime</label>
+            <input type="time" id="heure-coucher" value="23:00">
+        </div>
+    </div>
+
+    <div class="boissons" id="boissons"></div>
+</div>
+
+<div class="journee">
+    <h2>Drinks logged</h2>
+    <div id="liste"></div>
+    <p class="total" id="total"></p>
+</div>
+
+<section class="texte">
+
+    <h2>How this calculation works</h2>
+
+    <p>Caffeine does not vanish all at once: it is absorbed over about an hour, peaks, then declines steadily. This calculator reproduces both phases with a <strong>one-compartment model</strong>, the standard way pharmacokinetics describes a swallowed substance.</p>
+
+    <div class="formule">
+        <span class="cm">// amount remaining at time t, for a dose D taken at t = 0</span><br>
+        C(t) = D × ka / (ka − ke) × ( e<sup>−ke·t</sup> − e<sup>−ka·t</sup> )
+    </div>
+
+    <ul class="constantes">
+        <li><b>5 h</b><span>Elimination half-life in a healthy adult</span></li>
+        <li><b>≈ 45 min</b><span>Time to peak, a consequence of absorption</span></li>
+        <li><b>100 mg</b><span>Sleep alert threshold (EFSA)</span></li>
+        <li><b>400 mg</b><span>Daily amount of no concern (EFSA)</span></li>
+    </ul>
+
+    <h3>What the curve shows — and what it doesn't</h3>
+
+    <p>The line represents the <strong>estimated amount of caffeine present in your body</strong>, in milligrams. Not a blood concentration, and not a measure of how strongly you feel it. The peak around 45 minutes marks the moment absorption stops outpacing elimination — the effects themselves start well before that, from 15 to 30 minutes in.</p>
+
+    <p>The green band marks the zone below 100 mg. EFSA uses this figure as the amount above which caffeine, taken close to bedtime, may lengthen the time it takes to fall asleep and shorten sleep. It is not a hard line: sensitivity varies widely between people.</p>
+
+    <h3>Why the half-life isn't adjustable here</h3>
+
+    <p>You will find calculators that let you set your own half-life. We deliberately don't. It depends on factors no form can measure: your CYP1A2 genetic variant, smoking, oral contraception, pregnancy, certain medications. Smoking roughly halves it; oral contraception can double it. Offering a slider would amount to asking you to pick a number at random, then dressing it up as precision.</p>
+
+    <p>So we use <strong>the population average, 5 hours</strong>, while accepting that your own figure may differ considerably. The only honest personalisation comes from observation: comparing your evening caffeine against your actual sleep over several weeks. That is what <a href="/en/insights.html">PauseCafé's insights</a> do, using data from the Health app.</p>
+
+    <h3>The amounts shown are averages</h3>
+
+    <p>An espresso can range from 60 to 120 mg depending on the grind, the variety and the extraction time. The values offered here are typical orders of magnitude. For accurate tracking, <a href="/en/real-time-caffeine.html">PauseCafé records the real content of every drink</a>, including your own custom ones.</p>
+
+    <div class="avert">
+        <p><strong>⚕️ Important.</strong> This calculator is for information and general wellbeing only. It is not medical advice, a diagnosis or a prescription. The effects of caffeine vary greatly from one person to another. If you have questions about your intake, trouble sleeping, or any concern about pregnancy, medical treatment or a health condition, speak to a healthcare professional.</p>
+    </div>
+
+    <div class="sources">
+        <h3>Sources</h3>
+        <ul>
+            <li>EFSA, <em>Scientific Opinion on the safety of caffeine</em>, 2015 — EFSA Journal 2015;13(5):4102. Thresholds of 400 mg per day, 200 mg per single dose, 100 mg for sleep impact.</li>
+            <li>Institute of Medicine / National Academy of Sciences, <em>Pharmacology of Caffeine</em> — average half-life of about 5 h in a healthy adult, range 1.5 to 9.5 h.</li>
+            <li>Pharmacokinetic literature — plasma peak reached between 30 minutes and 2 hours after intake.</li>
+        </ul>
+    </div>
+
+</section>
+
+<div class="cta">
+    <h2>This curve, all day long</h2>
+    <p>PauseCafé keeps it updated on iPhone and Apple Watch, from the drinks you actually have.</p>
+    <a href="https://apps.apple.com/app/id6761892198" target="_blank" rel="noopener" class="cta-badge">
+        <img src="/app-store-badge-en.svg" alt="Download PauseCafé on the App Store">
+    </a>
+</div>
+
+</div>
+
+<footer>
+    <p>© 2026 PauseCafé · <a href="https://pausecafe-app.fr/en/">pausecafe-app.fr</a> · <a href="/en/real-time-caffeine.html">Real-time caffeine</a></p>
+</footer>
+
+<script>
+(function () {
+    'use strict';
+
+    // ── Constantes du modèle, identiques à celles de l'app ──────────────
+    var DEMI_VIE = 5;                       // heures
+    var KE = Math.LN2 / DEMI_VIE;           // ≈ 0.1386 /h
+    var KA = 4.9;                           // /h — pic à ≈ 45 min
+    var SEUIL_SOMMEIL = 100;                // mg — repère EFSA
+    var REPERE_JOUR = 400;                  // mg — repère EFSA journalier
+
+    var BOISSONS = [
+        { ic: '☕', nom: 'Espresso',      mg: 80  },
+        { ic: '🫖', nom: 'Filter coffee', mg: 130 },
+        { ic: '🥛', nom: 'Cappuccino',    mg: 75  },
+        { ic: '🍵', nom: 'Black tea',     mg: 45  },
+        { ic: '🌿', nom: 'Green tea',     mg: 30  },
+        { ic: '🍡', nom: 'Matcha',        mg: 70  },
+        { ic: '🥤', nom: 'Cola',          mg: 32  },
+        { ic: '⚡', nom: 'Energy drink',  mg: 80  },
+        { ic: '🔋', nom: 'Energy drink 16 oz', mg: 160 },
+        { ic: '🌙', nom: 'Decaf',         mg: 12  }
+    ];
+
+    var prises = [];   // { minutes, nom, mg }
+
+    var elBoissons = document.getElementById('boissons');
+    var elListe    = document.getElementById('liste');
+    var elTotal    = document.getElementById('total');
+    var elVerdict  = document.getElementById('verdict');
+    var elNote     = document.getElementById('verdict-note');
+    var elGraphe   = document.getElementById('graphe');
+    var elHeure    = document.getElementById('heure-prise');
+    var elCoucher  = document.getElementById('heure-coucher');
+
+    function enMinutes(v) {
+        var p = String(v || '').split(':');
+        return (parseInt(p[0], 10) || 0) * 60 + (parseInt(p[1], 10) || 0);
+    }
+    function enHeure(min) {
+        var m = ((min % 1440) + 1440) % 1440;
+        return String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0');
+    }
+
+    // Quantité restante d'une dose D, h heures après la prise
+    function restant(D, h) {
+        if (h <= 0) return 0;
+        return D * (KA / (KA - KE)) * (Math.exp(-KE * h) - Math.exp(-KA * h));
+    }
+
+    // Total présent dans l'organisme à un instant donné (en minutes depuis minuit)
+    function totalA(minutes) {
+        var s = 0;
+        for (var i = 0; i < prises.length; i++) {
+            var dt = minutes - prises[i].minutes;
+            if (dt > 0) s += restant(prises[i].mg, dt / 60);
+        }
+        return s;
+    }
+
+    // Le coucher passé minuit appartient au lendemain
+    function minutesCoucher() {
+        var c = enMinutes(elCoucher.value);
+        var premiere = prises.length ? Math.min.apply(null, prises.map(function (p) { return p.minutes; })) : 0;
+        return c < premiere ? c + 1440 : c;
+    }
+
+    // ── Boutons de boisson ──────────────────────────────────────────────
+    BOISSONS.forEach(function (b) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'boisson';
+        btn.innerHTML = '<span class="ic" aria-hidden="true">' + b.ic + '</span>' +
+                        '<span class="nm">' + b.nom + '<span class="mg">' + b.mg + ' mg</span></span>';
+        btn.setAttribute('aria-label', 'Add ' + b.nom + ', ' + b.mg + ' milligrams');
+        btn.addEventListener('click', function () {
+            prises.push({ minutes: enMinutes(elHeure.value), nom: b.nom, mg: b.mg });
+            prises.sort(function (x, y) { return x.minutes - y.minutes; });
+            rendre();
+        });
+        elBoissons.appendChild(btn);
+    });
+
+    elHeure.addEventListener('change', rendre);
+    elCoucher.addEventListener('change', rendre);
+
+    // ── Liste des prises ────────────────────────────────────────────────
+    function rendreListe() {
+        if (!prises.length) {
+            elListe.innerHTML = '<p class="vide">Nothing yet. Pick a time, then tap a drink above.</p>';
+            elTotal.textContent = '';
+            return;
+        }
+        var ul = document.createElement('ul');
+        ul.className = 'prises';
+        prises.forEach(function (p, i) {
+            var li = document.createElement('li');
+            li.innerHTML = '<span class="h">' + enHeure(p.minutes) + '</span>' +
+                           '<span class="n">' + p.nom + '</span>' +
+                           '<span class="m">' + p.mg + ' mg</span>';
+            var sup = document.createElement('button');
+            sup.type = 'button';
+            sup.innerHTML = '✕';
+            sup.setAttribute('aria-label', 'Remove ' + p.nom + ' at ' + enHeure(p.minutes));
+            sup.addEventListener('click', function () { prises.splice(i, 1); rendre(); });
+            li.appendChild(sup);
+            ul.appendChild(li);
+        });
+        elListe.innerHTML = '';
+        elListe.appendChild(ul);
+
+        var cumul = prises.reduce(function (s, p) { return s + p.mg; }, 0);
+        elTotal.innerHTML = 'Total taken today: <strong>' + cumul + ' mg</strong>' +
+            (cumul > REPERE_JOUR
+                ? ' <span class="depasse">— above the EFSA 400 mg mark</span>'
+                : ' <span style="opacity:.6">against an EFSA mark of 400 mg</span>');
+    }
+
+    // ── Graphique ───────────────────────────────────────────────────────
+    var L = 700, H = 250, MG = 42, MD = 14, MH = 16, MB = 26;
+
+    // Sur petit écran, on étire la hauteur du viewBox : le SVG occupe la même
+    // largeur mais gagne en hauteur, ce qui évite l'écrasement de la courbe.
+    function ajusterHauteur() {
+        var etroit = window.matchMedia('(max-width: 760px)').matches;
+        H = etroit ? 340 : 250;
+        elGraphe.setAttribute('viewBox', '0 0 ' + L + ' ' + H);
+    }
+    window.addEventListener('resize', function () { ajusterHauteur(); rendreGraphe(); });
+
+    function rendreGraphe() {
+        var ns = 'http://www.w3.org/2000/svg';
+        while (elGraphe.childNodes.length > 1) elGraphe.removeChild(elGraphe.lastChild);
+
+        function el(t, a) {
+            var e = document.createElementNS(ns, t);
+            for (var k in a) e.setAttribute(k, a[k]);
+            return e;
+        }
+
+        if (!prises.length) {
+            var msg = el('text', { x: L / 2, y: H / 2, 'text-anchor': 'middle', class: 'vide-txt' });
+            msg.textContent = 'The curve appears as soon as you add a drink';
+            elGraphe.appendChild(msg);
+            return;
+        }
+
+        var debut = Math.min.apply(null, prises.map(function (p) { return p.minutes; })) - 30;
+        var coucher = minutesCoucher();
+        var fin = Math.max(coucher + 120, debut + 480);
+
+        var maxi = 0;
+        for (var m = debut; m <= fin; m += 5) maxi = Math.max(maxi, totalA(m));
+        maxi = Math.max(maxi, SEUIL_SOMMEIL * 1.35);
+        var haut = Math.ceil(maxi / 50) * 50;
+
+        function X(min) { return MG + (min - debut) / (fin - debut) * (L - MG - MD); }
+        function Y(mg)  { return MH + (1 - mg / haut) * (H - MH - MB); }
+
+        // Zone sous le seuil de sommeil
+        elGraphe.appendChild(el('rect', {
+            x: MG, y: Y(SEUIL_SOMMEIL), width: L - MG - MD,
+            height: Math.max(0, Y(0) - Y(SEUIL_SOMMEIL)), class: 'zone-ok'
+        }));
+
+        // Axes
+        elGraphe.appendChild(el('line', { x1: MG, y1: Y(0), x2: L - MD, y2: Y(0), class: 'axe' }));
+
+        // Graduations verticales (mg)
+        var pas = haut > 400 ? 200 : (haut > 200 ? 100 : 50);
+        for (var g = 0; g <= haut; g += pas) {
+            if (g > 0) elGraphe.appendChild(el('line', { x1: MG, y1: Y(g), x2: L - MD, y2: Y(g), class: 'axe' }));
+            var tg = el('text', { x: MG - 7, y: Y(g) + 3, 'text-anchor': 'end', class: 'axe-txt' });
+            tg.textContent = g;
+            elGraphe.appendChild(tg);
+        }
+
+        // Seuil sommeil
+        elGraphe.appendChild(el('line', { x1: MG, y1: Y(SEUIL_SOMMEIL), x2: L - MD, y2: Y(SEUIL_SOMMEIL), class: 'seuil-ligne' }));
+        var ts = el('text', { x: MG + 5, y: Y(SEUIL_SOMMEIL) - 5, class: 'seuil-txt' });
+        ts.textContent = '100 mg · sleep threshold';
+        elGraphe.appendChild(ts);
+
+        // Graduations horaires
+        var h0 = Math.ceil(debut / 120) * 120;
+        for (var hh = h0; hh <= fin; hh += 120) {
+            var th = el('text', { x: X(hh), y: H - 8, 'text-anchor': 'middle', class: 'axe-txt' });
+            th.textContent = enHeure(hh);
+            elGraphe.appendChild(th);
+        }
+
+        // Traits verticaux aux prises
+        prises.forEach(function (p) {
+            elGraphe.appendChild(el('line', { x1: X(p.minutes), y1: Y(0), x2: X(p.minutes), y2: Y(0) - 7, class: 'prise' }));
+        });
+
+        // Tracé
+        var d = '', aire = '';
+        for (var t = debut; t <= fin; t += 4) {
+            var x = X(t), y = Y(totalA(t));
+            d += (d ? 'L' : 'M') + x.toFixed(1) + ',' + y.toFixed(1);
+        }
+        aire = d + 'L' + X(fin).toFixed(1) + ',' + Y(0).toFixed(1) + 'L' + X(debut).toFixed(1) + ',' + Y(0).toFixed(1) + 'Z';
+        elGraphe.appendChild(el('path', { d: aire, class: 'aire' }));
+        elGraphe.appendChild(el('path', { d: d, class: 'trace' }));
+
+        // Repère du coucher
+        var xc = X(coucher), yc = Y(totalA(coucher));
+        elGraphe.appendChild(el('line', { x1: xc, y1: MH, x2: xc, y2: Y(0), class: 'coucher-ligne' }));
+        elGraphe.appendChild(el('circle', { cx: xc, cy: yc, r: 4, class: 'point-coucher' }));
+        var tc = el('text', { x: Math.min(xc + 7, L - MD - 46), y: MH + 10, class: 'coucher-txt' });
+        tc.textContent = 'bedtime';
+        elGraphe.appendChild(tc);
+    }
+
+    // ── Verdict ─────────────────────────────────────────────────────────
+    function rendreVerdict() {
+        if (!prises.length) {
+            elVerdict.className = 'verdict';
+            elVerdict.textContent = 'Add a drink to get started';
+            elNote.textContent = 'The 100 mg mark is the EFSA threshold above which falling asleep may take longer.';
+            return;
+        }
+        var mg = Math.round(totalA(minutesCoucher()));
+        var sous = mg < SEUIL_SOMMEIL;
+        elVerdict.className = 'verdict ' + (sous ? 'sous-seuil' : 'sur-seuil');
+        elVerdict.innerHTML = 'At bedtime, about <span class="valeur">' + mg + '\u00A0mg</span> would remain';
+        elNote.textContent = sous
+            ? 'Below the 100 mg threshold used by EFSA. For most adults this amount interferes little with falling asleep — but sensitivity varies.'
+            : 'Above the 100 mg threshold used by EFSA. At this level, falling asleep may take longer and deep sleep may be cut short.';
+    }
+
+    function rendre() { ajusterHauteur(); rendreListe(); rendreGraphe(); rendreVerdict(); }
+
+    rendre();
+})();
+</script>
+
+</body>
+</html>
