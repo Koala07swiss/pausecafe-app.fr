@@ -24,6 +24,8 @@
     <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">
 
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Calculateur de caféine résiduelle","applicationCategory":"HealthApplication","operatingSystem":"Tout navigateur","url":"https://pausecafe-app.fr/calculateur-cafeine.html","inLanguage":"fr","description":"Estime la quantité de caféine encore présente dans l'organisme à l'heure du coucher, à partir des boissons consommées dans la journée.","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"isPartOf":{"@type":"WebSite","name":"PauseCafé","url":"https://pausecafe-app.fr"},"about":{"@type":"SoftwareApplication","name":"PauseCafé","operatingSystem":"iOS, watchOS","applicationCategory":"HealthApplication","downloadUrl":"https://apps.apple.com/app/id6761892198"},"publisher":{"@type":"Organization","name":"PauseCafé","url":"https://pausecafe-app.fr"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"fr","mainEntity":[{"@type":"Question","name":"Combien de caféine reste-t-il dans mon corps au coucher ?","acceptedAnswer":{"@type":"Answer","text":"Cela dépend de la quantité bue, de l'heure de chaque prise et de votre métabolisme. Avec une demi-vie moyenne de 5 heures, un expresso de 80 mg pris à 15 h laisse environ 27 mg à 23 h ; le même café pris à 18 h en laisse 41. Ce calculateur additionne la contribution restante de chacune de vos boissons à l'heure exacte de votre coucher."}},{"@type":"Question","name":"Qu'est-ce que la demi-vie de la caféine ?","acceptedAnswer":{"@type":"Answer","text":"C'est le temps que met l'organisme à éliminer la moitié de la caféine présente. Chez l'adulte en bonne santé, elle est en moyenne de 5 heures, avec une étendue documentée de 1,5 à 9,5 heures selon l'Institute of Medicine. Après 5 heures il reste la moitié de la dose, après 10 heures un quart, après 15 heures un huitième."}},{"@type":"Question","name":"Pourquoi ne puis-je pas régler ma demi-vie ici ?","acceptedAnswer":{"@type":"Answer","text":"Parce qu'aucun formulaire ne peut la mesurer. Elle dépend de votre variante génétique du CYP1A2, du tabac, d'une contraception orale, d'une grossesse ou de certains médicaments. Le tabac la divise environ par deux, une contraception orale peut la doubler. Vous proposer un curseur reviendrait à vous faire choisir un chiffre au hasard, puis à l'habiller de précision. Nous retenons donc la moyenne de population de 5 heures, en assumant que votre valeur réelle peut s'en écarter."}},{"@type":"Question","name":"À partir de quelle quantité la caféine gêne-t-elle le sommeil ?","acceptedAnswer":{"@type":"Answer","text":"L'EFSA retient 100 mg comme le seuil au-delà duquel la caféine, prise près du coucher, peut allonger l'endormissement et raccourcir le sommeil. Ce n'est pas une frontière nette : la sensibilité varie fortement d'une personne à l'autre. Certains dorment après un expresso du soir, d'autres sont gênés par un thé de 16 h."}},{"@type":"Question","name":"Combien de caféine par jour est-ce raisonnable ?","acceptedAnswer":{"@type":"Answer","text":"L'EFSA considère que 400 mg par jour ne suscitent pas d'inquiétude chez l'adulte en bonne santé, et 200 mg pour une prise unique. Pour la femme enceinte ou allaitante, le repère descend à 200 mg par jour. Ces valeurs sont des repères de population, pas des limites individuelles."}},{"@type":"Question","name":"Peut-on accélérer l'élimination de la caféine ?","acceptedAnswer":{"@type":"Answer","text":"Non, aucune méthode fiable ne l'accélère. Boire de l'eau, marcher ou prendre une douche peuvent améliorer le ressenti, mais seul le temps élimine réellement la caféine. La seule stratégie efficace consiste à décaler ses prises plus tôt dans la journée."}},{"@type":"Question","name":"Le café décaféiné contient-il de la caféine ?","acceptedAnswer":{"@type":"Answer","text":"Oui, mais très peu : environ 12 mg par expresso décaféiné, contre 80 mg pour un expresso classique. À ce niveau, l'impact sur le sommeil est négligeable pour la grande majorité des gens."}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","inLanguage":"fr","name":"Calculer la caféine restante à l'heure du coucher","description":"Estimer la quantité de caféine encore présente dans l'organisme au moment de se coucher, à partir des boissons de la journée.","totalTime":"PT1M","tool":[{"@type":"HowToTool","name":"Calculateur de caféine résiduelle PauseCafé"}],"step":[{"@type":"HowToStep","position":1,"name":"Régler l'heure","text":"Choisissez l'heure à laquelle vous avez bu la boisson."},{"@type":"HowToStep","position":2,"name":"Choisir la boisson","text":"Touchez la boisson correspondante : expresso, café filtre, thé, boisson énergisante…"},{"@type":"HowToStep","position":3,"name":"Répéter","text":"Recommencez pour chaque boisson de la journée. La courbe se met à jour à chaque ajout."},{"@type":"HowToStep","position":4,"name":"Lire le résultat","text":"Réglez votre heure de coucher : le calculateur affiche la caféine restante à ce moment, le pic de la journée et l'heure de passage sous le seuil de 100 mg."}]}</script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -85,14 +87,35 @@
         .champ input{font-family:'JetBrains Mono',monospace;font-size:1rem;padding:9px 12px;border:1.5px solid rgba(196,135,58,0.35);border-radius:10px;background:var(--cream);color:var(--cafe);}
         .champ input:focus{outline:2px solid var(--caramel);outline-offset:1px;border-color:transparent;}
 
-        .boissons{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:9px;}
-        .boisson{display:flex;align-items:center;gap:9px;padding:10px 12px;border:1.5px solid rgba(196,135,58,0.3);border-radius:12px;background:var(--cream);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.86rem;color:var(--cafe);text-align:left;transition:border-color 0.15s,transform 0.12s,background 0.15s;}
-        .boisson:hover{border-color:var(--caramel);background:#FBF3E2;}
-        .boisson:active{transform:scale(0.97);}
-        .boisson:focus-visible{outline:2px solid var(--caramel);outline-offset:2px;}
-        .boisson .ic{font-size:1.15rem;line-height:1;}
-        .boisson .nm{font-weight:500;line-height:1.2;}
-        .boisson .mg{display:block;font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#9E8070;font-weight:400;}
+        .etapes{list-style:none;display:flex;gap:9px;flex-wrap:wrap;margin:0 0 18px;padding:0;counter-reset:e;}
+        .etapes li{display:flex;align-items:center;gap:10px;background:var(--cream);border-radius:11px;padding:10px 15px 10px 10px;flex:1;min-width:196px;font-size:0.87rem;font-weight:300;color:#3D2010;line-height:1.35;}
+        .etapes b{width:25px;height:25px;flex-shrink:0;border-radius:50%;background:var(--caramel);color:#fff;font-family:'JetBrains Mono',monospace;font-size:0.8rem;display:flex;align-items:center;justify-content:center;}
+        .exemples{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(196,135,58,0.22);}
+        .exemples-titre{font-size:0.83rem;color:#8A6D5A;margin-bottom:9px;font-weight:500;}
+        .exemples-btns{display:flex;gap:8px;flex-wrap:wrap;}
+        .ex{font-family:'DM Sans',sans-serif;font-size:0.82rem;padding:7px 13px;border:1.5px dashed rgba(196,135,58,0.55);border-radius:100px;background:transparent;color:#6B5445;cursor:pointer;transition:background .15s,border-color .15s,color .15s;}
+        .ex:hover{background:var(--caramel);border-color:var(--caramel);border-style:solid;color:#fff;}
+        .ex:focus-visible{outline:2px solid var(--caramel);outline-offset:2px;}
+        .reperes{display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid rgba(245,237,214,0.14);}
+        .repere{font-size:0.8rem;color:rgba(245,237,214,0.55);font-weight:300;}
+        .repere b{display:block;font-family:'JetBrains Mono',monospace;font-size:1.05rem;color:var(--mousse);font-weight:700;margin-top:1px;}
+        .fam{margin-bottom:20px;}
+        .fam > h3{font-size:0.72rem;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#A08464;margin-bottom:9px;}
+        .boissons{display:grid;grid-template-columns:repeat(auto-fill,minmax(212px,1fr));gap:10px;}
+        .carte-b{border:1.5px solid rgba(196,135,58,0.28);border-radius:13px;background:var(--cream);padding:10px 11px 9px;}
+        .carte-b .tete{display:flex;align-items:center;gap:7px;margin-bottom:8px;}
+        .carte-b .ic{font-size:1.1rem;line-height:1;}
+        .carte-b .nm{font-size:0.88rem;font-weight:500;line-height:1.15;}
+        .tailles{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;}
+        .tailles.deux{grid-template-columns:repeat(2,1fr);}
+        .t-btn{border:1.5px solid rgba(196,135,58,0.3);border-radius:9px;background:white;padding:6px 2px 5px;cursor:pointer;font-family:'DM Sans',sans-serif;color:var(--cafe);transition:border-color .14s,background .14s,transform .1s;display:flex;flex-direction:column;align-items:center;gap:1px;}
+        .t-btn:hover{border-color:var(--caramel);background:#FBF3E2;}
+        .t-btn:active{transform:scale(0.94);}
+        .t-btn:focus-visible{outline:2px solid var(--caramel);outline-offset:2px;}
+        .t-btn.defaut{border-color:rgba(196,135,58,0.6);background:#FBF3E2;}
+        .t-btn .lbl{font-size:0.72rem;font-weight:700;letter-spacing:0.05em;}
+        .t-btn .val{font-family:'JetBrains Mono',monospace;font-size:0.8rem;font-weight:700;color:var(--caramel);}
+        .t-btn .vol{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#A08464;}
 
         /* ── Journée ─────────────────────────────────────────── */
         .journee{margin-top:16px;}
@@ -123,6 +146,20 @@
         .constantes li{background:white;border-left:3px solid var(--caramel);border-radius:0 11px 11px 0;padding:12px 15px;font-size:0.88rem;}
         .constantes b{display:block;font-family:'JetBrains Mono',monospace;font-size:1.02rem;color:var(--cafe);margin-bottom:2px;}
         .constantes span{color:#6B5445;font-weight:300;}
+        .teneurs{width:100%;border-collapse:collapse;margin:16px 0 26px;font-size:0.9rem;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 3px 14px rgba(44,24,16,0.06);}
+        .teneurs th{background:var(--mousse);text-align:left;padding:11px 15px;font-size:0.74rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#5C4033;}
+        .teneurs td{padding:10px 15px;border-top:1px solid rgba(196,135,58,0.15);font-weight:300;color:#3D2010;}
+        .teneurs td:last-child{font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+        .teneurs td span{color:#9E8070;font-size:0.82em;}
+        .faq{background:#fff;border-radius:12px;margin-bottom:9px;box-shadow:0 2px 10px rgba(44,24,16,0.05);overflow:hidden;}
+        .faq summary{padding:14px 18px;cursor:pointer;font-weight:500;font-size:0.95rem;color:var(--cafe);list-style:none;position:relative;padding-right:44px;}
+        .faq summary::-webkit-details-marker{display:none;}
+        .faq summary::after{content:'+';position:absolute;right:18px;top:12px;font-size:1.3rem;color:var(--caramel);font-weight:300;line-height:1.2;}
+        .faq[open] summary::after{content:'−';}
+        .faq summary:hover{background:#FBF5E9;}
+        .faq summary:focus-visible{outline:2px solid var(--caramel);outline-offset:-2px;}
+        .faq p{padding:0 18px 16px;margin:0;font-size:0.92rem;font-weight:300;color:#3D2010;line-height:1.7;}
+        @media(max-width:600px){.teneurs{font-size:0.82rem;}.teneurs th,.teneurs td{padding:9px 11px;}}
         .avert{background:#FBF5E9;border:1px solid rgba(196,135,58,0.35);border-radius:12px;padding:17px 21px;margin:26px 0;}
         .avert p{font-size:0.84rem;line-height:1.65;color:#5C4033;margin:0;font-weight:300;}
         .sources{background:var(--mousse);border-radius:16px;padding:24px 26px;margin-top:26px;}
@@ -186,6 +223,11 @@
         <div>
             <p class="verdict" id="verdict">Ajoutez une boisson pour commencer</p>
             <p class="verdict-note" id="verdict-note">Le seuil de 100 mg est le repère EFSA au-delà duquel l'endormissement peut être retardé.</p>
+            <div class="reperes" id="reperes" hidden>
+                <span class="repere">Pic de la journée<b id="r-pic">—</b></span>
+                <span class="repere">Atteint à<b id="r-pic-h">—</b></span>
+                <span class="repere">Sous 100 mg à partir de<b id="r-seuil-h">—</b></span>
+            </div>
         </div>
     </div>
     <svg class="courbe" id="graphe" viewBox="0 0 700 250" role="img" aria-labelledby="graphe-titre">
@@ -195,7 +237,22 @@
 
 <div class="panneau">
     <h2>Votre journée</h2>
-    <p class="aide">Choisissez l'heure, puis touchez une boisson. Vous pouvez en ajouter autant que nécessaire.</p>
+    <ol class="etapes">
+        <li><b>1</b> Réglez l'heure de la boisson</li>
+        <li><b>2</b> Touchez la taille bue : S, M ou L</li>
+        <li><b>3</b> Recommencez pour chaque boisson de la journée</li>
+    </ol>
+
+    <div class="exemples">
+        <p class="exemples-titre">Pas envie de tout saisir ? Chargez une journée type :</p>
+        <div class="exemples-btns">
+            <button type="button" class="ex" data-ex="matin">☕ Deux cafés le matin</button>
+            <button type="button" class="ex" data-ex="apresmidi">🥤 Énergisante l'après-midi</button>
+            <button type="button" class="ex" data-ex="tardif">🌙 Un expresso à 18 h</button>
+            <button type="button" class="ex" data-ex="the">🍵 Du thé toute la journée</button>
+            <button type="button" class="ex" data-ex="charge">⚡ Une grosse journée</button>
+        </div>
+    </div>
 
     <div class="ligne-champs">
         <div class="champ">
@@ -208,7 +265,7 @@
         </div>
     </div>
 
-    <div class="boissons" id="boissons"></div>
+    <div id="boissons"></div>
 </div>
 
 <div class="journee">
@@ -251,6 +308,43 @@
 
     <p>Un expresso peut aller de 60 à 120 mg selon la mouture, la variété et le temps d'extraction. Les valeurs proposées ici sont des ordres de grandeur usuels. Pour un suivi fidèle, <a href="/cafeine-temps-reel.html">PauseCafé enregistre la teneur réelle de chaque boisson</a>, y compris vos préparations personnelles.</p>
 
+
+    <h2>Teneur en caféine des boissons courantes</h2>
+
+    <p>Les valeurs exactes utilisées par le calculateur, identiques à celles de l'application PauseCafé. Ce sont des ordres de grandeur usuels : un même café peut varier du simple au double selon la mouture, la variété et le temps d'extraction.</p>
+
+    <table class="teneurs">
+        <thead><tr><th>Boisson</th><th>Petit (S)</th><th>Moyen (M)</th><th>Grand (L)</th></tr></thead>
+        <tbody>
+            <tr class="fam-l"><td colspan="4">Cafés</td></tr>
+            <tr><td>☕ Expresso</td><td>77 mg<br><span style="font-size:.78em;opacity:.6">30 ml</span></td><td>154 mg<br><span style="font-size:.78em;opacity:.6">60 ml</span></td><td>231 mg<br><span style="font-size:.78em;opacity:.6">90 ml</span></td></tr>
+            <tr><td>☕ Allongé / Lungo</td><td>69 mg<br><span style="font-size:.78em;opacity:.6">80 ml</span></td><td>95 mg<br><span style="font-size:.78em;opacity:.6">110 ml</span></td><td>130 mg<br><span style="font-size:.78em;opacity:.6">150 ml</span></td></tr>
+            <tr><td>☕ Café filtre</td><td>68 mg<br><span style="font-size:.78em;opacity:.6">150 ml</span></td><td>108 mg<br><span style="font-size:.78em;opacity:.6">240 ml</span></td><td>158 mg<br><span style="font-size:.78em;opacity:.6">350 ml</span></td></tr>
+            <tr><td>🥛 Cappuccino</td><td>77 mg<br><span style="font-size:.78em;opacity:.6">150 ml</span></td><td>77 mg<br><span style="font-size:.78em;opacity:.6">250 ml</span></td><td>154 mg<br><span style="font-size:.78em;opacity:.6">350 ml</span></td></tr>
+            <tr><td>☕ Décaféiné</td><td>3 mg<br><span style="font-size:.78em;opacity:.6">150 ml</span></td><td>5 mg<br><span style="font-size:.78em;opacity:.6">240 ml</span></td><td>7 mg<br><span style="font-size:.78em;opacity:.6">350 ml</span></td></tr>
+            <tr class="fam-l"><td colspan="4">Thés</td></tr>
+            <tr><td>🍵 Thé noir</td><td>42 mg<br><span style="font-size:.78em;opacity:.6">200 ml</span></td><td>50 mg<br><span style="font-size:.78em;opacity:.6">240 ml</span></td><td>73 mg<br><span style="font-size:.78em;opacity:.6">350 ml</span></td></tr>
+            <tr><td>🍵 Thé vert</td><td>25 mg<br><span style="font-size:.78em;opacity:.6">200 ml</span></td><td>30 mg<br><span style="font-size:.78em;opacity:.6">240 ml</span></td><td>44 mg<br><span style="font-size:.78em;opacity:.6">350 ml</span></td></tr>
+            <tr><td>🍵 Thé décaféiné</td><td>4 mg<br><span style="font-size:.78em;opacity:.6">200 ml</span></td><td>5 mg<br><span style="font-size:.78em;opacity:.6">240 ml</span></td><td>7 mg<br><span style="font-size:.78em;opacity:.6">350 ml</span></td></tr>
+            <tr><td>🌿 Tisane</td><td>0 mg<br><span style="font-size:.78em;opacity:.6">200 ml</span></td><td>0 mg<br><span style="font-size:.78em;opacity:.6">240 ml</span></td><td>0 mg<br><span style="font-size:.78em;opacity:.6">350 ml</span></td></tr>
+            <tr class="fam-l"><td colspan="4">Sodas</td></tr>
+            <tr><td>🥤 Cola</td><td>30 mg<br><span style="font-size:.78em;opacity:.6">250 ml</span></td><td>40 mg<br><span style="font-size:.78em;opacity:.6">330 ml</span></td><td>61 mg<br><span style="font-size:.78em;opacity:.6">500 ml</span></td></tr>
+            <tr><td>🥤 Cola light</td><td>35 mg<br><span style="font-size:.78em;opacity:.6">250 ml</span></td><td>46 mg<br><span style="font-size:.78em;opacity:.6">330 ml</span></td><td>70 mg<br><span style="font-size:.78em;opacity:.6">500 ml</span></td></tr>
+            <tr class="fam-l"><td colspan="4">Énergisantes</td></tr>
+            <tr><td>⚡ Energy drink</td><td>80 mg<br><span style="font-size:.78em;opacity:.6">250 ml</span></td><td>—</td><td>160 mg<br><span style="font-size:.78em;opacity:.6">500 ml</span></td></tr>
+        </tbody>
+    </table>
+
+    <h2>Questions fréquentes</h2>
+
+    <details class="faq"><summary>Combien de caféine reste-t-il dans mon corps au coucher ?</summary><p>Cela dépend de la quantité bue, de l'heure de chaque prise et de votre métabolisme. Avec une demi-vie moyenne de 5 heures, un expresso de 80 mg pris à 15 h laisse environ 27 mg à 23 h ; le même café pris à 18 h en laisse 41. Ce calculateur additionne la contribution restante de chacune de vos boissons à l'heure exacte de votre coucher.</p></details>
+    <details class="faq"><summary>Qu'est-ce que la demi-vie de la caféine ?</summary><p>C'est le temps que met l'organisme à éliminer la moitié de la caféine présente. Chez l'adulte en bonne santé, elle est en moyenne de 5 heures, avec une étendue documentée de 1,5 à 9,5 heures selon l'Institute of Medicine. Après 5 heures il reste la moitié de la dose, après 10 heures un quart, après 15 heures un huitième.</p></details>
+    <details class="faq"><summary>Pourquoi ne puis-je pas régler ma demi-vie ici ?</summary><p>Parce qu'aucun formulaire ne peut la mesurer. Elle dépend de votre variante génétique du CYP1A2, du tabac, d'une contraception orale, d'une grossesse ou de certains médicaments. Le tabac la divise environ par deux, une contraception orale peut la doubler. Vous proposer un curseur reviendrait à vous faire choisir un chiffre au hasard, puis à l'habiller de précision. Nous retenons donc la moyenne de population de 5 heures, en assumant que votre valeur réelle peut s'en écarter.</p></details>
+    <details class="faq"><summary>À partir de quelle quantité la caféine gêne-t-elle le sommeil ?</summary><p>L'EFSA retient 100 mg comme le seuil au-delà duquel la caféine, prise près du coucher, peut allonger l'endormissement et raccourcir le sommeil. Ce n'est pas une frontière nette : la sensibilité varie fortement d'une personne à l'autre. Certains dorment après un expresso du soir, d'autres sont gênés par un thé de 16 h.</p></details>
+    <details class="faq"><summary>Combien de caféine par jour est-ce raisonnable ?</summary><p>L'EFSA considère que 400 mg par jour ne suscitent pas d'inquiétude chez l'adulte en bonne santé, et 200 mg pour une prise unique. Pour la femme enceinte ou allaitante, le repère descend à 200 mg par jour. Ces valeurs sont des repères de population, pas des limites individuelles.</p></details>
+    <details class="faq"><summary>Peut-on accélérer l'élimination de la caféine ?</summary><p>Non, aucune méthode fiable ne l'accélère. Boire de l'eau, marcher ou prendre une douche peuvent améliorer le ressenti, mais seul le temps élimine réellement la caféine. La seule stratégie efficace consiste à décaler ses prises plus tôt dans la journée.</p></details>
+    <details class="faq"><summary>Le café décaféiné contient-il de la caféine ?</summary><p>Oui, mais très peu : environ 12 mg par expresso décaféiné, contre 80 mg pour un expresso classique. À ce niveau, l'impact sur le sommeil est négligeable pour la grande majorité des gens.</p></details>
+    
     <div class="avert">
         <p><strong>⚕️ Information importante.</strong> Ce calculateur a une vocation d'information et de bien-être. Il ne constitue pas un avis médical, un diagnostic ni une prescription. Les effets de la caféine varient fortement d'une personne à l'autre. En cas de question sur votre consommation, de trouble du sommeil, de grossesse, de traitement médical ou de problème de santé, consultez un professionnel de santé.</p>
     </div>
@@ -291,17 +385,30 @@
     var SEUIL_SOMMEIL = 100;                // mg — repère EFSA
     var REPERE_JOUR = 400;                  // mg — repère EFSA journalier
 
-    var BOISSONS = [
-        { ic: '☕', nom: 'Expresso',      mg: 80  },
-        { ic: '🫖', nom: 'Café filtre',   mg: 130 },
-        { ic: '🥛', nom: 'Cappuccino',    mg: 75  },
-        { ic: '🍵', nom: 'Thé noir',      mg: 45  },
-        { ic: '🌿', nom: 'Thé vert',      mg: 30  },
-        { ic: '🍡', nom: 'Matcha',        mg: 70  },
-        { ic: '🥤', nom: 'Cola',          mg: 32  },
-        { ic: '⚡', nom: 'Énergisante',   mg: 80  },
-        { ic: '🔋', nom: 'Énergisante 50 cl', mg: 160 },
-        { ic: '🌙', nom: 'Décaféiné',     mg: 12  }
+    // Catalogue identique a celui de l'app (ModelesDonnees.swift V1.3) :
+    // memes volumes, memes milligrammes. Un visiteur qui installe PauseCafe
+    // retrouve exactement les memes chiffres.
+    var CATALOGUE = [
+      { cat: 'Cafés', boissons: [
+        { nom: "Expresso", ic: '☕', dft: 'S', tailles: [{t:'S',ml:30,mg:77}, {t:'M',ml:60,mg:154}, {t:'L',ml:90,mg:231}] },
+        { nom: "Allongé / Lungo", ic: '☕', dft: 'M', tailles: [{t:'S',ml:80,mg:69}, {t:'M',ml:110,mg:95}, {t:'L',ml:150,mg:130}] },
+        { nom: "Café filtre", ic: '☕', dft: 'M', tailles: [{t:'S',ml:150,mg:68}, {t:'M',ml:240,mg:108}, {t:'L',ml:350,mg:158}] },
+        { nom: "Cappuccino", ic: '🥛', dft: 'M', tailles: [{t:'S',ml:150,mg:77}, {t:'M',ml:250,mg:77}, {t:'L',ml:350,mg:154}] },
+        { nom: "Décaféiné", ic: '☕', dft: 'M', tailles: [{t:'S',ml:150,mg:3}, {t:'M',ml:240,mg:5}, {t:'L',ml:350,mg:7}] },
+      ] },
+      { cat: 'Thés', boissons: [
+        { nom: "Thé noir", ic: '🍵', dft: 'M', tailles: [{t:'S',ml:200,mg:42}, {t:'M',ml:240,mg:50}, {t:'L',ml:350,mg:73}] },
+        { nom: "Thé vert", ic: '🍵', dft: 'M', tailles: [{t:'S',ml:200,mg:25}, {t:'M',ml:240,mg:30}, {t:'L',ml:350,mg:44}] },
+        { nom: "Thé décaféiné", ic: '🍵', dft: 'M', tailles: [{t:'S',ml:200,mg:4}, {t:'M',ml:240,mg:5}, {t:'L',ml:350,mg:7}] },
+        { nom: "Tisane", ic: '🌿', dft: 'M', tailles: [{t:'S',ml:200,mg:0}, {t:'M',ml:240,mg:0}, {t:'L',ml:350,mg:0}] },
+      ] },
+      { cat: 'Sodas', boissons: [
+        { nom: "Cola", ic: '🥤', dft: 'M', tailles: [{t:'S',ml:250,mg:30}, {t:'M',ml:330,mg:40}, {t:'L',ml:500,mg:61}] },
+        { nom: "Cola light", ic: '🥤', dft: 'M', tailles: [{t:'S',ml:250,mg:35}, {t:'M',ml:330,mg:46}, {t:'L',ml:500,mg:70}] },
+      ] },
+      { cat: 'Énergisantes', boissons: [
+        { nom: "Energy drink", ic: '⚡', dft: 'S', tailles: [{t:'S',ml:250,mg:80}, {t:'L',ml:500,mg:160}] },
+      ] },
     ];
 
     var prises = [];   // { minutes, nom, mg }
@@ -344,23 +451,92 @@
     function minutesCoucher() {
         var c = enMinutes(elCoucher.value);
         var premiere = prises.length ? Math.min.apply(null, prises.map(function (p) { return p.minutes; })) : 0;
-        return c < premiere ? c + 1440 : c;
+        // Un coucher plus tôt que la première boisson appartient au lendemain
+        // — mais seulement si l'heure saisie est nocturne (jusqu'à 5 h du matin).
+        // Sinon on la traite comme une saisie du même jour, avant les boissons.
+        return (c < premiere && c <= 300) ? c + 1440 : c;
     }
 
     // ── Boutons de boisson ──────────────────────────────────────────────
-    BOISSONS.forEach(function (b) {
-        var btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'boisson';
-        btn.innerHTML = '<span class="ic" aria-hidden="true">' + b.ic + '</span>' +
-                        '<span class="nm">' + b.nom + '<span class="mg">' + b.mg + ' mg</span></span>';
-        btn.setAttribute('aria-label', 'Ajouter ' + b.nom + ', ' + b.mg + ' milligrammes');
-        btn.addEventListener('click', function () {
-            prises.push({ minutes: enMinutes(elHeure.value), nom: b.nom, mg: b.mg });
-            prises.sort(function (x, y) { return x.minutes - y.minutes; });
-            rendre();
+    // Une carte par boisson, un bouton par taille. Toucher une taille ajoute
+    // directement la boisson : un seul geste, et le format reste visible.
+    CATALOGUE.forEach(function (fam) {
+        var bloc = document.createElement('div');
+        bloc.className = 'fam';
+        var titre = document.createElement('h3');
+        titre.textContent = fam.cat;
+        bloc.appendChild(titre);
+
+        var grille = document.createElement('div');
+        grille.className = 'boissons';
+
+        fam.boissons.forEach(function (b) {
+            var carte = document.createElement('div');
+            carte.className = 'carte-b';
+            carte.innerHTML = '<div class="tete"><span class="ic" aria-hidden="true">' + b.ic +
+                              '</span><span class="nm">' + b.nom + '</span></div>';
+
+            var zone = document.createElement('div');
+            zone.className = 'tailles' + (b.tailles.length === 2 ? ' deux' : '');
+
+            b.tailles.forEach(function (v) {
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 't-btn' + (v.t === b.dft ? ' defaut' : '');
+                btn.innerHTML = '<span class="lbl">' + v.t + '</span>' +
+                                '<span class="val">' + v.mg + '</span>' +
+                                '<span class="vol">' + v.ml + ' ml</span>';
+                btn.setAttribute('aria-label',
+                    'Ajouter ' + b.nom + ' taille ' + v.t + ', ' + v.ml +
+                    ' millilitres, ' + v.mg + ' milligrammes de caféine');
+                btn.addEventListener('click', function () {
+                    prises.push({
+                        minutes: enMinutes(elHeure.value),
+                        nom: b.nom + ' ' + v.t,
+                        mg: v.mg
+                    });
+                    prises.sort(function (x, y) { return x.minutes - y.minutes; });
+                    rendre();
+                });
+                zone.appendChild(btn);
+            });
+
+            carte.appendChild(zone);
+            grille.appendChild(carte);
         });
-        elBoissons.appendChild(btn);
+
+        bloc.appendChild(grille);
+        elBoissons.appendChild(bloc);
+    });
+
+    // ── Exemples : une journée type en un clic ──────────────────────────
+    // Chaque prise : [heure, nom de boisson, taille]. Les noms doivent
+    // correspondre exactement au CATALOGUE ci-dessus.
+    var EXEMPLES = {
+        matin:     { coucher: '23:00', prises: [['07:30','Café filtre','M'], ['09:30','Expresso','S']] },
+        apresmidi: { coucher: '23:00', prises: [['08:00','Café filtre','M'], ['15:00','Energy drink','S']] },
+        tardif:    { coucher: '23:00', prises: [['08:00','Café filtre','M'], ['18:00','Expresso','S']] },
+        the:       { coucher: '23:00', prises: [['08:00','Thé noir','M'], ['11:00','Thé vert','M'], ['15:00','Thé noir','M'], ['18:00','Thé vert','M']] },
+        charge:    { coucher: '23:30', prises: [['07:00','Café filtre','L'], ['10:00','Expresso','M'], ['13:00','Café filtre','M'], ['16:00','Energy drink','L'], ['19:00','Expresso','S']] }
+    };
+    document.querySelectorAll('.ex').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var ex = EXEMPLES[btn.getAttribute('data-ex')];
+            if (!ex) return;
+            prises = ex.prises.map(function (p) {
+                var b = null, v = null;
+                CATALOGUE.forEach(function (f) {
+                    f.boissons.forEach(function (x) { if (x.nom === p[1]) b = x; });
+                });
+                if (b) v = b.tailles.filter(function (x) { return x.t === p[2]; })[0];
+                if (!b || !v) return null;
+                return { minutes: enMinutes(p[0]), nom: b.nom + ' ' + v.t, mg: v.mg };
+            }).filter(Boolean);
+            prises.sort(function (x, y) { return x.minutes - y.minutes; });
+            elCoucher.value = ex.coucher;
+            rendre();
+            document.querySelector('.courbe-carte').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
     });
 
     elHeure.addEventListener('change', rendre);
@@ -392,10 +568,15 @@
         elListe.appendChild(ul);
 
         var cumul = prises.reduce(function (s, p) { return s + p.mg; }, 0);
+        var apresCoucher = prises.filter(function (p) { return p.minutes > minutesCoucher(); }).length;
         elTotal.innerHTML = 'Total avalé sur la journée : <strong>' + cumul + ' mg</strong>' +
             (cumul > REPERE_JOUR
                 ? ' <span class="depasse">— au-delà du repère EFSA de 400 mg</span>'
-                : ' <span style="opacity:.6">sur un repère EFSA de 400 mg</span>');
+                : ' <span style="opacity:.6">sur un repère EFSA de 400 mg</span>') +
+            (apresCoucher
+                ? '<br><span style="opacity:.75">' + apresCoucher + ' boisson' + (apresCoucher > 1 ? 's' : '') +
+                  ' après l\'heure du coucher — non comptée' + (apresCoucher > 1 ? 's' : '') + ' dans l\'estimation.</span>'
+                : '');
     }
 
     // ── Graphique ───────────────────────────────────────────────────────
@@ -512,7 +693,34 @@
             : 'Au-dessus du seuil de 100 mg retenu par l\'EFSA. À ce niveau, l\'endormissement peut être retardé et le sommeil profond raccourci.';
     }
 
-    function rendre() { ajusterHauteur(); rendreListe(); rendreGraphe(); rendreVerdict(); }
+    // Pic de la journée et moment où l'on repasse durablement sous le seuil
+    function reperes() {
+        if (!prises.length) return null;
+        var debut = Math.min.apply(null, prises.map(function (p) { return p.minutes; }));
+        var fin = debut + 1440, pic = 0, picH = debut, seuilH = null;
+        for (var m = debut; m <= fin; m += 2) {
+            var v = totalA(m);
+            if (v > pic) { pic = v; picH = m; }
+        }
+        for (var n = picH; n <= fin; n += 2) {
+            if (totalA(n) < SEUIL_SOMMEIL) { seuilH = n; break; }
+        }
+        return { pic: Math.round(pic), picH: picH, seuilH: seuilH };
+    }
+
+    function rendreReperes() {
+        var box = document.getElementById('reperes');
+        var r = reperes();
+        if (!r) { box.hidden = true; return; }
+        box.hidden = false;
+        document.getElementById('r-pic').textContent = r.pic + ' mg';
+        document.getElementById('r-pic-h').textContent = enHeure(r.picH);
+        document.getElementById('r-seuil-h').textContent =
+            r.pic < SEUIL_SOMMEIL ? 'jamais dépassé'
+            : (r.seuilH === null ? 'au-delà de 24 h' : enHeure(r.seuilH));
+    }
+
+    function rendre() { ajusterHauteur(); rendreListe(); rendreGraphe(); rendreVerdict(); rendreReperes(); }
 
     rendre();
 })();

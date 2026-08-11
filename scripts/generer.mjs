@@ -308,16 +308,17 @@ function blocDisclaimer(lang) {
 //       Les styles vivent dans /nav-blog.css, le comportement dans /nav-blog.js
 // ---------------------------------------------------------------------------
 const BARRE = {
-  fr: [['Caféine en temps réel','/cafeine-temps-reel.html'],['Hydratation','/hydratation.html'],
+  fr: [['Caféine en temps réel','/cafeine-temps-reel.html'],['Calculateur','/calculateur-cafeine.html'],['Hydratation','/hydratation.html'],
        ['Analyses','/analyses.html'],['Santé','/sante.html'],
        ['Articles','/blog'],['Nouveautés','/changelog.html']],
-  en: [['Real-time caffeine','/en/real-time-caffeine.html'],['Hydration','/en/hydration.html'],
+  en: [['Real-time caffeine','/en/real-time-caffeine.html'],['Calculator','/en/caffeine-calculator.html'],['Hydration','/en/hydration.html'],
        ['Insights','/en/insights.html'],['Health','/en/health.html'],
        ['Articles','/en/blog'],["What's new",'/en/changelog.html']],
 };
 const MENU = {
   fr: [['☕','Fonctionnalités','Ce que fait PauseCafé','https://pausecafe-app.fr#features'],
        ['📉','Caféine en temps réel','La caféine active expliquée','/cafeine-temps-reel.html'],
+       ['🧮','Calculateur','Caféine restante au coucher','/calculateur-cafeine.html'],
        ['💧','Hydratation','Le suivi de l&rsquo;eau &amp; la science','/hydratation.html'],
        ['🔬','Analyses','Méthode &amp; sources scientifiques','/analyses.html'],
        ['❤️','App Santé','Synchronisation avec l&rsquo;app Santé','/sante.html'],
@@ -327,6 +328,7 @@ const MENU = {
        ['🆕','Nouveautés','Les dernières versions','/changelog.html']],
   en: [['☕','Features','What PauseCafé does','/en/#features'],
        ['📉','Real-time caffeine','Active caffeine explained','/en/real-time-caffeine.html'],
+       ['🧮','Calculator','Caffeine left at bedtime','/en/caffeine-calculator.html'],
        ['💧','Hydration','Water tracking &amp; the science','/en/hydration.html'],
        ['🔬','Insights','Method &amp; scientific sources','/en/insights.html'],
        ['❤️','Apple Health','Syncing with the Health app','/en/health.html'],
