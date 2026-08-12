@@ -300,6 +300,22 @@
         .section-intro { text-align: center; max-width: 60ch; margin: -14px auto 34px;
             color: rgba(255,255,255,0.66); font-weight: 300; font-size: 1rem; line-height: 1.65; }
         @media (max-width: 768px) { .section-intro { font-size: 0.9rem; margin: -8px auto 24px; } }
+
+        /* La barre compte 10 entrees : sous 1500 px elle devient trop large.
+           On resserre l'ecart et la police par paliers, et on garde chaque
+           libelle insecable pour eviter les mots coupes en deux lignes.   */
+        .nav-links a { white-space: nowrap; }
+        @media (max-width: 1500px) {
+            nav { padding: 14px 28px; }
+            .nav-links { gap: 19px; }
+            .nav-links a { font-size: 0.77rem; letter-spacing: 0.03em; }
+        }
+        @media (max-width: 1320px) {
+            nav { padding: 12px 20px; }
+            .nav-links { gap: 14px; }
+            .nav-links a { font-size: 0.72rem; letter-spacing: 0.01em; }
+            .nav-logo { font-size: 1.15rem; }
+        }
 </style>
 </head>
 <body>
@@ -311,7 +327,7 @@
     <ul class="nav-links">
         <li><a onclick="showMain('features')">Features</a></li>
         <li><a href="/en/real-time-caffeine.html">Real-time caffeine</a></li>
-        <li><a href="/en/caffeine-calculator.html" style="color:var(--caramel);font-weight:700;opacity:1">📉 Calculator</a></li>
+        <li><a href="/en/caffeine-calculator.html" style="color:var(--caramel);font-weight:700;opacity:1;white-space:nowrap">Calculator</a></li>
         <li><a href="/en/hydration.html">Hydration</a></li>
         <li><a href="/en/insights.html">Insights</a></li>
         <li><a href="/en/health.html">Health</a></li>
@@ -499,24 +515,24 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td>Daily caffeine tracking<span class="prec">Every drink in one tap, daily total in milligrams</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Hydration tracking (water counter)<span class="prec">Glasses or millilitres, adjustable target</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Daily caffeine tracking<span class="prec">Coffee, tea, herbal tea, soft drinks, energy drinks: one tap each, with its exact mg value</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Hydration tracking (water counter)<span class="prec">Blue ring around the cup, target of 4 to 12 glasses a day (8 by default, WHO guidance)</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>iOS widget (home screen)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>130 badges &amp; 8 levels<span class="prec">A progression that rewards consistency</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Daily streaks<span class="prec">A flame that grows for as long as you keep your streak</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Stats &amp; progress (caffeine + water)<span class="prec">Week, month, year: see your real trends</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>130 badges &amp; 8 levels<span class="prec">From Sprout 🌱 to Legend 🦁, including 10 Premium-only badges and 10 for hydration</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Daily streaks<span class="prec">Keep your run of consecutive days going: breaking a streak costs you points</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Stats &amp; progress (caffeine + water)<span class="prec">Trend charts, breakdown by time of day and by weekday, for both caffeine and water</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Water ↔ caffeine correlation<span class="prec">How your hydration shifts with your caffeine intake</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>CSV data export (GDPR)<span class="prec">Your data is yours, exportable at any time</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Partner deals</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Community challenges 🎯<span class="prec">Collective goals, renewed regularly</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Caution mode (EFSA caffeine + WHO water)<span class="prec">Tighter thresholds: 200 mg caffeine, 2.3 L water</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Referrals (unique code)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>CSV data export (GDPR)<span class="prec">Retrieve all of your data whenever you want</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Partner deals<span class="prec">Exclusive promo codes with our selected partners, for every user</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Community challenges 🎯<span class="prec">Weekly, monthly or yearly challenges: 9 types, 3 active at once, 5 exclusive badges</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Caution mode (EFSA caffeine + WHO water)<span class="prec">For pregnant women: 200 mg caffeine (EFSA) and 9 glasses, 2.3 L (WHO). Free for everyone</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Referrals (unique code)<span class="prec">+100 points for your referee and for you; if they subscribe, 1 month Premium free, up to 10 referees</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Adverts<span class="prec">A completely uninterrupted experience on Premium</span></td><td class="col-free">✅</td><td class="col-premium">❌</td></tr>
                 <tr><td>Apple Watch (caffeine + water)<span class="prec">Log drinks from your wrist, without reaching for your iPhone</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Custom drinks<span class="prec">Create your own drinks with the exact mg, on the app and the Watch</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Barcode scanner<span class="prec">Identifies caffeine content via Open Food Facts</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Double points (drinks + streak)<span class="prec">+4 pts per drink and +20 per day, against +2 and +10 on free</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Physical gifts or gift vouchers<span class="prec">Trade your points for real gifts or vouchers</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Physical gifts or gift vouchers<span class="prec">Trade your points for gifts or vouchers, with 6 months between two physical claims</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>⚡ 3 favourite drinks<span class="prec">Up to 3 favourites, at the top of the list on iPhone and Watch</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>⚡ 1-tap mode<span class="prec">One tap on the cup logs your favourite drink, no list needed</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>📉 Real-time active caffeine<span class="prec">How much is still in your body, minute by minute</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>

@@ -299,6 +299,22 @@
         .section-intro { text-align: center; max-width: 60ch; margin: -14px auto 34px;
             color: rgba(255,255,255,0.66); font-weight: 300; font-size: 1rem; line-height: 1.65; }
         @media (max-width: 768px) { .section-intro { font-size: 0.9rem; margin: -8px auto 24px; } }
+
+        /* La barre compte 10 entrees : sous 1500 px elle devient trop large.
+           On resserre l'ecart et la police par paliers, et on garde chaque
+           libelle insecable pour eviter les mots coupes en deux lignes.   */
+        .nav-links a { white-space: nowrap; }
+        @media (max-width: 1500px) {
+            nav { padding: 14px 28px; }
+            .nav-links { gap: 19px; }
+            .nav-links a { font-size: 0.77rem; letter-spacing: 0.03em; }
+        }
+        @media (max-width: 1320px) {
+            nav { padding: 12px 20px; }
+            .nav-links { gap: 14px; }
+            .nav-links a { font-size: 0.72rem; letter-spacing: 0.01em; }
+            .nav-logo { font-size: 1.15rem; }
+        }
 </style>
 </head>
 <body>
@@ -310,7 +326,7 @@
     <ul class="nav-links">
         <li><a onclick="showMain('features')">Fonctionnalités</a></li>
         <li><a href="cafeine-temps-reel.html">Caféine en temps réel</a></li>
-        <li><a href="calculateur-cafeine.html" style="color:var(--caramel);font-weight:700;opacity:1">📉 Calculateur</a></li>
+        <li><a href="calculateur-cafeine.html" style="color:var(--caramel);font-weight:700;opacity:1;white-space:nowrap">Calculateur</a></li>
         <li><a href="hydratation.html">Hydratation</a></li>
         <li><a href="analyses.html">Analyses</a></li>
         <li><a href="sante.html">Santé</a></li>
@@ -498,24 +514,24 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td>Suivi caféine quotidien<span class="prec">Chaque boisson en un tap, cumul du jour en milligrammes</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Suivi d'hydratation (compteur d'eau)<span class="prec">Verres ou millilitres, objectif ajustable</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Suivi caféine quotidien<span class="prec">Café, thé, tisane, soda, energy drink : chaque boisson en un tap, avec sa valeur exacte en mg</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Suivi d'hydratation (compteur d'eau)<span class="prec">Anneau bleu autour de la tasse, objectif de 4 à 12 verres par jour (8 par défaut, repère OMS)</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Widget iOS (écran d'accueil)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>130 badges &amp; 8 niveaux<span class="prec">Une progression qui récompense la régularité</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Séries quotidiennes<span class="prec">Une flamme qui grandit tant que tu tiens ta série</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Stats &amp; évolution (caféine + eau)<span class="prec">Semaine, mois, année : vois tes tendances réelles</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>130 badges &amp; 8 niveaux<span class="prec">De Pousse 🌱 à Légende 🦁, dont 10 badges exclusifs Premium et 10 dédiés à l'hydratation</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Séries quotidiennes<span class="prec">Maintiens ta série de jours consécutifs : une série perdue coûte des points</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Stats &amp; évolution (caféine + eau)<span class="prec">Graphiques d'évolution, analyse par horaire et par jour de la semaine, caféine et eau</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Corrélation eau ↔ caféine<span class="prec">Comment ton hydratation évolue selon ta consommation de caféine</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Export CSV des données (RGPD)<span class="prec">Tes données t'appartiennent, récupérables à tout moment</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Bons plans partenaires</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Défis communauté 🎯<span class="prec">Objectifs collectifs renouvelés régulièrement</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Mode précaution (caféine EFSA + eau OMS)<span class="prec">Seuils resserrés : 200 mg de caféine, 2,3 L d'eau</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Parrainage (code unique)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Export CSV des données (RGPD)<span class="prec">Récupère l'intégralité de tes données quand tu le souhaites</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Bons plans partenaires<span class="prec">Codes promo exclusifs chez nos partenaires sélectionnés, pour tous les utilisateurs</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Défis communauté 🎯<span class="prec">Défis hebdomadaires, mensuels ou annuels : 9 types, 3 actifs à la fois, 5 badges exclusifs</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Mode précaution (caféine EFSA + eau OMS)<span class="prec">Pour les femmes enceintes : 200 mg de caféine (EFSA) et 9 verres, soit 2,3 L (OMS). Gratuit pour toutes</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Parrainage (code unique)<span class="prec">+100 points pour ton filleul et pour toi ; s'il s'abonne, 1 mois Premium offert, jusqu'à 10 filleuls</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Publicités<span class="prec">Expérience sans interruption publicitaire en Premium</span></td><td class="col-free">✅</td><td class="col-premium">❌</td></tr>
                 <tr><td>Apple Watch (caféine + eau)<span class="prec">Ajoute tes boissons depuis ton poignet, sans sortir ton iPhone</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Boissons personnalisées<span class="prec">Crée tes propres boissons avec le mg exact, sur l'app et la Watch</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Scanner de code-barres<span class="prec">Identifie la teneur en caféine via Open Food Facts</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Points x2 (boisson + série)<span class="prec">+4 pts par boisson et +20 par jour, contre +2 et +10 en gratuit</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Cadeaux physiques ou bons cadeaux<span class="prec">Échange tes points contre des cadeaux réels ou des bons</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Cadeaux physiques ou bons cadeaux<span class="prec">Échange tes points contre des cadeaux ou des bons, avec 6 mois entre deux réclamations physiques</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>⚡ 3 boissons favorites<span class="prec">Jusqu'à 3 favorites, en haut de liste sur iPhone et Watch</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>⚡ Mode 1 tap<span class="prec">Un tap sur la tasse = ta boisson favorite ajoutée, sans passer par la liste</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>📉 Caféine active en temps réel<span class="prec">La quantité encore présente dans ton corps, minute par minute</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
