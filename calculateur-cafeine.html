@@ -48,14 +48,14 @@
         .wrap{max-width:940px;margin:0 auto;padding:0 32px;}
 
         /* ── En-tête ─────────────────────────────────────────── */
-        header.hero{padding:130px 0 34px;}
+        header.hero{padding:112px 0 20px;}
         .eyebrow{font-size:0.72rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--caramel);margin-bottom:14px;}
-        h1{font-family:'Playfair Display',serif;font-size:clamp(2.1rem,5vw,3.3rem);font-weight:900;line-height:1.08;letter-spacing:-0.01em;margin-bottom:16px;}
+        h1{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.6vw,2.5rem);font-weight:900;line-height:1.08;letter-spacing:-0.01em;margin-bottom:16px;}
         h1 em{font-style:italic;color:var(--caramel);}
-        .chapeau{font-size:1.05rem;font-weight:300;color:#3D2010;max-width:60ch;}
+        .chapeau{font-size:1rem;font-weight:300;color:#3D2010;max-width:62ch;margin-bottom:0;}
 
         /* ── Le graphique : élément signature ────────────────── */
-        .courbe-carte{background:var(--espresso);border-radius:20px;padding:26px 24px 18px;margin:26px 0 0;position:relative;overflow:hidden;}
+        .courbe-carte{background:var(--espresso);border-radius:20px;padding:20px 22px 14px;margin:18px 0 0;position:relative;overflow:hidden;}
         .courbe-entete{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:6px;}
         .verdict{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3.4vw,2rem);font-weight:700;color:var(--cream);line-height:1.2;}
         .verdict .valeur{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15em;}
@@ -263,7 +263,68 @@
             .nav-logo { font-size: 1.1rem; }
             .nav-logo img { width: 26px; height: 26px; }
         }
-  </style>
+  
+        /* ── Outil sur un seul ecran (telephone) ────────────────────────
+           Avant : 1911 px, soit 2,3 ecrans avant d'avoir tout vu.
+           Ici on compacte l'en-tete, la courbe et le panneau pour que le
+           resultat ET la saisie tiennent ensemble sous le pli.          */
+        @media (max-width: 760px) {
+            header.hero { padding: 96px 0 12px; }
+            header.hero .eyebrow { font-size: 0.64rem; margin-bottom: 6px; }
+            header.hero h1 { font-size: 1.52rem; line-height: 1.16; margin-bottom: 0; }
+            /* Le chapeau repete ce que l'interface montre deja. */
+            header.hero .chapeau { display: none; }
+
+            .courbe-carte { padding: 14px 12px 8px; margin-top: 12px; border-radius: 14px; }
+            .verdict { font-size: 1.16rem; line-height: 1.25; }
+            .verdict .valeur { font-size: 1.1em; }
+            .verdict-note { font-size: 0.75rem; line-height: 1.4; margin-top: 3px;
+                display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+                overflow: hidden; }
+
+            /* Les trois etapes numerotees repetaient ce que les libelles
+               des champs disent deja : 166 px pour rien. */
+            .etapes { display: none; }
+            .panneau { padding: 14px 13px; margin-top: 12px; border-radius: 14px; }
+            .panneau > h2 { font-size: 0.94rem; margin-bottom: 2px; }
+            .panneau > p.aide { font-size: 0.78rem; line-height: 1.4; margin-bottom: 9px; }
+            /* Un seul intitule suffit au-dessus des champs. */
+            .panneau > h2 ~ h2 { display: none; }
+            .panneau > h2 ~ h2 + p.aide { display: none; }
+
+            .ligne-champs { gap: 9px; margin-bottom: 11px; }
+            .champ label { font-size: 0.64rem; }
+            .champ input { min-height: 44px; font-size: 0.98rem; padding: 7px 10px; }
+
+            .exemples { margin-bottom: 11px; }
+            .exemples > p { font-size: 0.76rem; margin-bottom: 6px; }
+            .ex { min-height: 38px; font-size: 0.78rem; padding: 0 13px; }
+
+            .onglets { padding-bottom: 6px; margin-bottom: 9px; }
+            .ong { min-height: 38px; padding: 6px 13px; font-size: 0.81rem; }
+            .lignes { gap: 5px; }
+            .lg-b { padding: 5px 8px; }
+            .lg-b .nm { font-size: 0.83rem; }
+            .t-btn { min-height: 42px; min-width: 49px; }
+
+            .journee { margin-top: 12px; }
+            .journee h2 { font-size: 0.94rem; margin-bottom: 8px; }
+            .vide { padding: 12px 14px; font-size: 0.82rem; }
+            .prises li { padding: 7px 10px; }
+            section.texte { padding-top: 30px; }
+            /* Derniers gains : chaque bloc d'en-tete redondant supprime. */
+            header.hero { padding: 84px 0 8px; }
+            header.hero .eyebrow { display: none; }
+            .panneau > h2:first-of-type,
+            .panneau > p.aide:first-of-type { display: none; }
+            .exemples > p { display: none; }
+            .exemples { margin-bottom: 9px; }
+            .lg-b { padding: 4px 8px; }
+            .t-btn { min-height: 40px; }
+            .journee h2 { font-size: 0.88rem; margin-bottom: 6px; }
+
+        }
+</style>
 </head>
 <body>
 
@@ -678,7 +739,9 @@
     // largeur mais gagne en hauteur, ce qui évite l'écrasement de la courbe.
     function ajusterHauteur() {
         var etroit = window.matchMedia('(max-width: 760px)').matches;
-        H = etroit ? 340 : 250;
+        // Tant qu'aucune boisson n'est saisie, la courbe n'a rien a montrer :
+        // inutile de lui reserver un demi-ecran.
+        H = prises.length ? (etroit ? 320 : 250) : (etroit ? 96 : 150);
         elGraphe.setAttribute('viewBox', '0 0 ' + L + ' ' + H);
     }
     window.addEventListener('resize', function () { ajusterHauteur(); rendreGraphe(); });
@@ -822,6 +885,20 @@
             r.pic < SEUIL_SOMMEIL ? 'jamais dépassé'
             : (r.seuilH === null ? 'au-delà de 24 h' : enHeure(r.seuilH));
     }
+    // Les trois reperes n'ont de sens qu'une fois une boisson ajoutee.
+    (function () {
+        var carte = document.querySelector('.courbe-carte');
+        var rep = document.querySelector('.reperes');
+        if (!carte) return;
+        var maj = function () {
+            carte.classList.toggle('vide-etat', prises.length === 0);
+            if (rep) rep.style.display = prises.length ? '' : 'none';
+        };
+        var o = rendreReperes;
+        rendreReperes = function () { o.apply(null, arguments); maj(); };
+        maj();
+    })();
+
 
     // ── Rappel flottant (mobile) ────────────────────────────────────────
     // Sans lui, il faut remonter toute la liste des boissons pour revoir
