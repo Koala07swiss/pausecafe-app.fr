@@ -292,7 +292,11 @@
         .repli-compare[open] > summary::after { content: '−'; }
         .repli-compare > summary:focus-visible { outline: 2px solid var(--caramel); outline-offset: 2px; }
         @media (min-width: 769px) { .repli-compare > summary { display: none; } }
-  </style>
+  
+        .compare-table .prec { display: block; font-size: 0.76rem; font-weight: 300;
+            opacity: 0.55; line-height: 1.4; margin-top: 3px; }
+        @media (max-width: 768px) { .compare-table .prec { font-size: 0.71rem; } }
+</style>
 </head>
 <body>
 <nav>
@@ -497,52 +501,7 @@
     <section class="premium" id="premium">
         <div class="section-label" style="color:var(--purple-light);opacity:1">Premium</div>
         <h2 class="section-title" style="color:white">Step up a level 👑</h2>
-        <div class="premium-cards">
-            <div class="premium-card"><span class="premium-card-emoji">🔕</span><h3>Ad-free</h3><p>A completely smooth experience, with no ad breaks.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">⌚</span><h3>Apple Watch included</h3><p>Log your drinks (coffee and water) straight from your wrist, without taking out your iPhone. Today's caffeine and active caffeine as complications on your watch face.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🧪</span><h3>Custom drinks</h3><p>Create your own drinks with the exact mg. Available in the app AND on the Watch.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">📷</span><h3>Barcode scanner</h3><p>Automatically identifies a drink's caffeine content via Open Food Facts.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">⭐</span><h3>Double points</h3><p>+4 pts per drink and +20 pts per day (versus +2 and +10 on the free plan). You earn twice as many points.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🎁</span><h3>Gifts &amp; gift vouchers</h3><p>Exchange your points for gifts or gift vouchers. A 6-month cooldown applies between two physical claims.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">⚡</span><h3>3 favourite drinks</h3><p>Mark up to 3 drinks as favourites (⭐). Quick access at the top of the list on iPhone AND Watch.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">⚡</span><h3>1-tap mode</h3><p>One tap on the cup logs your favourite drink straight away. No list, no selection. On iPhone AND Watch.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🔗</span><h3>Water ↔ caffeine correlation</h3><p>In the 🔍 Insights tab, see how your water intake shifts with your caffeine: over-compensation, trade-off, or steady hydration. Group comparison from 14 days, or a Spearman trend from 7 days.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">📉</span><h3>Real-time active caffeine</h3><p>How much caffeine is still in your body, minute by minute, on iPhone, Watch, widget and complications. <a href="/en/real-time-caffeine.html" style="color:var(--purple-light);">Learn more →</a></p></div>
-            <div class="premium-card"><span class="premium-card-emoji">😴</span><h3>Caffeine ↔ sleep correlation</h3><p>The link between your caffeine and how long you sleep, from Apple Health (read on your device). <a href="/en/insights.html" style="color:var(--purple-light);">The method →</a></p></div>
-            <div class="premium-card"><span class="premium-card-emoji">❤️</span><h3>Caffeine ↔ resting HR correlation</h3><p>A second health signal: the link between your caffeine and your resting heart rate. <a href="/en/insights.html" style="color:var(--purple-light);">The method →</a></p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🧠</span><h3>Smart alerts &amp; reminders</h3><p>Hydration reminders tailored to your day, an alert when you're nearing your caffeine limit, and a “late coffee” warning if a coffee might disturb your sleep. Indicative, not medical.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🌿</span><h3>Stress &amp; anxiety tracking <span style="font-size:0.6rem;background:rgba(255,255,255,0.14);color:var(--purple-light);padding:2px 7px;border-radius:6px;vertical-align:middle;font-weight:700;letter-spacing:0.03em;">SOON</span></h3><p>A weekly questionnaire with a personalised caffeine ↔ stress correlation.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🌡️</span><h3>Weather-aware hydration</h3><p>In France, based on the Météo-France alert level for your département (chosen manually, no geolocation): <strong>free heatwave alert</strong> on the home screen and the widget, and <strong>stepped-up hydration reminders</strong> during extreme heat (Premium). <a href="/en/hydration.html" style="color:var(--purple-light);">Learn more →</a></p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🎯</span><h3>Exclusive offers</h3><p>Offers negotiated specially for Premium subscribers. Coming soon.</p></div>
-        </div>
-
-        <h3 class="compare-title">3 Premium tiers by exchanging points</h3>
-        <p style="text-align:center;font-size:0.9rem;opacity:0.7;font-weight:300;max-width:600px;margin:0 auto 32px;">Don't want to wait for a promotion? Exchange your points for Premium time. This is for free-plan users only — a way to try Premium using the points you've built up.</p>
-        <div class="paliers-points">
-            <div class="palier-card">
-                <span class="palier-emoji">⏱️</span>
-                <div class="palier-titre">7 days of Premium</div>
-                <div class="palier-pts">4,500 pts</div>
-                <div class="palier-detail">To try the exclusive features</div>
-            </div>
-            <div class="palier-card" style="border-color:var(--purple-light);background:rgba(107,63,160,0.18);">
-                <span class="palier-emoji">📅</span>
-                <div class="palier-titre">1 month of Premium</div>
-                <div class="palier-pts">9,000 pts</div>
-                <div class="palier-detail">The most popular tier</div>
-            </div>
-            <div class="palier-card">
-                <span class="palier-emoji">💎</span>
-                <div class="palier-titre">3 months of Premium</div>
-                <div class="palier-pts">15,000 pts</div>
-                <div class="palier-detail">The best points-to-days ratio</div>
-            </div>
-        </div>
-        <p style="text-align:center;font-size:0.75rem;opacity:0.5;margin-bottom:48px;">Premium time is added to your current expiry date. Points have no monetary value.</p>
-
-        <h3 class="compare-title">Free vs Premium</h3>
-        <details class="repli-compare" open><summary>Free vs Premium, in detail</summary>
-<table class="compare-table">
+        <table class="compare-table">
             <thead>
                 <tr>
                     <th style="width:50%"></th>
@@ -551,37 +510,36 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td>Daily caffeine tracking</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Hydration tracking (water counter)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Daily caffeine tracking<span class="prec">Every drink in one tap, daily total in milligrams</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Hydration tracking (water counter)<span class="prec">Glasses or millilitres, adjustable target</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>iOS widget (home screen)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>130 badges &amp; 8 levels</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Stats &amp; progress (caffeine + water)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Water ↔ caffeine correlation</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>CSV data export (GDPR)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>130 badges &amp; 8 levels<span class="prec">A progression that rewards consistency</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Stats &amp; progress (caffeine + water)<span class="prec">Week, month, year: see your real trends</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Water ↔ caffeine correlation<span class="prec">How your hydration shifts with your caffeine intake</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>CSV data export (GDPR)<span class="prec">Your data is yours, exportable at any time</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Partner deals</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Community challenges 🎯</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Caution mode (EFSA caffeine + WHO water)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Community challenges 🎯<span class="prec">Collective goals, renewed regularly</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Caution mode (EFSA caffeine + WHO water)<span class="prec">Tighter thresholds: 200 mg caffeine, 2.3 L water</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Referrals (unique code)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Adverts</td><td class="col-free">✅</td><td class="col-premium">❌</td></tr>
-                <tr><td>Apple Watch (caffeine + water)</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Custom drinks</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Barcode scanner</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Double points (drinks + streak)</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Physical gifts or gift vouchers</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>⚡ 3 favourite drinks</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>⚡ 1-tap mode</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>📉 Real-time active caffeine</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>😴 Caffeine ↔ sleep correlation</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>❤️ Caffeine ↔ resting HR correlation</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>🧠 Smart alerts &amp; reminders</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>🌿 Stress &amp; anxiety tracking</td><td class="col-free">❌</td><td class="col-premium">✅ Soon</td></tr>
+                <tr><td>Adverts<span class="prec">A completely uninterrupted experience on Premium</span></td><td class="col-free">✅</td><td class="col-premium">❌</td></tr>
+                <tr><td>Apple Watch (caffeine + water)<span class="prec">Log drinks from your wrist, without reaching for your iPhone</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Custom drinks<span class="prec">Create your own drinks with the exact mg, on the app and the Watch</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Barcode scanner<span class="prec">Identifies caffeine content via Open Food Facts</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Double points (drinks + streak)<span class="prec">+4 pts per drink and +20 per day, against +2 and +10 on free</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Physical gifts or gift vouchers<span class="prec">Trade your points for real gifts or vouchers</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>⚡ 3 favourite drinks<span class="prec">Up to 3 favourites, at the top of the list on iPhone and Watch</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>⚡ 1-tap mode<span class="prec">One tap on the cup logs your favourite drink, no list needed</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>📉 Real-time active caffeine<span class="prec">How much is still in your body, minute by minute</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>😴 Caffeine ↔ sleep correlation<span class="prec">The link between your caffeine and how long you sleep, via Apple Health</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>❤️ Caffeine ↔ resting HR correlation<span class="prec">The link with your resting heart rate, via Apple Health</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>🧠 Smart alerts &amp; reminders<span class="prec">Reminders tuned to your day, alerts as you near your limit</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>🌿 Stress &amp; anxiety tracking<span class="prec">Weekly questionnaire and caffeine ↔ stress correlation</span></td><td class="col-free">❌</td><td class="col-premium">✅ Soon</td></tr>
                 <tr><td>🌡️ Heatwave alert (France)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>🌡️ Stepped-up hydration reminders (heat)</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Negotiated exclusive offers</td><td class="col-free">❌</td><td class="col-premium">✅ Soon</td></tr>
+                <tr><td>🌡️ Stepped-up hydration reminders (heat)<span class="prec">More frequent when the heat calls for it</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Negotiated exclusive offers<span class="prec">Offers reserved for Premium subscribers</span></td><td class="col-free">❌</td><td class="col-premium">✅ Soon</td></tr>
                 <tr><td>Exchange points → Premium time</td><td class="col-free">✅</td><td class="col-premium">— <span style="font-size:0.7rem;opacity:0.6">(free plan only)</span></td></tr>
             </tbody>
         </table>
-</details>
 
         <div class="plans">
             <div class="plan-card">

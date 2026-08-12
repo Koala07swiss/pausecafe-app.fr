@@ -291,7 +291,11 @@
         .repli-compare[open] > summary::after { content: '−'; }
         .repli-compare > summary:focus-visible { outline: 2px solid var(--caramel); outline-offset: 2px; }
         @media (min-width: 769px) { .repli-compare > summary { display: none; } }
-  </style>
+  
+        .compare-table .prec { display: block; font-size: 0.76rem; font-weight: 300;
+            opacity: 0.55; line-height: 1.4; margin-top: 3px; }
+        @media (max-width: 768px) { .compare-table .prec { font-size: 0.71rem; } }
+</style>
 </head>
 <body>
 <nav>
@@ -496,52 +500,7 @@
     <section class="premium" id="premium">
         <div class="section-label" style="color:var(--purple-light);opacity:1">Premium</div>
         <h2 class="section-title" style="color:white">Passe au niveau supérieur 👑</h2>
-        <div class="premium-cards">
-            <div class="premium-card"><span class="premium-card-emoji">🔕</span><h3>Sans publicité</h3><p>Expérience 100% fluide, sans interruption publicitaire.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">⌚</span><h3>Apple Watch incluse</h3><p>Ajoute tes boissons (café et eau) directement depuis ton poignet, sans sortir ton iPhone. Caféine du jour et caféine active en complications sur ton cadran.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🧪</span><h3>Boissons personnalisées</h3><p>Crée tes propres boissons avec le mg exact. Disponibles sur l'app ET la Watch.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">📷</span><h3>Scanner de code-barres</h3><p>Identifie automatiquement la teneur en caféine d'une boisson via Open Food Facts.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">⭐</span><h3>Points x2</h3><p>+4 pts par boisson et +20 pts par jour (vs +2 et +10 en gratuit). Tu accumules le double de points.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🎁</span><h3>Cadeaux &amp; bons cadeaux</h3><p>Échange tes points contre des cadeaux ou des bons cadeaux. Cooldown de 6 mois entre deux réclamations physiques.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">⚡</span><h3>3 boissons favorites</h3><p>Marque jusqu'à 3 boissons comme favorites (⭐). Accès rapide en haut de la liste sur iPhone ET Watch.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">⚡</span><h3>Mode 1 tap</h3><p>Un tap sur la tasse = ta boisson favorite ajoutée directement. Sans liste, sans sélection. Sur iPhone ET Watch.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🔗</span><h3>Corrélation eau ↔ caféine</h3><p>Dans l'onglet 🔍 Analyses, découvre comment ta consommation d'eau évolue en fonction de ta caféine : surcompensation, alternance ou hydratation stable. Analyse comparative à partir de 14 jours, ou tendance Spearman dès 7 jours.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">📉</span><h3>Caféine active en temps réel</h3><p>La quantité de caféine encore présente dans ton corps, minute par minute, sur iPhone, Watch, widget et complications. <a href="cafeine-temps-reel.html" style="color:var(--purple-light);">En savoir plus →</a></p></div>
-            <div class="premium-card"><span class="premium-card-emoji">😴</span><h3>Corrélation caféine ↔ sommeil</h3><p>Le lien entre ta caféine et la durée de tes nuits, à partir d'Apple Santé (lecture sur ton appareil). <a href="analyses.html" style="color:var(--purple-light);">La méthode →</a></p></div>
-            <div class="premium-card"><span class="premium-card-emoji">❤️</span><h3>Corrélation caféine ↔ FC repos</h3><p>Un second signal santé : le lien entre ta caféine et ta fréquence cardiaque au repos. <a href="analyses.html" style="color:var(--purple-light);">La méthode →</a></p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🧠</span><h3>Alertes &amp; rappels intelligents</h3><p>Rappels d'hydratation adaptés à ta journée, alerte quand tu approches de ta limite caféine, et alerte « café tardif » si un café risque de gêner ton sommeil. Indicatif, non médical.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🌿</span><h3>Suivi stress &amp; anxiété <span style="font-size:0.6rem;background:rgba(255,255,255,0.14);color:var(--purple-light);padding:2px 7px;border-radius:6px;vertical-align:middle;font-weight:700;letter-spacing:0.03em;">BIENTÔT</span></h3><p>Un questionnaire hebdomadaire avec corrélation personnalisée caféine ↔ stress.</p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🌡️</span><h3>Hydratation adaptée à la météo</h3><p>En France, selon la vigilance Météo-France de ton département (choisi à la main, sans géolocalisation) : <strong>alerte canicule gratuite</strong> sur l'accueil et le widget, et <strong>rappels d'hydratation renforcés</strong> en cas de forte chaleur (Premium). <a href="hydratation.html" style="color:var(--purple-light);">En savoir plus →</a></p></div>
-            <div class="premium-card"><span class="premium-card-emoji">🎯</span><h3>Offres exclusives</h3><p>Offres négociées spécialement pour les abonnés Premium. Bientôt disponibles.</p></div>
-        </div>
-
-        <h3 class="compare-title">3 paliers Premium par échange de points</h3>
-        <p style="text-align:center;font-size:0.9rem;opacity:0.7;font-weight:300;max-width:600px;margin:0 auto 32px;">Pas envie d'attendre une promo ? Échange tes points contre du temps Premium. Fonctionnalité réservée aux utilisateurs en version gratuite — un moyen de découvrir le Premium en utilisant les points que tu as accumulés.</p>
-        <div class="paliers-points">
-            <div class="palier-card">
-                <span class="palier-emoji">⏱️</span>
-                <div class="palier-titre">7 jours Premium</div>
-                <div class="palier-pts">4 500 pts</div>
-                <div class="palier-detail">Pour tester les fonctionnalités exclusives</div>
-            </div>
-            <div class="palier-card" style="border-color:var(--purple-light);background:rgba(107,63,160,0.18);">
-                <span class="palier-emoji">📅</span>
-                <div class="palier-titre">1 mois Premium</div>
-                <div class="palier-pts">9 000 pts</div>
-                <div class="palier-detail">Le palier le plus populaire</div>
-            </div>
-            <div class="palier-card">
-                <span class="palier-emoji">💎</span>
-                <div class="palier-titre">3 mois Premium</div>
-                <div class="palier-pts">15 000 pts</div>
-                <div class="palier-detail">Le meilleur rapport points/jours</div>
-            </div>
-        </div>
-        <p style="text-align:center;font-size:0.75rem;opacity:0.5;margin-bottom:48px;">Le temps Premium s'ajoute à ta date d'expiration actuelle. Aucun point n'a de valeur monétaire.</p>
-
-        <h3 class="compare-title">Gratuit vs Premium</h3>
-        <details class="repli-compare" open><summary>Comparatif gratuit / Premium en détail</summary>
-<table class="compare-table">
+        <table class="compare-table">
             <thead>
                 <tr>
                     <th style="width:50%"></th>
@@ -550,37 +509,36 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td>Suivi caféine quotidien</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Suivi d'hydratation (compteur d'eau)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Suivi caféine quotidien<span class="prec">Chaque boisson en un tap, cumul du jour en milligrammes</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Suivi d'hydratation (compteur d'eau)<span class="prec">Verres ou millilitres, objectif ajustable</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Widget iOS (écran d'accueil)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>130 badges &amp; 8 niveaux</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Stats &amp; évolution (caféine + eau)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Corrélation eau ↔ caféine</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Export CSV des données (RGPD)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>130 badges &amp; 8 niveaux<span class="prec">Une progression qui récompense la régularité</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Stats &amp; évolution (caféine + eau)<span class="prec">Semaine, mois, année : vois tes tendances réelles</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Corrélation eau ↔ caféine<span class="prec">Comment ton hydratation évolue selon ta consommation de caféine</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Export CSV des données (RGPD)<span class="prec">Tes données t'appartiennent, récupérables à tout moment</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Bons plans partenaires</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Défis communauté 🎯</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Mode précaution (caféine EFSA + eau OMS)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Défis communauté 🎯<span class="prec">Objectifs collectifs renouvelés régulièrement</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Mode précaution (caféine EFSA + eau OMS)<span class="prec">Seuils resserrés : 200 mg de caféine, 2,3 L d'eau</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Parrainage (code unique)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
-                <tr><td>Publicités</td><td class="col-free">✅</td><td class="col-premium">❌</td></tr>
-                <tr><td>Apple Watch (caféine + eau)</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Boissons personnalisées</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Scanner de code-barres</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Points x2 (boisson + série)</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Cadeaux physiques ou bons cadeaux</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>⚡ 3 boissons favorites</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>⚡ Mode 1 tap</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>📉 Caféine active en temps réel</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>😴 Corrélation caféine ↔ sommeil</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>❤️ Corrélation caféine ↔ FC repos</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>🧠 Alertes &amp; rappels intelligents</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>🌿 Suivi stress &amp; anxiété</td><td class="col-free">❌</td><td class="col-premium">✅ Bientôt</td></tr>
+                <tr><td>Publicités<span class="prec">Expérience sans interruption publicitaire en Premium</span></td><td class="col-free">✅</td><td class="col-premium">❌</td></tr>
+                <tr><td>Apple Watch (caféine + eau)<span class="prec">Ajoute tes boissons depuis ton poignet, sans sortir ton iPhone</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Boissons personnalisées<span class="prec">Crée tes propres boissons avec le mg exact, sur l'app et la Watch</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Scanner de code-barres<span class="prec">Identifie la teneur en caféine via Open Food Facts</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Points x2 (boisson + série)<span class="prec">+4 pts par boisson et +20 par jour, contre +2 et +10 en gratuit</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>Cadeaux physiques ou bons cadeaux<span class="prec">Échange tes points contre des cadeaux réels ou des bons</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>⚡ 3 boissons favorites<span class="prec">Jusqu'à 3 favorites, en haut de liste sur iPhone et Watch</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>⚡ Mode 1 tap<span class="prec">Un tap sur la tasse = ta boisson favorite ajoutée, sans passer par la liste</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>📉 Caféine active en temps réel<span class="prec">La quantité encore présente dans ton corps, minute par minute</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>😴 Corrélation caféine ↔ sommeil<span class="prec">Le lien entre ta caféine et la durée de tes nuits, via Apple Santé</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>❤️ Corrélation caféine ↔ FC repos<span class="prec">Le lien avec ta fréquence cardiaque au repos, via Apple Santé</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>🧠 Alertes &amp; rappels intelligents<span class="prec">Rappels adaptés à ta journée, alerte à l'approche de ta limite</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
+                <tr><td>🌿 Suivi stress &amp; anxiété<span class="prec">Questionnaire hebdomadaire et corrélation caféine ↔ stress</span></td><td class="col-free">❌</td><td class="col-premium">✅ Bientôt</td></tr>
                 <tr><td>🌡️ Alerte vigilance canicule (France)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>🌡️ Rappels d'hydratation renforcés (chaleur)</td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
-                <tr><td>Offres exclusives négociées</td><td class="col-free">❌</td><td class="col-premium">✅ Bientôt</td></tr>
+                <tr><td>Offres exclusives négociées<span class="prec">Offres réservées aux abonnés Premium</span></td><td class="col-free">❌</td><td class="col-premium">✅ Bientôt</td></tr>
                 <tr><td>Échange points → temps Premium</td><td class="col-free">✅</td><td class="col-premium">— <span style="font-size:0.7rem;opacity:0.6">(réservé gratuit)</span></td></tr>
             </tbody>
         </table>
-</details>
 
         <div class="plans">
             <div class="plan-card">
@@ -738,7 +696,7 @@
 // entierement visible.
 (function () {
     var d = document.querySelector('.repli-compare');
-    if (!d) return;
+    if (!d) return;   // le tableau n'est plus repliable : il porte seul l'offre Premium
     function ajuster() {
         if (window.matchMedia('(max-width: 768px)').matches) {
             if (!d.dataset.replie) { d.removeAttribute('open'); d.dataset.replie = '1'; }
