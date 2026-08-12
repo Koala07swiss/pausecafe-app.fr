@@ -90,7 +90,18 @@
         @media (max-width: 768px) {
             .hero { padding: 110px 24px 24px; }
         }
-    </style>
+  
+        /* Sous 560 px, la nav a trois elements ne tient pas : le libelle du
+           retour passe sur trois lignes et deborde sur le logo. On ne garde
+           que la fleche, le libelle reste lisible par les lecteurs d'ecran. */
+        @media (max-width: 560px) {
+            nav { padding: 10px 16px; }
+            .nav-back { font-size: 0; white-space: nowrap; }
+            .nav-back::before { content: '←'; font-size: 1.15rem; opacity: 0.75; }
+            .nav-logo { font-size: 1.1rem; }
+            .nav-logo img { width: 26px; height: 26px; }
+        }
+  </style>
 </head>
 <body>
 <nav>

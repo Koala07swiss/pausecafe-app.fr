@@ -63,6 +63,17 @@
   .help-link a { color: var(--caramel); text-decoration: none; font-weight: 600; }
 
   .footer a { color: var(--caramel); text-decoration: none; }
+
+        /* Sous 560 px, la nav a trois elements ne tient pas : le libelle du
+           retour passe sur trois lignes et deborde sur le logo. On ne garde
+           que la fleche, le libelle reste lisible par les lecteurs d'ecran. */
+        @media (max-width: 560px) {
+            nav { padding: 10px 16px; }
+            .nav-back { font-size: 0; white-space: nowrap; }
+            .nav-back::before { content: '←'; font-size: 1.15rem; opacity: 0.75; }
+            .nav-logo { font-size: 1.1rem; }
+            .nav-logo img { width: 26px; height: 26px; }
+        }
 </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Unsubscribe from emails — PauseCafé","description":"How to unsubscribe from PauseCafé emails, directly in the app, in 3 steps.","url":"https://pausecafe-app.fr/en/unsubscribe.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"PauseCafé","url":"https://pausecafe-app.fr"},"about":{"@type":"SoftwareApplication","name":"PauseCafé","operatingSystem":"iOS, watchOS","applicationCategory":"HealthApplication","downloadUrl":"https://apps.apple.com/app/id6761892198"},"publisher":{"@type":"Organization","name":"PauseCafé","url":"https://pausecafe-app.fr"}}</script>
 </head>

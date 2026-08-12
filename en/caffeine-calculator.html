@@ -99,23 +99,46 @@
         .reperes{display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid rgba(245,237,214,0.14);}
         .repere{font-size:0.8rem;color:rgba(245,237,214,0.55);font-weight:300;}
         .repere b{display:block;font-family:'JetBrains Mono',monospace;font-size:1.05rem;color:var(--mousse);font-weight:700;margin-top:1px;}
-        .fam{margin-bottom:20px;}
-        .fam > h3{font-size:0.72rem;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#A08464;margin-bottom:9px;}
-        .boissons{display:grid;grid-template-columns:repeat(auto-fill,minmax(212px,1fr));gap:10px;}
-        .carte-b{border:1.5px solid rgba(196,135,58,0.28);border-radius:13px;background:var(--cream);padding:10px 11px 9px;}
-        .carte-b .tete{display:flex;align-items:center;gap:7px;margin-bottom:8px;}
-        .carte-b .ic{font-size:1.1rem;line-height:1;}
-        .carte-b .nm{font-size:0.88rem;font-weight:500;line-height:1.15;}
-        .tailles{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;}
-        .tailles.deux{grid-template-columns:repeat(2,1fr);}
-        .t-btn{border:1.5px solid rgba(196,135,58,0.3);border-radius:9px;background:white;padding:6px 2px 5px;cursor:pointer;font-family:'DM Sans',sans-serif;color:var(--cafe);transition:border-color .14s,background .14s,transform .1s;display:flex;flex-direction:column;align-items:center;gap:1px;}
+        /* ── Selecteur compact : onglets + lignes ──────────────────────
+           Version precedente : 12 cartes empilees = 1461 px, presque deux
+           ecrans de telephone pour choisir une boisson. Ici une seule
+           famille est visible a la fois, et chaque boisson tient sur une
+           ligne au lieu d'une carte.                                     */
+        .onglets{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin-bottom:12px;
+            -webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;}
+        .ong{flex:0 0 auto;scroll-snap-align:start;border:1.5px solid rgba(196,135,58,0.3);
+            border-radius:100px;background:var(--cream);padding:9px 16px;cursor:pointer;
+            font-family:'DM Sans',sans-serif;font-size:0.86rem;font-weight:500;color:var(--cafe);
+            display:inline-flex;align-items:center;gap:7px;min-height:44px;
+            transition:background .15s,border-color .15s,color .15s;}
+        .ong:hover{border-color:var(--caramel);}
+        .ong:focus-visible{outline:2px solid var(--caramel);outline-offset:2px;}
+        .ong[aria-selected="true"]{background:var(--espresso);border-color:var(--espresso);color:var(--cream);}
+        .ong .n{font-family:'JetBrains Mono',monospace;font-size:0.7rem;opacity:0.55;}
+
+        .lignes{display:flex;flex-direction:column;gap:6px;}
+        .lg-b{display:flex;align-items:center;gap:10px;padding:7px 10px;
+            border:1.5px solid rgba(196,135,58,0.22);border-radius:11px;background:var(--cream);}
+        .lg-b .ic{font-size:1.15rem;line-height:1;flex-shrink:0;}
+        .lg-b .nm{flex:1;font-size:0.87rem;font-weight:500;line-height:1.2;min-width:0;}
+        .lg-b .grp{display:flex;gap:5px;flex-shrink:0;}
+        .t-btn{border:1.5px solid rgba(196,135,58,0.3);border-radius:9px;background:white;
+            min-width:52px;min-height:44px;padding:4px 6px;cursor:pointer;
+            font-family:'DM Sans',sans-serif;color:var(--cafe);
+            display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;
+            transition:border-color .14s,background .14s,transform .1s;}
         .t-btn:hover{border-color:var(--caramel);background:#FBF3E2;}
-        .t-btn:active{transform:scale(0.94);}
+        .t-btn:active{transform:scale(0.93);}
         .t-btn:focus-visible{outline:2px solid var(--caramel);outline-offset:2px;}
-        .t-btn.defaut{border-color:rgba(196,135,58,0.6);background:#FBF3E2;}
-        .t-btn .lbl{font-size:0.72rem;font-weight:700;letter-spacing:0.05em;}
-        .t-btn .val{font-family:'JetBrains Mono',monospace;font-size:0.8rem;font-weight:700;color:var(--caramel);}
-        .t-btn .vol{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#A08464;}
+        .t-btn.defaut{border-color:rgba(196,135,58,0.62);background:#FBF3E2;}
+        .t-btn .lbl{font-size:0.63rem;font-weight:700;letter-spacing:0.04em;opacity:0.72;line-height:1;}
+        .t-btn .val{font-family:'JetBrains Mono',monospace;font-size:0.82rem;font-weight:700;
+            color:var(--caramel);line-height:1.2;}
+        @media(max-width:400px){
+            .lg-b{padding:6px 8px;gap:7px;}
+            .lg-b .nm{font-size:0.82rem;}
+            .t-btn{min-width:47px;}
+        }
 
         /* ── Journée ─────────────────────────────────────────── */
         .journee{margin-top:16px;}
@@ -228,7 +251,18 @@
             .rappel .chiffre.trop{color:#E9A26B;}
             .rappel .voir{font-size:0.78rem;opacity:0.72;white-space:nowrap;}
         }
-    </style>
+  
+        /* Sous 560 px, la nav a trois elements ne tient pas : le libelle du
+           retour passe sur trois lignes et deborde sur le logo. On ne garde
+           que la fleche, le libelle reste lisible par les lecteurs d'ecran. */
+        @media (max-width: 560px) {
+            nav { padding: 10px 16px; }
+            .nav-back { font-size: 0; white-space: nowrap; }
+            .nav-back::before { content: '←'; font-size: 1.15rem; opacity: 0.75; }
+            .nav-logo { font-size: 1.1rem; }
+            .nav-logo img { width: 26px; height: 26px; }
+        }
+  </style>
 </head>
 <body>
 
@@ -424,28 +458,35 @@
     var KA = 4.9;                           // /h — pic à ≈ 45 min
     var SEUIL_SOMMEIL = 100;                // mg — repère EFSA
     var REPERE_JOUR = 400;                  // mg — repère EFSA journalier
+    var DOSE_UNIQUE = 200;              // mg — repere EFSA par prise
+
+    var LG = {
+        svgVide:  "Caffeine curve: no drink logged yet.",
+        svgAvec:  "Curve of estimated caffeine in the body: {n} drink(s) logged, about {mg} milligrams remaining at bedtime.",
+        doseUnique: "single dose above the EFSA 200 mg mark"
+    };
 
     // Same catalogue as the app (ModelesDonnees.swift V1.3): same volumes,
     // same milligrams. Anyone installing PauseCafé finds identical figures.
     var CATALOGUE = [
-      { cat: 'Coffee', boissons: [
+      { cat: 'Coffee', ic: '☕', boissons: [
         { nom: "Espresso", ic: '☕', dft: 'S', tailles: [{t:'S',ml:30,mg:77}, {t:'M',ml:60,mg:154}, {t:'L',ml:90,mg:231}] },
         { nom: "Lungo", ic: '☕', dft: 'M', tailles: [{t:'S',ml:80,mg:69}, {t:'M',ml:110,mg:95}, {t:'L',ml:150,mg:130}] },
         { nom: "Filter coffee", ic: '☕', dft: 'M', tailles: [{t:'S',ml:150,mg:68}, {t:'M',ml:240,mg:108}, {t:'L',ml:350,mg:158}] },
         { nom: "Cappuccino", ic: '🥛', dft: 'M', tailles: [{t:'S',ml:150,mg:77}, {t:'M',ml:250,mg:77}, {t:'L',ml:350,mg:154}] },
         { nom: "Decaf coffee", ic: '☕', dft: 'M', tailles: [{t:'S',ml:150,mg:3}, {t:'M',ml:240,mg:5}, {t:'L',ml:350,mg:7}] },
       ] },
-      { cat: 'Tea', boissons: [
+      { cat: 'Tea', ic: '🍵', boissons: [
         { nom: "Black tea", ic: '🍵', dft: 'M', tailles: [{t:'S',ml:200,mg:42}, {t:'M',ml:240,mg:50}, {t:'L',ml:350,mg:73}] },
         { nom: "Green tea", ic: '🍵', dft: 'M', tailles: [{t:'S',ml:200,mg:25}, {t:'M',ml:240,mg:30}, {t:'L',ml:350,mg:44}] },
         { nom: "Decaf tea", ic: '🍵', dft: 'M', tailles: [{t:'S',ml:200,mg:4}, {t:'M',ml:240,mg:5}, {t:'L',ml:350,mg:7}] },
         { nom: "Herbal tea", ic: '🌿', dft: 'M', tailles: [{t:'S',ml:200,mg:0}, {t:'M',ml:240,mg:0}, {t:'L',ml:350,mg:0}] },
       ] },
-      { cat: 'Soft drinks', boissons: [
+      { cat: 'Soft drinks', ic: '🥤', boissons: [
         { nom: "Cola", ic: '🥤', dft: 'M', tailles: [{t:'S',ml:250,mg:30}, {t:'M',ml:330,mg:40}, {t:'L',ml:500,mg:61}] },
         { nom: "Diet cola", ic: '🥤', dft: 'M', tailles: [{t:'S',ml:250,mg:35}, {t:'M',ml:330,mg:46}, {t:'L',ml:500,mg:70}] },
       ] },
-      { cat: 'Energy drinks', boissons: [
+      { cat: 'Energy drinks', ic: '⚡', boissons: [
         { nom: "Energy drink", ic: '⚡', dft: 'S', tailles: [{t:'S',ml:250,mg:80}, {t:'L',ml:500,mg:160}] },
       ] },
     ];
@@ -498,55 +539,62 @@
 
     // ── Boutons de boisson ──────────────────────────────────────────────
     // One card per drink, one button per size. Tapping a size adds the
-    // drink straight away: one gesture, and the size stays visible.
-    CATALOGUE.forEach(function (fam) {
-        var bloc = document.createElement('div');
-        bloc.className = 'fam';
-        var titre = document.createElement('h3');
-        titre.textContent = fam.cat;
-        bloc.appendChild(titre);
 
-        var grille = document.createElement('div');
-        grille.className = 'boissons';
 
-        fam.boissons.forEach(function (b) {
-            var carte = document.createElement('div');
-            carte.className = 'carte-b';
-            carte.innerHTML = '<div class="tete"><span class="ic" aria-hidden="true">' + b.ic +
-                              '</span><span class="nm">' + b.nom + '</span></div>';
+// One tab per family, one row per drink: only one family shows at a time.
+    // The picker drops from 1461 px to about 320 px.
+    var familleActive = 0;
 
-            var zone = document.createElement('div');
-            zone.className = 'tailles' + (b.tailles.length === 2 ? ' deux' : '');
+    function rendreSelecteur() {
+        elBoissons.innerHTML = '';
 
+        var onglets = document.createElement('div');
+        onglets.className = 'onglets';
+        onglets.setAttribute('role', 'tablist');
+        CATALOGUE.forEach(function (fam, i) {
+            var o = document.createElement('button');
+            o.type = 'button';
+            o.className = 'ong';
+            o.setAttribute('role', 'tab');
+            o.setAttribute('aria-selected', i === familleActive ? 'true' : 'false');
+            o.innerHTML = fam.ic + ' ' + fam.cat + ' <span class="n">' + fam.boissons.length + '</span>';
+            o.addEventListener('click', function () { familleActive = i; rendreSelecteur(); });
+            onglets.appendChild(o);
+        });
+        elBoissons.appendChild(onglets);
+
+        var liste = document.createElement('div');
+        liste.className = 'lignes';
+        liste.setAttribute('role', 'tabpanel');
+        CATALOGUE[familleActive].boissons.forEach(function (b) {
+            var l = document.createElement('div');
+            l.className = 'lg-b';
+            l.innerHTML = '<span class="ic" aria-hidden="true">' + b.ic + '</span>' +
+                          '<span class="nm">' + b.nom + '</span>';
+            var grp = document.createElement('div');
+            grp.className = 'grp';
             b.tailles.forEach(function (v) {
                 var btn = document.createElement('button');
                 btn.type = 'button';
                 btn.className = 't-btn' + (v.t === b.dft ? ' defaut' : '');
-                btn.innerHTML = '<span class="lbl">' + v.t + '</span>' +
-                                '<span class="val">' + v.mg + '</span>' +
-                                '<span class="vol">' + v.ml + ' ml</span>';
+                btn.innerHTML = '<span class="lbl">' + v.t + '</span><span class="val">' + v.mg + '</span>';
                 btn.setAttribute('aria-label',
                     'Add ' + b.nom + ' size ' + v.t + ', ' + v.ml +
                     ' millilitres, ' + v.mg + ' milligrams of caffeine');
+                btn.title = v.ml + ' ml · ' + v.mg + ' mg';
                 btn.addEventListener('click', function () {
-                    prises.push({
-                        minutes: enMinutes(elHeure.value),
-                        nom: b.nom + ' ' + v.t,
-                        mg: v.mg
-                    });
+                    prises.push({ minutes: enMinutes(elHeure.value), nom: b.nom + ' ' + v.t, mg: v.mg });
                     prises.sort(function (x, y) { return x.minutes - y.minutes; });
                     rendre();
                 });
-                zone.appendChild(btn);
+                grp.appendChild(btn);
             });
-
-            carte.appendChild(zone);
-            grille.appendChild(carte);
+            l.appendChild(grp);
+            liste.appendChild(l);
         });
-
-        bloc.appendChild(grille);
-        elBoissons.appendChild(bloc);
-    });
+        elBoissons.appendChild(liste);
+    }
+    rendreSelecteur();
 
     // ── Exemples : une journée type en un clic ──────────────────────────
     // Each entry: [time, drink name, size]. Names must match CATALOGUE above.
@@ -607,6 +655,7 @@
 
         var cumul = prises.reduce(function (s, p) { return s + p.mg; }, 0);
         var apresCoucher = prises.filter(function (p) { return p.minutes > minutesCoucher(); }).length;
+        var fortes = prises.filter(function (p) { return p.mg > DOSE_UNIQUE; });
         elTotal.innerHTML = 'Total taken today: <strong>' + cumul + ' mg</strong>' +
             (cumul > REPERE_JOUR
                 ? ' <span class="depasse">— above the EFSA 400 mg mark</span>'
@@ -614,6 +663,11 @@
             (apresCoucher
                 ? '<br><span style="opacity:.75">' + apresCoucher + ' drink' + (apresCoucher > 1 ? 's' : '') +
                   ' after bedtime — not counted in the estimate.</span>'
+                : '') +
+            (fortes.length
+                ? '<br><span class="depasse">' + fortes.length + ' ' +
+                  (fortes.length > 1 ? 'drinks exceed' : 'drink exceeds') +
+                  ' the EFSA 200 mg single-dose mark.</span>'
                 : '');
     }
 
@@ -631,7 +685,18 @@
 
     function rendreGraphe() {
         var ns = 'http://www.w3.org/2000/svg';
-        while (elGraphe.childNodes.length > 1) elGraphe.removeChild(elGraphe.lastChild);
+        while (elGraphe.firstChild) elGraphe.removeChild(elGraphe.firstChild);
+
+        // Titre accessible, recree a chaque rendu et decrivant l'etat reel :
+        // un lecteur d'ecran ne peut pas interpreter le trace.
+        var tt = document.createElementNS(ns, 'title');
+        tt.id = 'graphe-titre';
+        tt.textContent = prises.length
+            ? (LG.svgAvec
+                .replace('{n}', prises.length)
+                .replace('{mg}', Math.round(totalA(minutesCoucher()))))
+            : LG.svgVide;
+        elGraphe.appendChild(tt);
 
         function el(t, a) {
             var e = document.createElementNS(ns, t);

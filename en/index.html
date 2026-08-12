@@ -96,13 +96,13 @@
         .mobile-menu-footer .lang-switch a { color: var(--cafe); text-decoration: none; opacity: 0.5; }
         .mobile-menu-footer .lang-switch a[aria-current] { opacity: 1; font-weight: 600; }
         .mobile-menu-footer .lang-switch .sep { opacity: 0.25; margin: 0 6px; }
-        .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 48px 80px; position: relative; overflow: hidden; }
+        .hero { min-height: auto; display: flex; align-items: center; padding: 118px 48px 54px; position: relative; overflow: hidden; }
         .hero-logo-bg { position: absolute; right: -4vw; top: 50%; transform: translateY(-50%); width: 44vw; max-width: 600px; opacity: 0.18; pointer-events: none; user-select: none; border-radius: 16px; }
         .hero-content { max-width: 680px; position: relative; z-index: 1; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--caramel); color: white; padding: 6px 16px; border-radius: 100px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 32px; animation: fadeUp 0.6s ease both; }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 900; line-height: 1.05; color: var(--cafe); margin-bottom: 24px; animation: fadeUp 0.6s ease 0.1s both; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--caramel); color: white; padding: 6px 16px; border-radius: 100px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 22px; animation: fadeUp 0.6s ease both; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 900; line-height: 1.05; color: var(--cafe); margin-bottom: 18px; animation: fadeUp 0.6s ease 0.1s both; }
         .hero h1 .blue-accent { color: var(--blue); }
-        .hero p { font-size: 1.15rem; line-height: 1.7; color: var(--cafe); opacity: 0.75; margin-bottom: 48px; max-width: 520px; font-weight: 300; animation: fadeUp 0.6s ease 0.2s both; }
+        .hero p { font-size: 1.15rem; line-height: 1.7; color: var(--cafe); opacity: 0.75; margin-bottom: 30px; max-width: 520px; font-weight: 300; animation: fadeUp 0.6s ease 0.2s both; }
         .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; animation: fadeUp 0.6s ease 0.3s both; }
         .apple-badge { display: inline-block; transition: opacity 0.2s, transform 0.2s; }
         .apple-badge:hover { opacity: 0.85; transform: translateY(-2px); }
@@ -208,7 +208,14 @@
         #main-content { display: block; }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 768px) { .nav-links { display: none; } .burger-btn { display: flex; }
-            .hero { padding: 100px 24px 60px; }
+            .hero { padding: 88px 24px 40px; }
+            /* Sur telephone, le calculateur passe AVANT les badges : c'est le
+               seul contenu utilisable sans installer l'app, il doit etre vu
+               sans defiler. */
+            .hero-content { display: flex; flex-direction: column; }
+            .hero-badge { order: 1; } .hero h1 { order: 2; } .hero p { order: 3; }
+            .encart-calc { order: 4; margin-top: 4px; margin-bottom: 22px; }
+            .hero-cta { order: 5; }
             .hero-logo-bg { width: 80vw; right: 50%; transform: translate(50%, -50%); opacity: 0.08; top: 30%; }
             .features, .normes, .download, .premium, .showcase { padding: 60px 24px; }
             .normes-grid, .plans, .paliers-points { grid-template-columns: 1fr; gap: 32px; }
@@ -220,7 +227,72 @@
             .apple-badge-lg img { height: 52px; }
             .health-badge-hero { height: 44px; }
         }
-    </style>
+
+        /* ── Encart calculateur, dans le hero ──────────────────────────
+           Le seul contenu du site utilisable sans installer l'app :
+           il doit etre visible sans defiler.                            */
+        .encart-calc { display: inline-flex; align-items: center; gap: 18px;
+            background: white; border: 1.5px solid rgba(196,135,58,0.32);
+            border-radius: 16px; padding: 15px 20px; margin-top: 22px;
+            text-decoration: none; max-width: 560px;
+            box-shadow: 0 4px 18px rgba(44,24,16,0.07);
+            transition: border-color .2s, transform .2s, box-shadow .2s;
+            animation: fadeUp 0.6s ease 0.4s both; }
+        .encart-calc:hover { border-color: var(--caramel); transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(44,24,16,0.12); }
+        .encart-calc:focus-visible { outline: 3px solid var(--caramel); outline-offset: 3px; }
+        .encart-calc .ic { font-size: 1.7rem; line-height: 1; flex-shrink: 0; }
+        .encart-calc .lab { display: block; font-size: 0.68rem; font-weight: 700;
+            letter-spacing: 0.14em; text-transform: uppercase; color: var(--caramel);
+            margin-bottom: 3px; }
+        .encart-calc .tit { display: block; font-family: 'Playfair Display', serif;
+            font-size: 1.12rem; font-weight: 900; color: var(--cafe); line-height: 1.25; }
+        .encart-calc .sub { display: block; font-size: 0.84rem; font-weight: 300;
+            color: var(--cafe); opacity: 0.62; margin-top: 3px; }
+        .encart-calc .fleche { margin-left: auto; color: var(--caramel);
+            font-size: 1.2rem; font-weight: 700; flex-shrink: 0; }
+        @media (max-width: 768px) {
+            .encart-calc { margin-top: 26px; padding: 14px 16px; gap: 13px; width: 100%; }
+            .encart-calc .tit { font-size: 1rem; }
+        }
+  
+        /* ── Compactage mobile ─────────────────────────────────────────
+           L'accueil faisait 18,7 ecrans de telephone, dont 8,7 pour la
+           seule section Premium (16 cartes empilees + un tableau).      */
+        @media (max-width: 768px) {
+            section { padding-top: 52px !important; padding-bottom: 52px !important; }
+
+            /* Deux colonnes : 16 cartes en pile faisaient 3 799 px. */
+            .premium-cards { grid-template-columns: repeat(2, 1fr) !important;
+                gap: 9px !important; margin-bottom: 34px !important; }
+            .premium-card { padding: 15px 12px !important; border-radius: 13px !important; }
+            .premium-card-emoji { font-size: 1.45rem !important; margin-bottom: 7px !important; }
+            .premium-card h3 { font-size: 0.87rem !important; margin-bottom: 5px !important; line-height: 1.25; }
+            .premium-card p { font-size: 0.76rem !important; line-height: 1.45 !important; }
+
+            .features-grid { gap: 10px !important; }
+            .feature-card { padding: 17px 14px !important; }
+            .feature-card p { font-size: 0.82rem !important; line-height: 1.5 !important; }
+            .feature-emoji { font-size: 1.5rem !important; margin-bottom: 7px !important; }
+
+            .section-title { margin-bottom: 26px !important; }
+            .paliers-points { gap: 9px !important; }
+        }
+
+        /* Le tableau comparatif faisait 1 491 px sur telephone : il est
+           desormais replie par defaut, et reste ouvrable d'un geste. */
+        .repli-compare > summary { cursor: pointer; list-style: none; padding: 15px 18px;
+            border: 1px solid rgba(155,111,208,0.35); border-radius: 12px;
+            color: white; font-size: 0.93rem; font-weight: 500; position: relative;
+            background: rgba(255,255,255,0.05); margin-bottom: 18px; min-height: 46px;
+            display: flex; align-items: center; }
+        .repli-compare > summary::-webkit-details-marker { display: none; }
+        .repli-compare > summary::after { content: '+'; position: absolute; right: 18px;
+            font-size: 1.35rem; font-weight: 300; color: var(--purple-light, #9B6FD0); }
+        .repli-compare[open] > summary::after { content: '−'; }
+        .repli-compare > summary:focus-visible { outline: 2px solid var(--caramel); outline-offset: 2px; }
+        @media (min-width: 769px) { .repli-compare > summary { display: none; } }
+  </style>
 </head>
 <body>
 <nav>
@@ -344,8 +416,19 @@
                 <img src="/works-with-apple-health-en.svg" alt="Works with Apple Health" class="health-badge-hero">
                 <a onclick="showMain('features')" class="btn-secondary">Discover →</a>
             </div>
+            <a href="/en/caffeine-calculator.html" class="encart-calc">
+                <span class="ic" aria-hidden="true">📉</span>
+                <span>
+                    <span class="lab">Free, nothing to install</span>
+                    <span class="tit">Caffeine at bedtime calculator</span>
+                    <span class="sub">How much is still in your system when you go to bed?</span>
+                </span>
+                <span class="fleche" aria-hidden="true">→</span>
+            </a>
+
         </div>
     </section>
+
 
     <section class="features" id="features">
         <div class="section-label">Features</div>
@@ -458,7 +541,8 @@
         <p style="text-align:center;font-size:0.75rem;opacity:0.5;margin-bottom:48px;">Premium time is added to your current expiry date. Points have no monetary value.</p>
 
         <h3 class="compare-title">Free vs Premium</h3>
-        <table class="compare-table">
+        <details class="repli-compare" open><summary>Free vs Premium, in detail</summary>
+<table class="compare-table">
             <thead>
                 <tr>
                     <th style="width:50%"></th>
@@ -497,6 +581,7 @@
                 <tr><td>Exchange points → Premium time</td><td class="col-free">✅</td><td class="col-premium">— <span style="font-size:0.7rem;opacity:0.6">(free plan only)</span></td></tr>
             </tbody>
         </table>
+</details>
 
         <div class="plans">
             <div class="plan-card">
@@ -646,6 +731,23 @@
     function fermerMenuSiBackdrop(e) { if(e.target===e.currentTarget||e.target.classList.contains('mobile-menu-backdrop'))fermerMenuMobile(); }
     function naviguerVers(anchor) { fermerMenuMobile(); showMain(anchor); }
     document.addEventListener('keydown',function(e){if(e.key==='Escape')fermerMenuMobile();});
+</script>
+
+<script>
+// Le tableau comparatif fait ~1 400 px sur telephone. On le replie sur les
+// petits ecrans uniquement, et en JavaScript : ainsi, sans JS, il reste
+// entierement visible.
+(function () {
+    var d = document.querySelector('.repli-compare');
+    if (!d) return;
+    function ajuster() {
+        if (window.matchMedia('(max-width: 768px)').matches) {
+            if (!d.dataset.replie) { d.removeAttribute('open'); d.dataset.replie = '1'; }
+        } else { d.setAttribute('open', ''); d.dataset.replie = ''; }
+    }
+    ajuster();
+    window.addEventListener('resize', ajuster);
+})();
 </script>
 </body>
 </html>
