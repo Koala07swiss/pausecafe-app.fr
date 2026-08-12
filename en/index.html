@@ -296,6 +296,10 @@
         .compare-table .prec { display: block; font-size: 0.76rem; font-weight: 300;
             opacity: 0.55; line-height: 1.4; margin-top: 3px; }
         @media (max-width: 768px) { .compare-table .prec { font-size: 0.71rem; } }
+
+        .section-intro { text-align: center; max-width: 60ch; margin: -14px auto 34px;
+            color: rgba(255,255,255,0.66); font-weight: 300; font-size: 1rem; line-height: 1.65; }
+        @media (max-width: 768px) { .section-intro { font-size: 0.9rem; margin: -8px auto 24px; } }
 </style>
 </head>
 <body>
@@ -434,23 +438,6 @@
     </section>
 
 
-    <section class="features" id="features">
-        <div class="section-label">Features</div>
-        <h2 class="section-title">Everything you need to look after yourself</h2>
-        <div class="features-grid">
-            <div class="feature-card"><span class="feature-emoji">☕</span><h3>Track your caffeine</h3><p>Log every drink in one tap. Coffee, tea, herbal infusion, soda, energy drink — all listed with their exact caffeine content in mg.</p></div>
-            <a class="feature-card feature-water" href="/en/hydration.html" style="text-decoration:none;color:inherit;display:block;"><span class="feature-emoji">💧</span><h3>Track your hydration</h3><p>A dedicated water counter shown by the blue ring around the cup. Set your own goal from 4 to 12 glasses a day (8 glasses = 2 L by default, the WHO recommendation). The “+ Water” button adds a glass in one tap. <span class="feature-link" style="color:var(--blue);">Learn more →</span></p></a>
-            <div class="feature-card"><span class="feature-emoji">🏆</span><h3>130 badges &amp; 8 levels</h3><p>Unlock badges, earn points and climb the levels. From Sprout 🌱 to Legend 🦁 — 130 badges to collect (including 10 Premium-only 👑 and 10 dedicated to hydration 💧), each rewarded according to its difficulty. Some are a mystery!</p></div>
-            <div class="feature-card"><span class="feature-emoji">🎁</span><h3>Real rewards</h3><p>Partner deals for everyone. Premium members can exchange points for gifts or gift vouchers (a 6-month cooldown applies between two physical claims). Free members can exchange points for Premium time.</p></div>
-            <div class="feature-card"><span class="feature-emoji">📊</span><h3>Stats &amp; progress</h3><p>Three tabs in My Progress: ☕ Caffeine (trend charts, breakdown by hour and by weekday), 💧 Water (consistency, records, time slots) and 🔍 Insights (cross-correlations, Premium).</p></div>
-            <div class="feature-card"><span class="feature-emoji">🔥</span><h3>Streaks &amp; motivation</h3><p>Keep your run of consecutive days going. Losing a streak costs you points — the ultimate motivation.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🎯</span><h3>Community challenges</h3><p>Take on weekly, monthly or yearly challenges and earn bonus points. Streaks, caffeine, badges, referrals and more — 9 challenge types, up to 3 active at once. 5 exclusive badges to unlock.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🤝</span><h3>Referrals &amp; rewards</h3><p>Share your unique code with friends. They get +100 welcome points, and you get +100 points when they sign up. If someone you referred subscribes, you get a free month of Premium — up to 10 referrals.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🤰</span><h3>Caution mode</h3><p>Automatically adjusts your caffeine limit to 200 mg a day (the EFSA benchmark) AND your hydration goal to 9 glasses (2.3 L, the WHO benchmark) during pregnancy. Free for everyone.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🏷️</span><h3>Partner deals</h3><p>Get exclusive promo codes from our selected partners. Free for every user.</p></div>
-        </div>
-    </section>
-
     <section class="showcase" id="cafeine-active">
         <div class="showcase-inner">
             <div class="section-label" style="opacity:0.6;">📉 Active caffeine</div>
@@ -499,8 +486,10 @@
         </div>
     </section>
     <section class="premium" id="premium">
-        <div class="section-label" style="color:var(--purple-light);opacity:1">Premium</div>
-        <h2 class="section-title" style="color:white">Step up a level 👑</h2>
+        <span id="features" aria-hidden="true"></span>
+        <div class="section-label" style="color:var(--purple-light);opacity:1">Features</div>
+        <h2 class="section-title" style="color:white">Everything PauseCafé does 👑</h2>
+        <p class="section-intro">Full tracking is free. Premium adds the Apple Watch, real-time active caffeine and correlations with your sleep.</p>
         <table class="compare-table">
             <thead>
                 <tr>
@@ -514,6 +503,7 @@
                 <tr><td>Hydration tracking (water counter)<span class="prec">Glasses or millilitres, adjustable target</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>iOS widget (home screen)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>130 badges &amp; 8 levels<span class="prec">A progression that rewards consistency</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Daily streaks<span class="prec">A flame that grows for as long as you keep your streak</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Stats &amp; progress (caffeine + water)<span class="prec">Week, month, year: see your real trends</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Water ↔ caffeine correlation<span class="prec">How your hydration shifts with your caffeine intake</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>CSV data export (GDPR)<span class="prec">Your data is yours, exportable at any time</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>

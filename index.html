@@ -295,6 +295,10 @@
         .compare-table .prec { display: block; font-size: 0.76rem; font-weight: 300;
             opacity: 0.55; line-height: 1.4; margin-top: 3px; }
         @media (max-width: 768px) { .compare-table .prec { font-size: 0.71rem; } }
+
+        .section-intro { text-align: center; max-width: 60ch; margin: -14px auto 34px;
+            color: rgba(255,255,255,0.66); font-weight: 300; font-size: 1rem; line-height: 1.65; }
+        @media (max-width: 768px) { .section-intro { font-size: 0.9rem; margin: -8px auto 24px; } }
 </style>
 </head>
 <body>
@@ -433,23 +437,6 @@
     </section>
 
 
-    <section class="features" id="features">
-        <div class="section-label">Fonctionnalités</div>
-        <h2 class="section-title">Tout ce qu'il faut pour prendre soin de toi</h2>
-        <div class="features-grid">
-            <div class="feature-card"><span class="feature-emoji">☕</span><h3>Suis ta caféine</h3><p>Enregistre chaque boisson en un tap. Café, thé, tisane, soda, energy drink — tout est répertorié avec les valeurs exactes en mg de caféine.</p></div>
-            <a class="feature-card feature-water" href="hydratation.html" style="text-decoration:none;color:inherit;display:block;"><span class="feature-emoji">💧</span><h3>Suis ton hydratation</h3><p>Compteur d'eau dédié visible via l'anneau bleu autour de la tasse. Objectif personnel de 4 à 12 verres / jour (par défaut 8 verres = 2 L, reco OMS). Bouton « + Eau » pour ajouter un verre en un tap. <span class="feature-link" style="color:var(--blue);">En savoir plus →</span></p></a>
-            <div class="feature-card"><span class="feature-emoji">🏆</span><h3>130 badges &amp; 8 niveaux</h3><p>Débloque des badges, gagne des points et monte en niveau. De Pousse 🌱 à Légende 🦁 — 130 badges à collectionner (dont 10 exclusifs Premium 👑 et 10 dédiés à l'hydratation 💧), chacun récompensé selon sa difficulté. Certains sont mystérieux !</p></div>
-            <div class="feature-card"><span class="feature-emoji">🎁</span><h3>Vraies récompenses</h3><p>Bons plans partenaires pour tous. Pour les Premium : échange tes points contre des cadeaux ou des bons cadeaux (cooldown de 6 mois entre 2 réclamations physiques). Pour les gratuits : échange tes points contre du temps Premium.</p></div>
-            <div class="feature-card"><span class="feature-emoji">📊</span><h3>Stats &amp; évolution</h3><p>3 onglets sur Mon Évolution : ☕ Caféine (graphiques d'évolution, analyse par horaire et par jour de semaine), 💧 Eau (régularité, records, tranches horaires) et 🔍 Analyses (corrélations croisées, Premium).</p></div>
-            <div class="feature-card"><span class="feature-emoji">🔥</span><h3>Séries &amp; motivation</h3><p>Maintiens ta série de jours consécutifs. Une série perdue coûte des points — la motivation ultime.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🎯</span><h3>Défis Communauté</h3><p>Relève des défis hebdomadaires, mensuels ou annuels et gagne des points bonus. Série, caféine, badges, parrainages… 9 types de défis, 3 actifs max simultanément. 5 badges exclusifs à débloquer.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🤝</span><h3>Parrainage &amp; récompenses</h3><p>Partage ton code unique à tes amis. Ils reçoivent +100 points de bienvenue, toi tu gagnes +100 points à l'inscription. Et si ton filleul s'abonne, tu reçois 1 mois Premium offert — jusqu'à 10 filleuls.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🤰</span><h3>Mode précaution</h3><p>Adapte automatiquement ta limite caféine à 200 mg/jour (repère EFSA) ET ton objectif d'hydratation à 9 verres (2,3 L, repère OMS) pour les femmes enceintes. Gratuit pour toutes.</p></div>
-            <div class="feature-card"><span class="feature-emoji">🏷️</span><h3>Bons plans partenaires</h3><p>Accède à des codes promo exclusifs chez nos partenaires sélectionnés. Disponible gratuitement pour tous les utilisateurs.</p></div>
-        </div>
-    </section>
-
     <section class="showcase" id="cafeine-active">
         <div class="showcase-inner">
             <div class="section-label" style="opacity:0.6;">📉 Caféine active</div>
@@ -498,8 +485,10 @@
         </div>
     </section>
     <section class="premium" id="premium">
-        <div class="section-label" style="color:var(--purple-light);opacity:1">Premium</div>
-        <h2 class="section-title" style="color:white">Passe au niveau supérieur 👑</h2>
+        <span id="features" aria-hidden="true"></span>
+        <div class="section-label" style="color:var(--purple-light);opacity:1">Fonctionnalités</div>
+        <h2 class="section-title" style="color:white">Tout ce que fait PauseCafé 👑</h2>
+        <p class="section-intro">Le suivi complet est gratuit. Premium ajoute l'Apple Watch, la caféine active en temps réel et les corrélations avec ton sommeil.</p>
         <table class="compare-table">
             <thead>
                 <tr>
@@ -513,6 +502,7 @@
                 <tr><td>Suivi d'hydratation (compteur d'eau)<span class="prec">Verres ou millilitres, objectif ajustable</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Widget iOS (écran d'accueil)</td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>130 badges &amp; 8 niveaux<span class="prec">Une progression qui récompense la régularité</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
+                <tr><td>Séries quotidiennes<span class="prec">Une flamme qui grandit tant que tu tiens ta série</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Stats &amp; évolution (caféine + eau)<span class="prec">Semaine, mois, année : vois tes tendances réelles</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
                 <tr><td>Corrélation eau ↔ caféine<span class="prec">Comment ton hydratation évolue selon ta consommation de caféine</span></td><td class="col-free">❌</td><td class="col-premium">✅</td></tr>
                 <tr><td>Export CSV des données (RGPD)<span class="prec">Tes données t'appartiennent, récupérables à tout moment</span></td><td class="col-free">✅</td><td class="col-premium">✅</td></tr>
