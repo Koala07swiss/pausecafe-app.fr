@@ -437,6 +437,17 @@
         .integration .copier:hover { opacity: 0.9; }
         .integration .copier:focus-visible { outline: 2px solid var(--caramel); outline-offset: 2px; }
         .integration .cond { font-size: 0.8rem; margin: 12px 0 0; opacity: 0.75; }
+
+        /* La signature du mode integre porte les DEUX liens : le site, pour
+           le referencement, et l'App Store, pour la conversion. Sans elle,
+           un visiteur qui decouvre l'outil ailleurs n'a aucun moyen
+           d'arriver jusqu'a l'application. */
+        body.embed .signature { display: block; text-align: center;
+            padding: 14px 14px 20px; font-size: 0.8rem; color: #6B5445;
+            line-height: 1.6; border-top: 1px solid rgba(196,135,58,0.22);
+            margin-top: 10px; }
+        body.embed .signature a { color: var(--caramel); font-weight: 700; text-decoration: none; }
+        body.embed .signature a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -1134,7 +1145,7 @@
 </script>
 
 
-<p class="signature">PauseCafé — <a href="https://pausecafe-app.fr/calculateur-cafeine.html" target="_blank" rel="noopener">pausecafe-app.fr</a></p>
+<p class="signature">Calculateur par <a href="https://pausecafe-app.fr/calculateur-cafeine.html" target="_blank" rel="noopener">PauseCafé</a> · Suivi complet sur iPhone et Apple Watch — <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" rel="noopener">App&nbsp;Store</a></p>
 
 <script>
 // Mode integration : ?embed=1 ne laisse que l'outil, pour les sites qui
