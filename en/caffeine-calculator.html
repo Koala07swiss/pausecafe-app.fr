@@ -381,6 +381,61 @@
         }
         .champ input[type="time"] { padding-right: 38px; }
         @media (max-width: 760px) { .champ::after { bottom: 14px; } }
+
+        .perso { padding: 4px 2px 2px; }
+        .perso p.aide-p { font-size: 0.83rem; color: #6B5445; font-weight: 300;
+            line-height: 1.5; margin-bottom: 12px; }
+        .perso-ligne { display: flex; gap: 9px; align-items: flex-end; flex-wrap: wrap; }
+        .perso-champ { display: flex; flex-direction: column; gap: 5px; }
+        .perso-champ label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
+            text-transform: uppercase; color: #8A6D5A; }
+        .perso-champ input { font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+            padding: 10px 12px; min-height: 44px; border: 1.5px solid rgba(196,135,58,0.45);
+            border-radius: 10px; background: #fff; color: var(--cafe); }
+        .perso-champ input#perso-mg { font-family: 'JetBrains Mono', monospace; font-weight: 700; width: 108px; }
+        .perso-champ input:focus { outline: 2px solid var(--caramel); outline-offset: 1px; }
+        .perso-add { min-height: 44px; padding: 0 20px; border: 0; border-radius: 10px;
+            background: var(--caramel); color: #fff; font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: transform .1s, opacity .15s; }
+        .perso-add:hover { opacity: 0.9; }
+        .perso-add:active { transform: scale(0.96); }
+        .perso-add:focus-visible { outline: 2px solid var(--cafe); outline-offset: 2px; }
+        .perso-err { font-size: 0.8rem; color: #A6522E; margin-top: 8px; min-height: 1em; }
+        .perso-note { font-size: 0.78rem; color: #8A6D5A; font-weight: 300; margin-top: 12px;
+            padding-top: 10px; border-top: 1px solid rgba(196,135,58,0.18); }
+        @media (max-width: 420px) { .perso-champ:first-child { flex: 1 1 100%; }
+            .perso-champ:first-child input { width: 100%; } }
+
+        /* ── Mode integration ───────────────────────────────────────────
+           Charge avec ?embed=1, la page ne montre que l'outil : c'est ce
+           qui s'affiche chez les sites qui reprennent le calculateur.    */
+        body.embed nav, body.embed header.hero, body.embed section.texte,
+        body.embed .cta, body.embed footer, body.embed .rappel,
+        body.embed .integration { display: none !important; }
+        body.embed { padding: 0; background: transparent; }
+        body.embed .wrap { padding: 12px; max-width: 100%; }
+        body.embed .courbe-carte { margin-top: 0; }
+        .signature { display: none; }
+        body.embed .signature { display: block; text-align: center; padding: 14px 12px 18px;
+            font-size: 0.82rem; color: #6B5445; }
+        body.embed .signature a { color: var(--caramel); font-weight: 700; text-decoration: none; }
+        body.embed .signature a:hover { text-decoration: underline; }
+
+        .integration { background: var(--mousse); border-radius: 16px; padding: 24px 26px; margin-top: 30px; }
+        .integration h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem;
+            font-weight: 700; margin-bottom: 8px; }
+        .integration p { font-size: 0.9rem; font-weight: 300; color: #5C4033; margin-bottom: 14px; }
+        .integration textarea { width: 100%; min-height: 92px; font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74rem; line-height: 1.6; padding: 13px 15px; border-radius: 11px;
+            border: 1.5px solid rgba(196,135,58,0.4); background: #fff; color: var(--cafe);
+            resize: vertical; }
+        .integration textarea:focus { outline: 2px solid var(--caramel); outline-offset: 1px; }
+        .integration .copier { margin-top: 11px; min-height: 44px; padding: 0 22px; border: 0;
+            border-radius: 10px; background: var(--cafe); color: #fff; font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem; font-weight: 700; cursor: pointer; }
+        .integration .copier:hover { opacity: 0.9; }
+        .integration .copier:focus-visible { outline: 2px solid var(--caramel); outline-offset: 2px; }
+        .integration .cond { font-size: 0.8rem; margin: 12px 0 0; opacity: 0.75; }
 </style>
 </head>
 <body>
@@ -455,6 +510,22 @@
     </div>
 
     <div id="boissons"></div>
+    <div class="perso" id="perso" hidden>
+        <p class="aide-p">A drink that isn't listed? Enter its caffeine content, shown on the label or the maker's website.</p>
+        <div class="perso-ligne">
+            <div class="perso-champ">
+                <label for="perso-nom">Name (optional)</label>
+                <input type="text" id="perso-nom" placeholder="My drink" maxlength="28">
+            </div>
+            <div class="perso-champ">
+                <label for="perso-mg">Caffeine</label>
+                <input type="number" id="perso-mg" min="1" max="1000" step="1" placeholder="mg" inputmode="numeric">
+            </div>
+            <button type="button" class="perso-add" id="perso-add">Add</button>
+        </div>
+        <p class="perso-err" id="perso-err" role="status"></p>
+        <p class="perso-note">In the app, custom drinks are saved and come back in one tap.</p>
+    </div>
     <p class="confid">🔒 Everything is worked out in your browser. No data is sent or stored.</p>
 </div>
 
@@ -548,6 +619,15 @@
         </ul>
     </div>
 
+
+    <div class="integration">
+        <h3>Embed this calculator on your site</h3>
+        <p>Running a blog, a roastery site or a wellbeing magazine? This calculator is free to embed. Copy the code below and paste it into your page: the tool stays up to date on its own, with nothing to install.</p>
+        <textarea id="code-embed" readonly rows="4">&lt;iframe src="https://pausecafe-app.fr/en/caffeine-calculator.html?embed=1" width="100%" height="720" style="border:1px solid #e5d5b8;border-radius:14px" loading="lazy" title="Calculator by PauseCafé"&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href="https://pausecafe-app.fr/en/caffeine-calculator.html"&gt;Calculator by PauseCafé&lt;/a&gt;&lt;/p&gt;</textarea>
+        <button type="button" class="copier" id="btn-embed">Copy the code</button>
+        <p class="cond">One condition only: keep the attribution link to PauseCafé shown under the tool.</p>
+    </div>
 </section>
 
 <div class="cta">
@@ -672,22 +752,30 @@
         var onglets = document.createElement('div');
         onglets.className = 'onglets';
         onglets.setAttribute('role', 'tablist');
-        CATALOGUE.forEach(function (fam, i) {
+        var familles = CATALOGUE.concat([{ cat: 'Other', ic: '\u270F\uFE0F', perso: true, boissons: [] }]);
+        familles.forEach(function (fam, i) {
             var o = document.createElement('button');
             o.type = 'button';
             o.className = 'ong';
             o.setAttribute('role', 'tab');
             o.setAttribute('aria-selected', i === familleActive ? 'true' : 'false');
-            o.innerHTML = fam.ic + ' ' + fam.cat + ' <span class="n">' + fam.boissons.length + '</span>';
+            o.innerHTML = fam.ic + ' ' + fam.cat +
+                (fam.perso ? '' : ' <span class="n">' + fam.boissons.length + '</span>');
             o.addEventListener('click', function () { familleActive = i; rendreSelecteur(); });
             onglets.appendChild(o);
         });
         elBoissons.appendChild(onglets);
 
+        var perso = document.getElementById('perso');
+        if (perso) perso.hidden = !familles[familleActive].perso;
+        // Ne PAS deplacer #perso dans #boissons : ce conteneur est vide a chaque
+        // rendu, ce qui detruirait le formulaire et ses ecouteurs.
+        if (familles[familleActive].perso) return;
+
         var liste = document.createElement('div');
         liste.className = 'lignes';
         liste.setAttribute('role', 'tabpanel');
-        CATALOGUE[familleActive].boissons.forEach(function (b) {
+        familles[familleActive].boissons.forEach(function (b) {
             var l = document.createElement('div');
             l.className = 'lg-b';
             l.innerHTML = '<span class="ic" aria-hidden="true">' + b.ic + '</span>' +
@@ -715,6 +803,29 @@
         });
         elBoissons.appendChild(liste);
     }
+    (function () {
+        var champMg = document.getElementById('perso-mg');
+        var champNom = document.getElementById('perso-nom');
+        var err = document.getElementById('perso-err');
+        var bouton = document.getElementById('perso-add');
+        if (!champMg || !bouton) return;
+        function valider() {
+            var mg = parseInt(champMg.value, 10);
+            if (!(mg >= 1 && mg <= 1000)) { err.textContent = 'Enter a value between 1 and 1000 mg'; champMg.focus(); return; }
+            err.textContent = '';
+            prises.push({ minutes: enMinutes(elHeure.value),
+                          nom: (champNom.value.trim() || 'Drink') + ' \u00B7 ' + mg + ' mg',
+                          mg: mg });
+            prises.sort(function (x, y) { return x.minutes - y.minutes; });
+            champMg.value = ''; champNom.value = '';
+            rendre();
+        }
+        bouton.addEventListener('click', valider);
+        [champMg, champNom].forEach(function (c) {
+            c.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); valider(); } });
+        });
+    })();
+
     rendreSelecteur();
 
     // ── Exemples : une journée type en un clic ──────────────────────────
@@ -1022,5 +1133,24 @@
 })();
 </script>
 
+
+<p class="signature">PauseCafé — <a href="https://pausecafe-app.fr/en/caffeine-calculator.html" target="_blank" rel="noopener">pausecafe-app.fr</a></p>
+
+<script>
+// Mode integration : ?embed=1 ne laisse que l'outil, pour les sites qui
+// reprennent le calculateur. La signature vers pausecafe-app.fr reste visible.
+(function () {
+    if (/[?&]embed=1/.test(location.search)) document.body.classList.add('embed');
+    var b = document.getElementById('btn-embed'), z = document.getElementById('code-embed');
+    if (!b || !z) return;
+    var libelle = b.textContent;
+    b.addEventListener('click', function () {
+        z.select(); z.setSelectionRange(0, 99999);
+        var fini = function () { b.textContent = 'Copied!'; setTimeout(function () { b.textContent = libelle; }, 2000); };
+        if (navigator.clipboard) { navigator.clipboard.writeText(z.value).then(fini, fini); }
+        else { try { document.execCommand('copy'); } catch (e) {} fini(); }
+    });
+})();
+</script>
 </body>
 </html>
