@@ -370,6 +370,18 @@
 
         .confid { font-size: 0.78rem; color: #8A6D5A; font-weight: 300; margin-top: 14px;
             padding-top: 12px; border-top: 1px solid rgba(196,135,58,0.18); line-height: 1.5; }
+
+        /* Une horloge, pas un chevron : le chevron annonce un menu deroulant,
+           or ce champ ouvre un selecteur d'heure. */
+        .champ::after {
+            content: '';
+            position: absolute; right: 11px; bottom: 12px;
+            width: 19px; height: 19px; pointer-events: none;
+            border: 0; transform: none; opacity: 0.8;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C4873A' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3 2'/%3E%3C/svg%3E") no-repeat center / contain;
+        }
+        .champ input[type="time"] { padding-right: 38px; }
+        @media (max-width: 760px) { .champ::after { bottom: 14px; } }
 </style>
 </head>
 <body>
@@ -995,6 +1007,16 @@
     }
 
     function rendre() { ajusterHauteur(); rendreListe(); rendreGraphe(); rendreVerdict(); rendreReperes(); rendreRappel(); }
+
+    // L'heure de la boisson part de MAINTENANT (arrondie a 5 min) : quelqu'un
+    // qui ouvre la page veut d'abord noter le cafe qu'il est en train de boire.
+    // La valeur 08:00 du HTML sert de repli si le script ne s'execute pas.
+    (function () {
+        var n = new Date();
+        var m = Math.round(n.getMinutes() / 5) * 5;
+        if (m === 60) { m = 0; n.setHours(n.getHours() + 1); }
+        elHeure.value = String(n.getHours()).padStart(2, '0') + ':' + String(m).padStart(2, '0');
+    })();
 
     rendre();
 })();
