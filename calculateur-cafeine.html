@@ -327,6 +327,49 @@
             .journee h2 { font-size: 0.88rem; margin-bottom: 6px; }
 
         }
+
+        /* ── Champs d'heure : rendre l'interaction evidente ─────────────
+           Un input[type=time] ressemble a du texte fige : fond uni, bordure
+           discrete, rien n'indique qu'on peut le toucher. On lui donne les
+           marques visuelles d'un bouton.                                  */
+        .champ { position: relative; }
+        .champ input[type="time"] {
+            background: #fff;
+            border: 1.5px solid rgba(196,135,58,0.55);
+            box-shadow: 0 1px 0 rgba(44,24,16,0.06), inset 0 -1px 0 rgba(196,135,58,0.12);
+            cursor: pointer;
+            padding-right: 34px;
+            font-weight: 700;
+            transition: border-color .15s, box-shadow .15s, transform .1s;
+        }
+        .champ input[type="time"]:hover {
+            border-color: var(--caramel);
+            box-shadow: 0 2px 8px rgba(196,135,58,0.2);
+        }
+        .champ input[type="time"]:active { transform: scale(0.985); }
+        /* Chevron : le signe universel du « ceci s'ouvre ». */
+        .champ::after {
+            content: '';
+            position: absolute; right: 13px; bottom: 19px;
+            width: 7px; height: 7px; pointer-events: none;
+            border-right: 2px solid var(--caramel);
+            border-bottom: 2px solid var(--caramel);
+            transform: rotate(45deg);
+            opacity: 0.75;
+        }
+        /* L'horloge native de Safari ferait doublon avec le chevron. */
+        .champ input[type="time"]::-webkit-calendar-picker-indicator {
+            opacity: 0; position: absolute; right: 0; width: 34px; height: 100%; cursor: pointer;
+        }
+        .champ .indice { font-size: 0.7rem; font-weight: 400; color: #A08464;
+            text-transform: none; letter-spacing: 0; margin-left: 6px; }
+        @media (max-width: 760px) {
+            .champ::after { bottom: 21px; }
+            .champ input[type="time"] { font-size: 1rem; }
+        }
+
+        .confid { font-size: 0.78rem; color: #8A6D5A; font-weight: 300; margin-top: 14px;
+            padding-top: 12px; border-top: 1px solid rgba(196,135,58,0.18); line-height: 1.5; }
 </style>
 </head>
 <body>
@@ -361,6 +404,7 @@
                 <span class="repere">Pic de la journée<b id="r-pic">—</b></span>
                 <span class="repere">Atteint à<b id="r-pic-h">—</b></span>
                 <span class="repere">Sous 100 mg à partir de<b id="r-seuil-h">—</b></span>
+                <span class="repere">Dernier café possible<b id="r-limite">—</b></span>
             </div>
         </div>
     </div>
@@ -390,16 +434,17 @@
 
     <div class="ligne-champs">
         <div class="champ">
-            <label for="heure-prise">Heure de la boisson</label>
+            <label for="heure-prise">Heure de la boisson <span class="indice">— touchez pour changer</span></label>
             <input type="time" id="heure-prise" value="08:00">
         </div>
         <div class="champ">
-            <label for="heure-coucher">Heure du coucher</label>
+            <label for="heure-coucher">Heure du coucher <span class="indice">— touchez pour changer</span></label>
             <input type="time" id="heure-coucher" value="23:00">
         </div>
     </div>
 
     <div id="boissons"></div>
+    <p class="confid">🔒 Tout est calculé dans votre navigateur. Aucune donnée n'est envoyée ni conservée.</p>
 </div>
 
 <div class="journee">
@@ -874,7 +919,28 @@
         for (var n = picH; n <= fin; n += 2) {
             if (totalA(n) < SEUIL_SOMMEIL) { seuilH = n; break; }
         }
-        return { pic: Math.round(pic), picH: picH, seuilH: seuilH };
+        // Heure limite pour une boisson de reference : la question que se posent
+        // vraiment les gens (« jusqu'a quand puis-je boire un cafe ? »). C'est
+        // le repere qu'affichent tous les calculateurs concurrents.
+        var c = minutesCoucher();
+        var limite = null;
+        // Attention au piege du modele : une boisson prise juste avant le
+        // coucher n'est pas encore absorbee A CET INSTANT, mais elle monte
+        // pendant la nuit. On evalue donc le maximum sur les trois premieres
+        // heures de sommeil, la fenetre qui compte pour l'endormissement et
+        // le sommeil profond.
+        function maxNuit(ajout, quand) {
+            var m = 0;
+            for (var x = c; x <= c + 180; x += 10) {
+                var v = totalA(x) + (ajout ? restant(ajout, (x - quand) / 60) : 0);
+                if (v > m) m = v;
+            }
+            return m;
+        }
+        for (var tt = c; tt >= c - 960; tt -= 5) {
+            if (maxNuit(77, tt) < SEUIL_SOMMEIL) { limite = tt; break; }
+        }
+        return { pic: Math.round(pic), picH: picH, seuilH: seuilH, limite: limite };
     }
 
     function rendreReperes() {
@@ -884,6 +950,11 @@
         box.hidden = false;
         document.getElementById('r-pic').textContent = r.pic + ' mg';
         document.getElementById('r-pic-h').textContent = enHeure(r.picH);
+        var el = document.getElementById('r-limite');
+        if (el) {
+            el.textContent = totalA(minutesCoucher()) >= SEUIL_SOMMEIL ? 'déjà dépassé'
+                : (r.limite === null ? 'trop tard' : (r.limite >= minutesCoucher() - 45 ? "jusqu'au coucher" : enHeure(r.limite)));
+        }
         document.getElementById('r-seuil-h').textContent =
             r.pic < SEUIL_SOMMEIL ? 'jamais dépassé'
             : (r.seuilH === null ? 'au-delà de 24 h' : enHeure(r.seuilH));
