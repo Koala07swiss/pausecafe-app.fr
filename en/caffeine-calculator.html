@@ -447,6 +447,14 @@
             margin-top: 10px; }
         body.embed .signature a { color: var(--caramel); font-weight: 700; text-decoration: none; }
         body.embed .signature a:hover { text-decoration: underline; }
+
+        .fiches-teneur { background: var(--mousse); border-radius: 16px; padding: 22px 24px; margin-top: 26px; }
+        .fiches-teneur h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+        .fiches-teneur p { font-size: 0.88rem; font-weight: 300; color: #5C4033; margin-bottom: 13px; }
+        .fiches-liens { display: flex; flex-wrap: wrap; gap: 8px; }
+        .fiches-liens a { background: #fff; border: 1px solid rgba(196,135,58,0.32); border-radius: 100px;
+            padding: 8px 15px; font-size: 0.86rem; color: var(--cafe); text-decoration: none; transition: border-color .15s; }
+        .fiches-liens a:hover { border-color: var(--caramel); }
 </style>
 </head>
 <body>
@@ -638,6 +646,17 @@
 &lt;p&gt;&lt;a href="https://pausecafe-app.fr/en/caffeine-calculator.html"&gt;Calculator by PauseCafé&lt;/a&gt;&lt;/p&gt;</textarea>
         <button type="button" class="copier" id="btn-embed">Copy the code</button>
         <p class="cond">One condition only: keep the attribution link to PauseCafé shown under the tool.</p>
+    </div>
+
+    <div class="fiches-teneur">
+        <h3>How much caffeine is in each drink?</h3>
+        <p>The detail drink by drink, with real ranges and the factors behind them.</p>
+        <div class="fiches-liens">
+            <a href="/en/caffeine/espresso.html">Espresso</a>
+            <a href="/en/caffeine/filter-coffee.html">Filter coffee</a>
+            <a href="/en/caffeine/green-tea.html">Green tea</a>
+            <a href="/en/caffeine/energy-drink.html">Energy drink</a>
+        </div>
     </div>
 </section>
 

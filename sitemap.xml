@@ -101,6 +101,78 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/caffeine-calculator.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/calculateur-cafeine.html"/>
   </url>
+  <url>
+    <loc>https://pausecafe-app.fr/cafeine/expresso.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/cafeine/expresso.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/caffeine/espresso.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/cafeine/expresso.html"/>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/en/caffeine/espresso.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/cafeine/expresso.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/caffeine/espresso.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/cafeine/expresso.html"/>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/cafeine/cafe-filtre.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/cafeine/cafe-filtre.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/caffeine/filter-coffee.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/cafeine/cafe-filtre.html"/>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/en/caffeine/filter-coffee.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/cafeine/cafe-filtre.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/caffeine/filter-coffee.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/cafeine/cafe-filtre.html"/>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/cafeine/the-vert.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/cafeine/the-vert.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/caffeine/green-tea.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/cafeine/the-vert.html"/>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/en/caffeine/green-tea.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/cafeine/the-vert.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/caffeine/green-tea.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/cafeine/the-vert.html"/>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/cafeine/boisson-energisante.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/cafeine/boisson-energisante.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/caffeine/energy-drink.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/cafeine/boisson-energisante.html"/>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/en/caffeine/energy-drink.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/cafeine/boisson-energisante.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/caffeine/energy-drink.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/cafeine/boisson-energisante.html"/>
+  </url>
   <!-- Articles blog -->
   <!-- AGENT:NOUVELLE-URL -->
   <url>
