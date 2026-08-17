@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caffeine and Sleep: Reading Your Personal Data | PauseCafé</title>
+  <meta name="description" content="Can your caffeine and sleep data tell a reliable story? Learn how to read a personal correlation without falling into interpretation traps.">
+  <meta name="keywords" content="caffeine and sleep data, personal sleep tracking, caffeine correlation, correlation vs causation, sleep tracker, caffeine timing">
+  <link rel="canonical" href="https://pausecafe-app.fr/en/blog/caffeine-sleep-personal-data/">
+  <link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/blog/correlation-cafeine-sommeil-donnees/">
+  <link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/blog/caffeine-sleep-personal-data/">
+  <link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/blog/correlation-cafeine-sommeil-donnees/">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://pausecafe-app.fr/en/blog/caffeine-sleep-personal-data/">
+  <meta property="og:title" content="What Your Personal Data Can (Really) Tell You About Caffeine and Sleep">
+  <meta property="og:description" content="Can your caffeine and sleep data tell a reliable story? Learn how to read a personal correlation without falling into interpretation traps.">
+  <meta property="og:image" content="https://pausecafe-app.fr/logo.png">
+  <meta property="og:site_name" content="PauseCafé">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What Your Personal Data Can (Really) Tell You About Caffeine and Sleep">
+  <meta name="twitter:description" content="Can your caffeine and sleep data tell a reliable story? Learn how to read a personal correlation without falling into interpretation traps.">
+  <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What Your Personal Data Can (Really) Tell You About Caffeine and Sleep","inLanguage":"en","author":{"@type":"Person","name":"Kévin Beguerie"},"publisher":{"@type":"Organization","name":"PauseCafé","url":"https://pausecafe-app.fr"},"datePublished":"2026-08-17","dateModified":"2026-08-17","mainEntityOfPage":"https://pausecafe-app.fr/en/blog/caffeine-sleep-personal-data/"}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--cafe:#2C1810;--cream:#F5EDD6;--espresso:#1A0F0A;--caramel:#C4873A;--mousse:#E8D5B0;}
+    *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--cafe);overflow-x:hidden;line-height:1.7;}
+    /* barre de navigation : voir /nav-blog.css, chargée après ce bloc */
+    .article-hero{background:var(--espresso);padding:140px 48px 80px;position:relative;overflow:hidden;}
+    .article-hero::before{content:'☕';position:absolute;font-size:22vw;right:-2vw;top:50%;transform:translateY(-50%);opacity:0.05;pointer-events:none;}
+    .hero-inner{max-width:780px;margin:0 auto;}
+    .article-cat{display:inline-block;background:var(--caramel);color:white;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:24px;}
+    .article-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.12;color:var(--cream);margin-bottom:20px;}
+    .article-meta{display:flex;gap:20px;flex-wrap:wrap;}
+    .meta-item{font-size:0.82rem;color:rgba(245,237,214,0.5);}
+    .meta-sep{color:rgba(245,237,214,0.2);}
+    .hero-image-wrap{padding:0 48px;margin-top:-40px;}
+    .hero-image-wrap img{width:100%;max-width:900px;display:block;margin:0 auto;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+    .hero-credit{max-width:900px;margin:8px auto 0;text-align:right;font-size:0.72rem;color:#9E8070;}
+    .hero-credit a{color:#9E8070;}
+    .article-body{max-width:780px;margin:0 auto;padding:64px 48px 80px;}
+    .article-body h2{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:var(--cafe);margin:48px 0 16px;line-height:1.2;}
+    .article-body h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--cafe);margin:32px 0 12px;}
+    .article-body p{font-size:1rem;line-height:1.85;color:#3D2010;margin-bottom:20px;font-weight:300;}
+    .article-body strong{font-weight:500;color:var(--cafe);}
+    .article-body a{color:var(--caramel);text-decoration:underline;text-underline-offset:2px;}
+    .article-body ul,ol{padding-left:24px;margin-bottom:20px;}
+    .article-body li{font-size:1rem;line-height:1.8;color:#3D2010;font-weight:300;margin-bottom:6px;}
+    .highlight-box{background:white;border-left:4px solid var(--caramel);border-radius:0 12px 12px 0;padding:20px 24px;margin:32px 0;box-shadow:0 4px 16px rgba(44,24,16,0.06);}
+    .highlight-box p{margin:0;font-size:0.95rem;color:#3D2010;}
+    .range-viz{background:white;border-radius:16px;padding:28px;margin:32px 0;box-shadow:0 4px 16px rgba(44,24,16,0.06);}
+    .range-viz h4{font-size:0.85rem;color:#9E8070;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:20px;}
+    .range-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+    .range-label{font-size:0.8rem;color:var(--cafe);min-width:160px;}
+    .range-track{position:relative;flex:1;height:16px;background:#F0E9D8;border-radius:100px;}
+    .range-fill{position:absolute;height:16px;border-radius:100px;background:var(--caramel);}
+    .range-val{font-size:0.78rem;color:#9E8070;min-width:78px;text-align:right;}
+    .range-scale{font-size:0.72rem;color:#B0A088;margin-top:6px;font-style:italic;}
+    .profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0;}
+    .profile-card{background:white;border-radius:12px;padding:20px;box-shadow:0 4px 12px rgba(44,24,16,0.06);}
+    .profile-card h4{font-size:0.9rem;font-weight:500;color:var(--cafe);margin-bottom:8px;}
+    .profile-card p{font-size:0.82rem;color:#5C4033;font-weight:300;margin:0;line-height:1.6;}
+    .profile-icon{font-size:1.8rem;margin-bottom:8px;}
+    .sources-section{background:var(--mousse);border-radius:16px;padding:28px 32px;margin-top:48px;}
+    .sources-section h4{font-size:0.85rem;font-weight:500;color:var(--cafe);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.08em;}
+    .sources-section ul{list-style:none;padding:0;}
+    .sources-section li{font-size:0.82rem;color:#5C4033;margin-bottom:6px;padding-left:16px;position:relative;}
+    .sources-section li::before{content:'→';position:absolute;left:0;color:var(--caramel);}
+    .cta-section{background:var(--espresso);border-radius:20px;padding:48px 40px;text-align:center;margin-top:64px;position:relative;overflow:hidden;}
+    .cta-section::before{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(196,135,58,0.12) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);}
+    .cta-section h3{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--cream);margin-bottom:12px;position:relative;}
+    .cta-section p{color:rgba(245,237,214,0.6);margin-bottom:32px;font-weight:300;position:relative;}
+    .cta-badge img{height:56px;width:auto;display:block;}
+    .cta-badge{display:inline-block;transition:opacity 0.2s,transform 0.2s;position:relative;z-index:1;}
+    .cta-badge:hover{opacity:0.85;transform:translateY(-2px);}
+    .related{margin-top:64px;}
+    .related h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--cafe);margin-bottom:24px;}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+    .related-card{background:var(--espresso);border-radius:12px;padding:20px;text-decoration:none;transition:transform 0.2s;}
+    .related-card:hover{transform:translateY(-2px);}
+    .related-card .r-cat{font-size:0.7rem;color:var(--caramel);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;}
+    .related-card .r-title{font-size:0.9rem;font-weight:500;color:var(--cream);line-height:1.35;}
+    footer{background:var(--espresso);color:var(--cream);padding:48px;text-align:center;}
+    footer p{font-size:0.82rem;opacity:0.4;}footer a{color:var(--caramel);text-decoration:none;}
+    @media(max-width:768px){nav{padding:12px 20px;}.article-hero{padding:110px 24px 60px;}.hero-image-wrap{padding:0 24px;}.article-body{padding:40px 24px 60px;}.profile-grid{grid-template-columns:1fr;}.range-label{min-width:108px;font-size:0.72rem;}.range-val{min-width:64px;font-size:0.72rem;}}
+  </style>
+  <link rel="stylesheet" href="/nav-blog.css">
+</head>
+<body>
+<nav>
+  <a href="https://pausecafe-app.fr/en/" class="nav-logo"><img src="/logo.webp" alt="PauseCafé">PauseCafé</a>
+  <ul class="nav-links">
+    <li><a href="/en/real-time-caffeine.html">Real-time caffeine</a></li>
+    <li><a href="/en/caffeine-calculator.html">Calculator</a></li>
+    <li><a href="/en/hydration.html">Hydration</a></li>
+    <li><a href="/en/insights.html">Insights</a></li>
+    <li><a href="/en/health.html">Health</a></li>
+    <li><a href="/en/blog" class="active">Articles</a></li>
+    <li><a href="/en/changelog.html">What's new</a></li>
+    <li><span class="lang-switch"><a href="/blog/correlation-cafeine-sommeil-donnees/" hreflang="fr">FR</a><span class="sep">/</span><a href="/en/blog/caffeine-sleep-personal-data/" aria-current="true" hreflang="en">EN</a></span></li>
+  </ul>
+  <button class="burger-btn" onclick="ouvrirMenuMobile()" aria-label="Menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+</nav>
+<div class="mobile-menu-overlay" id="mobile-menu" onclick="fermerMenuSiBackdrop(event)">
+  <div class="mobile-menu-backdrop"></div>
+  <div class="mobile-menu-panel">
+    <div class="mobile-menu-header">
+      <span class="mobile-menu-logo">
+        <img src="/logo.webp" alt="PauseCafé" class="mobile-menu-logo-img">
+        PauseCafé
+      </span>
+      <button class="mobile-menu-close" onclick="fermerMenuMobile()" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="/en/#features" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">☕</div>
+        <div class="item-text"><span class="item-label">Features</span><span class="item-sub">What PauseCafé does</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/en/real-time-caffeine.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">📉</div>
+        <div class="item-text"><span class="item-label">Real-time caffeine</span><span class="item-sub">Active caffeine explained</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/en/caffeine-calculator.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">🧮</div>
+        <div class="item-text"><span class="item-label">Calculator</span><span class="item-sub">Caffeine left at bedtime</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/en/hydration.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">💧</div>
+        <div class="item-text"><span class="item-label">Hydration</span><span class="item-sub">Water tracking &amp; the science</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/en/insights.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">🔬</div>
+        <div class="item-text"><span class="item-label">Insights</span><span class="item-sub">Method &amp; scientific sources</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/en/health.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">❤️</div>
+        <div class="item-text"><span class="item-label">Apple Health</span><span class="item-sub">Syncing with the Health app</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/en/#premium" class="mobile-menu-item premium-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">👑</div>
+        <div class="item-text"><span class="item-label">Premium</span><span class="item-sub">Watch · custom drinks</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/en/insights.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">🔬</div>
+        <div class="item-text"><span class="item-label">EFSA &amp; WHO guidance</span><span class="item-sub">The science behind the app</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/en/blog" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">📖</div>
+        <div class="item-text"><span class="item-label">Articles</span><span class="item-sub">Caffeine, hydration &amp; health</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/en/changelog.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">🆕</div>
+        <div class="item-text"><span class="item-label">What's new</span><span class="item-sub">The latest versions</span></div>
+      </a>
+    </div>
+    <div class="mobile-menu-footer">
+      <span class="lang-switch"><a href="/blog/correlation-cafeine-sommeil-donnees/" hreflang="fr">FR</a><span class="sep">/</span><a href="/en/blog/caffeine-sleep-personal-data/" aria-current="true" hreflang="en">EN</a></span>
+    </div>
+  </div>
+</div>
+
+<section class="article-hero">
+  <div class="hero-inner">
+    <span class="article-cat">Scientific studies</span>
+    <h1>What Your Personal Data Can (Really) Tell You About Caffeine and Sleep</h1>
+    <div class="article-meta">
+      <span class="meta-item">17 August 2026</span>
+      <span class="meta-sep">·</span>
+      <span class="meta-item">7 min read</span>
+      <span class="meta-sep">·</span>
+      <span class="meta-item">By Kévin Beguerie</span>
+    </div>
+  </div>
+</section>
+
+<div class="hero-image-wrap">
+  <img src="https://images.unsplash.com/photo-1595776613215-fe04b78de7d0?ixid=M3w5NjMyMjN8MHwxfHNlYXJjaHwxfHxzbGVlcCUyMGRhdGElMjBhbmFseXRpY3MlMjBjb2ZmZWUlMjBuaWdodHxlbnwwfDB8fHwxNzg2OTUzOTY2fDA&ixlib=rb-4.1.0&w=900&q=80&fm=jpg&fit=crop" alt="Sleep data graph on a smartphone screen next to a cup of coffee" loading="lazy">
+</div>
+<p class="hero-credit">Photo: <a href="https://unsplash.com/@walling?utm_source=pausecafe&utm_medium=referral" target="_blank" rel="noopener">Walling</a> / <a href="https://unsplash.com/?utm_source=pausecafe&utm_medium=referral" target="_blank" rel="noopener">Unsplash</a></p>
+
+<article class="article-body">
+
+<p>You had a coffee at 4pm, and that night your sleep was restless. Coincidence or a real connection? That is exactly the question personal data tracking raises — and it is also one of the trickiest to answer. This article offers an honest look at what your own numbers can reveal… and what they cannot prove on their own.</p>
+
+<h2>Why comparing your caffeine and sleep data makes sense</h2>
+
+<p>Science has established a robust link between caffeine and sleep quality. A recent systematic and mechanistic review by Polish researchers (Chmiel and Kurpas, University of Szczecin and Wrocław Medical University) examined forty-five years of literature and retained thirty-two studies measured by electroencephalogram. It concludes that <strong>caffeine alters the very structure of sleep</strong>, shifting it towards lighter sleep — often without the person being aware of it.</p>
+
+<div class="highlight-box"><p>🔬 <strong>Key finding:</strong> Caffeine can reduce slow-wave activity (deep sleep) even when sleep duration appears normal — the subjective feeling of sleeping well does not always reflect neurophysiological reality. — Chmiel &amp; Kurpas, systematic and mechanistic review, Nutrients, 2026</p></div>
+
+<p>This finding has an important practical consequence: <strong>how you feel alone is a poor indicator</strong>. This is precisely where objective caffeine tracking becomes valuable. By cross-referencing your intake with your nights, you can start to spot patterns that your memory or subjective experience would never capture. <a href="/en/insights.html">PauseCafé's analytics</a> let you explore these trends over time, week after week.</p>
+
+<h2>What a personal correlation can show you</h2>
+
+<p>On the scientific side, a scoping review on personal sleep tracking found that <strong>caffeine consumption is among the contextual factors most frequently correlated with the various dimensions of sleep quality</strong> in studies using personal tracker data.</p>
+
+<p>In practice, observing your own data over several weeks can help you answer very concrete questions:</p>
+
+<ul>
+  <li>Is my last coffee of the day consistently associated with a longer time to fall asleep?</li>
+  <li>Are the nights following a day with more than 300 mg of caffeine noticeably different from others?</li>
+  <li>Is there a cut-off time that seems «safe» for me, compared to general recommendations?</li>
+</ul>
+
+<p>These are legitimate and potentially very useful questions. But before drawing conclusions, it is essential to understand <strong>the fundamental limits of this type of analysis</strong>.</p>
+
+<h2>The main trap: association is not causation</h2>
+
+<p>This is the most important — and most frequently forgotten — principle of personal data analysis. Finding a correlation between your evening coffee and poor sleep does not prove that one causes the other. Several alternative mechanisms are equally plausible:</p>
+
+<div class="profile-grid">
+  <div class="profile-card">
+    <div class="profile-icon">🔄</div>
+    <h4>Reverse causation</h4>
+    <p>You slept poorly the night before, so you drank more coffee during the day to get through it. That evening, your sleep is disrupted again — not because of the coffee, but because of the accumulated sleep debt. Researchers note that people who sleep little may increase their caffeine intake to compensate for daytime sleepiness, which can inflate the observed association.</p>
+  </div>
+  <div class="profile-card">
+    <div class="profile-icon">🌀</div>
+    <h4>Confounding factors</h4>
+    <p>A stressful day pushes you to drink more coffee AND disrupts your sleep. In your data, caffeine appears to be the «culprit», when stress is actually the common factor. A study using Mendelian randomisation notes that the observational association between habitual caffeine consumption and poor sleep may be attributable to shared environmental factors.</p>
+  </div>
+  <div class="profile-card">
+    <div class="profile-icon">📊</div>
+    <h4>Small sample size</h4>
+    <p>Over 10 or 20 nights, a simple coincidence can look like a trend. Reliable statistics require large samples. With your personal data (n=1), an apparent result may disappear with more tracking time. Stay humble in the face of quick conclusions.</p>
+  </div>
+  <div class="profile-card">
+    <div class="profile-icon">📱</div>
+    <h4>Tool accuracy</h4>
+    <p>Watches and apps estimate sleep — they do not measure it with the precision of a clinical electroencephalogram. The quality of your data also depends on how consistently you log your caffeine intake: a missed entry skews the analysis.</p>
+  </div>
+</div>
+
+<h2>Individual variability: why your profile is unique</h2>
+
+<p>Even if you do identify a genuine link in your data, interpreting it remains complex, because caffeine metabolism varies considerably from one person to another. <strong>The half-life of caffeine — the time your body takes to eliminate half of it — is commonly estimated at between 3 and 7 hours depending on the individual.</strong> This means that an espresso taken at 4pm represents a very different experience depending on whether you are a fast or slow metaboliser.</p>
+
+<p>Other factors further modulate this half-life:</p>
+
+<ul>
+  <li><strong>Sex and hormones:</strong> studies show that caffeine's half-life can double in women using hormonal contraception, sometimes rising from the usual range to more than 10 hours.</li>
+  <li><strong>Genetics:</strong> variations in the ADORA2A gene (the adenosine receptor) influence individual sensitivity to caffeine's effects on sleep, even at moderate doses.</li>
+  <li><strong>Total daily dose:</strong> a study conducted with 1,023 active workers observed that beyond 300 mg of caffeine per day, total sleep time decreased and the prevalence of insomnia complaints increased, regardless of ADORA2A genetic profile.</li>
+</ul>
+
+<p>This is why residual caffeine at bedtime — not just the time of your last drink — is often the most meaningful indicator to watch in your data. <a href="/en/real-time-caffeine.html">PauseCafé's active caffeine curve</a> lets you visualise this residual level precisely as the hours pass, taking your total daily intake into account.</p>
+
+<h2>What science says about the long term: an important nuance</h2>
+
+<p>One surprising point deserves a mention: the relationship between long-term habitual caffeine consumption and sleep quality is less clear-cut than commonly believed. A study using Mendelian randomisation — a method that uses genetic variants to test causality — found no solid evidence of a causal effect of habitual caffeine consumption on sleep duration, chronotype, or insomnia complaints. <strong>Caffeine's detrimental effects on sleep appear to be primarily acute</strong>, meaning they are linked to consumption close to bedtime, rather than being chronic in nature.</p>
+
+<p>This finding does not diminish the importance of monitoring your intake timing — but it is a reminder that your personal data from a few disrupted weeks may reflect circumstantial factors (stress, irregular schedules, alcohol in the evening) just as much as your caffeine.</p>
+
+<div class="highlight-box"><p>🔬 <strong>Key finding:</strong> The observational association between habitual caffeine consumption and poor sleep may be attributable to shared environmental factors rather than a direct causal effect. — Das et al., Journal of Sleep Research, 2026</p></div>
+
+<h2>How to read your data with discernment</h2>
+
+<p>None of these limitations mean your personal data is useless — quite the opposite. They mean you should read it as <strong>investigative leads</strong> rather than verdicts. Here is a four-step method for getting the most out of it:</p>
+
+<ol>
+  <li><strong>Accumulate at least 4 to 6 weeks of consistent data</strong> before drawing a conclusion. A single isolated night is statistically meaningless.</li>
+  <li><strong>Note known confounding factors:</strong> work stress, an evening with alcohol, late exercise, illness. These elements must be weighed against difficult nights before blaming caffeine.</li>
+  <li><strong>Compare similar days.</strong> A caffeine/sleep correlation is more meaningful if it holds across days that are comparable in terms of workload and physical activity.</li>
+  <li><strong>Look for patterns, not exceptions.</strong> A coincidence can happen. What matters is the repeated motif: if your sleep is consistently shorter on evenings when your residual caffeine exceeds a certain threshold, the signal is starting to mean something for you personally.</li>
+</ol>
+
+<p>For deeper reading, the article on caffeine and sleep mechanisms explains in detail why caffeine acts on brain waves, and the article on the timing of your last coffee helps you personalise your own cut-off time.</p>
+
+<h2>The right mindset: curiosity rather than verdict</h2>
+
+<p>Your personal data is a tool for self-knowledge, not a diagnosis. <strong>It can help you form hypotheses about how your own body works</strong> — hypotheses you can then test by changing a single factor at a time (for example, moving your last coffee an hour earlier for two weeks, all else being equal).</p>
+
+<p>If you notice a pattern that concerns you — consistently short sleep, frequent wake-ups — discussing your data with a healthcare professional will help you make sense of it in the context of your overall situation. Personal tracking is an excellent starting point for an informed conversation, not a conclusion in itself.</p>
+
+  <div class="sources-section">
+    <h4>Scientific sources</h4>
+    <ul>
+<li>Chmiel, J. &amp; Kurpas, D. (2026). The Caffeinated Brain Part 2: The Effect of Caffeine on Sleep-Related Electroencephalography (EEG) — A Systematic and Mechanistic Review. Nutrients, 18(8), 1220. Universités de Szczecin et Wrocław.</li><li>Das, N. R. et al. (2026). Exploring the Relationship Between Caffeine Consumption, Caffeine Metabolism, and Sleep Behaviours: A Mendelian Randomisation Study. Journal of Sleep Research, 35(1), e70147.</li><li>Hoang, N. H. &amp; Liang, Z. (2023). Knowledge Discovery in Ubiquitous and Personal Sleep Tracking: Scoping Review. JMIR mHealth and uHealth, 11, e42750.</li><li>Erblang, M. et al. (2019). The Impact of Genetic Variations in ADORA2A in the Association between Caffeine Consumption and Sleep. Nutrients, PMC6947650.</li><li>Lovato, N. et al. (2024). The Association between Caffeine Consumption from Coffee and Tea and Sleep Health in Male and Female Older Adults: A Cross-Sectional Study. Nutrients, PMC10780846.</li><li>Schlichtiger, J. et al. (2025). Effects of Caffeine Intake on Self-Administered Sleeping Quality and Wearable Monitoring of Sleep (SleepSmart study). PubMed, LMU Hospital Munich.</li>
+    </ul>
+  </div>
+
+  <div class="disclaimer-box" style="background:#FBF5E9;border:1px solid rgba(196,135,58,0.35);border-radius:12px;padding:18px 22px;margin-top:48px;">
+    <p style="margin:0;font-size:0.82rem;line-height:1.6;color:#5C4033;">
+      <strong>⚕️ Important.</strong> This article is for information and general wellbeing only. It is not medical advice, a diagnosis or a prescription. The effects of caffeine vary from one person to another. If you have questions about your intake, or any symptom, pregnancy, medical treatment or health condition, speak to a healthcare professional (doctor, pharmacist). Do not change a treatment on the basis of this article alone.
+    </p>
+  </div>
+
+  <div class="cta-section">
+    <h3>Stop guessing. Start measuring.</h3>
+    <p>PauseCafé records the real caffeine content of every drink, so your daily total actually means something. Free, no adverts.</p>
+    <a href="https://apps.apple.com/app/id6761892198" target="_blank" rel="noopener" class="cta-badge">
+      <img src="/app-store-badge-en.svg" alt="Download PauseCafé on the App Store">
+    </a>
+  </div>
+
+</article>
+<footer><p>© 2026 PauseCafé · <a href="https://pausecafe-app.fr/en/">pausecafe-app.fr</a> · <a href="/en/blog">All articles</a></p></footer>
+<script src="/nav-blog.js"></script>
+</body>
+</html>

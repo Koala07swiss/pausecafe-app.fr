@@ -1,6 +1,7 @@
 {
   "_note": "Correspondance slug français -> slug anglais. Alimentée automatiquement par scripts/generer.mjs à chaque article bilingue publié. Sert à (1) traduire les liens internes, (2) poser les hreflang croisés, (3) filtrer les articles connexes. Les 16 articles antérieurs au passage bilingue n'ont pas de version anglaise : ils n'apparaissent volontairement pas ici.",
   "paires": {
-    "comprendre-frequence-cardiaque-repos": "resting-heart-rate-explained"
+    "comprendre-frequence-cardiaque-repos": "resting-heart-rate-explained",
+    "correlation-cafeine-sommeil-donnees": "caffeine-sleep-personal-data"
   }
 }
