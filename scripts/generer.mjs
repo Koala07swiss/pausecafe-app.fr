@@ -739,6 +739,64 @@ ${blocConnexes}
 // ---------------------------------------------------------------------------
 // 11. Programme principal
 // ---------------------------------------------------------------------------
+
+// ── Checklist d'arbitrage ────────────────────────────────────────────────
+//  Le rapport de vérification listait les problèmes sans permettre d'y
+//  répondre : « ⛔ ne pas merger » laissait deux issues, publier de
+//  l'imprécis ou ne rien publier. On transforme chaque ligne signalée en
+//  décision séparée, à trancher dans le commentaire de la Pull Request.
+function construireChecklist(rapport) {
+  const lignes = rapport.split('\n')
+    .map(l => l.trim())
+    .filter(l => /^[-*]?\s*(⚠️|⛔)/.test(l));
+
+  if (!lignes.length) return null;
+
+  const blocs = lignes.map((l, i) => {
+    const n = i + 1;
+    const bloquant = l.includes('⛔');
+    const texte = l.replace(/^[-*]?\s*(⚠️|⛔)\s*/, '').trim();
+    const titre = texte.length > 90 ? texte.slice(0, 88) + '…' : texte;
+    return `### ${bloquant ? '⛔' : '⚠️'} P${n} — ${titre}
+<!-- pb:${n} -->
+> **Signalé :** ${texte}
+
+- [ ] ✅ **Corriger** comme proposé
+- [ ] ❌ **Garder** tel quel — l'article a raison
+- [ ] ✏️ **Autre** — suivre mon instruction ci-dessous
+
+**Mon instruction :**
+\`\`\`
+(écris ici si tu as coché « Autre », ou pour préciser un « Garder »)
+\`\`\`
+`;
+  }).join('\n---\n\n');
+
+  return `# 🧭 À toi d'arbitrer — ${lignes.length} point(s) signalé(s)
+
+Pour chaque point : **coche une case**, et écris une instruction si besoin.
+Tu peux en corriger certains et en garder d'autres — ce n'est pas tout ou rien.
+
+> **Comment faire :** clique sur les **…** en haut à droite de ce commentaire,
+> puis **Edit**. Coche tes cases, remplis les instructions, et enregistre.
+
+---
+
+${blocs}
+---
+
+## ▶️ Quand tu as fini
+
+- [ ] **Relancer l'agent avec mes réponses**
+
+Coche cette case en dernier : l'agent reprendra l'article selon tes décisions,
+mettra à jour les deux langues, et reposera une nouvelle checklist.
+Tu peux boucler autant de fois que nécessaire.
+
+Si tu ne coches rien et que tu merges, l'article part **tel quel**.
+`;
+}
+
 async function main() {
   if (!API_KEY && !DRY) erreur('ANTHROPIC_API_KEY manquante (secret GitHub).');
   const today = new Date();
@@ -962,9 +1020,24 @@ ${rapportFaits}
 
 ---
 *Généré automatiquement. Relis les deux langues, puis **merge** pour publier — ou ferme pour rejeter.*
+
+> 🧭 **Un point te semble discutable ?** Ne ferme pas la PR : une checklist est
+> publiée en commentaire. Tu peux y accepter ou refuser **chaque point
+> séparément**, avec une instruction, puis relancer l'agent.
 `;
   await writeFile(path.join(ROOT, 'VERIFICATION.md'), rapport);
   log('Rapport écrit : VERIFICATION.md');
+
+  // La checklist part dans un fichier séparé : le workflow la publiera en
+  // commentaire de la PR, où les cases sont cliquables et où cocher
+  // déclenche la reprise automatique.
+  const checklist = construireChecklist(rapportFaits);
+  if (checklist) {
+    await writeFile(path.join(ROOT, 'CHECKLIST.md'), checklist);
+    log('Checklist écrite : CHECKLIST.md');
+  } else {
+    log('Aucun point à arbitrer : pas de checklist.');
+  }
 
   if (process.env.GITHUB_ENV) {
     await writeFile(process.env.GITHUB_ENV, `PR_TITRE=Article : ${d.titre}\n`, { flag: 'a' });
