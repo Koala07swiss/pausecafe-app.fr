@@ -114,6 +114,35 @@ nav {
 }
 .mobile-menu-footer .lang-switch { font-size: 0.9rem; }
 
+
+
+/* ── Barre de navigation : paliers de resserrement ────────────────────
+   L'ajout de « Teneur caféine » a porté le menu à 8 entrées. Sans ces
+   paliers, il collait au logo sur les écrans de 1280 à 1600 px et le
+   sélecteur de langue passait hors écran. `gap` sur nav garantit un
+   écart minimum que `space-between` ne préserve pas quand ça déborde. */
+nav { gap: 22px; }
+.nav-logo { flex-shrink: 0; }
+.nav-links { flex-shrink: 1; min-width: 0; }
+.nav-links a { white-space: nowrap; }
+@media (max-width: 1750px) {
+  nav { padding: 14px 28px; gap: 18px; }
+  .nav-links { gap: 18px; }
+  .nav-links a { font-size: 0.78rem; }
+}
+@media (max-width: 1500px) {
+  nav { padding: 13px 20px; gap: 14px; }
+  .nav-links { gap: 13px; }
+  .nav-links a { font-size: 0.73rem; }
+  .nav-logo { font-size: 1.2rem; }
+}
+@media (max-width: 1340px) {
+  nav { padding: 12px 16px; gap: 12px; }
+  .nav-links { gap: 10px; }
+  .nav-links a { font-size: 0.68rem; }
+  .nav-logo { font-size: 1.08rem; }
+}
+
 @media (max-width: 900px) {
   .nav-links { display: none; }
   .burger-btn { display: flex; }

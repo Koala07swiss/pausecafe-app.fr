@@ -146,7 +146,35 @@
         const visible = filtre === 'Tous' || cat === filtre;
         card.style.display = visible ? '' : 'none';
       }
-  </style>
+          .nav-links a { white-space: nowrap; }
+
+        /* ── Barre de navigation : 11 entrées, c'est beaucoup ───────────
+           Sans ces paliers, le menu chevauchait le sélecteur de langue de
+           près de 70 px et collait au logo. `gap` sur nav garantit un écart
+           minimum que `space-between` ne suffit pas à préserver quand le
+           contenu déborde. */
+        nav { gap: 22px; }
+        .nav-logo { flex-shrink: 0; }
+        .nav-links { flex-shrink: 1; min-width: 0; }
+        @media (max-width: 1750px) {
+            nav { padding: 14px 28px; gap: 18px; }
+            .nav-links { gap: 16px; }
+            .nav-links a { font-size: 0.74rem; letter-spacing: 0.02em; }
+        }
+        @media (max-width: 1500px) {
+            nav { padding: 13px 20px; gap: 14px; }
+            .nav-links { gap: 11px; }
+            .nav-links a { font-size: 0.69rem; letter-spacing: 0; }
+            .nav-logo { font-size: 1.2rem; }
+        }
+        @media (max-width: 1340px) {
+            nav { padding: 12px 16px; gap: 12px; }
+            .nav-links { gap: 8px; }
+            .nav-links a { font-size: 0.645rem; }
+            .nav-logo { font-size: 1.08rem; }
+            .nav-logo-img { width: 26px; height: 26px; }
+        }
+</style>
   <style>
     .blog-vide{max-width:760px;margin:0 auto;padding:24px 48px 96px;text-align:center;}
     .blog-vide .puce{font-size:2.6rem;display:block;margin-bottom:22px;opacity:0.75;}
