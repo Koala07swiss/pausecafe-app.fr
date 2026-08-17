@@ -1,0 +1,97 @@
+name: Reprendre un article après arbitrage
+
+# Se déclenche quand tu modifies la checklist publiée en commentaire de la
+# Pull Request. GitHub émet `issue_comment: edited` dès que tu enregistres
+# une case cochée — c'est ce qui rend la relance automatique.
+#
+# Le job ne part QUE si trois conditions sont réunies :
+#   1. le commentaire appartient à une Pull Request (pas à une issue) ;
+#   2. il contient une checklist d'arbitrage (marqueur <!-- pb:N -->) ;
+#   3. la case « Relancer l'agent » est cochée.
+
+on:
+  issue_comment:
+    types: [edited]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  reprendre:
+    if: >
+      github.event.issue.pull_request != null &&
+      contains(github.event.comment.body, '<!-- pb:') &&
+      contains(github.event.comment.body, '[x] **Relancer')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Signaler que c'est parti
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.reactions.createForIssueComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: context.payload.comment.id,
+              content: 'rocket'
+            });
+
+      - name: Retrouver la branche de la Pull Request
+        id: pr
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.issue.number
+            });
+            core.setOutput('branche', pr.data.head.ref);
+
+      - name: Récupérer le repo sur la branche de la PR
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.pr.outputs.branche }}
+          fetch-depth: 0
+
+      - name: Installer Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Appliquer ton arbitrage
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN:      ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          NUMERO_PR:         ${{ github.event.issue.number }}
+          ID_COMMENTAIRE:    ${{ github.event.comment.id }}
+        run: node scripts/reprendre.mjs
+
+      - name: Pousser les modifications
+        run: |
+          git config user.name  "Agent PauseCafé"
+          git config user.email "actions@github.com"
+          if git diff --quiet -- blog en; then
+            echo "Aucune modification de texte à pousser."
+          else
+            git add blog en
+            git commit -m "reprise apres arbitrage"
+            git push origin HEAD:${{ steps.pr.outputs.branche }}
+            echo "Modifications poussées sur ${{ steps.pr.outputs.branche }}."
+          fi
+
+      - name: Signaler l'échec, le cas échéant
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.issue.number,
+              body: "❌ **La reprise a échoué.** Regarde le détail dans l'onglet Actions.\n\n"
+                  + "Tes réponses n'ont pas été perdues : elles sont toujours dans la checklist. "
+                  + "Corrige ce qui bloque, puis recoche la case de relance."
+            });

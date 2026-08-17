@@ -1,0 +1,82 @@
+name: Générer un article
+
+on:
+  schedule:
+    - cron: '0 7 * * 1'
+  workflow_dispatch:
+    inputs:
+      sujet:
+        description: "Sujet précis (laisser vide = prochain sujet du backlog)"
+        required: false
+      sans_en:
+        description: "Français seul (cocher pour sauter la traduction anglaise)"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le repo
+        uses: actions/checkout@v4
+
+      - name: Installer Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Générer l'article FR + EN (recherche + rédaction + vérif + correction + traduction)
+        env:
+          ANTHROPIC_API_KEY:   ${{ secrets.ANTHROPIC_API_KEY }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          SUJET:               ${{ github.event.inputs.sujet }}
+          SANS_EN:             ${{ github.event.inputs.sans_en == 'true' && '1' || '' }}
+        run: node scripts/generer.mjs
+
+      - name: Ouvrir la Pull Request (NE PUBLIE PAS — attend ton merge)
+        id: pr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: article/run-${{ github.run_id }}
+          delete-branch: true
+          title: ${{ env.PR_TITRE }}
+          commit-message: ${{ env.PR_TITRE }}
+          body-path: VERIFICATION.md
+          # Chemins de DOSSIER, pas de motifs `**` : git s'arrête net sur un
+          # motif qui ne correspond à rien (`fatal: pathspec ... did not match`).
+          # `en/blog/**` n'existait pas tant qu'aucun article anglais n'était
+          # publié — d'où l'échec du 7 août. `en` existe toujours.
+          add-paths: |
+            blog
+            blog.html
+            en
+            sitemap.xml
+            scripts/sujets.json
+            scripts/slugs-en.json
+
+      # La checklist part en COMMENTAIRE et non dans le corps de la PR : les
+      # cases y sont cliquables, et cocher déclenche `issue_comment: edited`,
+      # donc la reprise automatique. Dans le corps d'une PR, cocher une case
+      # n'émet aucun événement exploitable.
+      - name: Publier la checklist d'arbitrage
+        if: steps.pr.outputs.pull-request-number != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            if (!fs.existsSync('CHECKLIST.md')) {
+              core.info('Aucun point à arbitrer : pas de checklist à publier.');
+              return;
+            }
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: ${{ steps.pr.outputs.pull-request-number }},
+              body: fs.readFileSync('CHECKLIST.md', 'utf8')
+            });
+            core.info('Checklist publiée en commentaire.');
