@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teneur en caféine par marque — Coca, Red Bull, Monster… | PauseCafé</title>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta name="description" content="Combien de caféine dans un Coca, un Red Bull, un Monster ou un expresso ? 49 boissons en formats européens, avec la source de chaque valeur.">
+    <meta name="keywords" content="caféine coca cola, caféine red bull, caféine monster, teneur caféine boissons, tableau caféine marques">
+
+    <link rel="canonical" href="https://pausecafe-app.fr/cafeine/marques.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:url" content="https://pausecafe-app.fr/cafeine/marques.html">
+    <meta property="og:title" content="Teneur en caféine par marque">
+    <meta property="og:description" content="Entre 40 et 80 mg selon la préparation. Voici pourquoi l'écart est si large, et ce qu'il en reste le soir.">
+    <meta property="og:image" content="https://pausecafe-app.fr/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Teneur en caféine par marque">
+    <meta name="twitter:description" content="Entre 40 et 80 mg selon la préparation. Voici pourquoi l'écart est si large.">
+    <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"Teneur en caféine des boissons courantes","description":"Teneur en caféine de 49 boissons vendues en Europe, en formats européens, avec la source de chaque valeur.","inLanguage":"fr","url":"https://pausecafe-app.fr/cafeine/marques.html","creator":{"@type":"Organization","name":"PauseCafé","url":"https://pausecafe-app.fr"},"dateModified":"2026-09-04","license":"https://pausecafe-app.fr/cgu.html","variableMeasured":[{"@type":"PropertyValue","name":"Caféine","unitText":"mg"},{"@type":"PropertyValue","name":"Portion","unitText":"ml"}]}</script>
+
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/base.css">
+    <style>
+        :root{--cafe:#2C1810;--cream:#F5EDD6;--espresso:#1A0F0A;--caramel:#C4873A;--mousse:#E8D5B0;}
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--cafe);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 48px;background:rgba(245,237,214,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(196,135,58,0.2);}
+        .nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--cafe);text-decoration:none;display:flex;align-items:center;gap:10px;}
+        .nav-logo-img{width:32px;height:32px;border-radius:8px;}
+        .nav-back{font-size:0.82rem;color:var(--cafe);text-decoration:none;opacity:0.6;}
+        .nav-back:hover{opacity:1;}
+        .lang-switch{font-size:0.78rem;letter-spacing:0.04em;}
+        .lang-switch a{color:var(--cafe);text-decoration:none;opacity:0.5;}
+        .lang-switch a[aria-current]{opacity:1;font-weight:600;}
+        .lang-switch .sep{opacity:0.25;margin:0 4px;}
+        @media (max-width:560px){
+            nav{padding:10px 16px;}
+            .nav-back{font-size:0;}
+            .nav-back::before{content:'←';font-size:1.15rem;opacity:0.75;}
+            .nav-logo{font-size:1.1rem;}
+            .nav-logo img{width:26px;height:26px;}
+        }
+
+        .wrap{max-width:760px;margin:0 auto;padding:0 32px;}
+        header.hero{padding:112px 0 8px;}
+        .fil{font-size:0.74rem;color:#8A6D5A;margin-bottom:12px;}
+        .fil a{color:#8A6D5A;text-decoration:none;}
+        .fil a:hover{text-decoration:underline;}
+        h1{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.6vw,2.5rem);font-weight:900;line-height:1.14;margin-bottom:14px;}
+
+        /* La reponse doit tomber avant tout le reste : c'est ce que la
+           personne est venue chercher. */
+        .reponse{background:var(--espresso);border-radius:18px;padding:26px 28px;margin:20px 0 0;}
+        .reponse .chiffre{font-family:'JetBrains Mono',monospace;font-size:clamp(2rem,5vw,2.8rem);font-weight:700;color:var(--caramel);line-height:1.1;}
+        .reponse .unite{font-size:0.5em;opacity:0.8;}
+        .reponse p{color:rgba(245,237,214,0.78);font-weight:300;margin-top:10px;font-size:0.97rem;}
+        .reponse strong{color:var(--cream);font-weight:500;}
+
+        section{padding:34px 0 0;}
+        h2{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;margin-bottom:12px;}
+        h3{font-family:'Playfair Display',serif;font-size:1.08rem;font-weight:700;margin:20px 0 7px;}
+        p{font-size:1rem;font-weight:300;color:#3D2010;margin-bottom:14px;}
+        strong{font-weight:500;color:var(--cafe);}
+        a.lien{color:var(--caramel);text-decoration:underline;text-underline-offset:2px;}
+
+        table{width:100%;border-collapse:collapse;margin:14px 0 20px;font-size:0.92rem;}
+        th{text-align:left;font-size:0.7rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:#8A6D5A;padding:8px 10px;border-bottom:1.5px solid rgba(196,135,58,0.3);}
+        td{padding:9px 10px;border-bottom:1px solid rgba(196,135,58,0.14);}
+        td:not(:first-child){font-family:'JetBrains Mono',monospace;color:#5C4033;}
+        tbody tr:hover{background:rgba(232,213,176,0.32);}
+        .note-tab{font-size:0.8rem;color:#8A6D5A;font-weight:300;margin-top:-12px;}
+
+        .encadre{background:var(--mousse);border-radius:14px;padding:18px 22px;margin:20px 0;}
+        .encadre p{margin:0;font-size:0.93rem;}
+
+        .vers-calc{display:flex;align-items:center;gap:18px;background:#fff;border:1.5px solid rgba(196,135,58,0.35);border-radius:16px;padding:20px 22px;margin:26px 0;text-decoration:none;transition:border-color .2s,transform .2s,box-shadow .2s;}
+        .vers-calc:hover{border-color:var(--caramel);transform:translateY(-2px);box-shadow:0 10px 26px rgba(44,24,16,0.1);}
+        .vers-calc .ic{font-size:1.8rem;flex-shrink:0;}
+        .vers-calc .lab{display:block;font-size:0.68rem;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:var(--caramel);margin-bottom:3px;}
+        .vers-calc .tit{display:block;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;color:var(--cafe);line-height:1.25;}
+        .vers-calc .sub{display:block;font-size:0.85rem;font-weight:300;color:var(--cafe);opacity:0.62;margin-top:3px;}
+        .vers-calc .fleche{margin-left:auto;color:var(--caramel);font-size:1.2rem;font-weight:700;}
+
+        details.faq{border-bottom:1px solid rgba(196,135,58,0.22);}
+        details.faq summary{cursor:pointer;padding:14px 30px 14px 0;font-weight:500;font-size:0.97rem;list-style:none;position:relative;}
+        details.faq summary::-webkit-details-marker{display:none;}
+        details.faq summary::after{content:'+';position:absolute;right:6px;top:12px;font-size:1.25rem;color:var(--caramel);font-weight:300;}
+        details.faq[open] summary::after{content:'−';}
+        details.faq p{font-size:0.93rem;padding-bottom:15px;margin:0;}
+
+        .autres{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:10px;margin-top:14px;}
+        .autres a{background:#fff;border:1px solid rgba(196,135,58,0.28);border-radius:12px;padding:13px 15px;text-decoration:none;color:var(--cafe);font-size:0.9rem;transition:border-color .15s;}
+        .autres a:hover{border-color:var(--caramel);}
+        .autres a span{display:block;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#8A6D5A;margin-top:2px;}
+
+        .cta{background:var(--espresso);border-radius:20px;padding:36px 32px;text-align:center;margin:34px 0 0;}
+        .cta h2{color:var(--cream);margin-bottom:9px;}
+        .cta p{color:rgba(245,237,214,0.62);font-weight:300;margin-bottom:22px;font-size:0.94rem;}
+        .cta-badge{display:inline-block;position:relative;z-index:1;transition:opacity .2s,transform .2s;}
+        .cta-badge:hover{opacity:0.85;transform:translateY(-2px);}
+        .cta-badge img{height:52px;width:auto;display:block;margin:0 auto;}
+
+        .avert{background:#FBF5E9;border:1px solid rgba(196,135,58,0.35);border-radius:12px;padding:16px 20px;margin:24px 0;}
+        .avert p{font-size:0.83rem;line-height:1.65;color:#5C4033;margin:0;font-weight:300;}
+
+        footer{background:var(--espresso);color:var(--cream);padding:40px 32px;text-align:center;margin-top:46px;}
+        footer p{font-size:0.82rem;opacity:0.45;}
+        footer a{color:var(--caramel);text-decoration:none;}
+
+        @media(max-width:760px){
+            .wrap{padding:0 20px;}
+            header.hero{padding:92px 0 4px;}
+            .reponse{padding:20px 18px;border-radius:14px;}
+            .vers-calc{padding:16px 16px;gap:13px;}
+        }
+    
+        /* Recherche locale : boutons de filtre et colonnes du tableau. */
+        #filtres .f{font-family:'DM Sans',sans-serif;font-size:0.8rem;padding:6px 13px;border-radius:100px;border:1.5px solid rgba(196,135,58,0.35);background:#fff;color:#2C1810;cursor:pointer;transition:.15s}
+        #filtres .f:hover{border-color:var(--caramel)}
+        #filtres .f.actif{background:var(--espresso);color:var(--cream);border-color:var(--espresso)}
+        #q:focus{outline:none;border-color:var(--caramel)}
+        #tab td.mg{font-weight:700;color:var(--cafe)}
+        #tab td.src{font-family:'DM Sans',sans-serif;font-size:0.76rem;color:#8A6D5A}
+        #tab td:nth-child(2){font-family:'DM Sans',sans-serif;font-size:0.84rem;color:#8A6D5A}
+        @media(max-width:620px){
+            #tab th:nth-child(2),#tab td:nth-child(2){display:none}
+            #tab th:nth-child(5),#tab td:nth-child(5){display:none}
+        }
+</style>
+</head>
+<body>
+<nav>
+    <a class="nav-logo" href="https://pausecafe-app.fr">
+        <img src="/logo.webp" alt="PauseCafé" class="nav-logo-img">
+        PauseCafé
+    </a>
+    <a class="nav-back" href="https://pausecafe-app.fr">← Retour au site</a>
+    <span class="lang-switch"><a href="/cafeine/marques.html" aria-current="true" hreflang="fr">FR</a></span>
+</nav>
+
+<div class="wrap">
+
+<header class="hero">
+    <p class="fil"><a href="https://pausecafe-app.fr">PauseCafé</a> › <a href="/cafeine/">Teneur en caféine</a> › Par marque</p>
+    <h1>Combien de caféine dans <em>votre boisson</em> ?</h1>
+
+    <div class="reponse">
+        <p class="chiffre">49 <span class="unite">boissons</span></p>
+        <p>Tapez un nom, la teneur s'affiche. Formats <strong>européens</strong> — c'est important : une canette américaine de 12 oz fait 355 ml, la nôtre 330. Confondre les deux est l'erreur la plus fréquente des tableaux qu'on trouve en ligne.</p>
+    </div>
+</header>
+
+<section>
+    <label for="q" style="display:block;font-size:0.7rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:#8A6D5A;margin-bottom:7px">Rechercher</label>
+    <input type="search" id="q" placeholder="Coca, Red Bull, expresso, thé vert…" autocomplete="off"
+        style="width:100%;font-family:'DM Sans',sans-serif;font-size:1rem;padding:13px 16px;border:1.5px solid rgba(196,135,58,0.4);border-radius:12px;background:#fff;color:#2C1810;">
+
+    <div id="filtres" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:11px">
+        <button class="f actif" data-f="">Tout</button>
+        <button class="f" data-f="cafés">Cafés</button>
+        <button class="f" data-f="thés">Thés</button>
+        <button class="f" data-f="sodas">Sodas</button>
+        <button class="f" data-f="énergisantes">Énergisantes</button>
+        <button class="f" data-f="chocolat">Chocolat</button>
+    </div>
+
+    <p id="compte" style="font-size:0.8rem;color:#8A6D5A;margin:13px 0 0"></p>
+
+    <table id="tab">
+        <thead>
+            <tr><th>Boisson</th><th>Catégorie</th><th>Portion</th><th>Caféine</th><th>Source</th></tr>
+        </thead>
+        <tbody>
+            <tr data-n="coca-cola" data-c="sodas"><td>Coca-Cola</td><td>Sodas</td><td>330 ml</td><td class="mg">32 mg</td><td class="src">fabricant</td></tr>
+            <tr data-n="coca-cola zero" data-c="sodas"><td>Coca-Cola Zero</td><td>Sodas</td><td>330 ml</td><td class="mg">32 mg</td><td class="src">fabricant</td></tr>
+            <tr data-n="coca-cola light" data-c="sodas"><td>Coca-Cola Light</td><td>Sodas</td><td>330 ml</td><td class="mg">43 mg</td><td class="src">fabricant</td></tr>
+            <tr data-n="pepsi" data-c="sodas"><td>Pepsi</td><td>Sodas</td><td>330 ml</td><td class="mg">34 mg</td><td class="src">fabricant</td></tr>
+            <tr data-n="pepsi max" data-c="sodas"><td>Pepsi Max</td><td>Sodas</td><td>330 ml</td><td class="mg">43 mg</td><td class="src">fabricant</td></tr>
+            <tr data-n="dr pepper" data-c="sodas"><td>Dr Pepper</td><td>Sodas</td><td>330 ml</td><td class="mg">31 mg</td><td class="src">fabricant</td></tr>
+            <tr data-n="mountain dew" data-c="sodas"><td>Mountain Dew</td><td>Sodas</td><td>330 ml</td><td class="mg">50 mg</td><td class="src">fabricant</td></tr>
+            <tr data-n="schweppes tonic" data-c="sodas"><td>Schweppes Tonic</td><td>Sodas</td><td>330 ml</td><td class="mg">0 mg</td><td class="src">fabricant</td></tr>
+            <tr data-n="orangina" data-c="sodas"><td>Orangina</td><td>Sodas</td><td>330 ml</td><td class="mg">0 mg</td><td class="src">fabricant</td></tr>
+            <tr data-n="sprite" data-c="sodas"><td>Sprite</td><td>Sodas</td><td>330 ml</td><td class="mg">0 mg</td><td class="src">fabricant</td></tr>
+            <tr data-n="fanta" data-c="sodas"><td>Fanta</td><td>Sodas</td><td>330 ml</td><td class="mg">0 mg</td><td class="src">fabricant</td></tr>
+            <tr data-n="ice tea pêche" data-c="thés glacés"><td>Ice Tea pêche</td><td>Thés glacés</td><td>330 ml</td><td class="mg">20 mg</td><td class="src">fabricant</td></tr>
+            <tr data-n="lipton ice tea" data-c="thés glacés"><td>Lipton Ice Tea</td><td>Thés glacés</td><td>330 ml</td><td class="mg">20 mg</td><td class="src">fabricant</td></tr>
+            <tr data-n="arizona green tea" data-c="thés glacés"><td>Arizona Green Tea</td><td>Thés glacés</td><td>500 ml</td><td class="mg">38 mg</td><td class="src">fabricant</td></tr>
+            <tr data-n="red bull" data-c="énergisantes"><td>Red Bull</td><td>Énergisantes</td><td>250 ml</td><td class="mg">80 mg</td><td class="src">réglementé</td></tr>
+            <tr data-n="red bull grande canette" data-c="énergisantes"><td>Red Bull grande canette</td><td>Énergisantes</td><td>473 ml</td><td class="mg">151 mg</td><td class="src">réglementé</td></tr>
+            <tr data-n="monster energy" data-c="énergisantes"><td>Monster Energy</td><td>Énergisantes</td><td>500 ml</td><td class="mg">160 mg</td><td class="src">réglementé</td></tr>
+            <tr data-n="monster ultra" data-c="énergisantes"><td>Monster Ultra</td><td>Énergisantes</td><td>500 ml</td><td class="mg">150 mg</td><td class="src">fabricant</td></tr>
+            <tr data-n="burn" data-c="énergisantes"><td>Burn</td><td>Énergisantes</td><td>250 ml</td><td class="mg">80 mg</td><td class="src">réglementé</td></tr>
+            <tr data-n="rockstar" data-c="énergisantes"><td>Rockstar</td><td>Énergisantes</td><td>500 ml</td><td class="mg">160 mg</td><td class="src">réglementé</td></tr>
+            <tr data-n="crazy tiger" data-c="énergisantes"><td>Crazy Tiger</td><td>Énergisantes</td><td>500 ml</td><td class="mg">160 mg</td><td class="src">réglementé</td></tr>
+            <tr data-n="dark dog" data-c="énergisantes"><td>Dark Dog</td><td>Énergisantes</td><td>250 ml</td><td class="mg">80 mg</td><td class="src">réglementé</td></tr>
+            <tr data-n="prime energy" data-c="énergisantes"><td>Prime Energy</td><td>Énergisantes</td><td>330 ml</td><td class="mg">106 mg</td><td class="src">réglementé</td></tr>
+            <tr data-n="celsius" data-c="énergisantes"><td>Celsius</td><td>Énergisantes</td><td>355 ml</td><td class="mg">113 mg</td><td class="src">réglementé</td></tr>
+            <tr data-n="shot énergisant 60 ml" data-c="énergisantes"><td>Shot énergisant 60 ml</td><td>Énergisantes</td><td>60 ml</td><td class="mg">200 mg</td><td class="src">fabricant</td></tr>
+            <tr data-n="expresso de bar" data-c="cafés"><td>Expresso de bar</td><td>Cafés</td><td>30 ml</td><td class="mg">77 mg</td><td class="src">PauseCafé</td></tr>
+            <tr data-n="double expresso" data-c="cafés"><td>Double expresso</td><td>Cafés</td><td>60 ml</td><td class="mg">154 mg</td><td class="src">PauseCafé</td></tr>
+            <tr data-n="café filtre" data-c="cafés"><td>Café filtre</td><td>Cafés</td><td>240 ml</td><td class="mg">108 mg</td><td class="src">PauseCafé</td></tr>
+            <tr data-n="grand mug de filtre" data-c="cafés"><td>Grand mug de filtre</td><td>Cafés</td><td>350 ml</td><td class="mg">158 mg</td><td class="src">PauseCafé</td></tr>
+            <tr data-n="café instantané" data-c="cafés"><td>Café instantané</td><td>Cafés</td><td>240 ml</td><td class="mg">70 mg</td><td class="src">PauseCafé</td></tr>
+            <tr data-n="capsule nespresso ristretto" data-c="cafés"><td>Capsule Nespresso Ristretto</td><td>Cafés</td><td>25 ml</td><td class="mg">80 mg</td><td class="src">fabricant</td></tr>
+            <tr data-n="capsule nespresso lungo" data-c="cafés"><td>Capsule Nespresso Lungo</td><td>Cafés</td><td>110 ml</td><td class="mg">90 mg</td><td class="src">fabricant</td></tr>
+            <tr data-n="dosette souple" data-c="cafés"><td>Dosette souple</td><td>Cafés</td><td>120 ml</td><td class="mg">70 mg</td><td class="src">PauseCafé</td></tr>
+            <tr data-n="cappuccino" data-c="cafés"><td>Cappuccino</td><td>Cafés</td><td>250 ml</td><td class="mg">77 mg</td><td class="src">PauseCafé</td></tr>
+            <tr data-n="latte" data-c="cafés"><td>Latte</td><td>Cafés</td><td>350 ml</td><td class="mg">77 mg</td><td class="src">PauseCafé</td></tr>
+            <tr data-n="cold brew" data-c="cafés"><td>Cold brew</td><td>Cafés</td><td>470 ml</td><td class="mg">205 mg</td><td class="src">PauseCafé</td></tr>
+            <tr data-n="café glacé" data-c="cafés"><td>Café glacé</td><td>Cafés</td><td>470 ml</td><td class="mg">165 mg</td><td class="src">PauseCafé</td></tr>
+            <tr data-n="décaféiné" data-c="cafés"><td>Décaféiné</td><td>Cafés</td><td>240 ml</td><td class="mg">5 mg</td><td class="src">PauseCafé</td></tr>
+            <tr data-n="thé noir" data-c="thés"><td>Thé noir</td><td>Thés</td><td>240 ml</td><td class="mg">50 mg</td><td class="src">PauseCafé</td></tr>
+            <tr data-n="thé vert" data-c="thés"><td>Thé vert</td><td>Thés</td><td>240 ml</td><td class="mg">30 mg</td><td class="src">PauseCafé</td></tr>
+            <tr data-n="matcha" data-c="thés"><td>Matcha</td><td>Thés</td><td>240 ml</td><td class="mg">70 mg</td><td class="src">PauseCafé</td></tr>
+            <tr data-n="thé blanc" data-c="thés"><td>Thé blanc</td><td>Thés</td><td>240 ml</td><td class="mg">28 mg</td><td class="src">PauseCafé</td></tr>
+            <tr data-n="rooibos" data-c="thés"><td>Rooibos</td><td>Thés</td><td>240 ml</td><td class="mg">0 mg</td><td class="src">PauseCafé</td></tr>
+            <tr data-n="tisane, infusion" data-c="thés"><td>Tisane, infusion</td><td>Thés</td><td>240 ml</td><td class="mg">0 mg</td><td class="src">PauseCafé</td></tr>
+            <tr data-n="chocolat noir 70 % (2 carrés)" data-c="chocolat"><td>Chocolat noir 70 % (2 carrés)</td><td>Chocolat</td><td>14 g</td><td class="mg">7 mg</td><td class="src">EUFIC</td></tr>
+            <tr data-n="chocolat noir, tablette 100 g" data-c="chocolat"><td>Chocolat noir, tablette 100 g</td><td>Chocolat</td><td>100 g</td><td class="mg">50 mg</td><td class="src">EUFIC</td></tr>
+            <tr data-n="chocolat au lait (2 carrés)" data-c="chocolat"><td>Chocolat au lait (2 carrés)</td><td>Chocolat</td><td>14 g</td><td class="mg">2 mg</td><td class="src">EUFIC</td></tr>
+            <tr data-n="chocolat chaud" data-c="chocolat"><td>Chocolat chaud</td><td>Chocolat</td><td>200 g</td><td class="mg">10 mg</td><td class="src">PauseCafé</td></tr>
+            <tr data-n="cacao en poudre (30 g)" data-c="chocolat"><td>Cacao en poudre (30 g)</td><td>Chocolat</td><td>30 g</td><td class="mg">72 mg</td><td class="src">EUFIC</td></tr>
+        </tbody>
+    </table>
+    <p id="vide" style="display:none;font-size:0.92rem;color:#8A6D5A;padding:18px 0">Aucune boisson ne correspond. Essayez un autre mot, ou <a class="lien" href="/calculateur-cafeine.html">saisissez la valeur vous-même dans le calculateur</a>.</p>
+</section>
+
+<a href="/calculateur-cafeine.html" class="vers-calc">
+    <span class="ic" aria-hidden="true">📉</span>
+    <span>
+        <span class="lab">Gratuit, sans installation</span>
+        <span class="tit">Et il vous en restera combien ce soir ?</span>
+        <span class="sub">Additionnez vos boissons de la journée avec leur heure.</span>
+    </span>
+    <span class="fleche" aria-hidden="true">→</span>
+</a>
+
+<section>
+    <h2>D'où viennent ces chiffres</h2>
+
+    <p>Quatre origines, indiquées dans la dernière colonne de chaque ligne.</p>
+
+    <p><strong>Réglementé.</strong> En Europe, une boisson énergisante ne peut pas dépasser <strong>32 mg de caféine pour 100 ml</strong>. La teneur se déduit donc du volume, sans estimation : 250 ml font 80 mg, 500 ml en font 160. C'est la catégorie la plus fiable de ce tableau.</p>
+
+    <p><strong>Fabricant.</strong> Valeur publiée par la marque elle-même, sur l'étiquette ou son site.</p>
+
+    <p><strong>EUFIC.</strong> Chiffres de l'organisme européen d'information sur l'alimentation, pour le chocolat et le cacao.</p>
+
+    <p><strong>PauseCafé.</strong> Valeurs utilisées par l'application pour les boissons préparées — café, thé — dont la teneur dépend de la préparation et non d'une recette industrielle. Ce sont des ordres de grandeur, détaillés dans <a class="lien" href="/cafeine/">les fiches par boisson</a>.</p>
+
+    <div class="encadre">
+        <p>Les marques citées le sont à titre informatif. Les formules évoluent et les recettes varient d'un pays à l'autre : en cas de doute, l'étiquette du produit que vous avez en main fait foi.</p>
+    </div>
+</section>
+
+<section>
+    <h2>Trois pièges de lecture</h2>
+
+    <p><strong>Les formats américains ne sont pas les nôtres.</strong> Une canette de 12 oz fait 355 ml, la canette européenne 330. Un « 16 oz » américain fait 473 ml. Les tableaux qui mélangent les deux donnent des écarts de 10 à 15 % sans le dire.</p>
+
+    <p><strong>Une grande canette n'est pas une canette.</strong> Le Red Bull de 473 ml contient 151 mg, pas 80. La concentration est identique, le volume ne l'est pas.</p>
+
+    <p><strong>Le déca n'est pas sans caféine.</strong> Cinq mg par tasse, contre 77 pour un expresso. Négligeable, mais pas nul.</p>
+</section>
+
+<div class="avert">
+    <p><strong>⚕️ Information de bien-être.</strong> Ces valeurs sont des ordres de grandeur usuels, pas des mesures individuelles. Elles ne constituent ni un avis médical, ni un diagnostic. Les marques sont citées à titre informatif, sans lien commercial avec PauseCafé. Tableau mis à jour en septembre 2026.</p>
+</div>
+
+<div class="cta">
+    <h2>Comptez sans y penser</h2>
+    <p>PauseCafé enregistre chaque boisson en un tap, avec sa taille réelle, et affiche ce qu'il en reste heure par heure.</p>
+    <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" rel="noopener" class="cta-badge">
+        <img src="/app-store-badge-fr.svg" alt="Télécharger PauseCafé sur l'App Store">
+    </a>
+</div>
+
+</div>
+
+<footer>
+    <p>© 2026 PauseCafé · <a href="https://pausecafe-app.fr">pausecafe-app.fr</a> · <a href="/calculateur-cafeine.html">Calculateur de caféine</a></p>
+</footer>
+
+<script>
+(function(){
+    // Recherche locale : aucune requete reseau, aucune donnee envoyee.
+    var q=document.getElementById('q'), tab=document.getElementById('tab');
+    var lignes=[].slice.call(tab.querySelectorAll('tbody tr'));
+    var compte=document.getElementById('compte'), vide=document.getElementById('vide');
+    var filtre='';
+
+    function sansAccent(s){ return s.normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
+
+    function maj(){
+        var t=sansAccent(q.value.toLowerCase().trim());
+        var n=0;
+        lignes.forEach(function(l){
+            var okT = !t || sansAccent(l.dataset.n).indexOf(t)>=0 || sansAccent(l.dataset.c).indexOf(t)>=0;
+            var okF = !filtre || l.dataset.c===filtre;
+            var ok = okT && okF;
+            l.style.display = ok ? '' : 'none';
+            if(ok) n++;
+        });
+        compte.textContent = n + (n>1 ? ' boissons affichées' : ' boisson affichée');
+        vide.style.display = n ? 'none' : 'block';
+        tab.style.display = n ? '' : 'none';
+    }
+
+    q.addEventListener('input', maj);
+    [].slice.call(document.querySelectorAll('#filtres .f')).forEach(function(b){
+        b.addEventListener('click', function(){
+            document.querySelectorAll('#filtres .f').forEach(function(x){x.classList.remove('actif');});
+            b.classList.add('actif');
+            filtre=b.dataset.f;
+            maj();
+        });
+    });
+    maj();
+})();
+</script>
+</body>
+</html>

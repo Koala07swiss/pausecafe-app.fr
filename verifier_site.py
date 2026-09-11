@@ -200,8 +200,10 @@ def verifier(racine):
         for m in re.finditer(r'href="(/[^"#][^"]*)"', t):
             u = m.group(1)
             if u.startswith('/en/'): continue
-            if u in ('/base.css', '/logo.png'): continue
+            if u in ('/base.css', '/logo.png', '/favicon.ico'): continue
             if u.startswith(('/app-store', '/works-with')): continue
+            # Les icônes du site sont communes aux deux langues.
+            if u.startswith(('/favicon', '/apple-touch-icon', '/icon-')): continue
             # le sélecteur FR et le bandeau légal pointent volontairement en FR
             ctx = t[max(0, m.start()-260):m.start()]
             if 'lang-switch' in ctx or 'avis-langue' in ctx or 'hreflang="fr"' in ctx:
