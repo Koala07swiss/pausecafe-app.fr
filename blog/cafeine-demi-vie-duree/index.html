@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demi-vie de la caféine : durée et élimination | PauseCafé</title>
+  <meta name="description" content="Demi-vie ~5 h, courbe d'élimination, tabac, pilule, âge : découvrez combien de temps la caféine reste active dans votre corps, selon la pharmacocinétique.">
+  <meta name="keywords" content="demi-vie caféine, élimination caféine, pharmacocinétique caféine, CYP1A2, durée effet caféine, caféine corps, métabolisme caféine">
+  <link rel="canonical" href="https://pausecafe-app.fr/blog/cafeine-demi-vie-duree/">
+  <link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/blog/cafeine-demi-vie-duree/">
+  <link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/blog/caffeine-half-life-how-long-in-system/">
+  <link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/blog/cafeine-demi-vie-duree/">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:url" content="https://pausecafe-app.fr/blog/cafeine-demi-vie-duree/">
+  <meta property="og:title" content="Combien de temps la caféine reste-t-elle dans votre corps ? Demi-vie, courbe d'élimination et facteurs clés">
+  <meta property="og:description" content="Demi-vie ~5 h, courbe d'élimination, tabac, pilule, âge : découvrez combien de temps la caféine reste active dans votre corps, selon la pharmacocinétique.">
+  <meta property="og:image" content="https://pausecafe-app.fr/logo.png">
+  <meta property="og:site_name" content="PauseCafé">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Combien de temps la caféine reste-t-elle dans votre corps ? Demi-vie, courbe d'élimination et facteurs clés">
+  <meta name="twitter:description" content="Demi-vie ~5 h, courbe d'élimination, tabac, pilule, âge : découvrez combien de temps la caféine reste active dans votre corps, selon la pharmacocinétique.">
+  <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Combien de temps la caféine reste-t-elle dans votre corps ? Demi-vie, courbe d'élimination et facteurs clés","inLanguage":"fr","author":{"@type":"Person","name":"Kévin Beguerie"},"publisher":{"@type":"Organization","name":"PauseCafé","url":"https://pausecafe-app.fr"},"datePublished":"2026-10-16","dateModified":"2026-10-16","mainEntityOfPage":"https://pausecafe-app.fr/blog/cafeine-demi-vie-duree/"}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--cafe:#2C1810;--cream:#F5EDD6;--espresso:#1A0F0A;--caramel:#C4873A;--mousse:#E8D5B0;}
+    *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--cafe);overflow-x:hidden;line-height:1.7;}
+    /* barre de navigation : voir /nav-blog.css, chargée après ce bloc */
+    .article-hero{background:var(--espresso);padding:140px 48px 80px;position:relative;overflow:hidden;}
+    .article-hero::before{content:'☕';position:absolute;font-size:22vw;right:-2vw;top:50%;transform:translateY(-50%);opacity:0.05;pointer-events:none;}
+    .hero-inner{max-width:780px;margin:0 auto;}
+    .article-cat{display:inline-block;background:var(--caramel);color:white;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:24px;}
+    .article-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.12;color:var(--cream);margin-bottom:20px;}
+    .article-meta{display:flex;gap:20px;flex-wrap:wrap;}
+    .meta-item{font-size:0.82rem;color:rgba(245,237,214,0.5);}
+    .meta-sep{color:rgba(245,237,214,0.2);}
+    .hero-image-wrap{padding:0 48px;margin-top:-40px;}
+    .hero-image-wrap img{width:100%;max-width:900px;display:block;margin:0 auto;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+    .hero-credit{max-width:900px;margin:8px auto 0;text-align:right;font-size:0.72rem;color:#9E8070;}
+    .hero-credit a{color:#9E8070;}
+    .article-body{max-width:780px;margin:0 auto;padding:64px 48px 80px;}
+    .article-body h2{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:var(--cafe);margin:48px 0 16px;line-height:1.2;}
+    .article-body h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--cafe);margin:32px 0 12px;}
+    .article-body p{font-size:1rem;line-height:1.85;color:#3D2010;margin-bottom:20px;font-weight:300;}
+    .article-body strong{font-weight:500;color:var(--cafe);}
+    .article-body a{color:var(--caramel);text-decoration:underline;text-underline-offset:2px;}
+    .article-body ul,ol{padding-left:24px;margin-bottom:20px;}
+    .article-body li{font-size:1rem;line-height:1.8;color:#3D2010;font-weight:300;margin-bottom:6px;}
+    .highlight-box{background:white;border-left:4px solid var(--caramel);border-radius:0 12px 12px 0;padding:20px 24px;margin:32px 0;box-shadow:0 4px 16px rgba(44,24,16,0.06);}
+    .highlight-box p{margin:0;font-size:0.95rem;color:#3D2010;}
+    .range-viz{background:white;border-radius:16px;padding:28px;margin:32px 0;box-shadow:0 4px 16px rgba(44,24,16,0.06);}
+    .range-viz h4{font-size:0.85rem;color:#9E8070;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:20px;}
+    .range-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+    .range-label{font-size:0.8rem;color:var(--cafe);min-width:160px;}
+    .range-track{position:relative;flex:1;height:16px;background:#F0E9D8;border-radius:100px;}
+    .range-fill{position:absolute;height:16px;border-radius:100px;background:var(--caramel);}
+    .range-val{font-size:0.78rem;color:#9E8070;min-width:78px;text-align:right;}
+    .range-scale{font-size:0.72rem;color:#B0A088;margin-top:6px;font-style:italic;}
+    .profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0;}
+    .profile-card{background:white;border-radius:12px;padding:20px;box-shadow:0 4px 12px rgba(44,24,16,0.06);}
+    .profile-card h4{font-size:0.9rem;font-weight:500;color:var(--cafe);margin-bottom:8px;}
+    .profile-card p{font-size:0.82rem;color:#5C4033;font-weight:300;margin:0;line-height:1.6;}
+    .profile-icon{font-size:1.8rem;margin-bottom:8px;}
+    .sources-section{background:var(--mousse);border-radius:16px;padding:28px 32px;margin-top:48px;}
+    .sources-section h4{font-size:0.85rem;font-weight:500;color:var(--cafe);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.08em;}
+    .sources-section ul{list-style:none;padding:0;}
+    .sources-section li{font-size:0.82rem;color:#5C4033;margin-bottom:6px;padding-left:16px;position:relative;}
+    .sources-section li::before{content:'→';position:absolute;left:0;color:var(--caramel);}
+    .cta-section{background:var(--espresso);border-radius:20px;padding:48px 40px;text-align:center;margin-top:64px;position:relative;overflow:hidden;}
+    .cta-section::before{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(196,135,58,0.12) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);}
+    .cta-section h3{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--cream);margin-bottom:12px;position:relative;}
+    .cta-section p{color:rgba(245,237,214,0.6);margin-bottom:32px;font-weight:300;position:relative;}
+    .cta-badge img{height:56px;width:auto;display:block;}
+    .cta-badge{display:inline-block;transition:opacity 0.2s,transform 0.2s;position:relative;z-index:1;}
+    .cta-badge:hover{opacity:0.85;transform:translateY(-2px);}
+    .related{margin-top:64px;}
+    .related h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--cafe);margin-bottom:24px;}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+    .related-card{background:var(--espresso);border-radius:12px;padding:20px;text-decoration:none;transition:transform 0.2s;}
+    .related-card:hover{transform:translateY(-2px);}
+    .related-card .r-cat{font-size:0.7rem;color:var(--caramel);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;}
+    .related-card .r-title{font-size:0.9rem;font-weight:500;color:var(--cream);line-height:1.35;}
+    footer{background:var(--espresso);color:var(--cream);padding:48px;text-align:center;}
+    footer p{font-size:0.82rem;opacity:0.4;}footer a{color:var(--caramel);text-decoration:none;}
+    @media(max-width:768px){nav{padding:12px 20px;}.article-hero{padding:110px 24px 60px;}.hero-image-wrap{padding:0 24px;}.article-body{padding:40px 24px 60px;}.profile-grid{grid-template-columns:1fr;}.range-label{min-width:108px;font-size:0.72rem;}.range-val{min-width:64px;font-size:0.72rem;}}
+  </style>
+  <link rel="stylesheet" href="/nav-blog.css">
+</head>
+<body>
+<nav>
+  <a href="https://pausecafe-app.fr" class="nav-logo"><img src="/logo.webp" alt="PauseCafé">PauseCafé</a>
+  <ul class="nav-links">
+    <li><a href="/cafeine-temps-reel.html">Caféine en temps réel</a></li>
+    <li><a href="/calculateur-cafeine.html">Calculateur</a></li>
+    <li><a href="/hydratation.html">Hydratation</a></li>
+    <li><a href="/analyses.html">Analyses</a></li>
+    <li><a href="/sante.html">Santé</a></li>
+    <li><a href="/blog" class="active">Articles</a></li>
+    <li><a href="/changelog.html">Nouveautés</a></li>
+    <li><span class="lang-switch"><a href="/blog/cafeine-demi-vie-duree/" aria-current="true" hreflang="fr">FR</a><span class="sep">/</span><a href="/en/blog/caffeine-half-life-how-long-in-system/" hreflang="en">EN</a></span></li>
+  </ul>
+  <button class="burger-btn" onclick="ouvrirMenuMobile()" aria-label="Menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+</nav>
+<div class="mobile-menu-overlay" id="mobile-menu" onclick="fermerMenuSiBackdrop(event)">
+  <div class="mobile-menu-backdrop"></div>
+  <div class="mobile-menu-panel">
+    <div class="mobile-menu-header">
+      <span class="mobile-menu-logo">
+        <img src="/logo.webp" alt="PauseCafé" class="mobile-menu-logo-img">
+        PauseCafé
+      </span>
+      <button class="mobile-menu-close" onclick="fermerMenuMobile()" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="https://pausecafe-app.fr#features" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">☕</div>
+        <div class="item-text"><span class="item-label">Fonctionnalités</span><span class="item-sub">Ce que fait PauseCafé</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/cafeine-temps-reel.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">📉</div>
+        <div class="item-text"><span class="item-label">Caféine en temps réel</span><span class="item-sub">La caféine active expliquée</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/calculateur-cafeine.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">🧮</div>
+        <div class="item-text"><span class="item-label">Calculateur</span><span class="item-sub">Caféine restante au coucher</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/hydratation.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">💧</div>
+        <div class="item-text"><span class="item-label">Hydratation</span><span class="item-sub">Le suivi de l&rsquo;eau &amp; la science</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/analyses.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">🔬</div>
+        <div class="item-text"><span class="item-label">Analyses</span><span class="item-sub">Méthode &amp; sources scientifiques</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/sante.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">❤️</div>
+        <div class="item-text"><span class="item-label">App Santé</span><span class="item-sub">Synchronisation avec l&rsquo;app Santé</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="https://pausecafe-app.fr#premium" class="mobile-menu-item premium-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">👑</div>
+        <div class="item-text"><span class="item-label">Premium</span><span class="item-sub">Watch · boissons perso</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="https://pausecafe-app.fr#normes" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">🔬</div>
+        <div class="item-text"><span class="item-label">Normes EFSA &amp; OMS</span><span class="item-sub">La science derrière l&rsquo;app</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/blog" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">📖</div>
+        <div class="item-text"><span class="item-label">Articles</span><span class="item-sub">Caféine, hydratation &amp; santé</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/changelog.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">🆕</div>
+        <div class="item-text"><span class="item-label">Nouveautés</span><span class="item-sub">Les dernières versions</span></div>
+      </a>
+    </div>
+    <div class="mobile-menu-footer">
+      <span class="lang-switch"><a href="/blog/cafeine-demi-vie-duree/" aria-current="true" hreflang="fr">FR</a><span class="sep">/</span><a href="/en/blog/caffeine-half-life-how-long-in-system/" hreflang="en">EN</a></span>
+    </div>
+  </div>
+</div>
+
+<section class="article-hero">
+  <div class="hero-inner">
+    <span class="article-cat">Études scientifiques</span>
+    <h1>Combien de temps la caféine reste-t-elle dans votre corps ? Demi-vie, courbe d'élimination et facteurs clés</h1>
+    <div class="article-meta">
+      <span class="meta-item">16 octobre 2026</span>
+      <span class="meta-sep">·</span>
+      <span class="meta-item">7 min de lecture</span>
+      <span class="meta-sep">·</span>
+      <span class="meta-item">Par Kévin Beguerie</span>
+    </div>
+  </div>
+</section>
+
+<div class="hero-image-wrap">
+  <img src="https://images.unsplash.com/photo-1592117138541-1a7d88b7d266?ixid=M3w5NjMyMjN8MHwxfHNlYXJjaHwxfHxjb2ZmZWUlMjBob3VyZ2xhc3MlMjB0aW1lJTIwYmlvbG9neXxlbnwwfDB8fHwxNzkyMTM0MzQ3fDA&ixlib=rb-4.1.0&w=900&q=80&fm=jpg&fit=crop" alt="Un sablier posé à côté d'une tasse de café, symbolisant le temps d'élimination de la caféine dans le corps" loading="lazy">
+</div>
+<p class="hero-credit">Photo : <a href="https://unsplash.com/@wilhelmgunkel?utm_source=pausecafe&utm_medium=referral" target="_blank" rel="noopener">Wilhelm Gunkel</a> / <a href="https://unsplash.com/?utm_source=pausecafe&utm_medium=referral" target="_blank" rel="noopener">Unsplash</a></p>
+
+<article class="article-body">
+
+<p>Vous finissez votre café du matin et vous demandez à quelle heure son effet disparaîtra vraiment. La réponse tient en deux mots : <strong>demi-vie</strong>. Comprendre ce concept pharmacocinétique, c'est comprendre pourquoi un expresso pris à 15 h peut encore perturber votre nuit — ou pas, selon votre profil. Et c'est très différent d'un individu à l'autre.</p>
+
+<h2>Qu'est-ce que la demi-vie ?</h2>
+<p>En pharmacologie, la <strong>demi-vie d'élimination</strong> désigne le temps nécessaire à l'organisme pour éliminer la moitié de la quantité initiale d'une substance. Pour la caféine, ce n'est pas le moment où vous cessez de « sentir » son effet : c'est une mesure objective de la concentration plasmatique.</p>
+<p>Concrètement : si vous buvez un café contenant 200 mg de caféine, après une demi-vie, il vous en reste environ 100 mg dans le sang. Après deux demi-vies, environ 50 mg. Et ainsi de suite, selon une décroissance exponentielle dite de <em>premier ordre</em> — le modèle pharmacocinétique standard pour la caféine.</p>
+
+<div class="highlight-box"><p>🔬 <strong>Résultat clé :</strong> Chez l'adulte en bonne santé, l'EFSA indique une demi-vie moyenne de la caféine d'environ <strong>4 heures</strong>, avec une fourchette de <strong>2 à 8 heures</strong>. La littérature pharmacocinétique rapporte des valeurs pouvant aller jusqu'à 10 heures chez certains individus. — EFSA (2015) ; Vidal.fr, interactions médicamenteuses de la caféine</p></div>
+
+<h2>La courbe d'élimination heure par heure</h2>
+<p>La caféine est absorbée très rapidement. L'EFSA indique que <strong>les effets stimulants peuvent commencer 15 à 30 minutes après l'ingestion</strong>. Le pic de concentration plasmatique est généralement atteint en une heure environ. Ensuite, le foie prend le relais.</p>
+
+<div class="range-viz"><h4>Caféine restante après un café de 200 mg (demi-vie théorique : 5 h)</h4><div class="range-row"><span class="range-label">0 h (pic)</span><div class="range-track"><div class="range-fill" style="left:0%;width:66.7%;"></div></div><span class="range-val">~200 mg</span></div><div class="range-row"><span class="range-label">5 h</span><div class="range-track"><div class="range-fill" style="left:0%;width:33.3%;"></div></div><span class="range-val">~100 mg</span></div><div class="range-row"><span class="range-label">10 h</span><div class="range-track"><div class="range-fill" style="left:0%;width:16.7%;"></div></div><span class="range-val">~50 mg</span></div><div class="range-row"><span class="range-label">15 h</span><div class="range-track"><div class="range-fill" style="left:0%;width:8.3%;"></div></div><span class="range-val">~25 mg</span></div><p class="range-scale">Échelle : 0 à 300 mg. Ces valeurs sont théoriques et supposent une demi-vie de 5 h ; la demi-vie réelle varie selon les individus. Sources : EFSA (2015), Vidal.fr</p></div>
+
+<p>Ces chiffres illustrent pourquoi <a href="/blog/cafeine-residuelle-coucher/">la caféine résiduelle au moment du coucher</a> est souvent sous-estimée. Un café de 15 h bu par quelqu'un dont la demi-vie est de 7 h laisse encore <strong>environ 50 mg de caféine active à 22 h</strong> — soit l'équivalent d'un demi-café allongé. Pour visualiser votre propre courbe en temps réel, <a href="/cafeine-temps-reel.html">la courbe de caféine active de PauseCafé</a> calcule ce résidu heure par heure selon vos consommations du jour.</p>
+
+<h2>Le foie au cœur de l'élimination : l'enzyme CYP1A2</h2>
+<p>La caféine est presque exclusivement métabolisée par le foie. Une enzyme en particulier joue le rôle de chef d'orchestre : le <strong>cytochrome P450 1A2 (CYP1A2)</strong>. Selon une revue systématique publiée dans <em>Frontiers in Pharmacology</em> (Grzegorzewski et al., 2022), cette enzyme est responsable de la grande majorité de la dégradation de la caféine, via une réaction principale de déméthylation qui produit de la <strong>paraxanthine</strong> (environ 80 % des métabolites), de la théobromine et de la théophylline.</p>
+<p>Or, l'activité de CYP1A2 varie considérablement d'une personne à l'autre — entre <strong>5 et 6 fois</strong> selon les données compilées dans la même revue — en raison de facteurs génétiques, environnementaux et hormonaux. C'est cette variabilité qui explique la grande fourchette de demi-vies observée dans la population.</p>
+
+<div class="highlight-box"><p>🔬 <strong>Résultat clé :</strong> Le polymorphisme génétique du gène <em>CYP1A2</em> (notamment la variante rs762551) permet de classer les individus en métaboliseurs « rapides », « intermédiaires » ou « lents », avec des demi-vies de caféine très différentes. — Sachse et al., <em>British Journal of Clinical Pharmacology</em>, 1999 ; cité dans plusieurs revues récentes</p></div>
+
+<p>Pour aller plus loin sur la dimension génétique, l'article <a href="/blog/genetique-cafeine-metaboliseur/">votre génétique détermine-t-elle votre tolérance à la caféine ?</a> détaille comment connaître son profil de métaboliseur.</p>
+
+<h2>Les facteurs qui modifient votre demi-vie personnelle</h2>
+<p>La demi-vie moyenne n'est qu'un point de départ. Plusieurs facteurs, bien documentés dans la littérature, peuvent la raccourcir ou l'allonger de manière significative.</p>
+
+<div class="profile-grid">
+  <div class="profile-card">
+    <div class="profile-icon">🚬</div>
+    <h4>Tabac : demi-vie raccourcie</h4>
+    <p>Les hydrocarbures aromatiques polycycliques de la fumée de cigarette <strong>induisent fortement CYP1A2</strong>, accélérant la dégradation de la caféine. Selon une méta-analyse systématique publiée dans <em>Frontiers in Pharmacology</em> (Grzegorzewski et al., 2022), le tabagisme augmente la clairance de la caféine et réduit sa demi-vie de façon cohérente sur plus de 50 ans de recherche pharmacocinétique. Des estimations couramment citées dans la littérature situent la demi-vie chez les fumeurs autour de <strong>2 à 3,5 heures</strong>. À noter : à l'arrêt du tabac, cet effet s'inverse progressivement — et la même dose de caféine peut alors durer bien plus longtemps.</p>
+  </div>
+  <div class="profile-card">
+    <div class="profile-icon">💊</div>
+    <h4>Contraceptifs oraux : demi-vie allongée</h4>
+    <p>Les œstrogènes de synthèse contenus dans la pilule <strong>inhibent CYP1A2</strong>, ralentissant l'élimination de la caféine. Selon la même méta-analyse (Grzegorzewski et al., 2022), cet effet est « cohérent et reproductible » sur des décennies de recherche. Des données pharmacocinétiques publiées suggèrent que les femmes sous contraceptifs oraux peuvent présenter une demi-vie de la caféine autour de <strong>7 à 10 heures</strong>, contre environ 4 h en moyenne selon l'EFSA. Concrètement : un café de 14 h peut encore agir à minuit.</p>
+  </div>
+  <div class="profile-card">
+    <div class="profile-icon">🤰</div>
+    <h4>Grossesse : demi-vie très allongée</h4>
+    <p>La grossesse modifie profondément le métabolisme hépatique. Selon plusieurs sources de la littérature primaire, <strong>la demi-vie de la caféine pendant la grossesse est d'environ 9 à 11 heures</strong>, et peut s'allonger encore davantage au troisième trimestre. C'est l'une des raisons pour lesquelles les recommandations officielles (ANSES, OMS) fixent un seuil de précaution à environ <strong>200 mg/j</strong> pour les femmes enceintes — bien en dessous des 400 mg/j recommandés pour les adultes. L'article <a href="/blog/cafeine-grossesse/">caféine et grossesse</a> détaille ces recommandations.</p>
+  </div>
+  <div class="profile-card">
+    <div class="profile-icon">👴</div>
+    <h4>Âge et santé hépatique : effets variables</h4>
+    <p>La maturité enzymatique du foie varie selon l'âge. Chez le nouveau-né, et particulièrement le prématuré, la demi-vie de la caféine peut atteindre <strong>40 à 230 heures</strong> en raison d'un métabolisme hépatique immature (données cliniques citées dans la littérature de réanimation néonatale). Chez les adultes plus âgés, le ralentissement du flux sanguin hépatique peut allonger modestement la demi-vie. Par ailleurs, toute pathologie hépatique (cirrhose, hépatite) réduit la clairance de la caféine de façon marquée, selon Grzegorzewski et al. (2022).</p>
+  </div>
+</div>
+
+<h2>Génétique : métaboliseur rapide ou lent ?</h2>
+<p>Indépendamment des facteurs environnementaux, <strong>votre ADN influence directement la vitesse à laquelle vous dégradez la caféine</strong>. Le polymorphisme rs762551 du gène <em>CYP1A2</em> permet de distinguer schématiquement trois profils :</p>
+<ul>
+  <li><strong>Métaboliseurs rapides</strong> : demi-vie pouvant descendre à 2–3 h. Ces personnes peuvent souvent boire un café en fin d'après-midi sans que leur sommeil en pâtisse.</li>
+  <li><strong>Métaboliseurs intermédiaires</strong> : demi-vie proche de la moyenne.</li>
+  <li><strong>Métaboliseurs lents</strong> : demi-vie pouvant dépasser 8 à 10 h. Pour ces personnes, une seule tasse en milieu d'après-midi peut encore représenter une concentration significative au moment du coucher.</li>
+</ul>
+<p>Des études compilant les données de milliers de sujets (Grzegorzewski et al., 2022, <em>Frontiers in Pharmacology</em>) montrent que l'activité de CYP1A2 peut varier jusqu'à 5 à 6 fois entre individus, ce qui explique des expériences subjectives radicalement différentes face à la même tasse de café.</p>
+
+<div class="highlight-box"><p>🔬 <strong>Résultat clé :</strong> La demi-vie de la caféine varie considérablement chez l'adulte en bonne santé selon les individus, en fonction du polymorphisme génétique CYP1A2, des habitudes tabagiques, de la prise de contraceptifs oraux et de l'état du foie. — Vidal.fr</p></div>
+
+<h2>Ce que cela change dans votre quotidien</h2>
+<p>Connaître sa propre demi-vie permet de prendre des décisions éclairées — pas seulement sur le nombre de cafés, mais sur leur <em>timing</em>.</p>
+<ol>
+  <li><strong>Calculez à rebours depuis votre heure de coucher.</strong> Si vous vous couchez à 23 h et que votre demi-vie est de 5 h, un café pris après 15 h laissera encore environ 100 mg actifs à l'heure du sommeil. Pour quelqu'un dont la demi-vie est de 7 h, ce seuil critique recule à 13 h.</li>
+  <li><strong>Tenez compte de vos facteurs modificateurs.</strong> Avez-vous récemment arrêté de fumer ? Avez-vous commencé ou arrêté la pilule ? Votre demi-vie a peut-être changé sans que vous l'ayez remarqué.</li>
+  <li><strong>Ne raisonnez pas uniquement en milligrammes.</strong> Un article de <a href="/blog/cafeine-sommeil/">caféine et qualité du sommeil</a> rappelle que ce n'est pas seulement la quantité, mais le moment de la consommation qui détermine l'impact sur le repos.</li>
+  <li><strong>Évitez l'accumulation.</strong> Si votre demi-vie est longue, plusieurs cafés dans la journée peuvent s'accumuler dans votre organisme. La <a href="/blog/tolerance-cafeine/">tolérance à la caféine</a> peut masquer cet effet, en vous faisant croire que vous « tenez bien » alors que la concentration plasmatique reste élevée.</li>
+</ol>
+
+<h2>Les métabolites : une activité qui persiste</h2>
+<p>Un dernier point souvent oublié : la caféine ne disparaît pas d'un coup. Elle se transforme en <strong>métabolites partiellement actifs</strong>. La paraxanthine, métabolite principal (environ 80 % de la voie de dégradation), possède des propriétés stimulantes propres et une demi-vie comparable à celle de la caféine. La théobromine et la théophylline ont des effets biologiques distincts, notamment cardio-vasculaires et bronchodilatateurs. Ainsi, même lorsque la caféine stricto sensu a été éliminée à 50 %, l'ensemble des substances actives reste présent dans l'organisme.</p>
+<p>C'est pourquoi la notion de « caféine active totale » — qui additionne la molécule parente et ses métabolites actifs — est parfois plus pertinente cliniquement que la seule mesure de la caféine plasmatique.</p>
+
+<h2>Limites de ces données et variabilité individuelle</h2>
+<p>Les valeurs citées dans cet article sont des <strong>moyennes ou des fourchettes issues d'études de groupe</strong>. Elles ne permettent pas de prédire avec précision votre demi-vie personnelle sans test pharmacocinétique (qui reste du domaine clinique). De nombreux autres facteurs peuvent jouer un rôle : l'état de santé général, d'autres médicaments (notamment les fluoroquinolones antibiotiques ou certains antidépresseurs qui inhibent CYP1A2), les interactions alimentaires, ou encore les variations hormonales du cycle menstruel. En cas de doute sur l'interaction caféine-médicament, consultez un professionnel de santé ou votre pharmacien.</p>
+
+  <div class="sources-section">
+    <h4>Sources scientifiques</h4>
+    <ul>
+<li>Grzegorzewski J., Bartsch F., Köller A., König M. (2022). Pharmacokinetics of Caffeine: A Systematic Analysis of Reported Data for Application in Metabolic Phenotyping and Liver Function Testing. <em>Frontiers in Pharmacology</em>, 12:752826.</li><li>Nehlig A. (2018). Interindividual Differences in Caffeine Metabolism and Factors Driving Caffeine Consumption. <em>Pharmacological Reviews</em>, 70(2):384–411.</li><li>EFSA Panel on Dietetic Products, Nutrition and Allergies (2015). Scientific Opinion on the safety of caffeine. <em>EFSA Journal</em>, 13(5):4102.</li><li>Sachse C., Brockmöller J., Bauer S., Roots I. (1999). Functional Significance of a C→A Polymorphism in Intron 1 of the Cytochrome P450 CYP1A2 Gene Tested With Caffeine. <em>British Journal of Clinical Pharmacology</em>, 47(4):445–449.</li><li>Vidal (2024). Caféine et médicaments : des interactions souvent méconnues. Vidal.fr — consulté octobre 2026.</li>
+    </ul>
+  </div>
+
+  <div class="disclaimer-box" style="background:#FBF5E9;border:1px solid rgba(196,135,58,0.35);border-radius:12px;padding:18px 22px;margin-top:48px;">
+    <p style="margin:0;font-size:0.82rem;line-height:1.6;color:#5C4033;">
+      <strong>⚕️ Information importante.</strong> Cet article a une vocation purement informative et de bien-être. Il ne constitue pas un avis médical, un diagnostic ou une prescription. Les effets de la caféine varient d'une personne à l'autre. En cas de question sur votre consommation, de symptôme, de grossesse, de traitement médical ou de problème de santé, consultez un professionnel de santé (médecin, pharmacien). Ne modifiez pas un traitement sur la seule base de cet article.
+    </p>
+  </div>
+
+  <div class="cta-section">
+    <h3>Arrêtez d'estimer. Mesurez.</h3>
+    <p>PauseCafé enregistre la teneur réelle en caféine de chaque boisson pour un cumul du jour fiable. Gratuit, sans pub.</p>
+    <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" rel="noopener" class="cta-badge">
+      <img src="/app-store-badge-fr.svg" alt="Télécharger PauseCafé sur l'App Store">
+    </a>
+  </div>
+
+  <div class="related">
+    <h3>Articles connexes</h3>
+    <div class="related-grid">
+      <a href="/blog/cafeine-residuelle-coucher/" class="related-card"><div class="r-cat">Sommeil</div><div class="r-title">Caféine résiduelle au coucher : combien en reste-t-il ?</div></a>
+      <a href="/blog/genetique-cafeine-metaboliseur/" class="related-card"><div class="r-cat">Études scientifiques</div><div class="r-title">Votre génétique et le métabolisme de la caféine</div></a>
+      <a href="/blog/cafeine-sommeil/" class="related-card"><div class="r-cat">Sommeil</div><div class="r-title">Caféine et qualité du sommeil : ce que dit la science</div></a>
+    </div>
+  </div>
+
+</article>
+<footer><p>© 2026 PauseCafé · <a href="https://pausecafe-app.fr">pausecafe-app.fr</a> · <a href="/blog">Tous les articles</a></p></footer>
+<script src="/nav-blog.js"></script>
+</body>
+</html>

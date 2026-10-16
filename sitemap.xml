@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>https://pausecafe-app.fr/blog</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/blog"/>
@@ -67,7 +67,7 @@
   </url>
   <url>
     <loc>https://pausecafe-app.fr/en/blog</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/blog"/>
@@ -271,6 +271,24 @@
   </url>
   <!-- Articles blog -->
   <!-- AGENT:NOUVELLE-URL -->
+  <url>
+    <loc>https://pausecafe-app.fr/blog/cafeine-demi-vie-duree/</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/blog/cafeine-demi-vie-duree/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/blog/caffeine-half-life-how-long-in-system/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/blog/cafeine-demi-vie-duree/"/>
+  </url>
+  <url>
+    <loc>https://pausecafe-app.fr/en/blog/caffeine-half-life-how-long-in-system/</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/blog/cafeine-demi-vie-duree/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/blog/caffeine-half-life-how-long-in-system/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/blog/cafeine-demi-vie-duree/"/>
+  </url>
   <url>
     <loc>https://pausecafe-app.fr/blog/cafeine-anxiete-palpitations/</loc>
     <lastmod>2026-10-05</lastmod>
