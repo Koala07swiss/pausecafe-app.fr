@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caféine dans le décaféiné : combien reste-t-il vraiment ? | PauseCafé</title>
+  <meta name="description" content="Le décaféiné contient encore de la caféine. Procédés, milligrammes résiduels, réglementation européenne : tout ce que la science sait vraiment.">
+  <meta name="keywords" content="décaféiné caféine, caféine résiduelle, procédé décaféination, mg décaféiné, café sans caféine, Swiss Water CO2">
+  <link rel="canonical" href="https://pausecafe-app.fr/blog/decaféiné-vraiment-sans-cafeine/">
+  <link rel="alternate" hreflang="fr" href="https://pausecafe-app.fr/blog/decaféiné-vraiment-sans-cafeine/">
+  <link rel="alternate" hreflang="en" href="https://pausecafe-app.fr/en/blog/decaf-coffee-caffeine-content/">
+  <link rel="alternate" hreflang="x-default" href="https://pausecafe-app.fr/blog/decaféiné-vraiment-sans-cafeine/">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:url" content="https://pausecafe-app.fr/blog/decaféiné-vraiment-sans-cafeine/">
+  <meta property="og:title" content="Décaféiné : combien de caféine reste-t-il vraiment dans votre tasse ?">
+  <meta property="og:description" content="Le décaféiné contient encore de la caféine. Procédés, milligrammes résiduels, réglementation européenne : tout ce que la science sait vraiment.">
+  <meta property="og:image" content="https://pausecafe-app.fr/logo.png">
+  <meta property="og:site_name" content="PauseCafé">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Décaféiné : combien de caféine reste-t-il vraiment dans votre tasse ?">
+  <meta name="twitter:description" content="Le décaféiné contient encore de la caféine. Procédés, milligrammes résiduels, réglementation européenne : tout ce que la science sait vraiment.">
+  <meta name="twitter:image" content="https://pausecafe-app.fr/logo.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Décaféiné : combien de caféine reste-t-il vraiment dans votre tasse ?","inLanguage":"fr","author":{"@type":"Person","name":"Kévin Beguerie"},"publisher":{"@type":"Organization","name":"PauseCafé","url":"https://pausecafe-app.fr"},"datePublished":"2026-11-02","dateModified":"2026-11-02","mainEntityOfPage":"https://pausecafe-app.fr/blog/decaféiné-vraiment-sans-cafeine/"}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--cafe:#2C1810;--cream:#F5EDD6;--espresso:#1A0F0A;--caramel:#C4873A;--mousse:#E8D5B0;}
+    *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--cafe);overflow-x:hidden;line-height:1.7;}
+    /* barre de navigation : voir /nav-blog.css, chargée après ce bloc */
+    .article-hero{background:var(--espresso);padding:140px 48px 80px;position:relative;overflow:hidden;}
+    .article-hero::before{content:'☕';position:absolute;font-size:22vw;right:-2vw;top:50%;transform:translateY(-50%);opacity:0.05;pointer-events:none;}
+    .hero-inner{max-width:780px;margin:0 auto;}
+    .article-cat{display:inline-block;background:var(--caramel);color:white;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:24px;}
+    .article-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.12;color:var(--cream);margin-bottom:20px;}
+    .article-meta{display:flex;gap:20px;flex-wrap:wrap;}
+    .meta-item{font-size:0.82rem;color:rgba(245,237,214,0.5);}
+    .meta-sep{color:rgba(245,237,214,0.2);}
+    .hero-image-wrap{padding:0 48px;margin-top:-40px;}
+    .hero-image-wrap img{width:100%;max-width:900px;display:block;margin:0 auto;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+    .hero-credit{max-width:900px;margin:8px auto 0;text-align:right;font-size:0.72rem;color:#9E8070;}
+    .hero-credit a{color:#9E8070;}
+    .article-body{max-width:780px;margin:0 auto;padding:64px 48px 80px;}
+    .article-body h2{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:var(--cafe);margin:48px 0 16px;line-height:1.2;}
+    .article-body h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--cafe);margin:32px 0 12px;}
+    .article-body p{font-size:1rem;line-height:1.85;color:#3D2010;margin-bottom:20px;font-weight:300;}
+    .article-body strong{font-weight:500;color:var(--cafe);}
+    .article-body a{color:var(--caramel);text-decoration:underline;text-underline-offset:2px;}
+    .article-body ul,ol{padding-left:24px;margin-bottom:20px;}
+    .article-body li{font-size:1rem;line-height:1.8;color:#3D2010;font-weight:300;margin-bottom:6px;}
+    .highlight-box{background:white;border-left:4px solid var(--caramel);border-radius:0 12px 12px 0;padding:20px 24px;margin:32px 0;box-shadow:0 4px 16px rgba(44,24,16,0.06);}
+    .highlight-box p{margin:0;font-size:0.95rem;color:#3D2010;}
+    .range-viz{background:white;border-radius:16px;padding:28px;margin:32px 0;box-shadow:0 4px 16px rgba(44,24,16,0.06);}
+    .range-viz h4{font-size:0.85rem;color:#9E8070;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:20px;}
+    .range-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+    .range-label{font-size:0.8rem;color:var(--cafe);min-width:160px;}
+    .range-track{position:relative;flex:1;height:16px;background:#F0E9D8;border-radius:100px;}
+    .range-fill{position:absolute;height:16px;border-radius:100px;background:var(--caramel);}
+    .range-val{font-size:0.78rem;color:#9E8070;min-width:78px;text-align:right;}
+    .range-scale{font-size:0.72rem;color:#B0A088;margin-top:6px;font-style:italic;}
+    .profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0;}
+    .profile-card{background:white;border-radius:12px;padding:20px;box-shadow:0 4px 12px rgba(44,24,16,0.06);}
+    .profile-card h4{font-size:0.9rem;font-weight:500;color:var(--cafe);margin-bottom:8px;}
+    .profile-card p{font-size:0.82rem;color:#5C4033;font-weight:300;margin:0;line-height:1.6;}
+    .profile-icon{font-size:1.8rem;margin-bottom:8px;}
+    .sources-section{background:var(--mousse);border-radius:16px;padding:28px 32px;margin-top:48px;}
+    .sources-section h4{font-size:0.85rem;font-weight:500;color:var(--cafe);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.08em;}
+    .sources-section ul{list-style:none;padding:0;}
+    .sources-section li{font-size:0.82rem;color:#5C4033;margin-bottom:6px;padding-left:16px;position:relative;}
+    .sources-section li::before{content:'→';position:absolute;left:0;color:var(--caramel);}
+    .cta-section{background:var(--espresso);border-radius:20px;padding:48px 40px;text-align:center;margin-top:64px;position:relative;overflow:hidden;}
+    .cta-section::before{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(196,135,58,0.12) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);}
+    .cta-section h3{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--cream);margin-bottom:12px;position:relative;}
+    .cta-section p{color:rgba(245,237,214,0.6);margin-bottom:32px;font-weight:300;position:relative;}
+    .cta-badge img{height:56px;width:auto;display:block;}
+    .cta-badge{display:inline-block;transition:opacity 0.2s,transform 0.2s;position:relative;z-index:1;}
+    .cta-badge:hover{opacity:0.85;transform:translateY(-2px);}
+    .related{margin-top:64px;}
+    .related h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--cafe);margin-bottom:24px;}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+    .related-card{background:var(--espresso);border-radius:12px;padding:20px;text-decoration:none;transition:transform 0.2s;}
+    .related-card:hover{transform:translateY(-2px);}
+    .related-card .r-cat{font-size:0.7rem;color:var(--caramel);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;}
+    .related-card .r-title{font-size:0.9rem;font-weight:500;color:var(--cream);line-height:1.35;}
+    footer{background:var(--espresso);color:var(--cream);padding:48px;text-align:center;}
+    footer p{font-size:0.82rem;opacity:0.4;}footer a{color:var(--caramel);text-decoration:none;}
+    @media(max-width:768px){nav{padding:12px 20px;}.article-hero{padding:110px 24px 60px;}.hero-image-wrap{padding:0 24px;}.article-body{padding:40px 24px 60px;}.profile-grid{grid-template-columns:1fr;}.range-label{min-width:108px;font-size:0.72rem;}.range-val{min-width:64px;font-size:0.72rem;}}
+  </style>
+  <link rel="stylesheet" href="/nav-blog.css">
+</head>
+<body>
+<nav>
+  <a href="https://pausecafe-app.fr" class="nav-logo"><img src="/logo.webp" alt="PauseCafé">PauseCafé</a>
+  <ul class="nav-links">
+    <li><a href="/cafeine-temps-reel.html">Caféine en temps réel</a></li>
+    <li><a href="/calculateur-cafeine.html">Calculateur</a></li>
+    <li><a href="/hydratation.html">Hydratation</a></li>
+    <li><a href="/analyses.html">Analyses</a></li>
+    <li><a href="/sante.html">Santé</a></li>
+    <li><a href="/blog" class="active">Articles</a></li>
+    <li><a href="/changelog.html">Nouveautés</a></li>
+    <li><span class="lang-switch"><a href="/blog/decaféiné-vraiment-sans-cafeine/" aria-current="true" hreflang="fr">FR</a><span class="sep">/</span><a href="/en/blog/decaf-coffee-caffeine-content/" hreflang="en">EN</a></span></li>
+  </ul>
+  <button class="burger-btn" onclick="ouvrirMenuMobile()" aria-label="Menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+</nav>
+<div class="mobile-menu-overlay" id="mobile-menu" onclick="fermerMenuSiBackdrop(event)">
+  <div class="mobile-menu-backdrop"></div>
+  <div class="mobile-menu-panel">
+    <div class="mobile-menu-header">
+      <span class="mobile-menu-logo">
+        <img src="/logo.webp" alt="PauseCafé" class="mobile-menu-logo-img">
+        PauseCafé
+      </span>
+      <button class="mobile-menu-close" onclick="fermerMenuMobile()" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="https://pausecafe-app.fr#features" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">☕</div>
+        <div class="item-text"><span class="item-label">Fonctionnalités</span><span class="item-sub">Ce que fait PauseCafé</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/cafeine-temps-reel.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">📉</div>
+        <div class="item-text"><span class="item-label">Caféine en temps réel</span><span class="item-sub">La caféine active expliquée</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/calculateur-cafeine.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">🧮</div>
+        <div class="item-text"><span class="item-label">Calculateur</span><span class="item-sub">Caféine restante au coucher</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/hydratation.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">💧</div>
+        <div class="item-text"><span class="item-label">Hydratation</span><span class="item-sub">Le suivi de l&rsquo;eau &amp; la science</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/analyses.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">🔬</div>
+        <div class="item-text"><span class="item-label">Analyses</span><span class="item-sub">Méthode &amp; sources scientifiques</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/sante.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">❤️</div>
+        <div class="item-text"><span class="item-label">App Santé</span><span class="item-sub">Synchronisation avec l&rsquo;app Santé</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="https://pausecafe-app.fr#premium" class="mobile-menu-item premium-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">👑</div>
+        <div class="item-text"><span class="item-label">Premium</span><span class="item-sub">Watch · boissons perso</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="https://pausecafe-app.fr#normes" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">🔬</div>
+        <div class="item-text"><span class="item-label">Normes EFSA &amp; OMS</span><span class="item-sub">La science derrière l&rsquo;app</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/blog" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">📖</div>
+        <div class="item-text"><span class="item-label">Articles</span><span class="item-sub">Caféine, hydratation &amp; santé</span></div>
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <a href="/changelog.html" class="mobile-menu-item" onclick="fermerMenuMobile()">
+        <div class="item-icon">🆕</div>
+        <div class="item-text"><span class="item-label">Nouveautés</span><span class="item-sub">Les dernières versions</span></div>
+      </a>
+    </div>
+    <div class="mobile-menu-footer">
+      <span class="lang-switch"><a href="/blog/decaféiné-vraiment-sans-cafeine/" aria-current="true" hreflang="fr">FR</a><span class="sep">/</span><a href="/en/blog/decaf-coffee-caffeine-content/" hreflang="en">EN</a></span>
+    </div>
+  </div>
+</div>
+
+<section class="article-hero">
+  <div class="hero-inner">
+    <span class="article-cat">Études scientifiques</span>
+    <h1>Décaféiné : combien de caféine reste-t-il vraiment dans votre tasse ?</h1>
+    <div class="article-meta">
+      <span class="meta-item">2 novembre 2026</span>
+      <span class="meta-sep">·</span>
+      <span class="meta-item">7 min de lecture</span>
+      <span class="meta-sep">·</span>
+      <span class="meta-item">Par Kévin Beguerie</span>
+    </div>
+  </div>
+</section>
+
+<div class="hero-image-wrap">
+  <img src="https://images.unsplash.com/photo-1608037222011-cbf484177126?ixid=M3w5NjMyMjN8MHwxfHNlYXJjaHwxfHxkZWNhZiUyMGNvZmZlZSUyMGN1cCUyMGxhYm9yYXRvcnl8ZW58MHwwfHx8MTc5MzYzOTM0N3ww&ixlib=rb-4.1.0&w=900&q=80&fm=jpg&fit=crop" alt="Tasse de café décaféiné posée sur un comptoir de laboratoire, symbolisant l'analyse scientifique de sa teneur en caféine" loading="lazy">
+</div>
+<p class="hero-credit">Photo : <a href="https://unsplash.com/@trnavskauni?utm_source=pausecafe&utm_medium=referral" target="_blank" rel="noopener">Trnava University</a> / <a href="https://unsplash.com/?utm_source=pausecafe&utm_medium=referral" target="_blank" rel="noopener">Unsplash</a></p>
+
+<article class="article-body">
+
+<p>Le café décaféiné bénéficie d'une réputation rassurante : on l'imagine totalement neutre, privé de toute molécule stimulante. Pourtant, la science est formelle — <strong>aucun café commercial n'est à zéro absolu de caféine</strong>. La question n'est donc pas « y en a-t-il ? » mais « combien, et est-ce que ça compte pour moi ? ». C'est précisément ce que cet article explore, en s'appuyant sur les études disponibles et les réglementations en vigueur.</p>
+
+<h2>Ce que dit la réglementation européenne</h2>
+
+<p>En Europe, un café torréfié peut légalement porter la mention « décaféiné » dès lors qu'il contient <strong>moins de 0,1 % de caféine résiduelle sur matière sèche</strong>. Ce seuil, issu des législations nationales des États membres (comme l'ordonnance allemande sur le café), est la référence industrielle commune à l'Allemagne et à la France. Pour les extraits et cafés solubles, c'est la directive 1999/4/CE qui s'applique au niveau européen, avec un plafond de 0,3 % sur matière sèche. Au Royaume-Uni, des règles équivalentes sont maintenues depuis la transposition du droit européen. Traduit en milligrammes dans la tasse, ce plafond réglementaire correspond à <strong>quelques milligrammes de caféine par tasse de café filtre</strong> dans les produits les plus soigneusement décaféinés.</p>
+
+<p>Mais attention : cette limite est un <em>maximum autorisé</em>, pas une garantie de résultat. La teneur réelle dépend directement du procédé utilisé et de la qualité d'exécution. C'est là qu'intervient la chimie.</p>
+
+<h2>Les quatre grandes méthodes de décaféination</h2>
+
+<p>La décaféination se pratique <strong>toujours sur le grain vert, avant la torréfaction</strong> — jamais sur le café déjà torréfié. Les grains sont d'abord humidifiés pour que la caféine, soluble dans l'eau, puisse migrer vers l'extérieur, puis extraite selon l'un des procédés suivants.</p>
+
+<div class="profile-grid">
+  <div class="profile-card">
+    <div class="profile-icon">💧</div>
+    <h4>Procédé à l'eau (Swiss Water®)</h4>
+    <p>Les grains trempent dans une eau saturée en composés aromatiques du café (mais sans caféine). La caféine migre vers l'eau par osmose, puis est filtrée sur charbon actif. Ce procédé garantit selon le fabricant <strong>99,9 % de caféine éliminée</strong>. Aucun solvant chimique n'est utilisé, ce qui en fait la référence pour les consommateurs souhaitant éviter tout résidu de solvant.</p>
+  </div>
+  <div class="profile-card">
+    <div class="profile-icon">🌿</div>
+    <h4>Solvants organiques (acétate d'éthyle)</h4>
+    <p>L'acétate d'éthyle — parfois présenté comme « naturel » car on le trouve dans la canne à sucre — extrait la caféine après humidification des grains. Le solvant est ensuite éliminé à la vapeur. Ce procédé laisse en général <strong>moins de 20 ppm</strong> de résidu de solvant, bien en dessous des seuils réglementaires. L'efficacité de décaféination reste comparable aux autres méthodes.</p>
+  </div>
+  <div class="profile-card">
+    <div class="profile-icon">🔬</div>
+    <h4>CO₂ supercritique</h4>
+    <p>Du dioxyde de carbone porté à haute pression et à haute température atteint un état « supercritique » qui dissout sélectivement la caféine sans toucher aux arômes. C'est le procédé le plus sélectif, permettant une quasi-élimination de la caféine résiduelle. Il est aussi le plus coûteux.</p>
+  </div>
+  <div class="profile-card">
+    <div class="profile-icon">🌊</div>
+    <h4>CO₂ liquide (subcritique)</h4>
+    <p>À plus basse pression et à température ambiante, le CO₂ reste à l'état liquide. Le processus est plus lent et moins courant industriellement. Il est apprécié pour sa douceur aromatique.</p>
+  </div>
+</div>
+
+<p>Dans tous les cas, <strong>aucun procédé ne garantit un résultat de 0 %</strong> dans la pratique commerciale à grande échelle, et les résultats varient d'un lot à l'autre au sein d'une même usine.</p>
+
+<h2>Combien de milligrammes dans votre tasse, concrètement ?</h2>
+
+<p>C'est la question clé, et une étude de référence y apporte une réponse chiffrée précieuse. En 2006, McCusker et al. ont mesuré la teneur en caféine de 22 boissons décaféinées achetées dans des établissements américains variés — cafés de spécialité, chaînes, fast-foods, café instantané. <strong>Seul un produit (un café instantané) ne contenait aucune caféine détectable.</strong> Les cafés filtre analysés contenaient entre 0 et 13,9 mg de caféine par portion de 473 ml (16 oz) ; les expressos décaféinés Starbucks testés présentaient quant à eux des teneurs entre 3,0 et 15,8 mg par dose.</p>
+
+<div class="highlight-box"><p>🔬 <strong>Résultat clé :</strong> Sur 22 boissons décaféinées analysées, les cafés filtre contenaient entre 0 et 13,9 mg de caféine par portion de 473 ml, et les expressos décaféinés entre 3,0 et 15,8 mg par dose. — McCusker et al., 2006, <em>Journal of Analytical Toxicology</em></p></div>
+
+<p>Ces chiffres américains, obtenus sur des portions généreuses (473 ml de café filtre, soit presque deux tasses européennes), restent éclairants. Ramenés à une tasse de 150–200 ml, les valeurs communément citées dans la littérature se situent entre <strong>2 et 15 mg de caféine par tasse</strong>, la majorité des produits courants se concentrant dans la fourchette basse.</p>
+
+<div class="range-viz">
+  <h4>Caféine par tasse : décaféiné vs café classique</h4>
+  <div class="range-row">
+    <span class="range-label">Décaféiné filtre</span>
+    <div class="range-track">
+      <div class="range-fill" style="left:0.7%;width:4.3%;"></div>
+    </div>
+    <span class="range-val">2–15 mg</span>
+  </div>
+  <div class="range-row">
+    <span class="range-label">Expresso décaféiné</span>
+    <div class="range-track">
+      <div class="range-fill" style="left:1%;width:5%;"></div>
+    </div>
+    <span class="range-val">3–16 mg</span>
+  </div>
+  <div class="range-row">
+    <span class="range-label">Expresso classique</span>
+    <div class="range-track">
+      <div class="range-fill" style="left:21.7%;width:36.7%;"></div>
+    </div>
+    <span class="range-val">65–175 mg</span>
+  </div>
+  <div class="range-row">
+    <span class="range-label">Café filtre classique</span>
+    <div class="range-track">
+      <div class="range-fill" style="left:26.7%;width:46.7%;"></div>
+    </div>
+    <span class="range-val">80–140 mg</span>
+  </div>
+  <p class="range-scale">Échelle : 0 à 300 mg. Sources : McCusker et al. (2006), J. Anal. Toxicol. ; EFSA (2015) ; valeurs NHS.</p>
+</div>
+
+<p>Pour situer ces chiffres : <strong>une tasse de décaféiné représente environ 2 à 15 % de la teneur d'un café classique</strong> du même format. Pour la grande majorité des adultes en bonne santé, cette dose résiduelle est sans effet stimulant perceptible. Mais ce « résiduel » peut compter pour certains profils — et c'est ce que nous détaillons ci-dessous.</p>
+
+<h2>Pourquoi la teneur réelle varie-t-elle autant d'une tasse à l'autre ?</h2>
+
+<p>Plusieurs facteurs expliquent cette variabilité, parfois surprenante :</p>
+
+<ul>
+  <li><strong>L'espèce de café :</strong> un grain robusta contient naturellement 2 à 2,7 % de caféine, contre 1 à 1,5 % pour l'arabica. Après décaféination à 97–99 %, le robusta laisse donc mécaniquement plus de caféine résiduelle en valeur absolue.</li>
+  <li><strong>La rigueur du procédé :</strong> les résultats varient d'un lot à l'autre au sein d'une même ligne de production, comme le soulignait l'étude McCusker et al. (2006) sur les échantillons du même point de vente.</li>
+  <li><strong>La quantité de café utilisée :</strong> une dose généreuse ou un café très serré concentre plus de caféine dans la tasse, même à pourcentage résiduel identique.</li>
+  <li><strong>La méthode d'infusion :</strong> un café filtre tiré sur une grande quantité d'eau n'extrait pas la caféine avec la même efficacité qu'un expresso sous pression.</li>
+</ul>
+
+<p>Concrètement, <strong>boire quatre à cinq tasses de décaféiné dans la journée pourrait cumuler 10 à 60 mg de caféine</strong> — une dose qui reste modeste comparée au seuil de 400 mg/j reconnu par l'EFSA pour l'adulte en bonne santé, mais qui mérite attention pour les profils sensibles. Si vous voulez visualiser la façon dont cette caféine résiduelle évolue dans votre organisme heure par heure, <a href="/cafeine-temps-reel.html">la courbe de caféine active de PauseCafé</a> vous permet de suivre votre niveau réel en tenant compte de votre consommation de décaféiné.</p>
+
+<h2>Pour qui ces quelques milligrammes comptent vraiment</h2>
+
+<p>Pour la plupart des adultes en bonne santé, la caféine résiduelle du décaféiné est physiologiquement négligeable. Mais certains profils doivent y prêter attention :</p>
+
+<div class="profile-grid">
+  <div class="profile-card">
+    <div class="profile-icon">🤰</div>
+    <h4>Femmes enceintes</h4>
+    <p>L'EFSA et l'ANSES recommandent de limiter la caféine à 200 mg/j durant la grossesse, tandis que l'OMS fixe son seuil à moins de 300 mg/j. Une ou deux tasses de décaféiné par jour restent dans cette marge, mais plusieurs tasses cumulées s'ajoutent à d'autres sources (thé, chocolat). Comptabiliser les mg résiduels reste une bonne habitude. Retrouvez les recommandations détaillées dans notre article <a href="/blog/cafeine-grossesse/">caféine et grossesse</a>.</p>
+  </div>
+  <div class="profile-card">
+    <div class="profile-icon">😰</div>
+    <h4>Personnes anxieuses ou hypersensibles</h4>
+    <p>Certains individus ressentent les effets de la caféine à des doses très faibles. Si vous faites partie des métaboliseurs lents (génotype CYP1A2 lent) ou des personnes souffrant d'anxiété ou de palpitations, même 5–10 mg de caféine résiduelle en soirée peuvent influencer votre ressenti. Notre article sur <a href="/blog/cafeine-anxiete-palpitations/">caféine, anxiété et palpitations</a> approfondit ce sujet.</p>
+  </div>
+  <div class="profile-card">
+    <div class="profile-icon">💊</div>
+    <h4>Personnes sous certains médicaments</h4>
+    <p>Certains médicaments (inhibiteurs des monoamine-oxydases, anxiolytiques, antihistaminiques H2) interagissent avec la caféine. Pour ces patients, les auteurs de l'étude McCusker et al. (2006) soulignaient explicitement que <strong>les boissons décaféinées ne doivent pas être considérées comme exemptes de caféine</strong>. Un avis médical personnalisé est indispensable dans cette situation.</p>
+  </div>
+  <div class="profile-card">
+    <div class="profile-icon">🌙</div>
+    <h4>Buveurs de décaféiné le soir</h4>
+    <p>L'un des attraits du décaféiné est précisément de pouvoir en profiter en soirée sans perturber le sommeil. Avec 3–15 mg de caféine résiduelle et une demi-vie de la caféine estimée à 3–7 heures selon les individus, la caféine résiduelle d'une tasse prise à 21 h sera pour l'essentiel éliminée avant minuit chez la plupart des adultes. Mais les métaboliseurs lents peuvent encore en ressentir l'effet. Notre article <a href="/blog/cafeine-residuelle-coucher/">caféine résiduelle et heure du coucher</a> détaille ce calcul.</p>
+  </div>
+</div>
+
+<h2>Le décaféiné conserve-t-il les autres composés du café ?</h2>
+
+<p>Une question légitime : en retirant la caféine, retire-t-on aussi les antioxydants et polyphénols du café ? Des travaux relayés par la Harvard T.H. Chan School of Public Health indiquent que le décaféiné conserve l'essentiel de ses acides chlorogéniques et polyphénols, qui sont les principaux composés associés aux effets bénéfiques du café sur la santé hépatique et métabolique. La décaféination cible sélectivement la caféine, molécule relativement petite et très soluble dans l'eau, tandis que les antioxydants, de structure différente, sont en grande partie préservés — particulièrement avec le procédé CO₂ supercritique qui est très sélectif.</p>
+
+<p>En revanche, tous les procédés à base d'eau (y compris Swiss Water) peuvent entraîner une légère perte d'arômes volatils — d'où le goût parfois perçu comme moins intense du décaféiné, indépendamment de toute question de caféine.</p>
+
+<h2>Comment lire une étiquette de décaféiné ?</h2>
+
+<p>Quelques repères pratiques pour orienter votre choix :</p>
+
+<ul>
+  <li><strong>« 99,9 % sans caféine »</strong> (mention Swiss Water) : parmi les garanties les plus élevées du marché, mais cela ne signifie pas 0 mg dans la tasse — cela signifie que 99,9 % de la caféine du grain vert a été extraite.</li>
+  <li><strong>Arabica vs Robusta :</strong> un décaféiné 100 % arabica part d'une teneur initiale en caféine plus faible, donc le résiduel absolu est généralement plus bas.</li>
+  <li><strong>Mention du procédé :</strong> CO₂ supercritique ou Swiss Water tendent à laisser les résiduels les plus faibles ; les procédés aux solvants organiques sont tout aussi efficaces en termes de caféine mais laissent des traces de solvant, bien en dessous des seuils réglementaires.</li>
+  <li><strong>Absence d'indication :</strong> si l'étiquette ne mentionne pas le procédé, il s'agit le plus souvent d'acétate d'éthyle ou de dichlorométhane (chlorure de méthylène), ce dernier étant légal mais de moins en moins utilisé dans les gammes premium.</li>
+</ul>
+
+<p>Si vous souhaitez surveiller l'ensemble de vos sources de caféine — y compris le décaféiné — et comprendre quelles sources insoupçonnées peuvent s'y ajouter, notre article sur les <a href="/blog/sources-cafeine-insoupconnees/">sources de caféine insoupçonnées</a> vous donnera une vision d'ensemble utile.</p>
+
+<h2>Ce que cela change dans la pratique</h2>
+
+<p>Pour l'immense majorité des adultes en bonne santé, <strong>le décaféiné est une alternative légitime et efficace</strong> pour réduire l'apport en caféine. Passer d'un café classique (80–140 mg) à un décaféiné (2–15 mg) représente une réduction de l'ordre de 90 à 97 %, ce qui est considérable. Si vous cherchez à <a href="/blog/reduire-cafeine-sans-craquer/">réduire votre consommation de caféine sans craquer</a>, intégrer le décaféiné dans votre transition est une stratégie que les professionnels de santé recommandent souvent.</p>
+
+<p>Cependant, si vous devez <em>absolument</em> éviter toute caféine — pour des raisons médicales précises, pendant la grossesse à haute vigilance, ou en raison d'interactions médicamenteuses confirmées par votre médecin — le décaféiné ne peut pas être considéré comme une garantie de zéro caféine. Dans ce cas, consultez votre professionnel de santé pour définir la stratégie adaptée à votre situation.</p>
+
+<p><strong>En résumé :</strong> « décaféiné » signifie « très peu de caféine », pas « sans caféine ». Ces quelques milligrammes résiduels sont sans conséquence pour la majorité des consommateurs, mais méritent d'être connus — et si besoin, comptabilisés.</p>
+
+  <div class="sources-section">
+    <h4>Sources scientifiques</h4>
+    <ul>
+<li>McCusker, R.R., Fuehrlein, B., Goldberger, B.A., Gold, M.S. &amp; Cone, E.J. (2006). Caffeine content of decaffeinated coffee. <em>Journal of Analytical Toxicology</em>, 30(8), 611–613.</li><li>Farah, A. (2012). Coffee constituents. In Y.F. Chu (Ed.), <em>Coffee: Emerging Health Effects and Disease Prevention</em>. Wiley-Blackwell.</li><li>EFSA Panel on Dietetic Products, Nutrition and Allergies (2015). Scientific Opinion on the safety of caffeine. <em>EFSA Journal</em>, 13(5), 4102. [Seuil 400 mg/j adulte ; 200 mg/j grossesse.]</li><li>Balyaya, K.J. &amp; Clifford, M.N. (1995). Chlorogenic acids and caffeine in category teas and their extracts. Cité dans ScienceDirect — teneur résiduelle post-décaféination.</li><li>McCusker, R.R., Goldberger, B.A. &amp; Cone, E.J. (2003). Caffeine content of specialty coffees. <em>Journal of Analytical Toxicology</em>, 27(7), 520–522.</li>
+    </ul>
+  </div>
+
+  <div class="disclaimer-box" style="background:#FBF5E9;border:1px solid rgba(196,135,58,0.35);border-radius:12px;padding:18px 22px;margin-top:48px;">
+    <p style="margin:0;font-size:0.82rem;line-height:1.6;color:#5C4033;">
+      <strong>⚕️ Information importante.</strong> Cet article a une vocation purement informative et de bien-être. Il ne constitue pas un avis médical, un diagnostic ou une prescription. Les effets de la caféine varient d'une personne à l'autre. En cas de question sur votre consommation, de symptôme, de grossesse, de traitement médical ou de problème de santé, consultez un professionnel de santé (médecin, pharmacien). Ne modifiez pas un traitement sur la seule base de cet article.
+    </p>
+  </div>
+
+  <div class="cta-section">
+    <h3>Arrêtez d'estimer. Mesurez.</h3>
+    <p>PauseCafé enregistre la teneur réelle en caféine de chaque boisson pour un cumul du jour fiable. Gratuit, sans pub.</p>
+    <a href="https://apps.apple.com/fr/app/pausecafe/id6761892198" target="_blank" rel="noopener" class="cta-badge">
+      <img src="/app-store-badge-fr.svg" alt="Télécharger PauseCafé sur l'App Store">
+    </a>
+  </div>
+
+  <div class="related">
+    <h3>Articles connexes</h3>
+    <div class="related-grid">
+      <a href="/blog/cafeine-residuelle-coucher/" class="related-card"><div class="r-cat">Sommeil</div><div class="r-title">Caféine résiduelle : à quelle heure s'arrêter pour bien dormir ?</div></a>
+      <a href="/blog/sources-cafeine-insoupconnees/" class="related-card"><div class="r-cat">Conseils pratiques</div><div class="r-title">Les sources de caféine que vous ne soupçonnez pas</div></a>
+      <a href="/blog/reduire-cafeine-sans-craquer/" class="related-card"><div class="r-cat">Conseils pratiques</div><div class="r-title">Réduire sa consommation de caféine sans craquer</div></a>
+    </div>
+  </div>
+
+</article>
+<footer><p>© 2026 PauseCafé · <a href="https://pausecafe-app.fr">pausecafe-app.fr</a> · <a href="/blog">Tous les articles</a></p></footer>
+<script src="/nav-blog.js"></script>
+</body>
+</html>
